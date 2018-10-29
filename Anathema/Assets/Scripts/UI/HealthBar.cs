@@ -47,7 +47,7 @@ public class HealthBar : MonoBehaviour {
 		healthBarValue = health.Hp;
 	}
 
-	// Incresaes health bar untill it reaches its new value	
+	// Incresaes health bar until it reaches its new value	
 	private void Heal(){
 		if(scroll.value >= health.Percentage/100){
 			healing = false;
@@ -56,7 +56,7 @@ public class HealthBar : MonoBehaviour {
 		scroll.value += barOffset;
 	}	
 
-	// Decreases health bar untill it reaches its new value	
+	// Decreases health bar until it reaches its new value	
 	private void TakeDamage(){
 		if(scroll.value <= health.Percentage/100){
 			takingDamage = false;
