@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2f34de90b0cb44996b70f60bab7f0bf3
+guid: 34406316f4294e64c957f1a35b9ebecf
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
@@ -75,7 +75,11 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
+<<<<<<< HEAD
     spriteID: 3476b6010e4444ac0862f611d12a00f8
+=======
+    spriteID: d8afc4e667bf8cf468f3d4df4b6f9d51
+>>>>>>> origin/gyovana
     vertices: []
     indices: 
     edges: []

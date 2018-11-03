@@ -93,6 +93,7 @@ namespace Anathema.Fsm
 		/// <param name="nextState">The new state of the machine.</param>
 		public void Transition(FsmState nextState)
 		{
+			// Debug.Log("Changing from " + _state + " to " + nextState);
 			ErrorIfNotInitialized();
 			ErrorIfMidTransition();
 			this.Transitioning = true;
