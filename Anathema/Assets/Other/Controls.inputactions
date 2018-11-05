@@ -1,0 +1,207 @@
+{
+    "name": "Controls",
+    "maps": [
+        {
+            "name": "main",
+            "id": "da664d97-ad6b-494d-b56b-b4915d2c6a22",
+            "actions": [
+                {
+                    "name": "Jump",
+                    "id": "82c31daf-238c-4469-badf-0a7f18f35c1e",
+                    "expectedControlLayout": "",
+                    "bindings": []
+                },
+                {
+                    "name": "Crouch",
+                    "id": "eab816bb-a1f6-47ab-95fd-84b511d645a9",
+                    "expectedControlLayout": "",
+                    "bindings": []
+                },
+                {
+                    "name": "Attack",
+                    "id": "6ef7cca3-a7e9-4e8e-b1b9-b48f7e973dc2",
+                    "expectedControlLayout": "",
+                    "bindings": []
+                },
+                {
+                    "name": "HorizontalMovement",
+                    "id": "0f8cf3ce-664a-46c6-bdb8-ad2469e5f9ca",
+                    "expectedControlLayout": "",
+                    "bindings": []
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "positive",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "Attack",
+                    "chainWithPrevious": false,
+                    "isComposite": false,
+                    "isPartOfComposite": false,
+                    "modifiers": ""
+                },
+                {
+                    "name": "positive",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Dualshock 4",
+                    "action": "Attack",
+                    "chainWithPrevious": false,
+                    "isComposite": false,
+                    "isPartOfComposite": false,
+                    "modifiers": ""
+                },
+                {
+                    "name": "positive",
+                    "path": "<Keyboard>/s",
+                    "interactions": "KeepPressed()",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "Crouch",
+                    "chainWithPrevious": false,
+                    "isComposite": false,
+                    "isPartOfComposite": false,
+                    "modifiers": ""
+                },
+                {
+                    "name": "positive",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "KeepPressed()",
+                    "processors": "",
+                    "groups": ";Dualshock 4",
+                    "action": "Crouch",
+                    "chainWithPrevious": false,
+                    "isComposite": false,
+                    "isPartOfComposite": false,
+                    "modifiers": ""
+                },
+                {
+                    "name": "positive",
+                    "path": "<Keyboard>/space",
+                    "interactions": "KeepPressed()",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "Jump",
+                    "chainWithPrevious": false,
+                    "isComposite": false,
+                    "isPartOfComposite": false,
+                    "modifiers": ""
+                },
+                {
+                    "name": "positive",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "KeepPressed()",
+                    "processors": "",
+                    "groups": ";Dualshock 4",
+                    "action": "Jump",
+                    "chainWithPrevious": false,
+                    "isComposite": false,
+                    "isPartOfComposite": false,
+                    "modifiers": ""
+                },
+                {
+                    "name": "Axis",
+                    "path": "Axis",
+                    "interactions": "StickFloat()",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HorizontalMovement",
+                    "chainWithPrevious": false,
+                    "isComposite": true,
+                    "isPartOfComposite": false,
+                    "modifiers": ""
+                },
+                {
+                    "name": "negative",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Dualshock 4",
+                    "action": "HorizontalMovement",
+                    "chainWithPrevious": false,
+                    "isComposite": false,
+                    "isPartOfComposite": true,
+                    "modifiers": ""
+                },
+                {
+                    "name": "positive",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Dualshock 4",
+                    "action": "HorizontalMovement",
+                    "chainWithPrevious": false,
+                    "isComposite": false,
+                    "isPartOfComposite": true,
+                    "modifiers": ""
+                },
+                {
+                    "name": "Axis",
+                    "path": "Axis",
+                    "interactions": "StickFloat()",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HorizontalMovement",
+                    "chainWithPrevious": false,
+                    "isComposite": true,
+                    "isPartOfComposite": false,
+                    "modifiers": ""
+                },
+                {
+                    "name": "negative",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Dualshock 4",
+                    "action": "HorizontalMovement",
+                    "chainWithPrevious": false,
+                    "isComposite": false,
+                    "isPartOfComposite": true,
+                    "modifiers": ""
+                },
+                {
+                    "name": "positive",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Dualshock 4",
+                    "action": "HorizontalMovement",
+                    "chainWithPrevious": false,
+                    "isComposite": false,
+                    "isPartOfComposite": true,
+                    "modifiers": ""
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Gamepad",
+            "basedOn": "",
+            "bindingGroup": "Dualshock 4",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Keyboard",
+            "basedOn": "",
+            "bindingGroup": "Keyboard",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
