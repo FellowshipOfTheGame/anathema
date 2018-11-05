@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Input;
 
 namespace Anathema.Player
 {
@@ -11,8 +12,11 @@ namespace Anathema.Player
 
 		[Tooltip("The attached collider for when the player is crouching.")]
 		[SerializeField] Collider2D crouchCollider;
+		[SerializeField] private Controls controls;
 
-		
+		private void Start()
+		{
+		}	
 		/// <summary>
 		/// 	In this class the Enter method disables the normal collider and enables the crouching collider
 		/// </summary>
@@ -20,15 +24,13 @@ namespace Anathema.Player
 		{
 			standingCollider.enabled = false;
 			crouchCollider.enabled = true;
+			controls.main.Crouch.performed += Stand;
 		}
 
-		void Update()
+		private void Stand(InputAction.CallbackContext context)
 		{
-			if(!Input.GetKey(KeyCode.S))
-			{
-				animator.SetBool("IsCrouching", false);
-				fsm.Transition<Idle>();
-			}
+			animator.SetBool("IsCrouching", false);
+			fsm.Transition<Idle>();
 		}
 
 		/// <summary>
@@ -38,6 +40,7 @@ namespace Anathema.Player
 		{
 			standingCollider.enabled = true;
 			crouchCollider.enabled = false;
+			controls.main.Crouch.performed -= Stand;
 		}
 	}
 }

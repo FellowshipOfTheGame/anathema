@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Input;
 
 namespace Anathema.Player
 {
-	public class Walking : Anathema.Fsm.PlayerState
+	public abstract class Walking : Anathema.Fsm.PlayerState
 	{
 		[Tooltip("Speed in which the player is able to move.")]
-		[SerializeField] float baseSpeed;
+		[SerializeField] protected float baseSpeed;
 
 		[Tooltip("The EXACT measure between the center of the player and the ground level when he's grounded.")]
 		[SerializeField] float groundRayDist;
@@ -20,14 +21,25 @@ namespace Anathema.Player
 
 		[Tooltip("The maximum slope angle in which the player can walk on, without falling.")]
 		[SerializeField] float steepSlopeAngle;
+		[SerializeField] private Controls controls;
 
 		// Stores the result of the raycast
 		private RaycastHit2D rayHit;
 
 		// Stores the vector in which the player's velocity needs to be multiplied by
-		private Vector2 moveDirection;
+		protected Vector2 moveDirection;
 
-		public override void Enter() {	}
+		public sealed override void Enter()
+		{
+			controls.Enable();
+			controls.main.Attack.performed += Attack;
+			controls.main.Crouch.started += Crouch;
+			controls.main.Jump.started += Jump;
+			controls.main.HorizontalMovement.cancelled += StopMovement;
+			StartMovement();
+		}
+		
+		protected abstract void StartMovement();
 
 		/// <summary>
 		/// 	Gets ground information, more specifically the angle of the current, being walked at, tile.
@@ -69,40 +81,11 @@ namespace Anathema.Player
 		/// </summary>
 		void FixedUpdate()
 		{
-			float HorizontalAxis = Input.GetAxisRaw("Horizontal");
-
 			//	Checks if the player is grounded, if not, changes to the falling state
 			if(!rayHit)
 			{
 				animator.SetBool("IsFalling", true);
 				fsm.Transition<JumpFall>();
-			}
-
-			//	Changes state if the player Jumps
-			if(Input.GetKey(KeyCode.Space))
-			{
-				animator.SetBool("IsRising", true);
-				rBody.velocity = new Vector2(rBody.velocity.x, 0f);
-				fsm.Transition<JumpRise>();
-				return;
-			}
-
-			if(Input.GetKey(KeyCode.J))
-			{
-				animator.SetBool("IsAttacking", true);
-				animator.SetBool("IsWalking", false);
-				rBody.velocity = Vector2.zero;
-				fsm.Transition<Attack>();
-				return;
-			}
-
-			if(Input.GetKey(KeyCode.S))
-			{
-				animator.SetBool("IsCrouching", true);
-				animator.SetBool("IsWalking", false);
-				rBody.velocity = Vector2.zero;
-				fsm.Transition<Crouch>();
-				return;
 			}
 
 			// Debug.Log(rayHit.distance);
@@ -111,27 +94,47 @@ namespace Anathema.Player
 			if(rayHit.distance > ((groundRayDist - raycastOffset) - safetyGroundThreshold) &&
 			rayHit.distance < ((groundRayDist - raycastOffset) + safetyGroundThreshold))
 				this.transform.position += ((Vector3)rayHit.normal * ((groundRayDist - raycastOffset) - rayHit.distance));
-
-			//	Controls normal movement and sprite flipping
-			if(HorizontalAxis == 0f)
-			{
-				rBody.velocity = Vector2.zero;
-				fsm.Transition<Idle>();
-				animator.SetBool("IsWalking", false);
-			}
-			else if(HorizontalAxis > 0f)
-			{
-				sRenderer.flipX = false;
-				rBody.velocity = moveDirection * baseSpeed;
-			}
-			else
-			{
-				sRenderer.flipX = true;
-				rBody.velocity = Quaternion.Euler(0, 0, 180f) * moveDirection * baseSpeed;
-			}
-
 		}
 
-		public override void Exit() {	}
+		//	Changes state if the player Jumps
+		private void Jump(InputAction.CallbackContext context)
+		{
+			animator.SetBool("IsRising", true);
+			rBody.velocity = new Vector2(rBody.velocity.x, 0f);
+			fsm.Transition<JumpRise>();
+			return;
+		}
+
+		private void Attack(InputAction.CallbackContext context)
+		{
+			animator.SetBool("IsAttacking", true);
+			animator.SetBool("IsWalking", false);
+			rBody.velocity = Vector2.zero;
+			fsm.Transition<Attack>();
+			return;
+		}
+
+		private void Crouch(InputAction.CallbackContext context)
+		{
+			animator.SetBool("IsCrouching", true);
+			animator.SetBool("IsWalking", false);
+			rBody.velocity = Vector2.zero;
+			fsm.Transition<Crouch>();
+			return;
+		}
+		private void StopMovement(InputAction.CallbackContext context)
+		{
+			Debug.Log("Cancelling: " + context.ReadValue<float>());
+			rBody.velocity = Vector2.zero;
+			fsm.Transition<Idle>();
+			animator.SetBool("IsWalking", false);
+		}
+		public sealed override void Exit()
+		{	
+			controls.main.Attack.performed -= Attack;
+			controls.main.Crouch.started -= Crouch;
+			controls.main.Jump.started -= Jump;
+			controls.main.HorizontalMovement.cancelled -= StopMovement;
+		}
 	}
 }

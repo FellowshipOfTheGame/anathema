@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Input;
 
 
 namespace Anathema.Player
@@ -20,48 +21,28 @@ namespace Anathema.Player
 		[Tooltip("Speed in which the player is able to control himself during the jump ascension.")]
 		[SerializeField] float horizontalSpeed;
 
+		[SerializeField] private Controls controls;
 		private float currentGravity;
 
 		public override void Enter()
 		{
 			rBody.AddForce(Vector2.up * jumpForce);
 			currentGravity = baseGravity;
+			controls.main.Jump.performed += Fall;
 		}
 
-		/// <summary>
-		/// 	In this class, the FixedUpdate handles the forces responsable for making the player jump and maintain that jump as long as the input
-		/// is kept pressed, until the peak is reached through gravity manipulation.
-		/// 	It also handles the transition to the descent portion of the jump and the air movement.
-		/// </summary>
-		void FixedUpdate()
+		private void Fall(InputAction.CallbackContext context)
 		{
-			float HorizontalAxis = Input.GetAxisRaw("Horizontal");
-
-			// Handles gravity, given current value, which is modified
-			rBody.AddForce(Vector2.down * currentGravity);
-
-			// If the jump input is kept pressed, the jump is extended but the gravity is modified to give it a better feel
-			// Else if the player stops holding down the input, the transition to the descent portion of the jump is instant
-			if(Input.GetKey(KeyCode.Space))
-				currentGravity += gravityFallOff;
-			else
-			{
-				rBody.velocity = new Vector2(rBody.velocity.x, 0f);
-				animator.SetBool("IsFalling", true);
-				animator.SetBool("IsRising", false);
-				fsm.Transition<JumpFall>();
-				return;
-			}
-			
-			// If the player bumps into the ceiling or the jump reaches it's peak, transitions to the descent portion of the jump
-			if(rBody.velocity.y <= 0f)
-			{
-				animator.SetBool("IsFalling", true);
-				animator.SetBool("IsRising", false);
-				fsm.Transition<JumpFall>();
-			}
-
-			// Handles Air Movement
+			rBody.velocity = new Vector2(rBody.velocity.x, 0f);
+			animator.SetBool("IsFalling", true);
+			animator.SetBool("IsRising", false);
+			fsm.Transition<JumpFall>();
+		}
+		
+		// Handles Air Movement
+		private void AirMovement(InputAction.CallbackContext context)
+		{
+			float HorizontalAxis = context.ReadValue<float>();
 			if(HorizontalAxis == 0f)
 				rBody.velocity = new Vector2(0f, rBody.velocity.y);
 			else if(HorizontalAxis > 0f)
@@ -75,7 +56,32 @@ namespace Anathema.Player
 				rBody.velocity = new Vector2(-horizontalSpeed, rBody.velocity.y);
 			}
 		}
+		/// <summary>
+		/// 	In this class, the FixedUpdate handles the forces responsable for making the player jump and maintain that jump as long as the input
+		/// is kept pressed, until the peak is reached through gravity manipulation.
+		/// 	It also handles the transition to the descent portion of the jump and the air movement.
+		/// </summary>
+		void FixedUpdate()
+		{
+			// Handles gravity, given current value, which is modified
+			rBody.AddForce(Vector2.down * currentGravity);
 
-		public override void Exit()	{	}
+			// If the jump input is kept pressed, the jump is extended but the gravity is modified to give it a better feel
+			// Else if the player stops holding down the input, the transition to the descent portion of the jump is instant
+			currentGravity += gravityFallOff;
+			
+			// If the player bumps into the ceiling or the jump reaches it's peak, transitions to the descent portion of the jump
+			if(rBody.velocity.y <= 0f)
+			{
+				animator.SetBool("IsFalling", true);
+				animator.SetBool("IsRising", false);
+				fsm.Transition<JumpFall>();
+			}
+		}
+
+		public override void Exit()
+		{
+			controls.main.Jump.performed -= Fall;
+		}
 	}
 }

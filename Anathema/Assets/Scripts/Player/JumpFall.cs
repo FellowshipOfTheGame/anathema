@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Input;
 
 namespace Anathema.Player
 {
@@ -20,11 +21,34 @@ namespace Anathema.Player
 
 		[Tooltip("Whether or not the player has unlocked the skill to double jump.")]
 		[SerializeField] bool canDoubleJump;
+		[SerializeField] private Controls controls;
 
 		// Stores whether or not the player has double jumped
 		private bool hasDoubleJumped;
 
-		public override void Enter() {	}
+		public override void Enter()
+		{
+			controls.main.Jump.started += DoubleJump;
+			controls.main.HorizontalMovement.performed += AirMovement;
+		}
+
+		// Handles air movement
+		private void AirMovement(InputAction.CallbackContext context)
+		{
+			float HorizontalAxis = context.ReadValue<float>();
+			if(HorizontalAxis == 0f)
+				rBody.velocity = new Vector2(0f, rBody.velocity.y);
+			else if(HorizontalAxis > 0f)
+			{
+				sRenderer.flipX = false;
+				rBody.velocity = new Vector2(horizontalSpeed, rBody.velocity.y);
+			}
+			else
+			{
+				sRenderer.flipX = true;
+				rBody.velocity = new Vector2(-horizontalSpeed, rBody.velocity.y);
+			}
+		}
 
 		/// <summary>
 		/// 	In this class, the FixedUpdate handles the forces responsable for making the player fall and the transitions to other states
@@ -32,8 +56,6 @@ namespace Anathema.Player
 		/// </summary>
 		void FixedUpdate()
 		{
-			float HorizontalAxis = Input.GetAxisRaw("Horizontal");
-
 			// Handles gravity forces pulling the player to the ground
 			rBody.AddForce(Vector2.down * gravity);
 
@@ -48,10 +70,13 @@ namespace Anathema.Player
 				animator.SetBool("IsWalking", true);
 				animator.SetBool("IsFalling", false);
 				hasDoubleJumped = false;
-				fsm.Transition<Walking>();
+				fsm.Transition<Idle>();
 			}
+		}
 
-			if(Input.GetKeyDown(KeyCode.Space) && !hasDoubleJumped && canDoubleJump)
+		private void DoubleJump(InputAction.CallbackContext context)
+		{
+			if(!hasDoubleJumped && canDoubleJump)
 			{
 				animator.SetBool("IsRising", true);
 				animator.SetBool("IsFalling", false);
@@ -60,23 +85,12 @@ namespace Anathema.Player
 				fsm.Transition<JumpRise>();
 				return;
 			}
-
-			// Handles air movement
-			if(HorizontalAxis == 0f)
-				rBody.velocity = new Vector2(0f, rBody.velocity.y);
-			else if(HorizontalAxis > 0f)
-			{
-				sRenderer.flipX = false;
-				rBody.velocity = new Vector2(horizontalSpeed, rBody.velocity.y);
-			}
-			else
-			{
-				sRenderer.flipX = true;
-				rBody.velocity = new Vector2(-horizontalSpeed, rBody.velocity.y);
-			}
-
 		}
 
-		public override void Exit() {	}
+		public override void Exit()
+		{
+			controls.main.Jump.started -= DoubleJump;
+			controls.main.HorizontalMovement.performed -= AirMovement;
+		}
 	}
 }

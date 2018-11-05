@@ -19,6 +19,9 @@ namespace Anathema.Fsm
 			animator = GetComponent<Animator>();
 			rBody = GetComponent<Rigidbody2D>();
 			sRenderer = GetComponent<SpriteRenderer>();
+			UnityEngine.Experimental.Input.InputSystem.RegisterControlProcessor(typeof(Input.DeadzoneFloatProcessor), "DeadzoneFloat");
+			UnityEngine.Experimental.Input.InputSystem.RegisterInteraction(typeof(Input.KeepPressedInteraction), "KeepPressed");
+			UnityEngine.Experimental.Input.InputSystem.RegisterInteraction(typeof(Input.StickFloatInteraction), "StickFloat");
 		}
 	}
 
