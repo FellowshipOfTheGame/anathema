@@ -11,7 +11,7 @@ public class SpotControl : MonoBehaviour
 
 	void Awake()
 	{
-		currentSpot = 0;
+		currentSpot = 1;
 	}
 
 }

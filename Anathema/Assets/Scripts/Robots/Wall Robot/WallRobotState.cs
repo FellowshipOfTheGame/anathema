@@ -20,6 +20,9 @@ namespace Anathema.Fsm
 		[SerializeField] protected float speed = 3f;
 	 	//[SerializeField] protected float rayMaxdistance = 1f;
 
+		 [SerializeField] protected float damage;
+		 
+
 		//The max distance of the Raycast that gets ground information.
 		protected float rayGroundMaxDist = 1f;
 
