@@ -56,7 +56,7 @@ namespace Anathema.WallRobot
                 Invoke("RaycastGroundCheck", 0.4f);
                 wallInfo = RaycastWallCheck();
 
-             /*   if (wallInfo.collider)
+                if (wallInfo.collider)
                 {
                     if (wallInfo.collider.CompareTag("Wall"))
                     {
@@ -64,7 +64,7 @@ namespace Anathema.WallRobot
                         Flip();
                         fsm.Transition<Right>();
                     }
-                }*/
+                }
             }
             else if (wallsWalkingBot == true)
             {
@@ -74,16 +74,16 @@ namespace Anathema.WallRobot
             }
         }
 
-        private void OnCollisionEnter2D(Collision2D other)
+       private void OnTriggerEnter2D(Collider2D other)
         {
-            if (!other.collider.CompareTag("Ground") && !other.collider.CompareTag("Wall"))
+            if (!other.CompareTag("Ground") && !other.CompareTag("Wall"))
             {
                 transform.Translate(Vector3.zero);
             }
-            if (other.collider.CompareTag("Player"))
+            if (other.CompareTag("Player"))
             {
-                 Debug.Log("Hit the Player");
-                //col.transform.GetComponent<Health>().OnHit();
+                Debug.Log("Attack");
+                other.transform.GetComponent<Health>().Hp-=damage;
             }
         }
         /// <summary>
@@ -92,7 +92,7 @@ namespace Anathema.WallRobot
         private void RaycastGroundCheck()
         {
             Debug.DrawRay(groundDetection.position, groundDetectionDir, Color.red);
-            RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, groundDetectionDir, rayGroundMaxDist);
+            RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, groundDetectionDir, rayGroundMaxDist, LayerMask.GetMask("Ground"));
 
             if (groundInfo.collider == false)
             {
@@ -140,7 +140,7 @@ namespace Anathema.WallRobot
             Vector2 startPos = new Vector2(transform.position.x, transform.position.y);
 
             Debug.DrawRay(startPos, direction, Color.red);
-            return Physics2D.Raycast(startPos, direction, rayWallMaxDist);
+            return Physics2D.Raycast(startPos, direction, rayWallMaxDist, LayerMask.GetMask("Wall"));
         }
 
         /// <summary>

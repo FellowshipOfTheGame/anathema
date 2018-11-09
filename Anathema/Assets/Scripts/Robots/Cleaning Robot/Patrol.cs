@@ -9,8 +9,11 @@ namespace Anathema.ChasingRobot
         [Tooltip("Speed in which the robot is able to move.")]
         [SerializeField] float speed = 5f;
 
-        [Tooltip("Here goes the amount and the GameObjects which limits the robot patrol area. The spots must be in the ground")]
+        [Tooltip("Here goes the amount and the GameObjects which limits the robot patrol area. The spots must be in the ground.")]
         [SerializeField] Transform[] moveSpots;
+
+        [Tooltip("Here goes the amount and the GameObjects which limits the chasing area. The spots must be in the ground.")]
+        [SerializeField] Transform[] chaseSpots;
 
         //Stores the spot which the robot is heading
         private int currentSpot;
@@ -21,6 +24,8 @@ namespace Anathema.ChasingRobot
         //Stores the position of the spot which the robot is heading
         private Vector2 nextPos;
 
+        private Vector2 distBetweenSpots;
+
         /// <summary>
         /// In this class, the Enter is used to find the player and get it's Transform component
         ///  and initializes the variables. Also flip the robot if necessary.
@@ -30,6 +35,7 @@ namespace Anathema.ChasingRobot
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
             currentScale = transform.localScale;
             currentSpot = 0;
+            distBetweenSpots = chaseSpots[0].position - chaseSpots[1].position;
             robotPos = transform.position;
             nextPos = moveSpots[currentSpot].position;
             Flip();
@@ -91,8 +97,9 @@ namespace Anathema.ChasingRobot
         /// </summary>
         private void FindPlayer()
         {
-            if ((RaycastUpdate() == true) || (RaycastUpdate() == false && (playerDist.magnitude <= 10f)))
+            if ((RaycastUpdate() == true) || (RaycastUpdate() == false) && CheckPlayer() == true)
             {
+                Debug.Log("Player is in the area");
                 animator.SetBool("isChasing", true);
                 animator.SetBool("isPatrolling", false);
                 fsm.Transition<Chase>();
@@ -112,7 +119,7 @@ namespace Anathema.ChasingRobot
 
             Debug.DrawRay(startPos, direction, Color.red);
 
-            return Physics2D.Raycast(startPos, direction, raycastMaxDist);
+            return Physics2D.Raycast(startPos, direction, raycastMaxDist, LayerMask.GetMask("Player"));
         }
 
         /// <summary>
@@ -162,6 +169,22 @@ namespace Anathema.ChasingRobot
 
         }
 
+        private bool CheckPlayer()
+        {
+            Collider2D hits = Physics2D.OverlapArea(chaseSpots[0].position, chaseSpots[1].position, LayerMask.GetMask("Player"));
+            Debug.DrawLine(chaseSpots[0].position, chaseSpots[1].position, Color.blue);
+            //Collider2D hit = Physics2D.OverlapBox(new Vector2(distBetweenSpots.x/2, chaseSpots[1].position.y), distBetweenSpots, LayerMask.GetMask("Player"));
+            if (hits)
+            {
+    
+                if (hits.CompareTag("Player"))
+                {
+                    return true;
+                }
+            }
+             return false;
+
+        }
 
         public override void Exit() { }
 

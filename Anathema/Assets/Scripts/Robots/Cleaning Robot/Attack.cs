@@ -6,8 +6,9 @@ namespace Anathema.ChasingRobot
 {
     public class Attack : Anathema.Fsm.CleaningRobotState
     {
-        
-        [SerializeField] float damage;
+        [SerializeField] float maxDist;
+        [SerializeField] float miniDist;
+        [SerializeField] int damage;
 
         /// <summary>
         /// In this class, the Enter is used to find and get the Transform of the player
@@ -15,6 +16,7 @@ namespace Anathema.ChasingRobot
         public override void Enter()
         {
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+            
         }
 
         /// <summary>
@@ -26,12 +28,12 @@ namespace Anathema.ChasingRobot
             {
                 playerDist = player.position - transform.position;
 
-                if (RaycastUpdate() == false && playerDist.magnitude > 15f)
+                if (RaycastUpdate() == false && playerDist.magnitude > maxDist)
                 {
                     animator.SetBool("isPatrolling", true);
                     fsm.Transition<Patrol>();
                 }
-                else if (playerDist.magnitude >= 3f)
+                else if (playerDist.magnitude >= miniDist)
                 {
                     animator.SetBool("isChasing", true);
                     fsm.Transition<Chase>();
@@ -40,21 +42,12 @@ namespace Anathema.ChasingRobot
             }
             else
             {
-                Debug.Log("Attack - Cleaning Robot: player is missing");
+                Debug.LogWarning("Attack - Cleaning Robot: player is missing");
                 fsm.Transition<CIdle>();
             }
         }
 
-        void OnCollisionEnter2D(Collision2D col)
-        {
-            if (col.collider.CompareTag("Player"))
-            {
-                Debug.Log("Hit Player");
-                //col.transform.GetComponent<Health>().OnHit();
-                fsm.Transition<KnockBack>();
-            }
-        }
-
+      
         /// <summary>
         /// Gets the raycast which is used to look for the player
         /// </summary>
@@ -68,7 +61,7 @@ namespace Anathema.ChasingRobot
 
             Debug.DrawRay(startPos, direction, Color.red);
 
-            return Physics2D.Raycast(startPos, direction, raycastMaxDist);
+            return Physics2D.Raycast(startPos, direction, raycastMaxDist, LayerMask.GetMask("Player"));
         }
 
         /// <summary>
@@ -88,6 +81,14 @@ namespace Anathema.ChasingRobot
             if (hit.collider)
             {
                 if (hit.collider.CompareTag("Player"))
+                {
+                    if(playerDist.magnitude < miniDist)
+                    {
+                        //hit.transform.GetComponent<Health>().Hp-=damage;
+                        Debug.Log("Damaging Player");
+                       //fsm.Transition<KnockBack>();
+                    }
+                }
                     return true;
             }
 
