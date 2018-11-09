@@ -11,6 +11,7 @@ namespace Anathema.SceneLoading
         private string oldScene;
         private UniqueID destination;
         private GameObject player;
+        private string playerScene;
         public SceneLoader(string loadingScene)
         {
             this.loadingScene = loadingScene;
@@ -26,9 +27,15 @@ namespace Anathema.SceneLoading
                     swapScenes.OldScene = oldScene;
                     swapScenes.Destination = destination;
                     swapScenes.Player = player;
+                    swapScenes.PlayerScene = playerScene;
                     break;
                 }
             }
+        }
+        public void FadeScenes(string oldScene, UniqueID destination, string playerScene)
+        {
+            this.playerScene = playerScene;
+            FadeScenes(oldScene, destination, (GameObject) null);
         }
         public void FadeScenes(string oldScene, UniqueID destination, GameObject player)
         {

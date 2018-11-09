@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 
 
-public abstract class Health : MonoBehaviour {
+public class Health : MonoBehaviour {
     [SerializeField][Range(0, 100)] private int hp;
     [SerializeField][Range(0, 100)] private int maxHP;
 
@@ -45,5 +45,5 @@ public abstract class Health : MonoBehaviour {
         }
     }
     
-    public abstract void TakeDamage(int damage);
+    public virtual void TakeDamage(int damage) {}
 }

@@ -25,7 +25,6 @@ namespace Anathema.SceneLoading
         }
         public override void Exit()
         {
-
         }
 	}
 

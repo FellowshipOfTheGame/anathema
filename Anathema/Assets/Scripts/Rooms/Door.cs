@@ -10,10 +10,10 @@ namespace Anathema.Rooms
         [SerializeField] private UniqueID destination;
 
         [SerializeField] private string loadingSceneName;
-        [SerializeField] private bool playerSpawnsOnTrigger;
         private new int collider2D;
-        private bool ignoredFirstCollision; //For ignoring the first trigger enter when player spawns on trigger
+        public bool IgnoreNextCollision { get; set;} //For ignoring the first trigger enter when player spawns on trigger
         private Collider2D myCollider2D;
+        private bool loadStarted = false;
         protected override void Awake()
         {
             base.Awake();
@@ -26,13 +26,14 @@ namespace Anathema.Rooms
         {
             if (collider.CompareTag("Player"))
             {
-                if (playerSpawnsOnTrigger && !ignoredFirstCollision)
+                if (IgnoreNextCollision)
                 {
-                    ignoredFirstCollision = true;
+                    IgnoreNextCollision = false;
                 }
-                else
+                else if (!loadStarted)
                 {
-                    Debug.Log("You entered the trigger");
+                    loadStarted = true;
+                    // Debug.Log("You entered the trigger");
                     SceneLoader loader = new SceneLoader(loadingSceneName);
                     loader.FadeScenes(gameObject.scene.name, destination, collider.gameObject);
                 }
