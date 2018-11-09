@@ -1,5 +1,5 @@
 # Anathema
-README_PORTUGUÊS.md
+[Readme em português]:README_PORTUGUÊS.md
 
 ## Description
 Anathema brings back the classic Metroidvania feel of exploration, backtracking and overall progression in a grim, futuristic gothic setting. Fight against robots and angels in and rebel against the religious dictatorship that governs this world to fulfill your sense of justice and thirst for vengeance.
