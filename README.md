@@ -1,11 +1,12 @@
 # Anathema
-## Tema
-Projeto de metroidvania gótico suave
-## História
-Maluco sobe o morro para bater nos padres
-## Membros
-- Rodrigo Geurgas Zavarizz (Líder)
-- Abner Eduardo Silveira Santos (Artista/Programador)
-- Gabriel de Moura Peres (Programador)
-- Henrique Matarazo Camillo (Level Design/Música)
-- Gyovana Mayara Moriyama (Artista)
+README_PORTUGUÊS.md
+
+## Description
+Anathema brings back the classic Metroidvania feel of exploration, backtracking and overall progression in a grim, futuristic gothic setting. Fight against robots and angels in and rebel against the religious dictatorship that governs this world to fulfill your sense of justice and thirst for vengeance.
+
+## Developers
+- Abner Eduardo Silveira Santos (Art / Programming)
+- Gabriel de Moura Peres (Art / Programming)
+- Gyovana Mayara Moriyama (Art / Programming)
+- Henrique Matarazo Camillo (Music / Level Design / Programming)
+- Rodrigo Geurgas Zavarizz (Lider)
