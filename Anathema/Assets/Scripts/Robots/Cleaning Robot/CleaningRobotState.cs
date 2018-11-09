@@ -14,7 +14,7 @@ namespace Anathema.Fsm
 		[SerializeField] protected float raycastMaxDist = 20f;
 
 		//Distance from the robot, that affects where the raycast will start
-		protected float origindir = 0.2f;
+		protected float origindir = 0.01f;
 
 		//Distance between the player and the robot	
 		protected Vector2 playerDist;

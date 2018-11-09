@@ -21,14 +21,17 @@ GameObject:
   - component: {fileID: 4780126959493114}
   - component: {fileID: 95004839532318742}
   - component: {fileID: 212719746793712238}
+  - component: {fileID: 61890426035384680}
+  - component: {fileID: 50358737800541612}
+  - component: {fileID: 111706990158801298}
   - component: {fileID: 114998588593945060}
   - component: {fileID: 114469556170259528}
   - component: {fileID: 114964859634752328}
   - component: {fileID: 114469102965228336}
   - component: {fileID: 114765298187900596}
-  - component: {fileID: 61890426035384680}
-  - component: {fileID: 50358737800541612}
-  m_Layer: 2
+  - component: {fileID: 114672826459941444}
+  - component: {fileID: 114662719142743172}
+  m_Layer: 9
   m_Name: Cleaning Robot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,6 +114,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!111 &111706990158801298
+Animation:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1233644614948442}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 8b985c2858bfcc34e900ded2f8bfea7b, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 8b985c2858bfcc34e900ded2f8bfea7b, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114469102965228336
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122,8 +140,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b472b4dd32ba0f4299f1ded0a16aef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  raycastMaxDist: 20
   distLostPlayer: 15
   speed: 10
+  chaseSpots: []
+  rayGroundMaxDist: 0
 --- !u!114 &114469556170259528
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -135,6 +156,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fbd8240f60b87d4db9d3518a69e4ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  raycastMaxDist: 20
+--- !u!114 &114662719142743172
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1233644614948442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d9cfbec5a24ea34e9a35f8ebe6b9e23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 0
+  maxHP: 0
+--- !u!114 &114672826459941444
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1233644614948442}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcc105490094763489bc42fa0cc018ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raycastMaxDist: 20
+  knockbackDur: 0.5
+  knockbackPwr: 50
 --- !u!114 &114765298187900596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -146,7 +195,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182ac88141b0f6f4488155f681d42f75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  raycastMaxDist: 20
+  maxDist: 0
+  miniDist: 0
+  damage: 0
 --- !u!114 &114964859634752328
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -158,10 +210,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3cd14f9d6206b649ae27ed84fc44bf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  raycastMaxDist: 20
   speed: 5
   moveSpots:
   - {fileID: 0}
   - {fileID: 0}
+  chaseSpots: []
 --- !u!114 &114998588593945060
 MonoBehaviour:
   m_ObjectHideFlags: 1

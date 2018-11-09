@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4739455089492942}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: GroundDetection
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
@@ -36,8 +36,9 @@ GameObject:
   - component: {fileID: 4899230708120138}
   - component: {fileID: 95821904255801466}
   - component: {fileID: 212277253266235152}
-  - component: {fileID: 50848362535340480}
   - component: {fileID: 61442503509015812}
+  - component: {fileID: 61937535737876136}
+  - component: {fileID: 111599415106631348}
   - component: {fileID: 114273143791621690}
   - component: {fileID: 114700040950686102}
   - component: {fileID: 114064967164613558}
@@ -45,7 +46,8 @@ GameObject:
   - component: {fileID: 114768996086912046}
   - component: {fileID: 114037666961479754}
   - component: {fileID: 114347861912482350}
-  m_Layer: 2
+  - component: {fileID: 114822695775022868}
+  m_Layer: 9
   m_Name: Wall Robot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,33 +74,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1429919096189552}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.98, y: 2.314, z: 0.77734375}
+  m_LocalPosition: {x: 13.197082, y: 2.1475658, z: 0.77734375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4739455089492942}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50848362535340480
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1429919096189552}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &61442503509015812
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -124,6 +106,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9039488, y: 0.93825996}
   m_EdgeRadius: 0
+--- !u!61 &61937535737876136
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1429919096189552}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0037817955, y: -0.12858129}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.2021484, y: 1.2402344}
+    newSize: {x: 12.31, y: 12.7}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.9676771, y: 0.9830718}
+  m_EdgeRadius: 0
 --- !u!95 &95821904255801466
 Animator:
   serializedVersion: 3
@@ -142,6 +149,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!111 &111599415106631348
+Animation:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1429919096189552}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 8b985c2858bfcc34e900ded2f8bfea7b, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 8b985c2858bfcc34e900ded2f8bfea7b, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114037666961479754
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -155,10 +177,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformsWalkingBot: 0
   wallsWalkingBot: 1
-  patrolBot: 0
   speed: 3
-  rayGroundMaxDist: 1
-  rayWallMaxDist: 0.5
+  damage: 0
   moveSpots:
   - {fileID: 0}
   - {fileID: 0}
@@ -176,10 +196,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformsWalkingBot: 0
   wallsWalkingBot: 1
-  patrolBot: 0
   speed: 3
-  rayGroundMaxDist: 1
-  rayWallMaxDist: 0.5
+  damage: 0
   moveSpots:
   - {fileID: 0}
   - {fileID: 0}
@@ -221,10 +239,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformsWalkingBot: 0
   wallsWalkingBot: 1
-  patrolBot: 0
   speed: 3
-  rayGroundMaxDist: 1
-  rayWallMaxDist: 0.5
+  damage: 0
   moveSpots:
   - {fileID: 0}
   - {fileID: 0}
@@ -242,10 +258,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformsWalkingBot: 0
   wallsWalkingBot: 1
-  patrolBot: 0
   speed: 3
-  rayGroundMaxDist: 1
-  rayWallMaxDist: 0.5
+  damage: 0
   moveSpots:
   - {fileID: 0}
   - {fileID: 0}
@@ -263,14 +277,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformsWalkingBot: 0
   wallsWalkingBot: 1
-  patrolBot: 0
   speed: 3
-  rayGroundMaxDist: 1
-  rayWallMaxDist: 0.5
+  damage: 0
   moveSpots:
   - {fileID: 0}
   - {fileID: 0}
   groundDetection: {fileID: 4739455089492942}
+--- !u!114 &114822695775022868
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1429919096189552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d9cfbec5a24ea34e9a35f8ebe6b9e23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 0
+  maxHP: 100
 --- !u!212 &212277253266235152
 SpriteRenderer:
   m_ObjectHideFlags: 1

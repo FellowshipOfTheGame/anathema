@@ -312,7 +312,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 64.3443, y: 27.701656, z: -10}
+  m_LocalPosition: {x: -9.974974, y: -2.488608, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -469,7 +469,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 585295943}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 64.1, y: 24.28, z: -10}
+  m_LocalPosition: {x: -12.3, y: -7.6, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 503914493}
@@ -2260,7 +2260,7 @@ TilemapCollider2D:
   m_GameObject: {fileID: 1127238272}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2e625220d4482bb4ca28785e19293f84, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -50473,12 +50473,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 53.778576, y: 21.7021}
-      - {x: 114.988846, y: 20.826628}
-      - {x: 115.33653, y: 38.93379}
-      - {x: 53.478718, y: 36.144943}
-      - {x: 22.376753, y: 36.101418}
-      - {x: 22.896612, y: 6.022918}
+    - - {x: 53.66237, y: 9.668098}
+      - {x: 182.00685, y: 21.251867}
+      - {x: 182.60968, y: 53.56208}
+      - {x: 54.244663, y: 51.548893}
+      - {x: 12.755976, y: 50.685627}
+      - {x: 17.623623, y: 5.93787}
       - {x: -25.023901, y: 5.9959655}
       - {x: -24.974894, y: -10.974886}
       - {x: 53.758503, y: -10.846871}
@@ -50504,11 +50504,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4703125471978138, guid: 2157f26d0805f144087949f0c443134e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 64.1
+      value: -12.3
       objectReference: {fileID: 0}
     - target: {fileID: 4703125471978138, guid: 2157f26d0805f144087949f0c443134e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 24.28
+      value: -7.6
       objectReference: {fileID: 0}
     - target: {fileID: 4703125471978138, guid: 2157f26d0805f144087949f0c443134e, type: 2}
       propertyPath: m_LocalPosition.z

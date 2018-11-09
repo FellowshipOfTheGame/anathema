@@ -10,6 +10,8 @@ public class Health : MonoBehaviour {
 
     public delegate void HealthChangedHandler(Health health);
     public event HealthChangedHandler OnHealthChange;
+    public delegate void DeathHandler();
+    public event DeathHandler OnDeath;
 
     // Whenever player's hp is changed, event is called
     public int Hp {
@@ -18,8 +20,10 @@ public class Health : MonoBehaviour {
             if(hp != value){
                 if(value > maxHP)
                     hp = maxHP;
-                else if(value < 0)
+                else if(value < 0) {
                     hp = 0;
+                    OnDeath();
+                }
                 else
                     hp = value;
                 OnHealthChange(this);
@@ -40,13 +44,6 @@ public class Health : MonoBehaviour {
                 Debug.LogWarning("Warning: setting maxHealth < 0");
         }
     }
-
-    // Testing Healht Bar
-    private void takedamage(){
-        if(Hp > 0)
-            Hp -= 20;
-    }
-    private void Start(){
-        InvokeRepeating("takedamage", 0, 5);
-    }
+    
+    public virtual void TakeDamage(int damage) {}
 }
