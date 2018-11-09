@@ -30,7 +30,8 @@ namespace Anathema.Player
 				sRenderer.flipX ? Vector2.left : Vector2.right, 1f,
 				LayerMask.GetMask("Enemy", "Breakable")))
 			{
-				// EVENT CALLING GOES HERE Ex: hit.transform.GetComponent<Health>().OnHit();
+				hit.transform.GetComponent<Health>().Hp-=baseDamage;
+				Debug.Log("Deu damage");
 			}
 
 			// Debug Rays for better visualization

@@ -12,6 +12,11 @@ namespace Anathema.ChasingRobot
         [Tooltip("Speed in which the robot is able to move.")]
         [SerializeField] float speed = 10f;
 
+        [Tooltip("Here goes the amount and the GameObjects which limits the chasing area. The spots must be in the ground.")]
+        [SerializeField] Transform[] chaseSpots;
+
+        [SerializeField] float rayGroundMaxDist;
+
         /// <summary>
         /// In this class, the Enter is used to find and get the Transform of the player
         /// </summary>
@@ -30,17 +35,20 @@ namespace Anathema.ChasingRobot
             {
                 playerDist = player.position - transform.position;
                 Flip();
+                RaycastGroundCheck();
                 Chasing();
 
                 if (RaycastUpdate() == false && playerDist.magnitude > distLostPlayer)
                 {
                     animator.SetBool("isPatrolling", true);
                     animator.SetBool("isChasing", false);
+                    Debug.Log("FixedUpdate: Foi pro patrol");
                     fsm.Transition<Patrol>();
 
                 }
-                else if (RaycastUpdate() == true && playerDist.magnitude <= 1.8f)
+                else if (RaycastUpdate() == true && playerDist.magnitude <= 1.5f)
                 {
+                    myrBody.velocity = Vector3.zero;
                     fsm.Transition<Attack>();
                 }
             }
@@ -58,7 +66,7 @@ namespace Anathema.ChasingRobot
         /// </summary>
         void Chasing()
         {
-            if (playerDist.magnitude > 1.8)
+            if (playerDist.magnitude > 1f)
                 myrBody.velocity = playerDist.normalized * speed;
             else
                 myrBody.velocity = Vector3.zero;
@@ -76,7 +84,7 @@ namespace Anathema.ChasingRobot
 
             Debug.DrawRay(startPos, direction, Color.red);
 
-            return Physics2D.Raycast(startPos, direction, raycastMaxDist);
+            return Physics2D.Raycast(startPos, direction, raycastMaxDist, LayerMask.GetMask("Player"));
         }
 
 
@@ -100,6 +108,35 @@ namespace Anathema.ChasingRobot
             }
             return false;
         }
+        private void RaycastGroundCheck()
+        {
+            Debug.DrawRay(transform.position, Vector2.down, Color.red);
+            RaycastHit2D groundInfo = Physics2D.Raycast(transform.position, Vector2.down, rayGroundMaxDist, LayerMask.GetMask("Ground"));
+
+            if (groundInfo.collider == false)
+            {
+                animator.SetBool("isPatrolling", true);
+                animator.SetBool("isChasing", false);
+                Debug.Log("RaycastGroundCheck: Foi pro patrol");
+                fsm.Transition<Patrol>();
+            }
+        }
+        private bool CheckPlayer()
+        {
+            Collider2D hits = Physics2D.OverlapArea(chaseSpots[0].position, chaseSpots[1].position, LayerMask.GetMask("Player"));
+            Debug.DrawLine(chaseSpots[0].position, chaseSpots[1].position, Color.blue);
+            //Collider2D hit = Physics2D.OverlapBox(new Vector2(distBetweenSpots.x/2, chaseSpots[1].position.y), distBetweenSpots, LayerMask.GetMask("Player"));
+            if (hits)
+            {
+
+                if (hits.CompareTag("Player"))
+                {
+                    return true;
+                }
+            }
+            return false;
+
+        }
 
         /// <summary>
         /// This function flips the robot, according to the direction which it's heading and the current scale 
@@ -112,9 +149,10 @@ namespace Anathema.ChasingRobot
                 transform.localScale = currentScale;
                 animator.SetBool("isPatrolling", true);
                 animator.SetBool("isChasing", false);
+                Debug.Log("Flip: Foi pro patrol");
                 fsm.Transition<Patrol>();
             }
-            else if (RaycastUpdate() == false && (playerDist.magnitude <= 10f))
+            else if (RaycastUpdate() == false && (playerDist.magnitude <= 7f) && CheckPlayer() == true)
             {
                 currentScale = transform.localScale;
                 currentScale.x *= -1;
@@ -122,8 +160,6 @@ namespace Anathema.ChasingRobot
             }
 
         }
-
-
 
         public override void Exit() { }
 

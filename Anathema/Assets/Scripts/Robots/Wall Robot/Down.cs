@@ -53,17 +53,17 @@ namespace Anathema.WallRobot
 
                 //Needs to wait some time to call the RaycastGroundCheck function or it won't wait until the hole robot has turned
                 Invoke("RaycastGroundCheck", 0.2f);
-               // wallInfo = RaycastWallCheck();
+                wallInfo = RaycastWallCheck();
 
-               // if (wallInfo.collider)
-               // {
-                //    if (wallInfo.collider.CompareTag("Wall"))
-                  //  {
-                  //      Debug.Log("Achou uma parede: Down");
-                  //      Flip();
-                   //     fsm.Transition<Up>();
-                   // }
-                //}
+                if (wallInfo.collider)
+                {
+                    if (wallInfo.collider.CompareTag("Wall"))
+                    {
+                        Debug.Log("Achou uma parede: Down");
+                        Flip();
+                        fsm.Transition<Up>();
+                    }
+                }
             }
             else if (wallsWalkingBot == true)
             {
@@ -73,16 +73,16 @@ namespace Anathema.WallRobot
             }
         }
 
-        private void OnCollisionEnter2D(Collision2D other)
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            if(!other.collider.CompareTag("Ground") && !other.collider.CompareTag("Wall"))
+            if (!other.CompareTag("Ground") && !other.CompareTag("Wall"))
             {
                 transform.Translate(Vector3.zero);
             }
-            if (other.collider.CompareTag("Player"))
+            if (other.CompareTag("Player"))
             {
-                 Debug.Log("Hit the Player");
-                //col.transform.GetComponent<Health>().OnHit();
+                Debug.Log("Attack");
+                other.transform.GetComponent<Health>().Hp-=damage;
             }
         }
         /// <summary>
@@ -91,7 +91,7 @@ namespace Anathema.WallRobot
         private void RaycastGroundCheck()
         {
             Debug.DrawRay(groundDetection.position, groundDetectionDir, Color.red);
-            RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, groundDetectionDir, rayGroundMaxDist);
+            RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, groundDetectionDir, rayGroundMaxDist, LayerMask.GetMask("Ground"));
 
             if (groundInfo.collider == false)
             {
@@ -138,7 +138,7 @@ namespace Anathema.WallRobot
             Vector2 startPos = new Vector2(transform.position.x, transform.position.y);
 
             Debug.DrawRay(startPos, direction, Color.red);
-            return Physics2D.Raycast(startPos, direction, rayWallMaxDist);
+            return Physics2D.Raycast(startPos, direction, rayWallMaxDist, LayerMask.GetMask("Wall"));
         }
 
         /// <summary>
