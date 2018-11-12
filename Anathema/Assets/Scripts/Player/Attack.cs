@@ -24,6 +24,7 @@ namespace Anathema.Player
 		/// </summary>
 		public override void Enter()
 		{
+			Debug.Log("AttackOnEnter");
 			animator.Play("StandingAttack", -1, 0);
 			foreach(var hit in Physics2D.BoxCastAll(this.transform.position + attackHeightOffset * Vector3.up,
 				new Vector2(attackRange, attackHeight), 0f,

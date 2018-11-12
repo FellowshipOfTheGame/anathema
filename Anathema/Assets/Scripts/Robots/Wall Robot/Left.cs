@@ -11,7 +11,6 @@ namespace Anathema.WallRobot
         /// </summary>
         public override void Enter()
         {
-
             direction = Vector2.left;
 
             if (platformsWalkingBot == true)

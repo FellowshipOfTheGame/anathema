@@ -79,7 +79,7 @@ namespace Anathema.Player
 			}
 
 			//	Changes state if the player Jumps
-			if(Input.GetKey(KeyCode.Space))
+			if(Input.GetAxisRaw("Jump") > 0)
 			{
 				animator.SetBool("IsRising", true);
 				rBody.velocity = new Vector2(rBody.velocity.x, 0f);
@@ -87,7 +87,7 @@ namespace Anathema.Player
 				return;
 			}
 
-			if(Input.GetKey(KeyCode.J))
+			if(Input.GetAxisRaw("Attack") > 0)
 			{
 				animator.SetBool("IsAttacking", true);
 				animator.SetBool("IsWalking", false);
@@ -96,7 +96,7 @@ namespace Anathema.Player
 				return;
 			}
 
-			if(Input.GetKey(KeyCode.S))
+			if(Input.GetAxisRaw("Vertical") < 0)
 			{
 				animator.SetBool("IsCrouching", true);
 				animator.SetBool("IsWalking", false);

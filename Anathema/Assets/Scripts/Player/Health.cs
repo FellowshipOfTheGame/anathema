@@ -18,14 +18,16 @@ public class Health : MonoBehaviour {
         get{return hp;}
         set{
             if(hp != value){
-                if(value > maxHP)
+                Debug.Log("knockBackHealth");
+                if(value > maxHP) {
                     hp = maxHP;
-                else if(value < 0) {
+                } else if(value < 0) {
                     hp = 0;
                     OnDeath();
-                }
-                else
+                } else {
                     hp = value;
+                }
+                Debug.Log("knockBackHealth");
                 OnHealthChange(this);
             }
         }
