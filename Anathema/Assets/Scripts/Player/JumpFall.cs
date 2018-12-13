@@ -23,8 +23,12 @@ namespace Anathema.Player
 
 		// Stores whether or not the player has double jumped
 		private bool hasDoubleJumped;
+		private bool unpressedJump = false;
 
-		public override void Enter() {	}
+		public override void Enter()
+		{	
+			unpressedJump = false;
+		}
 
 		/// <summary>
 		/// 	In this class, the FixedUpdate handles the forces responsable for making the player fall and the transitions to other states
@@ -33,6 +37,12 @@ namespace Anathema.Player
 		void FixedUpdate()
 		{
 			float HorizontalAxis = Input.GetAxisRaw("Horizontal");
+
+			if(Input.GetAxisRaw("Jump") <= 0)
+			{
+				unpressedJump = true;
+				Debug.Log("What the fuck man");
+			}
 
 			// Handles gravity forces pulling the player to the ground
 			rBody.AddForce(Vector2.down * gravity);
@@ -51,11 +61,12 @@ namespace Anathema.Player
 				fsm.Transition<Walking>();
 			}
 
-			if(Input.GetKeyDown(KeyCode.Space) && !hasDoubleJumped && canDoubleJump)
+			if((Input.GetAxisRaw("Jump") > 0) && !hasDoubleJumped && canDoubleJump && unpressedJump)
 			{
 				animator.SetBool("IsRising", true);
 				animator.SetBool("IsFalling", false);
 				hasDoubleJumped = true;
+				unpressedJump = false;
 				rBody.velocity = new Vector2(rBody.velocity.x, 0f);
 				fsm.Transition<JumpRise>();
 				return;

@@ -42,7 +42,7 @@ namespace Anathema.Player
 
 			// If the jump input is kept pressed, the jump is extended but the gravity is modified to give it a better feel
 			// Else if the player stops holding down the input, the transition to the descent portion of the jump is instant
-			if(Input.GetKey(KeyCode.Space))
+			if(Input.GetAxisRaw("Jump") > 0)
 				currentGravity += gravityFallOff;
 			else
 			{

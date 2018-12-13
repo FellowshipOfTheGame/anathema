@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d14149f95e189714abf31227fdaa98de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: 30
+  gravity: 40
   groundCheckDist: 2.5
   horizontalSpeed: 6
   raycastOffset: 2.3
@@ -288,9 +288,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f93607286e2fe884495bb6145332fb5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 800
-  baseGravity: 20
-  gravityFallOff: 0.1
+  jumpForce: 1050
+  baseGravity: 40
+  gravityFallOff: 0.3
   horizontalSpeed: 6
 --- !u!114 &234489420
 MonoBehaviour:
