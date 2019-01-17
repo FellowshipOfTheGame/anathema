@@ -16,7 +16,6 @@ namespace Anathema.ChasingRobot
         public override void Enter()
         {
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-            
         }
 
         /// <summary>
@@ -71,7 +70,7 @@ namespace Anathema.ChasingRobot
         private bool RaycastUpdate()
         {
             Vector2 direction = new Vector2(1, 0);
-            if (transform.localScale.x < 0)
+            if (sRenderer.flipX == true)
             {
                 direction *= -1;
             }
@@ -86,7 +85,7 @@ namespace Anathema.ChasingRobot
                     {
                         //hit.transform.GetComponent<Health>().Hp-=damage;
                         Debug.Log("Damaging Player");
-                       //fsm.Transition<KnockBack>();
+                       fsm.Transition<KnockBack>();
                     }
                 }
                     return true;

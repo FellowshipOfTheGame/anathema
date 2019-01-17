@@ -7,10 +7,10 @@ namespace Anathema.ChasingRobot
     public class Chase : Anathema.Fsm.CleaningRobotState
     {
         [Tooltip("The max distance that the player is considered lost.")]
-        [SerializeField] float distLostPlayer = 15f;
+        [SerializeField] float distLostPlayer;
 
         [Tooltip("Speed in which the robot is able to move.")]
-        [SerializeField] float speed = 10f;
+        [SerializeField] float speed;
 
         [Tooltip("Here goes the amount and the GameObjects which limits the chasing area. The spots must be in the ground.")]
         [SerializeField] Transform[] chaseSpots;
@@ -25,12 +25,12 @@ namespace Anathema.ChasingRobot
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         }
 
+
         /// <summary>
         /// In this class, Fixed Update is used to switch out of movement states and to call functions that make the robot moves
         /// </summary>
         void FixedUpdate()
         {
-            currentScale = transform.localScale;
             if (player != null)
             {
                 playerDist = player.position - transform.position;
@@ -38,11 +38,10 @@ namespace Anathema.ChasingRobot
                 RaycastGroundCheck();
                 Chasing();
 
-                if (RaycastUpdate() == false && playerDist.magnitude > distLostPlayer)
+                if ((RaycastUpdate() == false && playerDist.magnitude > distLostPlayer) || CheckPlayer() == false)
                 {
                     animator.SetBool("isPatrolling", true);
                     animator.SetBool("isChasing", false);
-                    Debug.Log("FixedUpdate: Foi pro patrol");
                     fsm.Transition<Patrol>();
 
                 }
@@ -95,7 +94,7 @@ namespace Anathema.ChasingRobot
         private bool RaycastUpdate()
         {
             Vector2 direction = new Vector2(1, 0);
-            if (transform.localScale.x < 0)
+            if (sRenderer.flipX == true)
             {
                 direction *= -1;
             }
@@ -108,6 +107,10 @@ namespace Anathema.ChasingRobot
             }
             return false;
         }
+
+        /// <summary>
+        /// Checks if the robot is walking in the ground
+        /// </summary>
         private void RaycastGroundCheck()
         {
             Debug.DrawRay(transform.position, Vector2.down, Color.red);
@@ -117,15 +120,19 @@ namespace Anathema.ChasingRobot
             {
                 animator.SetBool("isPatrolling", true);
                 animator.SetBool("isChasing", false);
-                Debug.Log("RaycastGroundCheck: Foi pro patrol");
                 fsm.Transition<Patrol>();
             }
         }
+
+        /// <summary>
+        /// This method checks if the player is in the chasing area, which is the space between the two chaseSpots.
+        /// </summary>
+        /// <returns></returns>
         private bool CheckPlayer()
         {
             Collider2D hits = Physics2D.OverlapArea(chaseSpots[0].position, chaseSpots[1].position, LayerMask.GetMask("Player"));
             Debug.DrawLine(chaseSpots[0].position, chaseSpots[1].position, Color.blue);
-            //Collider2D hit = Physics2D.OverlapBox(new Vector2(distBetweenSpots.x/2, chaseSpots[1].position.y), distBetweenSpots, LayerMask.GetMask("Player"));
+
             if (hits)
             {
 
@@ -139,25 +146,29 @@ namespace Anathema.ChasingRobot
         }
 
         /// <summary>
-        /// This function flips the robot, according to the direction which it's heading and the current scale 
+        /// This function flips the robot, according to the direction which it's heading and the Sprite flipping
         /// </summary>
         private void Flip()
         {
             float distY = player.position.y - transform.position.y;
             if (distY > 1.5f)
             {
-                transform.localScale = currentScale;
                 animator.SetBool("isPatrolling", true);
                 animator.SetBool("isChasing", false);
-                Debug.Log("Flip: Foi pro patrol");
                 fsm.Transition<Patrol>();
             }
-            else if (RaycastUpdate() == false && (playerDist.magnitude <= 7f) && CheckPlayer() == true)
+            else if (RaycastUpdate() == false && (playerDist.magnitude < distLostPlayer) && CheckPlayer() == true)
             {
-                currentScale = transform.localScale;
-                currentScale.x *= -1;
-                transform.localScale = currentScale;
+                if (sRenderer.flipX == false)
+                {
+                    sRenderer.flipX = true;
+                }
+                else
+                {
+                    sRenderer.flipX = false;
+                }
             }
+
 
         }
 

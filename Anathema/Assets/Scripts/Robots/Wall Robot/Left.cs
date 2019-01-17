@@ -6,74 +6,162 @@ namespace Anathema.WallRobot
 {
     public class Left : Anathema.Fsm.WallRobotState
     {
-        /// <summary>
-        /// In this class, Enter is used to set the direction of the raycasts 
-        /// </summary>
-        public override void Enter()
-        {
-            direction = Vector2.left;
+        public override void Enter() { }
 
-            if (platformsWalkingBot == true)
-            {
-                if (transform.localScale.x > 0)
-                {
-                    groundDetectionDir = Vector2.up;
-
-                }
-                else if (transform.localScale.x < 0)
-                {
-                    groundDetectionDir = Vector2.down;
-
-                }
-            }
-            else if (wallsWalkingBot == true)
-            {
-                spotControl = GetComponent<SpotControl>();
-            }
-        }
 
         /// <summary>
-        /// In this class, FixedUpdate is used to set the direction of the movement depending on the scale of the robot and switch the state if it's a platformbot, and 
-        /// call the movement functions if it's a wallbot.
+        /// In this class, FixedUpdate is used to make the robot move. 
         /// </summary>
         void FixedUpdate()
         {
-            if (platformsWalkingBot == true)
+            if (sRenderer.flipX == false)
             {
-                if (transform.localScale.x > 0)
+                if (platformsWalkingBot == true)
                 {
                     transform.Translate(Vector2.right * speed * Time.deltaTime);
-
                 }
-                else if (transform.localScale.x < 0)
+                else if (wallsWalkingBot == true)
+                {
+                    Patrolling();
+                }
+
+            }
+            else if (sRenderer.flipX == true)
+            {
+                if (platformsWalkingBot == true)
                 {
                     transform.Translate(Vector2.left * speed * Time.deltaTime);
-
                 }
-
-                //Needs to wait some time to call the RaycastGroundCheck function or it won't wait until the hole robot has turned
-                Invoke("RaycastGroundCheck", 0.4f);
-                wallInfo = RaycastWallCheck();
-
-                if (wallInfo.collider)
+                else if (wallsWalkingBot == true)
                 {
-                    if (wallInfo.collider.CompareTag("Wall"))
-                    {
-                        Debug.Log("Achou uma parede: Left");
-                        Flip();
-                        fsm.Transition<Right>();
-                    }
+                    Patrolling();
                 }
+
             }
-            else if (wallsWalkingBot == true)
+
+            left = LeftRaycast();
+            up = UpRaycast();
+            down = DownRaycast();
+
+            if (spotControl.platform == false)
             {
-                wallInfo = RaycastWallCheck();
-                Patrolling();
-                RotationSide();
+                CheckRaycasts();
+
+            }
+            else if (spotControl.platform == true)
+            {
+                Invoke("CheckRaycasts", 0.4f);
+
             }
         }
 
-       private void OnTriggerEnter2D(Collider2D other)
+        //-----------------------------------------------------------------------------------------------//
+        /*Each of these methods cast a ray, to three different directions, that are used to check for walls and ground, so that
+            the robot can know which direction it needs to go, depending if the ratcast is true or not.
+            Also, the raycasts, change depending on the Sprite flipping.
+         */
+        private RaycastHit2D LeftRaycast()
+        {
+            Vector2 startPos = new Vector2(transform.position.x, transform.position.y);
+            if (sRenderer.flipX == false)
+            {
+                Debug.DrawRay(startPos + (Vector2.up * 0.5f), Vector2.left, Color.blue);
+                return Physics2D.Raycast(startPos + (Vector2.up * 0.5f), Vector2.left, rayWallMaxDist, LayerMask.GetMask("Wall", "Ground"));
+            }
+            else
+            {
+                Debug.DrawRay(startPos + (Vector2.up * -0.5f), Vector2.left, Color.blue);
+                return Physics2D.Raycast(startPos + (Vector2.up * -0.5f), Vector2.left, rayWallMaxDist, LayerMask.GetMask("Wall", "Ground"));
+            }
+        }
+
+        private RaycastHit2D UpRaycast()
+        {
+            Vector2 startPos = new Vector2(transform.position.x, transform.position.y);
+
+            if (sRenderer.flipX == false)
+            {
+                Debug.DrawRay(startPos + (Vector2.left * -0.6f), Vector2.up, Color.green);
+                return Physics2D.Raycast(startPos + (Vector2.left * -0.6f), Vector2.up, rayWallMaxDist, LayerMask.GetMask("Wall", "Ground"));
+            }
+            else
+            {
+                Debug.DrawRay(startPos + (Vector2.left * 0.6f), Vector2.up, Color.green);
+                return Physics2D.Raycast(startPos + (Vector2.left * 0.6f), Vector2.up, rayWallMaxDist, LayerMask.GetMask("Wall", "Ground"));
+            }
+        }
+
+        private RaycastHit2D DownRaycast()
+        {
+            Vector2 startPos = new Vector2(transform.position.x, transform.position.y);
+            if (sRenderer.flipX == false)
+            {
+                Debug.DrawRay(startPos + (Vector2.left * 0.6f), Vector2.down, Color.black);
+                return Physics2D.Raycast(startPos + (Vector2.left * 0.6f), Vector2.down, rayWallMaxDist, LayerMask.GetMask("Wall", "Ground"));
+            }
+            else
+            {
+                Debug.DrawRay(startPos + (Vector2.left * -0.6f), Vector2.down, Color.black);
+                return Physics2D.Raycast(startPos + (Vector2.left * -0.6f), Vector2.down, rayWallMaxDist, LayerMask.GetMask("Wall", "Ground"));
+            }
+        }
+        //------------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// This method check the raycasts above to set the state which it will change.
+        /// </summary>
+        private void CheckRaycasts()
+        {
+            //the left raycast is true, so the robot is walking on the left wall
+            if (left == true)
+            {
+                //is going down
+                if (sRenderer.flipX == false)
+                {
+                    if (down == true)
+                    {
+                        //will go right on the ground
+                        sRenderer.transform.eulerAngles = new Vector3(0, 0, 0);
+                        spotControl.platform = false;
+                        fsm.Transition<Down>();
+                    }
+                }
+                //is going up
+                else if (sRenderer.flipX == true)
+                {
+                    if (up == true)
+                    {
+                        //will go right on the ceiling
+                        sRenderer.transform.eulerAngles = new Vector3(0, 0, 180);
+                        spotControl.platform = false;
+                        fsm.Transition<Up>();
+                    }
+                }
+            }
+
+            //the left raycast is now false, so the robot is probably walking on a platform
+            else if (left == false)
+            {
+                if (sRenderer.flipX == false)
+                {
+                    //will go left on bottom edge
+                    sRenderer.transform.eulerAngles = new Vector3(0, 0, 180);
+                    spotControl.platform = true;
+                    fsm.Transition<Up>();
+                }
+                else if (sRenderer.flipX == true)
+                {
+                    //will go left on the top edge
+                    sRenderer.transform.eulerAngles = new Vector3(0, 0, 0);
+                    spotControl.platform = true;
+                    fsm.Transition<Down>();
+                }
+            }
+
+        }
+
+
+        private void OnTriggerEnter2D(Collider2D other)
         {
             if (!other.CompareTag("Ground") && !other.CompareTag("Wall"))
             {
@@ -82,65 +170,10 @@ namespace Anathema.WallRobot
             if (other.CompareTag("Player"))
             {
                 Debug.Log("Attack");
-                other.transform.GetComponent<Health>().Hp-=damage;
-            }
-        }
-        /// <summary>
-        /// Gets the information of the raycast which checks the ground and if there is no ground switch the state depending on the current scale of the robot
-        /// </summary>
-        private void RaycastGroundCheck()
-        {
-            Debug.DrawRay(groundDetection.position, groundDetectionDir, Color.red);
-            RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, groundDetectionDir, rayGroundMaxDist, LayerMask.GetMask("Ground"));
-
-            if (groundInfo.collider == false)
-            {
-                transform.eulerAngles = new Vector3(0, 0, 90);
-                if (transform.localScale.x > 0)
-                {
-                    fsm.Transition<Up>();
-
-                }
-                else if (transform.localScale.x < 0)
-                {
-                    fsm.Transition<Down>();
-
-                }
+                other.transform.GetComponent<Health>().Hp -= damage;
             }
         }
 
-        /// <summary>
-        /// Checks if the "Wall raycast" found a wall, if so switches the state depending on the current scale of the robot
-        /// </summary>
-        private void RotationSide()
-        {
-            if (wallInfo.collider == true && (wallInfo.collider.CompareTag("Wall")))
-            {
-                transform.eulerAngles = new Vector3(0, 0, -90);
-                if (transform.localScale.x > 0)
-                {
-                    fsm.Transition<Down>();
-
-                }
-                else if (transform.localScale.x < 0)
-                {
-                    fsm.Transition<Up>();
-
-                }
-            }
-        }
-
-
-        /// <summary>
-        /// Gets information about the raycast that looks for walls
-        /// </summary>
-        private RaycastHit2D RaycastWallCheck()
-        {
-            Vector2 startPos = new Vector2(transform.position.x, transform.position.y);
-
-            Debug.DrawRay(startPos, direction, Color.red);
-            return Physics2D.Raycast(startPos, direction, rayWallMaxDist, LayerMask.GetMask("Wall"));
-        }
 
         /// <summary>
         /// If the robot is near the spot, this function updates the next spot, flips if necessary and switches the state.
@@ -160,17 +193,23 @@ namespace Anathema.WallRobot
                 {
                     spotControl.currentSpot = 0;
                 }
+                if (sRenderer.flipX == false)
+                {
+                    sRenderer.flipX = true;
+                }
+                else if (sRenderer.flipX == true)
+                {
+                    sRenderer.flipX = false;
+                }
 
-                Flip();
-                fsm.Transition<Right>();
             }
             else
             {
-                if (transform.localScale.x > 0)
+                if (sRenderer.flipX == false)
                 {
                     transform.Translate(Vector2.right * speed * Time.deltaTime);
                 }
-                else if (transform.localScale.x < 0)
+                else if (sRenderer.flipX == true)
                 {
                     transform.Translate(Vector2.left * speed * Time.deltaTime);
 
@@ -178,15 +217,6 @@ namespace Anathema.WallRobot
             }
         }
 
-        /// <summary>
-        /// Flips the robot by changing it's scale
-        /// </summary>
-        private void Flip()
-        {
-            currentScale = transform.localScale;
-            currentScale.x *= -1;
-            transform.localScale = currentScale;
-        }
         public override void Exit() { }
     }
 }

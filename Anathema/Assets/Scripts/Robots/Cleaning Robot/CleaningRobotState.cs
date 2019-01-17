@@ -11,16 +11,13 @@ namespace Anathema.Fsm
 		protected SpriteRenderer sRenderer;
 
 		[Tooltip("The max distance that the robot will detect the player.")]
-		[SerializeField] protected float raycastMaxDist = 20f;
+		[SerializeField] protected float raycastMaxDist;
 
 		//Distance from the robot, that affects where the raycast will start
 		protected float origindir = 0.01f;
 
 		//Distance between the player and the robot	
 		protected Vector2 playerDist;
-
-		//The current scale of the robot, if it's (> 0) or (< 0)
-		protected Vector2 currentScale;
 
 		//Transform to get the position of the player
 		protected Transform player;
@@ -31,7 +28,6 @@ namespace Anathema.Fsm
 		new void Awake()
 		{
 			base.Awake();
-		
 			animator = GetComponent<Animator>();
 			myrBody = GetComponent<Rigidbody2D>();
 			sRenderer = GetComponent<SpriteRenderer>();
