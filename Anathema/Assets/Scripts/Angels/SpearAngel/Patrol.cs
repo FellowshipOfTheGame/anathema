@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Anathema.SpearAngel {
 	public class Patrol : Anathema.Fsm.SpearAngelState {
+		
 		public override void Enter() {
 			Patrolling();
 		}
@@ -15,11 +16,15 @@ namespace Anathema.SpearAngel {
 		void Update() {
 			CheckSide();
 
-			if (CanSeePlayer()) {
-				Debug.Log("Mitsukatta!!");
+			if (DistanceFrom(originLocation) > baseAreaRadius) {
+				//a* no koto
+			} else if (CanSeePlayer()) {
+				fsm.Transition<Chase>();
+			} else {
+				Patrolling();
 			}
 		}
 
-		public override void Exit() {}
+		public override void Exit() { }
 	}
 }

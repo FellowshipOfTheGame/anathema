@@ -8,9 +8,10 @@ namespace Anathema.Fsm {
 		protected Vector3 originLocation;
 		[SerializeField] protected float lookRadius;
 		[SerializeField] protected float baseAreaRadius;
-		protected bool lookingRight;
+		[SerializeField] protected bool lookingRight = true;
 		[SerializeField] protected float playerDistanceOffset;
 		[SerializeField] protected GameObject player;
+		[SerializeField] protected LayerMask enemyLookLayer	;
 
 
 		new void Awake() {
@@ -20,51 +21,86 @@ namespace Anathema.Fsm {
 			originLocation = this.transform.position;
 		}
 
-		protected float DistanceFromPlayer() {
-			return Vector2.Distance(player.transform.position, this.transform.position);
-		}
-
-
-		protected bool LookingToPlayer() {
-			if (DistanceFromPlayer() < playerDistanceOffset) {
-				return true;
-			} else if ((DistanceFromPlayer() > 0 && lookingRight) || (DistanceFromPlayer() < 0 && !lookingRight)) {
-				return true;
-			} else {
-				return false;
-			}
-		}
-
 		/// <summary>
-		/// Uses raycasts to check if there is something blocking the enemy vision of the player
-		/// </summary>
-		/// <returns>Returns true if any of the raycasts hit the player</returns>
-		protected bool TryRaycasts() {
-			RaycastHit2D hit = new RaycastHit2D();
-			hit = Physics2D.Raycast(this.transform.position, player.transform.position);
-			Debug.DrawLine(this.transform.position, player.transform.position, Color.green);
-			Debug.Log(hit);
-			return false;
-		}
-
-		/// <summary>
-		/// Checks if enemy can see the player
+		/// Checks if enemy can see the player	
 		/// </summary>
 		/// <returns>Returns true or false whether enemy can see player or not</returns>
 		protected bool CanSeePlayer() {
-			if (DistanceFromPlayer() > lookRadius) {
+			if (DistanceFrom(player) > lookRadius) {
+				Debug.Log("Player is too distant");
 				return false;
 			} else if (!LookingToPlayer()) {
 				return false;
-			} 
-
-			if (DistanceFromPlayer() < lookRadius && LookingToPlayer()) {
-				TryRaycasts();
+			} else if (!TryRaycasts()) {
+				return false;
+			} else {
+				Debug.Log("Hehehe, I found you!");
+				return true;
 			}
-
-			return true;
 		}
 
+		/// <summary>
+		/// Checks if Angel is looking to player's direction
+		/// </summary>
+		/// <returns>Returns true if angel is looking to player's direction</returns>
+		protected bool LookingToPlayer() {
+			if (Mathf.Abs(HorizontalDistanceFromPlayer()) < playerDistanceOffset) {
+				Debug.Log("wtf");
+				return true;
+			} else if ((HorizontalDistanceFromPlayer() > 0 && lookingRight) || (HorizontalDistanceFromPlayer() < 0 && !lookingRight)) {
+				Debug.Log("LookingToPlayer");
+				return true;
+			} else {
+				Debug.Log("NotLookingToPlayer");
+				return false;
+			}
+		}
+
+		/// <summary>
+		/// Calculates angel's distance from other object
+		/// </summary>
+		/// <returns>Returns angel's distance from other object</returns>
+		protected float DistanceFrom(GameObject otherObject) {
+			return Vector2.Distance(otherObject.transform.position, this.transform.position);
+		}
+		protected float DistanceFrom(Vector3 otherObject) {
+			return Vector2.Distance(otherObject, this.transform.position);
+		}
+
+		/// <summary>
+		/// Calculates angel's horizontal distance from player. 
+		/// Positive distances mean that the player is on the right, and negative mean the player is on the left.
+		/// </summary>
+		/// <returns>Retunrs the distance value, positive or negative depending on where the player is</returns>
+		protected float HorizontalDistanceFromPlayer() {
+			return player.transform.position.x - this.transform.position.x;
+		}
+
+		/// <summary>
+		/// Uses raycast(s) to check if there is something blocking the enemy vision of the player
+		/// </summary>
+		/// <returns>Returns true if (any of the) raycast(s) hit the player</returns>
+		protected bool TryRaycasts() {
+			RaycastHit2D hit = new RaycastHit2D();
+			hit = Physics2D.Raycast(this.transform.position, player.transform.position, Mathf.Infinity, enemyLookLayer);
+			Debug.DrawLine(this.transform.position, player.transform.position, Color.green);
+			
+			if (hit) {
+				Debug.Log(hit.collider.gameObject.name);
+				if (hit.collider.gameObject.name == "Player") {
+					return true;
+				} else {
+					return false;
+				}
+			} else {
+				Debug.Log("Didn't hit");
+				return false;
+			}
+		}
+
+		/// <summary>
+		/// Checks to which side angel is looking, and changes variables (and animations)
+		/// </summary>
 		protected void CheckSide() {
 			if (rBody.velocity.x > 0f) {
 				lookingRight = true;
@@ -73,7 +109,10 @@ namespace Anathema.Fsm {
 			}
 		}
 
-		void OnDrawGizmosSelectedm () {
+		/// <summary>
+		/// Draws angel's look radius, that represents its sight area
+		/// </summary>
+		void OnDrawGizmosSelected() {
 			Gizmos.color = Color.red;
 			Gizmos.DrawWireSphere(this.transform.position, lookRadius);
 		}
