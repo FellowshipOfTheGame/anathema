@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 namespace Anathema.SpearAngel {
 	public class Chase: Anathema.Fsm.SpearAngelState {
         [SerializeField] float maxAttackDistance;
+		private Seeker seeker;
+
 		public override void Enter() { 
+			seeker =  GetComponent<Seeker>();
             ChasePlayer();
         }
 
-        void ChasePlayer(){
-            // a* no koto
+        void ChasePlayer() {
+            seeker.StartPath(this.transform.position, player.transform.position);
         }
 
         void Update () {

@@ -1,31 +1,69 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 namespace Anathema.SpearAngel {
 	public class Patrol : Anathema.Fsm.SpearAngelState {
 		[SerializeField] protected LayerMask enemyLookLayer	;
-		[SerializeField] float patrollingDistance;
+		[SerializeField] private float speed;
+		[SerializeField] private float patrollingDistance;
 		private Vector2[] patrollingPoints = new Vector2[8];
+		private Seeker seeker;
 		private bool moving;
-		private bool checkingSides;
 		private int position;
+		private Vector3 destination;
+		private Path path;
+		private Vector3 direction;
+		private int currentWayPoint = 0;
+		private float nextWayPointDistance = 1;
 		
 		public override void Enter() { 
+			seeker =  GetComponent<Seeker>();
+
 			moving = false;
-			checkingSides = false;
 			SetPatrollingPoints();
+
+			InvokeRepeating("UpdatePath", 0f, 2f);
 		}
 
 		void Update() {
 			base.Update();
 
 			if (DistanceFrom(originLocation) > baseAreaRadius) {
-				//a* no koto
+				Debug.LogWarning("ReturningTObase");
+				destination = originLocation;
+				if (!moving){
+					moving = true;
+					InvokeRepeating("UpdatePath", 0f, 2f);
+				}
 			} else if (CanSeePlayer()) {
+				CancelInvoke();
+				rBody.velocity = Vector2.zero;
 				fsm.Transition<Chase>();
-			} else if (!moving && !checkingSides) {
+			} else if (!moving) {
 				Patrolling();
+			}
+		}
+
+		void FixedUpdate() {
+			if (path != null) {
+				direction = (path.vectorPath[currentWayPoint] - this.transform.position).normalized * speed;
+				rBody.velocity = direction;
+
+				if (DistanceFrom(patrollingPoints[position]) < 1) {
+					Debug.LogWarning("OH YEAH!!");
+					moving = false;
+				}
+
+				if (currentWayPoint >= path.vectorPath.Count) {
+					Debug.LogWarning("Finished path");
+					moving = false;
+				}
+
+				if (DistanceFrom(path.vectorPath[currentWayPoint]) < nextWayPointDistance) {
+					currentWayPoint++;
+				}			
 			}
 		}
 
@@ -44,30 +82,24 @@ namespace Anathema.SpearAngel {
 		}
 
 		private void Patrolling() {
+			moving = true;
+			Debug.Log("Patrolling");
 			int newPosition;
 			do {
 				newPosition = Random.Range(0, 7);
 			} while (newPosition == position);
 
-			this.transform.position = patrollingPoints[newPosition];
 			position = newPosition;
-			StartCoroutine("Wait");
+			destination = patrollingPoints[newPosition];
 		}
 
-		IEnumerator Wait() {
-			moving = true;
-			yield return new WaitForSeconds(2);
-			moving = false;
+		public void OnPathComplete(Path p) {
+			currentWayPoint = 0;
+			path = p;
 		}
 
-		private IEnumerator CheckBothSides() {
-			checkingSides = true;
-			rBody.velocity = Vector2.right;
-			yield return new WaitForSeconds(1);
-			rBody.velocity = Vector2.left;
-			yield return new WaitForSeconds(1);
-			rBody.velocity = Vector2.zero;
-			checkingSides = false;
+		private void UpdatePath() {
+			seeker.StartPath(this.transform.position, destination, OnPathComplete);
 		}
 
 		/// <summary>
