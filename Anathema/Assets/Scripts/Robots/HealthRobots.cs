@@ -5,13 +5,14 @@ using System.Collections.Generic;
 
 public class HealthRobots : Health
 {
+    public override void TakeDamage(int damage) { }
     void Awake()
     {
         OnHealthChange += OnHit;
         OnDeath += Die;
     }
 
-    void OnHit(int health)
+    void OnHit(Health health)
     {
         gameObject.GetComponent<Animation>().Play("KnockBack");
     }
