@@ -6,8 +6,8 @@ using Pathfinding;
 namespace Anathema.SpearAngel {
 	public class Patrol : Anathema.Fsm.SpearAngelState {
 		[SerializeField] protected LayerMask enemyLookLayer	;
-		[SerializeField] private float speed;
 		[SerializeField] private float patrollingDistance;
+		[SerializeField] private float UpdateRate;
 		private Vector2[] patrollingPoints = new Vector2[8];
 		private Seeker seeker;
 		private bool moving;
@@ -18,25 +18,28 @@ namespace Anathema.SpearAngel {
 		private int currentWayPoint = 0;
 		private float nextWayPointDistance = 1;
 		
+		/// <summary>
+		/// Set patroling points and search for a path to patrol
+		/// </summary>
 		public override void Enter() { 
 			seeker =  GetComponent<Seeker>();
 
 			moving = false;
 			SetPatrollingPoints();
 
-			InvokeRepeating("UpdatePath", 0f, 2f);
+			InvokeRepeating("UpdatePath", 0f, 1f/UpdateRate);
 		}
 
+		/// <summary>
+		/// Checks if the angel is out of its patrol area, moving it back if so.
+		/// If it can see the player, changes its state to chase the player. Otherwise, just keeps patrolling.
+		/// </summary>
 		void Update() {
 			base.Update();
 
 			if (DistanceFrom(originLocation) > baseAreaRadius) {
-				Debug.LogWarning("ReturningTObase");
+				Debug.Log("ReturningToBase");
 				destination = originLocation;
-				if (!moving){
-					moving = true;
-					InvokeRepeating("UpdatePath", 0f, 2f);
-				}
 			} else if (CanSeePlayer()) {
 				CancelInvoke();
 				rBody.velocity = Vector2.zero;
@@ -46,18 +49,16 @@ namespace Anathema.SpearAngel {
 			}
 		}
 
+		/// <summary>
+		/// Moves the angel according to path
+		/// </summary>
 		void FixedUpdate() {
 			if (path != null) {
 				direction = (path.vectorPath[currentWayPoint] - this.transform.position).normalized * speed;
 				rBody.velocity = direction;
 
 				if (DistanceFrom(patrollingPoints[position]) < 1) {
-					Debug.LogWarning("OH YEAH!!");
-					moving = false;
-				}
-
-				if (currentWayPoint >= path.vectorPath.Count) {
-					Debug.LogWarning("Finished path");
+					Debug.Log("Reached destination point");
 					moving = false;
 				}
 
@@ -81,6 +82,9 @@ namespace Anathema.SpearAngel {
 			patrollingPoints[7] = new Vector2(originLocation.x - patrollingDistance, originLocation.y + patrollingDistance);
 		}
 
+		/// <summary>
+		/// Sets randomly a new position to patrol, and sets it as angel's new destination
+		/// </summary>
 		private void Patrolling() {
 			moving = true;
 			Debug.Log("Patrolling");
@@ -93,11 +97,18 @@ namespace Anathema.SpearAngel {
 			destination = patrollingPoints[newPosition];
 		}
 
+		/// <summary>
+		/// Sets the current way point to the first point of path, and saves the path on a variable
+		/// </summary>
+		/// <param name="p">Path gotten from A* Pathfinding</param>
 		public void OnPathComplete(Path p) {
 			currentWayPoint = 0;
 			path = p;
 		}
 
+		/// <summary>
+		/// Recalculates the path
+		/// </summary>
 		private void UpdatePath() {
 			seeker.StartPath(this.transform.position, destination, OnPathComplete);
 		}

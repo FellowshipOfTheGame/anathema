@@ -5,11 +5,13 @@ using UnityEngine;
 namespace Anathema.SpearAngel {
 	public class Attack : Anathema.Fsm.SpearAngelState {
 		[SerializeField] float cooldown;
-		[SerializeField] float speed;
 		[SerializeField] float attackDuration;
 		public bool attacking;
 		private Vector2 attackDirection;
 
+		/// <summary>
+		/// Attacks player and start cooldown timer
+		/// </summary>
 		public override void Enter() { 
 			StartCoroutine("AttackPlayer");
 			StartCoroutine("AttackCooldown");

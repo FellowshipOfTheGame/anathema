@@ -10,6 +10,7 @@ namespace Anathema.Fsm {
 		[SerializeField] protected float baseAreaRadius;
 		[SerializeField] protected bool lookingRight = true;
 		[SerializeField] protected GameObject player;
+		[SerializeField] protected float speed;
 
 
 		new void Awake() {
