@@ -22,7 +22,7 @@ EditorBuildSettings:
     guid: 82f3b63d3aa5740c4843486d0ccafe76
   - enabled: 1
     path: Assets/Scenes/Tutorial-2.unity
-    guid: c2058358d749fd642999b0bb640c37ce
+    guid: e31a7a82d8400544d972064449a1d66d
   - enabled: 1
     path: Assets/Scenes/Tutorial-3.unity
     guid: bc06e899b82d3b24191a82072e33bc64
