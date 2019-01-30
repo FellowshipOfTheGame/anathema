@@ -11,9 +11,9 @@ namespace Anathema.UI
         [SerializeField] private string loadingScene;
         [SerializeField] private string playerScene;
         private bool loadStarted = false;
-        private void Update()
+        public void Load()
         {
-            if (Input.anyKeyDown && !loadStarted)
+            if (!loadStarted)
             {
                 loadStarted = true;
                 SceneLoader loader = new SceneLoader(loadingScene);
