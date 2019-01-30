@@ -28,7 +28,7 @@ namespace Anathema.Player
 				rBody.velocity = new Vector2(0f, rBody.velocity.y);
 
 			// Transitions between the idle state and the jumping state, more specifically the Jump Ascension portion of the state
-			if(Input.GetKey(KeyCode.Space))
+			if(Input.GetAxisRaw("Jump") > 0)
 			{
 				animator.SetBool("IsRising", true);
 				rBody.velocity = new Vector2(rBody.velocity.x, 0f);
@@ -36,14 +36,14 @@ namespace Anathema.Player
 				return;
 			}
 
-			if(Input.GetKeyDown(KeyCode.J))
+			if(Input.GetAxisRaw("Attack") > 0)
 			{
 				Debug.Log("Attack!!!!");
 				animator.SetBool("IsAttacking", true);
 				fsm.Transition<Attack>();
 			}
 
-			if(Input.GetKey(KeyCode.S))
+			if(Input.GetAxisRaw("Vertical") < -0.3f)
 			{
 				animator.SetBool("IsCrouching", true);
 				fsm.Transition<Crouch>();

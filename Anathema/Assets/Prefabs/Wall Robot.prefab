@@ -226,6 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSpot: 0
+  orientation: 0
 --- !u!114 &114700040950686102
 MonoBehaviour:
   m_ObjectHideFlags: 1
