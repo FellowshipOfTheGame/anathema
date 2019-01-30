@@ -62,6 +62,7 @@ namespace Anathema.Fsm
 			animator = GetComponent<Animator>();
 			myrBody = GetComponent<Rigidbody2D>();
 			sRenderer = GetComponent<SpriteRenderer>();
+			spotControl = GetComponent<SpotControl>();
 		}
 	}
 }

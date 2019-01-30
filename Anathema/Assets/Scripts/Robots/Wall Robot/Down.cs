@@ -82,7 +82,8 @@ namespace Anathema.WallRobot
             if (other.CompareTag("Player"))
             {
                 Debug.Log("Attack");
-                other.transform.GetComponent<Health>().Damage(damage, this.transform.position - other.transform.position, Health.DamageType.EnemyAttack);
+                Vector2 hitVector = other.transform.position - transform.position;
+                other.transform.GetComponent<Health>().Damage(damage, hitVector, Health.DamageType.EnemyAttack);
             }
         }
         /// <summary>
