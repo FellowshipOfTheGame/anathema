@@ -31,20 +31,20 @@ public class HealthBar : MonoBehaviour {
 	/// 	Called when player's hp is changed. Moves health bar gradually until it reaches its new position.
 	/// </sumarry>
 
-	private void MoveHealthBar(Health health){
-		if(healthBarValue < health.Hp && !healing){
+	private void MoveHealthBar(int health){
+		if(healthBarValue < health && !healing){
 			CancelInvoke();
 			takingDamage = false;
 			healing = true;
 			InvokeRepeating("Heal", 0, 1f/barSpeed);
 		}
-		else if(healthBarValue > health.Hp && !takingDamage){
+		else if(healthBarValue > health && !takingDamage){
 			CancelInvoke();
 			healing = false;
 			takingDamage = true;
 			InvokeRepeating("TakeDamage", 0, 1f/barSpeed);
 		}
-		healthBarValue = health.Hp;
+		healthBarValue = health;
 	}
 
 	// Incresaes health bar until it reaches its new value	
