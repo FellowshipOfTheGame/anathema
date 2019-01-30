@@ -16,6 +16,7 @@ namespace Anathema.WallRobot
 
             if ((GameObject.FindGameObjectWithTag("Player")) != null)
             {
+
                 animator.SetBool("isWalking", true);
 
                 if (transform.localScale.x > 0)

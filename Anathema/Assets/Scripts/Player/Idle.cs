@@ -6,6 +6,13 @@ namespace Anathema.Player
 {
 	public class Idle : Anathema.Fsm.PlayerState
 	{
+		private JumpFall jumpFallState;
+
+		private void Start()
+		{
+			jumpFallState = GetComponent<JumpFall>();
+		}
+
 		public override void Enter() {	}
 
 		/// <summary>
@@ -14,6 +21,13 @@ namespace Anathema.Player
 		void FixedUpdate()
 		{
 			float HorizontalAxis = Input.GetAxisRaw("Horizontal");
+			
+			if(!jumpFallState.CheckIfGrounded())
+			{
+				animator.SetBool("IsFalling", true);
+				fsm.Transition<JumpFall>();
+				return;
+			}
 
 			// Transitions between the idle state and the walking state
 			if(HorizontalAxis != 0f)
@@ -28,7 +42,7 @@ namespace Anathema.Player
 				rBody.velocity = new Vector2(0f, rBody.velocity.y);
 
 			// Transitions between the idle state and the jumping state, more specifically the Jump Ascension portion of the state
-			if(Input.GetAxisRaw("Jump") > 0)
+			if(Input.GetKeyDown(KeyCode.Space))
 			{
 				animator.SetBool("IsRising", true);
 				rBody.velocity = new Vector2(rBody.velocity.x, 0f);
@@ -36,14 +50,14 @@ namespace Anathema.Player
 				return;
 			}
 
-			if(Input.GetAxisRaw("Attack") > 0)
+			if(Input.GetKeyDown(KeyCode.J))
 			{
 				Debug.Log("Attack!!!!");
 				animator.SetBool("IsAttacking", true);
 				fsm.Transition<Attack>();
 			}
 
-			if(Input.GetAxisRaw("Vertical") < -0.3f)
+			if(Input.GetKey(KeyCode.S))
 			{
 				animator.SetBool("IsCrouching", true);
 				fsm.Transition<Crouch>();

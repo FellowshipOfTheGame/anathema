@@ -3,19 +3,16 @@ using UnityEngine;
  
 namespace Anathema.Editor
 {
-    using Anathema;
     [CustomPropertyDrawer(typeof(HideInInspectorIf))]
-    [CustomPropertyDrawer(typeof(HideInInspectorIfNot))]
     public class HideInInspectorIfDrawer : PropertyDrawer
     {
-        private string ConditionName { get { return ((BaseHideInInspectorIf) attribute).conditionName; } }
-        private bool InvertCondition { get { return ((BaseHideInInspectorIf) attribute).invertCondition; } }
+        private string ConditionName { get { return ((HideInInspectorIf) attribute).conditionName; } }
         private bool IsHidden(SerializedProperty property)
         {
             SerializedProperty condition = property.serializedObject.FindProperty(property.propertyPath.Replace(property.name, ConditionName));
             if (condition != null)
             {
-                return InvertCondition ? !condition.boolValue : condition.boolValue;
+                return condition.boolValue;
             }
             else
             {

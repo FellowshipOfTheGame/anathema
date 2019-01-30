@@ -273,7 +273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravity: 40
   groundCheckDist: 2.5
-  horizontalSpeed: 6
+  horizontalSpeed: 10
   raycastOffset: 2.3
   canDoubleJump: 1
 --- !u!114 &234489419
@@ -288,10 +288,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f93607286e2fe884495bb6145332fb5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 1050
-  baseGravity: 40
-  gravityFallOff: 0.3
-  horizontalSpeed: 6
+  jumpForce: 800
+  baseGravity: 20
+  gravityFallOff: 0.1
+  horizontalSpeed: 10
 --- !u!114 &234489420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 273ce6da5fb0c0e4a8d2e45b364a01bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseSpeed: 8
+  baseSpeed: 12
   groundRayDist: 2.3
   safetyGroundThreshold: 0.3
   raycastOffset: 1.3
@@ -390,6 +390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   maxHP: 100
+  isInvulnerable: 0
 --- !u!1001 &252765733
 Prefab:
   m_ObjectHideFlags: 0

@@ -5,18 +5,15 @@ using System.Collections.Generic;
 
 public class HealthRobots : Health
 {
-    private Animator animator;
     void Awake()
     {
-        animator = GetComponent<Animator>();
         OnHealthChange += OnHit;
         OnDeath += Die;
     }
 
     void OnHit(int health)
     {
-        Debug.Log("knockBack");
-        animator.Play("DamageFeedback");
+        gameObject.GetComponent<Animation>().Play("KnockBack");
     }
 
     void Die()

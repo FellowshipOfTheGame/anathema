@@ -8,8 +8,6 @@ public class SpotControl : MonoBehaviour
 	/// This class is used to store the current spot information, so that it can be accessed by any movement state
 	/// </summary>
 	public int currentSpot;
-	public enum Orientation { Up, Down, Left, Right };
-	public Orientation orientation;
 
 	void Awake()
 	{

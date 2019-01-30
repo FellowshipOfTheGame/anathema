@@ -45,7 +45,7 @@ public class Health : MonoBehaviour {
                     return false;
 
                 hp -= value;
-                OnHealthChange(hp);
+                //OnHealthChange(hp);
 
                 if(hp < 0)
                 {
