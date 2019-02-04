@@ -28,13 +28,17 @@ namespace Anathema.ArcherAngel {
 			InvokeRepeating("UpdatePath", 0f, 1f/UpdateRate);
 		}
 
-		/// <summary>
-		/// Checks if the angel is out of its patrol area, moving it back if so.
-		/// If it can see the player, changes its state to chase the player. Otherwise, just keeps patrolling.
-		/// </summary>
 		new void Update() {
 			base.Update();
 
+		}
+
+		/// <summary>
+		/// Checks if the angel is out of its patrol area, moving it back if so.
+		/// If it can see the player, changes its state to chase the player. Otherwise, just keeps patrolling
+		/// (moving the angel according to path)
+		/// </summary>
+		void FixedUpdate() {
 			if (DistanceFrom(originLocation) > baseAreaRadius) {
 				Debug.Log("ReturningToBase");
 				destination = originLocation;
@@ -45,12 +49,7 @@ namespace Anathema.ArcherAngel {
 			} else if (!moving) {
 				Patrolling();
 			}
-		}
 
-		/// <summary>
-		/// Moves the angel according to path
-		/// </summary>
-		void FixedUpdate() {
 			if (path != null) {
 				direction = (path.vectorPath[currentWayPoint] - this.transform.position).normalized * speed;
 				rBody.velocity = direction;
