@@ -10,7 +10,7 @@ namespace Anathema.Rooms
 	public class AutoSetupCamBounds : MonoBehaviour 
 	{
 		[SerializeField] private string cameraScene;
-		private void OnEnable()
+		private void Start()
 		{
 			Collider2D collider2D = GetComponent<Collider2D>();
 			if (!collider2D)

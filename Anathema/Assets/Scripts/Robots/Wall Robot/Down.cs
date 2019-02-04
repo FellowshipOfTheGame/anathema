@@ -101,8 +101,14 @@ namespace Anathema.WallRobot
             }
             else
             {
+<<<<<<< HEAD
                 Debug.DrawRay(startPos + (Vector2.left * -0.6f), Vector2.down, Color.black);
                 return Physics2D.Raycast(startPos + (Vector2.left * -0.6f), Vector2.down, rayWallMaxDist, LayerMask.GetMask("Wall", "Ground"));
+=======
+                Debug.Log("Attack");
+                Vector2 hitVector = other.transform.position - transform.position;
+                other.transform.GetComponent<Health>().Damage(damage, hitVector, Health.DamageType.EnemyAttack);
+>>>>>>> origin/abner
             }
         }
         //------------------------------------------------------------------------------------------------//

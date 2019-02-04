@@ -13,7 +13,7 @@ public class HealthRobots : Health
         OnDeath += Die;
     }
 
-    void OnHit(Health health)
+    void OnHit(int health)
     {
         Debug.Log("knockBack");
         animator.Play("DamageFeedback");

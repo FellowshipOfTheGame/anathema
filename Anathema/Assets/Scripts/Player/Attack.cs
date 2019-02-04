@@ -24,14 +24,13 @@ namespace Anathema.Player
 		/// </summary>
 		public override void Enter()
 		{
-			Debug.Log("AttackOnEnter");
 			animator.Play("StandingAttack", -1, 0);
 			foreach(var hit in Physics2D.BoxCastAll(this.transform.position + attackHeightOffset * Vector3.up,
 				new Vector2(attackRange, attackHeight), 0f,
 				sRenderer.flipX ? Vector2.left : Vector2.right, 1f,
 				LayerMask.GetMask("Enemy", "Breakable")))
 			{
-				hit.transform.GetComponent<Health>().Hp-=baseDamage;
+				hit.transform.GetComponent<Health>().Damage(baseDamage, -hit.normal, Health.DamageType.EnemyAttack);
 				Debug.Log("Deu damage");
 			}
 
@@ -40,14 +39,16 @@ namespace Anathema.Player
 			Debug.DrawRay(this.transform.position + attackHeightOffset * Vector3.up + Vector3.down * attackHeight/2, sRenderer.flipX ? Vector2.left * attackRange : Vector2.right * attackRange, Color.cyan, 2f);
 		}
 
-		public override void Exit() {	}
+		public override void Exit()
+		{
+			animator.SetBool("IsAttacking", false);
+		}
 
 		/// <summary>
 		/// 	This method is called by unity when the attack animation ends, triggering an animation event
 		/// </summary>
 		public void EndAttack()
 		{
-			animator.SetBool("IsAttacking", false);
 			fsm.Transition<Idle>();
 		}
 	}

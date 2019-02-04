@@ -24,6 +24,7 @@ namespace Anathema.Player
 
 		public override void Enter()
 		{
+			animator.Play("JumpAscension", -1, 0);
 			rBody.AddForce(Vector2.up * jumpForce);
 			currentGravity = baseGravity;
 		}
@@ -37,18 +38,25 @@ namespace Anathema.Player
 		{
 			float HorizontalAxis = Input.GetAxisRaw("Horizontal");
 
+			// Handles attacking while in the air
+			if(Input.GetKeyDown(KeyCode.J))
+			{
+				animator.SetBool("IsAttacking", true);
+				fsm.Transition<AirAttack>();
+				return;
+			}
+
 			// Handles gravity, given current value, which is modified
 			rBody.AddForce(Vector2.down * currentGravity);
 
 			// If the jump input is kept pressed, the jump is extended but the gravity is modified to give it a better feel
 			// Else if the player stops holding down the input, the transition to the descent portion of the jump is instant
-			if(Input.GetAxisRaw("Jump") > 0)
+			if(Input.GetKey(KeyCode.Space))
 				currentGravity += gravityFallOff;
 			else
 			{
 				rBody.velocity = new Vector2(rBody.velocity.x, 0f);
 				animator.SetBool("IsFalling", true);
-				animator.SetBool("IsRising", false);
 				fsm.Transition<JumpFall>();
 				return;
 			}
@@ -57,7 +65,6 @@ namespace Anathema.Player
 			if(rBody.velocity.y <= 0f)
 			{
 				animator.SetBool("IsFalling", true);
-				animator.SetBool("IsRising", false);
 				fsm.Transition<JumpFall>();
 			}
 
@@ -76,6 +83,9 @@ namespace Anathema.Player
 			}
 		}
 
-		public override void Exit()	{	}
+		public override void Exit()
+		{
+			animator.SetBool("IsRising", false);
+		}
 	}
 }

@@ -9,6 +9,9 @@ namespace Anathema.Player
 		[Tooltip("Force that pulls player down. It's recommended to be higher than the base gravity of the ascension state.")]
 		[SerializeField] float gravity;
 
+		[Tooltip("Falling speed cap.")]
+		[SerializeField] float maxSpeed;
+
 		[Tooltip("The distance of the ray that checks for ground, on fall. Recommended to be a little higher than the distance between the center of the player and the ground.")]
 		[SerializeField] float groundCheckDist;
 
@@ -23,12 +26,16 @@ namespace Anathema.Player
 
 		// Stores whether or not the player has double jumped
 		private bool hasDoubleJumped;
-		private bool unpressedJump = false;
 
-		public override void Enter()
-		{	
-			unpressedJump = false;
+		public RaycastHit2D CheckIfGrounded()
+		{
+			// Raycast to check for ground
+			RaycastHit2D rayHit = Physics2D.Raycast((Vector2)transform.position + (Vector2.down * raycastOffset), Vector2.down, groundCheckDist - raycastOffset, LayerMask.GetMask("Ground"));
+			Debug.DrawRay(transform.position, Vector2.down * groundCheckDist, Color.green);
+			return rayHit;
 		}
+
+		public override void Enter() {	}
 
 		/// <summary>
 		/// 	In this class, the FixedUpdate handles the forces responsable for making the player fall and the transitions to other states
@@ -38,18 +45,19 @@ namespace Anathema.Player
 		{
 			float HorizontalAxis = Input.GetAxisRaw("Horizontal");
 
-			if(Input.GetAxisRaw("Jump") <= 0)
+			// Handles attacking midair
+			if(Input.GetKeyDown(KeyCode.J))
 			{
-				unpressedJump = true;
-				Debug.Log("What the fuck man");
+				animator.SetBool("IsAttacking", true);
+				fsm.Transition<AirAttack>();
+				return;
 			}
 
 			// Handles gravity forces pulling the player to the ground
-			rBody.AddForce(Vector2.down * gravity);
+			if(rBody.velocity.y < maxSpeed)
+				rBody.AddForce(Vector2.down * gravity);
 
-			// Raycast to check for ground
-			RaycastHit2D rayHit = Physics2D.Raycast((Vector2)transform.position + (Vector2.down * raycastOffset), Vector2.down, groundCheckDist - raycastOffset, LayerMask.GetMask("Ground"));
-			Debug.DrawRay(transform.position, Vector2.down * groundCheckDist, Color.green);
+			RaycastHit2D rayHit = CheckIfGrounded();
 
 			// Transitions states as soon as the player reaches ground
 			if(rayHit)
@@ -61,12 +69,11 @@ namespace Anathema.Player
 				fsm.Transition<Walking>();
 			}
 
-			if((Input.GetAxisRaw("Jump") > 0) && !hasDoubleJumped && canDoubleJump && unpressedJump)
+			if(Input.GetKeyDown(KeyCode.Space) && !hasDoubleJumped && canDoubleJump)
 			{
 				animator.SetBool("IsRising", true);
 				animator.SetBool("IsFalling", false);
 				hasDoubleJumped = true;
-				unpressedJump = false;
 				rBody.velocity = new Vector2(rBody.velocity.x, 0f);
 				fsm.Transition<JumpRise>();
 				return;

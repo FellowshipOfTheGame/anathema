@@ -29,6 +29,12 @@ namespace Anathema.Player
 				animator.SetBool("IsCrouching", false);
 				fsm.Transition<Idle>();
 			}
+
+			if(Input.GetKeyDown(KeyCode.J))
+			{
+				animator.SetBool("IsAttacking", true);
+				fsm.Transition<CrouchAttack>();
+			}
 		}
 
 		/// <summary>
