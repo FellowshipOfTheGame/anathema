@@ -4,7 +4,7 @@ using UnityEngine;
 using Pathfinding;
 
 namespace Anathema.ArcherAngel {
-	public class Chase: Anathema.Fsm.ArcherAngelState {
+	public class Avoid : Anathema.Fsm.ArcherAngelState {
 		[SerializeField] private float UpdateRate;
 		[SerializeField] private GameObject[] patrollingPoints;
 		private Seeker seeker;

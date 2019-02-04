@@ -5,6 +5,7 @@ using UnityEngine;
 namespace Anathema.Fsm {
 	public abstract class ArcherAngelState : FsmState {
 		protected Rigidbody2D rBody;
+		protected SpriteRenderer spriteRenderer;
 		protected Vector3 originLocation;
 		[SerializeField] protected LayerMask enemyLookLayer;
 		[SerializeField] protected GameObject origin;
@@ -15,9 +16,11 @@ namespace Anathema.Fsm {
 		[SerializeField] protected float speed;
 
 
+
 		new void Awake() {
 			base.Awake();
 			rBody = GetComponent<Rigidbody2D>();
+			spriteRenderer= GetComponent<SpriteRenderer>();
 			player = GameObject.Find("Player");
 			originLocation = origin.transform.position;
 		}

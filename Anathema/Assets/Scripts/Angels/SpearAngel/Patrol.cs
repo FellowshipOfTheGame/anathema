@@ -75,7 +75,7 @@ namespace Anathema.SpearAngel {
 			moving = true;
 			int newPosition;
 			do {
-				newPosition = Random.Range(0, 7);
+				newPosition = Random.Range(0, patrollingPoints.Length - 1);
 			} while (newPosition == position);
 
 			position = newPosition;
