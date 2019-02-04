@@ -6,6 +6,7 @@ namespace Anathema.Fsm {
 	public abstract class SpearAngelState : FsmState {
 		protected Rigidbody2D rBody;
 		protected Vector3 originLocation;
+		[SerializeField] protected GameObject origin;
 		[SerializeField] protected float lookRadius;
 		[SerializeField] protected float baseAreaRadius;
 		[SerializeField] protected bool lookingRight = true;
@@ -17,7 +18,7 @@ namespace Anathema.Fsm {
 			base.Awake();
 			rBody = GetComponent<Rigidbody2D>();
 			player = GameObject.Find("Player");
-			originLocation = this.transform.position;
+			originLocation = origin.transform.position;
 		}
 
 		protected void Update() {

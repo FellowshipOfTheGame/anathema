@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Anathema.SpearAngel {
-	public class Attack : Anathema.Fsm.SpearAngelState {
+namespace Anathema.ArcherAngel {
+	public class Attack : Anathema.Fsm.ArcherAngelState {
 		[SerializeField] float cooldown;
-		[SerializeField] float attackDuration;
-		public bool attacking;
+		[SerializeField] float attackDelay;
+		[SerializeField] GameObject arrow;
 		private Vector2 attackDirection;
 
 		/// <summary>
@@ -14,7 +14,6 @@ namespace Anathema.SpearAngel {
 		/// </summary>
 		public override void Enter() { 
 			StartCoroutine("AttackPlayer");
-			StartCoroutine("AttackCooldown");
 		}
 
 		/// <summary>
@@ -22,12 +21,21 @@ namespace Anathema.SpearAngel {
 		/// </summary>
 		/// <returns></returns>
 		private IEnumerator AttackPlayer() { 
-			attacking = true;
+			rBody.velocity = Vector2.zero; 
+			Shoot();
+			yield return new WaitForSeconds(attackDelay);
+			Shoot();
+
+			StartCoroutine("AttackCooldown");
+		}
+
+		/// <summary>
+		/// Shoots an arrow in player's direction
+		/// </summary>
+		private void Shoot() {
 			attackDirection = player.transform.position - this.transform.position;
-			rBody.velocity = attackDirection.normalized * speed;
-			yield return new WaitForSeconds(attackDuration);
-			attacking = false;
-			rBody.velocity = Vector2.zero;
+			float angle = Mathf.Atan2(attackDirection.y, attackDirection.x) * Mathf.Rad2Deg;
+			Instantiate(arrow, this.transform.position, Quaternion.Euler(0, 0, angle));
 		}
 
 		/// <summary>
@@ -36,15 +44,12 @@ namespace Anathema.SpearAngel {
 		/// <returns></returns>
 		public IEnumerator AttackCooldown() {
 			yield return new WaitForSeconds(cooldown);
-			fsm.Transition<Chase>();
-		}
-
-		/// <summary>
-		///	Stops the attack if it hits something 
-		/// </summary>
-		void OnCollisionEnter2D() {
-			attacking = false;
-			rBody.velocity = Vector2.zero;
+			if (CanSeePlayer()) {
+				Debug.LogWarning("Chase");
+				fsm.Transition<Chase>();
+			} else {
+				fsm.Transition<Patrol>();
+			}
 		}
 
 		new void Update() {
