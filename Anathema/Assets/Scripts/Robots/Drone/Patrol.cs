@@ -14,6 +14,8 @@ namespace Anathema.Drone
 
         [Tooltip("Amplitude in which the drone will move vertically through the room.")]
         [SerializeField] private float amplitude;
+        
+         [SerializeField] int damage;
         private float time;
         private Vector2 initialPos;
         public override void Enter()
@@ -51,8 +53,9 @@ namespace Anathema.Drone
             {
                 if (other.collider.CompareTag("Player"))
                 {
-                    //hit.transform.GetComponent<Health>().Hp-=damage;
-                    Debug.Log("Damaging the Player");
+                    Debug.Log("Attack");
+                    Vector2 hitVector = other.transform.position - transform.position;
+                    other.transform.GetComponent<Health>().Damage(damage, hitVector, Health.DamageType.EnemyAttack);
                 }
             }
             horizontalSpeed = -horizontalSpeed;

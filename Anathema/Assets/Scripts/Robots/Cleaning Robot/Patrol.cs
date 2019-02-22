@@ -14,6 +14,8 @@ namespace Anathema.ChasingRobot
 
         [Tooltip("Here goes the amount and the GameObjects which limits the chasing area. The spots must be in the ground.")]
         [SerializeField] Transform[] chaseSpots;
+        [SerializeField] float rayGroundMaxDist;
+
 
         //Stores the spot which the robot is heading
         private int currentSpot;
@@ -94,13 +96,13 @@ namespace Anathema.ChasingRobot
         /// </summary>
         private void FindPlayer()
         {
-            if (RaycastUpdate() == true && CheckPlayer() == true)
+            if (RaycastUpdate() == true && CheckPlayer() == true && RaycastGroundCheck() == true)
             {
                 animator.SetBool("isChasing", true);
                 animator.SetBool("isPatrolling", false);
                 fsm.Transition<Chase>();
             }
-            else if (RaycastUpdate() == false && CheckPlayer() == true)
+            else if (RaycastUpdate() == false && CheckPlayer() == true && RaycastGroundCheck() == true)
             {
                 animator.SetBool("isChasing", true);
                 animator.SetBool("isPatrolling", false);
@@ -146,6 +148,17 @@ namespace Anathema.ChasingRobot
             }
 
             return false;
+        }
+
+        /// <summary>
+        /// Checks if the robot is walking in the ground
+        /// </summary>
+        private RaycastHit2D RaycastGroundCheck()
+        {
+            Debug.DrawRay(transform.position, Vector2.down, Color.red);
+            RaycastHit2D groundInfo = Physics2D.Raycast(transform.position, Vector2.down, rayGroundMaxDist, LayerMask.GetMask("Ground"));
+
+            return groundInfo;
         }
 
         /// <summary>

@@ -46,7 +46,7 @@ namespace Anathema.ChasingRobot
             }
         }
 
-      
+
         /// <summary>
         /// Gets the raycast which is used to look for the player
         /// </summary>
@@ -81,14 +81,15 @@ namespace Anathema.ChasingRobot
             {
                 if (hit.collider.CompareTag("Player"))
                 {
-                    if(playerDist.magnitude < miniDist)
+                    if (playerDist.magnitude < miniDist)
                     {
-                        //hit.transform.GetComponent<Health>().Hp-=damage;
-                        Debug.Log("Damaging Player");
-                       fsm.Transition<KnockBack>();
+                        Debug.Log("Attack");
+                        Vector2 hitVector = hit.transform.position - transform.position;
+                        hit.transform.GetComponent<Health>().Damage(damage, hitVector, Health.DamageType.EnemyAttack);
+                        //fsm.Transition<KnockBack>();
                     }
                 }
-                    return true;
+                return true;
             }
 
             return false;

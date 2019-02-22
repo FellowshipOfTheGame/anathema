@@ -85,14 +85,9 @@ namespace Anathema.WallRobot
             }
             else
             {
-<<<<<<< HEAD
                 Debug.DrawRay(startPos + (Vector2.left * 0.6f), Vector2.up, Color.green);
                 return Physics2D.Raycast(startPos + (Vector2.left * 0.6f), Vector2.up, rayWallMaxDist, LayerMask.GetMask("Wall", "Ground"));
-=======
-                Debug.Log("Attack");
-                Vector2 hitVector = other.transform.position - transform.position;
-                other.transform.GetComponent<Health>().Damage(damage, hitVector, Health.DamageType.EnemyAttack);
->>>>>>> origin/abner
+               
             }
         }
 
@@ -174,8 +169,9 @@ namespace Anathema.WallRobot
             }
             if (other.CompareTag("Player"))
             {
-                Debug.Log("Attack");
-                other.transform.GetComponent<Health>().Hp -= damage;
+                 Debug.Log("Attack");
+                Vector2 hitVector = other.transform.position - transform.position;
+                other.transform.GetComponent<Health>().Damage(damage, hitVector, Health.DamageType.EnemyAttack);
             }
         }
 
