@@ -79,7 +79,7 @@ namespace Anathema.Player
 			}
 
 			//	Changes state if the player Jumps
-			if(Input.GetKeyDown(KeyCode.Space))
+			if(Input.GetKey(KeyCode.Space))
 			{
 				animator.SetBool("IsRising", true);
 				rBody.velocity = new Vector2(rBody.velocity.x, 0f);
