@@ -12,7 +12,7 @@ namespace Anathema.ChasingRobot
         [Tooltip("Speed in which the robot is able to move.")]
         [SerializeField] float speed;
 
-        [Tooltip("Here goes the amount and the GameObjects which limits the chasing area. The spots must be in the ground.")]
+        [Tooltip("Here goes the amount and the GameObjects which limits the chasing area. The spots must be in the ground. In the prefab corresponds the blue spots.")]
         [SerializeField] Transform[] chaseSpots;
 
         [SerializeField] float rayGroundMaxDist;

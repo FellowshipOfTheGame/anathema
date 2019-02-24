@@ -12,8 +12,10 @@ namespace Anathema.ChasingRobot
         [Tooltip("Here goes the amount and the GameObjects which limits the robot patrol area. The spots must be in the ground.")]
         [SerializeField] Transform[] moveSpots;
 
-        [Tooltip("Here goes the amount and the GameObjects which limits the chasing area. The spots must be in the ground.")]
+        [Tooltip("Here goes the amount and the GameObjects which limits the chasing area. The spots must be in the ground. In the prefab corresponds the red spots.")]
         [SerializeField] Transform[] chaseSpots;
+
+        [Tooltip("The max value of the raycast that checks the ground.")]
         [SerializeField] float rayGroundMaxDist;
 
 

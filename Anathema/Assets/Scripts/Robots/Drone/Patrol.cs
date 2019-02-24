@@ -15,8 +15,12 @@ namespace Anathema.Drone
         [Tooltip("Amplitude in which the drone will move vertically through the room.")]
         [SerializeField] private float amplitude;
         
+         [Tooltip("attack damage of the drone.")]
          [SerializeField] int damage;
+
         private float time;
+        
+        //The initial position of the drone
         private Vector2 initialPos;
         public override void Enter()
         {
@@ -30,8 +34,6 @@ namespace Anathema.Drone
         {
             myrBody.MovePosition(new Vector2(this.transform.position.x + horizontalSpeed, initialPos.y + amplitude * Mathf.Sin(verticalSpeed * time)));
             time += Time.deltaTime;
-
-
         }
 
         /// <summary>

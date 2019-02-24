@@ -6,8 +6,12 @@ namespace Anathema.ChasingRobot
 {
     public class Attack : Anathema.Fsm.CleaningRobotState
     {
+        [Tooltip("The maximum distance to the player be considered lost.")]
         [SerializeField] float maxDist;
+        [Tooltip("The minimum distance between the robot and the player so it will keep chasing the player.")]
         [SerializeField] float miniDist;
+
+        [Tooltip("attack damage of the cleaning robot.")]
         [SerializeField] int damage;
 
         /// <summary>
