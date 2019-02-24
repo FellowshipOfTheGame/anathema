@@ -47,7 +47,7 @@ namespace Anathema.SpearAngel {
 			rBody.velocity = Vector2.zero;
 		}
 
-		void Update() {
+		new void Update() {
 			base.Update();
 		}
 		public override void Exit() { }
