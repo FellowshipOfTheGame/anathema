@@ -28,6 +28,8 @@ namespace Anathema.SpearAngel {
         new void Update () {
             base.Update();
             if (DistanceFrom(player) > lookRadius || DistanceFrom(originLocation) > baseAreaRadius) {
+				animator.SetBool("isFlying", true);
+				animator.SetBool("isAttacking", false);
                 fsm.Transition<Patrol>();
             } else if (DistanceFrom(player) < maxAttackDistance) {
                 fsm.Transition<Attack>();

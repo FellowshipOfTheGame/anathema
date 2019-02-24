@@ -22,6 +22,7 @@ namespace Anathema.SpearAngel {
 		/// Set patroling points and search for a path to patrol
 		/// </summary>
 		public override void Enter() { 
+			animator.SetBool("isFlying", true);
 			seeker =  GetComponent<Seeker>();
 
 			moving = false;
@@ -45,6 +46,9 @@ namespace Anathema.SpearAngel {
 			} else if (CanSeePlayer()) {
 				CancelInvoke();
 				rBody.velocity = Vector2.zero;
+				animator.SetBool("isFlying", false);
+				animator.SetBool("isAttacking", true);
+
 				fsm.Transition<Chase>();
 			} else if (!moving) {
 				Patrolling();
@@ -113,8 +117,10 @@ namespace Anathema.SpearAngel {
 			if (DistanceFrom(player) > lookRadius) {
 				return false;
 			} else if (!LookingToPlayer()) {
+				Debug.LogWarning("Lado errado");
 				return false;
 			} else if (!TryRaycasts()) {
+				Debug.LogWarning("AnjoCego");
 				return false;
 			} else {
 				Debug.LogWarning("Hehehe, I found you!");

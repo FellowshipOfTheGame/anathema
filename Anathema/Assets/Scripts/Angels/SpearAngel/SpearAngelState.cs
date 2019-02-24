@@ -5,6 +5,7 @@ using UnityEngine;
 namespace Anathema.Fsm {
 	public abstract class SpearAngelState : FsmState {
 		protected Rigidbody2D rBody;
+		protected Animator animator;
 		protected Vector3 originLocation;
 		[SerializeField] protected GameObject origin;
 		[SerializeField] protected float lookRadius;
@@ -16,8 +17,9 @@ namespace Anathema.Fsm {
 
 		new void Awake() {
 			base.Awake();
+			animator = GetComponent<Animator>();
 			rBody = GetComponent<Rigidbody2D>();
-			player = GameObject.Find("Player");
+			player = GameObject.FindGameObjectWithTag("Player");
 			originLocation = origin.transform.position;
 		}
 
