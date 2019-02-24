@@ -8,12 +8,19 @@ public class TextButtonList : MonoBehaviour
     [SerializeField] GameObject buttonPrefab;
     [SerializeField] TextButtonTheme theme;
     [SerializeField] [Reorderable] private ReorderableTextButtonList buttonPresets;
-    private void Start()
+    private void OnEnable()
     {
         foreach (TextButtonPreset preset in buttonPresets)
         {
             GameObject buttonObj = Instantiate(buttonPrefab, transform);
             preset.Apply(buttonObj, theme);
+        }
+    }
+    private void OnDisable()
+    {
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
         }
     }
 }
