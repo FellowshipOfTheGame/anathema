@@ -5,6 +5,7 @@ using UnityEngine;
 namespace Anathema.Fsm {
 	public abstract class SpearAngelState : FsmState {
 		protected Rigidbody2D rBody;
+		protected SpriteRenderer sRendeder;
 		protected Animator animator;
 		protected Vector3 originLocation;
 		[SerializeField] protected GameObject origin;
@@ -19,6 +20,7 @@ namespace Anathema.Fsm {
 			base.Awake();
 			animator = GetComponent<Animator>();
 			rBody = GetComponent<Rigidbody2D>();
+			sRendeder= GetComponent<SpriteRenderer>();
 			player = GameObject.FindGameObjectWithTag("Player");
 			originLocation = origin.transform.position;
 		}
@@ -33,8 +35,10 @@ namespace Anathema.Fsm {
 		protected void CheckSide() {
 			if (rBody.velocity.x > 0f) {
 				lookingRight = true;
+				sRendeder.flipX = true;
 			} else if (rBody.velocity.x < 0) {
 				lookingRight = false;
+				sRendeder.flipX = false;
 			}
 		}
 

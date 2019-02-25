@@ -117,10 +117,8 @@ namespace Anathema.SpearAngel {
 			if (DistanceFrom(player) > lookRadius) {
 				return false;
 			} else if (!LookingToPlayer()) {
-				Debug.LogWarning("Lado errado");
 				return false;
 			} else if (!TryRaycasts()) {
-				Debug.LogWarning("AnjoCego");
 				return false;
 			} else {
 				Debug.LogWarning("Hehehe, I found you!");
@@ -146,12 +144,12 @@ namespace Anathema.SpearAngel {
 		/// <returns>Returns true if (any of the) raycast(s) hit the player</returns>
 		protected bool TryRaycasts() {
 			RaycastHit2D hit = new RaycastHit2D();
-			hit = Physics2D.Raycast(this.transform.position, player.transform.position, Mathf.Infinity, enemyLookLayer);
+			hit = Physics2D.Raycast(this.transform.position, player.transform.position - this.transform.position, Mathf.Infinity, enemyLookLayer);
 			Debug.DrawLine(this.transform.position, player.transform.position, Color.green);
 			
 			if (hit) {
 				Debug.Log(hit.collider.gameObject.name);
-				if (hit.collider.gameObject.name == "Player") {
+				if (hit.collider.gameObject.CompareTag("Player")) {
 					return true;
 				} else {
 					return false;
