@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Anathema.Rooms;
+using Anathema.Saving;
 
 namespace Anathema.SceneLoading
 {
@@ -15,6 +16,7 @@ namespace Anathema.SceneLoading
         private string oldScene;
         private UniqueID destination;
         private GameObject player;
+        private GameData gameData;
         private string playerScene;
         /// <summary>
         /// Creates a new SceneLoader using loadingScene as loading screen.
@@ -38,6 +40,7 @@ namespace Anathema.SceneLoading
                     swapScenes.OldScene = oldScene;
                     swapScenes.Destination = destination;
                     swapScenes.Player = player;
+                    swapScenes.GameData = gameData;
                     swapScenes.PlayerScene = playerScene;
                     break;
                 }
@@ -50,10 +53,11 @@ namespace Anathema.SceneLoading
         /// <param name="oldScene">The scene to unload.</param>
         /// <param name="destination">The UniqueID of a destination UniqueComponent.</param>
         /// <param name="playerScene">The name of the Player scene to load.</param>
-        public void FadeScenes(string oldScene, UniqueID destination, string playerScene)
+        public void FadeScenes(string oldScene, string playerScene, GameData gameData)
         {
             this.playerScene = playerScene;
-            FadeScenes(oldScene, destination, (GameObject) null);
+            this.gameData = gameData;
+            FadeScenes(oldScene, gameData.spawnLocation, (GameObject) null);
         }
         /// <summary>
         /// Loads a new scene with a fade to black transition effect.

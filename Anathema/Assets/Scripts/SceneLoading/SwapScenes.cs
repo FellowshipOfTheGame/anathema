@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using Anathema.Fsm;
 using Anathema.Rooms;
 using Anathema.Player;
+using Anathema.Saving;
 
 namespace Anathema.SceneLoading
 {
@@ -22,6 +23,7 @@ namespace Anathema.SceneLoading
         public UniqueID Destination { get; set; }
         public string PlayerScene { get; set; }
         public GameObject Player { get; set; }
+        public GameData GameData { get; set; }
         private void OnOldSceneUnloaded(AsyncOperation opertation)
         {
             if (playerSceneLoadOperation != null)
@@ -73,6 +75,24 @@ namespace Anathema.SceneLoading
                     }
                     Player.transform.position = UniqueComponent.Find(Destination)?.transform.position ?? Vector3.zero;
                 }
+                
+                if (GameData != null)
+                {
+                    PlayerUpgrades playerUpgrades = Player.GetComponent<PlayerUpgrades>();
+                    if (playerUpgrades)
+                    {
+                        playerUpgrades.LoadData(GameData);
+                    }
+                    else
+                    {
+                        Debug.Log("SwapScenes: TransitionStart(): Can't find PlayerUpgrades in Player");
+                    }
+                }
+                else
+                {
+                    Debug.Log("SwapScenes: TransitionStart(): No GameData to load");
+                }
+
                 Player.SetActive(true);
                 FiniteStateMachine playerFSM = Player.GetComponent<FiniteStateMachine>();
                 playerFSM.Transition<Idle>();

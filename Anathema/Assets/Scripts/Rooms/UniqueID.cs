@@ -58,6 +58,14 @@ namespace Anathema.Rooms
             this.sceneName = sceneName;
         }
         
+        /// <param name="sceneName">Sets <see cref="SceneName"/></param>
+        /// <param name="objectName">Sets <see cref="ObjectName"/></param>
+        public UniqueID(string sceneName, string objectName)
+        {
+            this.sceneName = sceneName;
+            this.objectName = objectName;
+        }
+        
         /// <summary>
         /// Converts this <see cref="UniqueID"/> to a string representation.
         /// </summary>

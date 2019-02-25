@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial-4.unity
     guid: b3c18f6c661ace14ab125d1fd3e64544
   - enabled: 1
+    path: Assets/Scenes/Tutorial-SaveRoom.unity
+    guid: 4740668d48f9f4f0192dc11ca4433745
+  - enabled: 1
     path: Assets/Scenes/ThankYou.unity
     guid: bdfd6c241b9148f488b1b334c2d5be35
   m_configObjects: {}
