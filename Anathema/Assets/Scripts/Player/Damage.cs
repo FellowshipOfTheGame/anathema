@@ -22,19 +22,16 @@ namespace Anathema.Player
 		public override void Enter()
 		{
 			Invoke("EndKnockback", duration);
+			animator.SetBool("IsDamaged", true);
+			playerHealth = GetComponent<Health>();
+			playerHealth.isInvulnerable = true;
+			rBody.velocity = knockbackDirection * knockbackForce;
 		}
 
 		private void FixedUpdate()
 		{
 			if(playerHealth.isInvulnerable)
 				rBody.velocity *= decelerationRate;
-			else
-			{
-				animator.SetBool("IsDamaged", true);
-				playerHealth = GetComponent<Health>();
-				playerHealth.isInvulnerable = true;
-				rBody.velocity = knockbackDirection * knockbackForce;
-			}
 		}
 
 		void EndKnockback()

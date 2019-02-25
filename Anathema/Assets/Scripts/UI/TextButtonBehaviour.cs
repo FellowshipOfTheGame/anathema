@@ -17,6 +17,7 @@ public class TextButtonBehaviour : StateMachineBehaviour
 			if (!textMesh) return;
 		}
 		originalText = textMesh.text;
+
 		textMesh.text = Style.Prefix + originalText + Style.Suffix;
 
 		textMesh.color = Style.TextColor;
