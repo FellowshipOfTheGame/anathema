@@ -19,6 +19,7 @@ namespace Anathema.SceneLoading
         private AsyncOperation playerSceneLoadOperation = null;
         private bool newSceneLoaded = false;
         private bool playerSceneLoaded = false;
+        public bool ReloadPlayerScene { get; set; }
         public string OldScene { get; set; }
         public UniqueID Destination { get; set; }
         public string PlayerScene { get; set; }
@@ -102,9 +103,13 @@ namespace Anathema.SceneLoading
         public override void Enter()
         {
             SceneManager.UnloadSceneAsync(OldScene).completed += OnOldSceneUnloaded;
-
+            
             if (PlayerScene != null)
             {
+                if (ReloadPlayerScene)
+                {
+                    SceneManager.UnloadSceneAsync(PlayerScene);
+                }
                 playerSceneLoadOperation = SceneManager.LoadSceneAsync(PlayerScene, LoadSceneMode.Additive);
                 playerSceneLoadOperation.allowSceneActivation = false;
                 playerSceneLoadOperation.completed += OnPlayerSceneLoaded;

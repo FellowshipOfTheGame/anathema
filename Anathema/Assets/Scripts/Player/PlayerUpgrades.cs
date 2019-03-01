@@ -54,6 +54,13 @@ namespace Anathema.Player
                 gameData.maxHealth = value;
             }
         }
+        public string ProfileName
+        {
+            get
+            {
+                return gameData.ProfileName;
+            }
+        }
         public void LoadData(GameData gameData)
         {
             this.gameData = gameData;

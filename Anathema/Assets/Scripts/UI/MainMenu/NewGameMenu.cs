@@ -28,6 +28,7 @@ namespace Anathema.UI.MainMenu
        
                 SaveProfile saveProfile = new SaveProfile(textMesh.text);
                 defaultGameData.ProfileName = textMesh.text;
+                saveProfile.Save(defaultGameData);
 
                 loadStarted = true;
                 SceneLoader loader = new SceneLoader(loadingScene);

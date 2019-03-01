@@ -31,18 +31,18 @@ public class Health : MonoBehaviour {
     /// <returns>   Whether or not it was successful (false when player is invulnerable) </returns>
     public bool Damage(int value, Vector2 hitVector, DamageType damageType)
     {
+        if(isInvulnerable)
+            return false;
         switch(damageType)
         {
             case DamageType.EnemyAttack:
-                OnKnockback(hitVector);
+                OnKnockback?.Invoke(hitVector);
                 goto case DamageType.NormalDamage;
 
             case DamageType.LevelHazard:
                 goto case DamageType.NormalDamage;
 
             case DamageType.NormalDamage:
-                if(isInvulnerable)
-                    return false;
 
                 hp -= value;
                 //OnHealthChange(hp);
@@ -50,7 +50,7 @@ public class Health : MonoBehaviour {
                 if(hp < 0)
                 {
                     hp = 0;
-                    OnDeath();
+                    OnDeath?.Invoke();
                 }
                 break;
 
@@ -59,7 +59,7 @@ public class Health : MonoBehaviour {
                     return false;
 
                 hp += value;
-                OnHealthChange(hp);
+                OnHealthChange?.Invoke(hp);
 
                 if(hp > maxHP)
                     hp = maxHP;

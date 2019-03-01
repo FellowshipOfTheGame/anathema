@@ -8,7 +8,10 @@ namespace Anathema.Graphics
         private new Renderer renderer;
         private float startTime;
         private bool burning = false;
-        MaterialPropertyBlock properties;
+        private MaterialPropertyBlock properties;
+        
+        public delegate void BurnCompleteHandler();
+        public event BurnCompleteHandler OnBurnComplete;
 
         private void Start()
         {
@@ -33,6 +36,7 @@ namespace Anathema.Graphics
                 if (burnProgress >= 1f)
                 {
                     burning = false;
+                    OnBurnComplete();
                 }
 
                 renderer.GetPropertyBlock(properties);

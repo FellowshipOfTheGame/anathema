@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Anathema.Graphics;
 
 namespace Anathema.ChasingRobot
 {
@@ -9,12 +10,15 @@ namespace Anathema.ChasingRobot
     {
         private Animator animator;
         private Anathema.Fsm.FiniteStateMachine fsm;
+        private SpriteBurn spriteBurn;
         void Awake()
         {
             animator = GetComponent<Animator>();
             fsm = GetComponent<Anathema.Fsm.FiniteStateMachine>();
+            spriteBurn = GetComponent<SpriteBurn>();
             OnKnockback += OnHit;
-            OnDeath += Die;
+            OnDeath += DeathAnimation;
+            spriteBurn.OnBurnComplete += Die;
         }
 
         void OnHit(Vector2 hitVector)
@@ -24,10 +28,16 @@ namespace Anathema.ChasingRobot
             fsm.Transition<KnockBack>();
         }
 
+        void DeathAnimation()
+        {
+            spriteBurn.Burn();
+            OnDeath -= DeathAnimation;
+        }
+
         void Die()
         {
             OnKnockback -= OnHit;
-            OnDeath -= Die;
+            spriteBurn.OnBurnComplete -= Die;
             Destroy(this.gameObject);
         }
     }
