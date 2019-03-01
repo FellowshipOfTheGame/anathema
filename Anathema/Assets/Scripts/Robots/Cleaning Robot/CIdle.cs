@@ -6,14 +6,15 @@ namespace Anathema.ChasingRobot
 {
     public class CIdle : Anathema.Fsm.CleaningRobotState
     {
-        /// <summary>
-        /// In this class, the Enter is used check if the player can be found and switches the movement state 
-        /// </summary>
         public override void Enter() { }
 
+        /// <summary>
+        /// In this class the Update is used to check if the player can be found, and if so will change the state.
+        /// </summary>
         void Update()
         {
-             if ((GameObject.FindGameObjectWithTag("Player")) != null)
+            player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+             if (player != null)
             {
                 animator.SetBool("isPatrolling", true);
                 fsm.Transition<Patrol>();
