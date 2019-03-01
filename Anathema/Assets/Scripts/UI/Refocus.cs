@@ -37,6 +37,10 @@ namespace Anathema.UI
                     }
                 }
             }
+            else
+            {
+                lastSelected = sys.currentSelectedGameObject;
+            }
         }
     }
 }
