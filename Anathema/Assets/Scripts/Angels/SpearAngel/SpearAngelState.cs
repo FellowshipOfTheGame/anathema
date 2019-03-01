@@ -8,6 +8,7 @@ namespace Anathema.Fsm {
 		protected SpriteRenderer sRendeder;
 		protected Animator animator;
 		protected Vector3 originLocation;
+		[SerializeField] protected int damage;
 		[SerializeField] protected GameObject origin;
 		[SerializeField] protected float lookRadius;
 		[SerializeField] protected float baseAreaRadius;
@@ -35,10 +36,10 @@ namespace Anathema.Fsm {
 		protected void CheckSide() {
 			if (rBody.velocity.x > 0f) {
 				lookingRight = true;
-				sRendeder.flipX = true;
+				sRendeder.flipX = false;
 			} else if (rBody.velocity.x < 0) {
 				lookingRight = false;
-				sRendeder.flipX = false;
+				sRendeder.flipX = true;
 			}
 		}
 
@@ -52,6 +53,14 @@ namespace Anathema.Fsm {
 		protected float DistanceFrom(Vector3 otherObject) {
 			return Vector2.Distance(otherObject, this.transform.position);
 		}
+
+		protected void OnCollisionEnter2D(Collision2D other) {
+			if (other.gameObject.CompareTag("Player")) {
+				Debug.LogWarning("Attacking Player");
+				other.gameObject.GetComponent<Health>().Damage(damage, -this.transform.position + other.transform.position, Health.DamageType.EnemyAttack);
+			}
+		}
+
 
 		/// <summary>
 		/// Draws angel's look radius, that represents its sight area
