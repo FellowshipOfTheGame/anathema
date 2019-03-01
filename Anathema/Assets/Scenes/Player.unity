@@ -113,6 +113,47 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &97993321
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 97993323}
+  - component: {fileID: 97993322}
+  m_Layer: 0
+  m_Name: Cheats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &97993322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 97993321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3582dd9a540044a4aaab3547360183f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadingSceneName: Loading
+--- !u!4 &97993323
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 97993321}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &252765733
 Prefab:
   m_ObjectHideFlags: 0
@@ -394,6 +435,7 @@ MonoBehaviour:
     - useCustomTheme: 0
       customTheme: {fileID: 0}
       text: Continue
+      disableInteraction: 0
       forceSelectOnStart: 1
       onClick:
         m_PersistentCalls:
@@ -414,6 +456,7 @@ MonoBehaviour:
     - useCustomTheme: 0
       customTheme: {fileID: 0}
       text: Load Game
+      disableInteraction: 0
       forceSelectOnStart: 0
       onClick:
         m_PersistentCalls:
@@ -423,6 +466,7 @@ MonoBehaviour:
     - useCustomTheme: 0
       customTheme: {fileID: 0}
       text: Exit
+      disableInteraction: 0
       forceSelectOnStart: 0
       onClick:
         m_PersistentCalls:
@@ -472,6 +516,7 @@ GameObject:
   - component: {fileID: 736267557}
   - component: {fileID: 736267556}
   - component: {fileID: 736267555}
+  - component: {fileID: 736267558}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -524,6 +569,17 @@ Transform:
   m_Father: {fileID: 1167229839}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &736267558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 736267554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7c1a7a117d474b8ebd85e6c0b2846f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &913779747
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,6 +606,7 @@ GameObject:
   - component: {fileID: 913779750}
   - component: {fileID: 913779749}
   - component: {fileID: 913779748}
+  - component: {fileID: 913779765}
   m_Layer: 0
   m_Name: Player3.1
   m_TagString: Player
@@ -564,7 +621,7 @@ CapsuleCollider2D:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 913779747}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -857,6 +914,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _state: {fileID: 913779758}
+--- !u!114 &913779765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 913779747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36670cfcf40d84429abf6b59b517cbf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameData:
+    hasScythe: 1
+    hasDoubleJump: 1
+    hasFireAttack: 1
+    maxHealth: 100
+    spawnLocation:
+      useCurrentSceneName: 0
+      sceneName: Tutorial-0
+      objectName: Spawn
 --- !u!1 &1041668849
 GameObject:
   m_ObjectHideFlags: 0

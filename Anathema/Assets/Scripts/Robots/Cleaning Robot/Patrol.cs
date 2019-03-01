@@ -7,13 +7,17 @@ namespace Anathema.ChasingRobot
     public class Patrol : Anathema.Fsm.CleaningRobotState
     {
         [Tooltip("Speed in which the robot is able to move.")]
-        [SerializeField] float speed = 5f;
+        [SerializeField] float speed = 3f;
 
         [Tooltip("Here goes the amount and the GameObjects which limits the robot patrol area. The spots must be in the ground.")]
         [SerializeField] Transform[] moveSpots;
 
-        [Tooltip("Here goes the amount and the GameObjects which limits the chasing area. The spots must be in the ground.")]
+        [Tooltip("Here goes the amount and the GameObjects which limits the chasing area. The spots must be in the ground. In the prefab corresponds the red spots.")]
         [SerializeField] Transform[] chaseSpots;
+
+        [Tooltip("The max value of the raycast that checks the ground.")]
+        [SerializeField] float rayGroundMaxDist;
+
 
         //Stores the spot which the robot is heading
         private int currentSpot;
@@ -24,7 +28,6 @@ namespace Anathema.ChasingRobot
         //Stores the position of the spot which the robot is heading
         private Vector2 nextPos;
 
-        private Vector2 distBetweenSpots;
 
         /// <summary>
         /// In this class, the Enter is used to find the player and get it's Transform component
@@ -33,9 +36,7 @@ namespace Anathema.ChasingRobot
         public override void Enter()
         {
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-            currentScale = transform.localScale;
             currentSpot = 0;
-            distBetweenSpots = chaseSpots[0].position - chaseSpots[1].position;
             robotPos = transform.position;
             nextPos = moveSpots[currentSpot].position;
             Flip();
@@ -93,13 +94,18 @@ namespace Anathema.ChasingRobot
         }
 
         /// <summary>
-        /// This function changes the state if the player was found
+        /// This method changes the state if the player was found
         /// </summary>
         private void FindPlayer()
         {
-            if ((RaycastUpdate() == true) || (RaycastUpdate() == false) && CheckPlayer() == true)
+            if (RaycastUpdate() == true && CheckPlayer() == true && RaycastGroundCheck() == true)
             {
-                Debug.Log("Player is in the area");
+                animator.SetBool("isChasing", true);
+                animator.SetBool("isPatrolling", false);
+                fsm.Transition<Chase>();
+            }
+            else if (RaycastUpdate() == false && CheckPlayer() == true && RaycastGroundCheck() == true)
+            {
                 animator.SetBool("isChasing", true);
                 animator.SetBool("isPatrolling", false);
                 fsm.Transition<Chase>();
@@ -124,12 +130,12 @@ namespace Anathema.ChasingRobot
 
         /// <summary>
         /// Checks if the player is near/ in the line of sight of the robot based on the raycast. Also changes the direction
-        /// of the raycast according to the direction of the robot.
+        /// of the raycast according to the direction the robot is facing.
         /// </summary>
         private bool RaycastUpdate()
         {
             Vector2 direction = new Vector2(1, 0);
-            if (transform.localScale.x < 0)
+            if (sRenderer.flipX == true)
             {
                 direction *= -1;
             }
@@ -147,42 +153,51 @@ namespace Anathema.ChasingRobot
         }
 
         /// <summary>
-        /// This function flips the robot, according to the direction which it's heading and the current scale 
+        /// Checks if the robot is walking in the ground
+        /// </summary>
+        private RaycastHit2D RaycastGroundCheck()
+        {
+            Debug.DrawRay(transform.position, Vector2.down, Color.red);
+            RaycastHit2D groundInfo = Physics2D.Raycast(transform.position, Vector2.down, rayGroundMaxDist, LayerMask.GetMask("Ground"));
+
+            return groundInfo;
+        }
+
+        /// <summary>
+        /// This method flips the robot, according to the direction which it's heading and the Sprite flipping
         /// </summary>
         private void Flip()
         {
 
-            if (nextPos.x < robotPos.x && currentScale.x > 0)
+            if (nextPos.x < robotPos.x && sRenderer.flipX == false)
             {
+                sRenderer.flipX = true;
 
-                currentScale = transform.localScale;
-                currentScale.x *= -1;
-                transform.localScale = currentScale;
             }
-            else if (nextPos.x > robotPos.x && currentScale.x < 0)
+            else if (nextPos.x > robotPos.x && sRenderer.flipX == true)
             {
-
-                currentScale = transform.localScale;
-                currentScale.x *= -1;
-                transform.localScale = currentScale;
+                sRenderer.flipX = false;
             }
 
         }
 
+        /// <summary>
+        /// This method checks if the player is in the chasing area, which is the space between the two chaseSpots.
+        /// </summary>
+        /// <returns></returns>
         private bool CheckPlayer()
         {
             Collider2D hits = Physics2D.OverlapArea(chaseSpots[0].position, chaseSpots[1].position, LayerMask.GetMask("Player"));
             Debug.DrawLine(chaseSpots[0].position, chaseSpots[1].position, Color.blue);
-            //Collider2D hit = Physics2D.OverlapBox(new Vector2(distBetweenSpots.x/2, chaseSpots[1].position.y), distBetweenSpots, LayerMask.GetMask("Player"));
             if (hits)
             {
-    
+
                 if (hits.CompareTag("Player"))
                 {
                     return true;
                 }
             }
-             return false;
+            return false;
 
         }
 

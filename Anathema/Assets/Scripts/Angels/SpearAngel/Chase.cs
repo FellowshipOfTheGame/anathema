@@ -25,9 +25,11 @@ namespace Anathema.SpearAngel {
         /// Checks if the angel can see the player, and if it's on its base area. If so, start patrolling.
         /// Then checks if it'ss near enough to attack.
         /// </summary>
-        void Update () {
+        new void Update () {
             base.Update();
             if (DistanceFrom(player) > lookRadius || DistanceFrom(originLocation) > baseAreaRadius) {
+				animator.SetBool("isFlying", true);
+				animator.SetBool("isAttacking", false);
                 fsm.Transition<Patrol>();
             } else if (DistanceFrom(player) < maxAttackDistance) {
                 fsm.Transition<Attack>();

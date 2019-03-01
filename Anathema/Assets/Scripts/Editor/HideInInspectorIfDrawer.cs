@@ -25,7 +25,6 @@ namespace Anathema.Editor
         }
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-            //Debug.Log(((MonoBehaviour)property.serializedObject.targetObject).GetComponent<Collider2D>());
             if (!IsHidden(property))
             {
                 EditorGUI.BeginProperty(position, label, property);

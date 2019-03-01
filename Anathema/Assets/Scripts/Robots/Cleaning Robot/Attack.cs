@@ -6,8 +6,12 @@ namespace Anathema.ChasingRobot
 {
     public class Attack : Anathema.Fsm.CleaningRobotState
     {
+        [Tooltip("The maximum distance to the player be considered lost.")]
         [SerializeField] float maxDist;
+        [Tooltip("The minimum distance between the robot and the player so it will keep chasing the player.")]
         [SerializeField] float miniDist;
+
+        [Tooltip("attack damage of the cleaning robot.")]
         [SerializeField] int damage;
 
         /// <summary>
@@ -16,7 +20,6 @@ namespace Anathema.ChasingRobot
         public override void Enter()
         {
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-            
         }
 
         /// <summary>
@@ -47,7 +50,7 @@ namespace Anathema.ChasingRobot
             }
         }
 
-      
+
         /// <summary>
         /// Gets the raycast which is used to look for the player
         /// </summary>
@@ -71,7 +74,7 @@ namespace Anathema.ChasingRobot
         private bool RaycastUpdate()
         {
             Vector2 direction = new Vector2(1, 0);
-            if (transform.localScale.x < 0)
+            if (sRenderer.flipX == true)
             {
                 direction *= -1;
             }
@@ -82,14 +85,15 @@ namespace Anathema.ChasingRobot
             {
                 if (hit.collider.CompareTag("Player"))
                 {
-                    if(playerDist.magnitude < miniDist)
+                    if (playerDist.magnitude < miniDist)
                     {
-                        //hit.transform.GetComponent<Health>().Hp-=damage;
-                        Debug.Log("Damaging Player");
-                       //fsm.Transition<KnockBack>();
+                        Debug.Log("Attack");
+                        Vector2 hitVector = hit.transform.position - transform.position;
+                        hit.transform.GetComponent<Health>().Damage(damage, hitVector, Health.DamageType.EnemyAttack);
+                        //fsm.Transition<KnockBack>();
                     }
                 }
-                    return true;
+                return true;
             }
 
             return false;

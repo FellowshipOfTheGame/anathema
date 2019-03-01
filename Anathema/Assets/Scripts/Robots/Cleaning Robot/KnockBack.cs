@@ -13,13 +13,13 @@ namespace Anathema.ChasingRobot
         [SerializeField] private int knockbackPwr;
         public override void Enter()
         {
-            if (transform.localScale.x > 0)
+            if (sRenderer.flipX == false)
+            {
+                StartCoroutine(KnockBackRobot(knockbackDur, -knockbackPwr, Vector2.left));
+            }
+            else if (sRenderer.flipX == true)
             {
                 StartCoroutine(KnockBackRobot(knockbackDur, knockbackPwr, Vector2.left));
-            }
-            else if (transform.localScale.x < 0)
-            {
-                StartCoroutine(KnockBackRobot(knockbackDur, knockbackPwr, Vector2.right));
             }
             fsm.Transition<Chase>();
         }

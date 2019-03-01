@@ -8,6 +8,11 @@ public class TextButtonList : MonoBehaviour
     [SerializeField] GameObject buttonPrefab;
     [SerializeField] TextButtonTheme theme;
     [SerializeField] [Reorderable] private ReorderableTextButtonList buttonPresets;
+    public ReorderableTextButtonList ButtonPresets
+    {
+        get { return buttonPresets; }
+        set { buttonPresets = value; }
+    }
     private void OnEnable()
     {
         foreach (TextButtonPreset preset in buttonPresets)
