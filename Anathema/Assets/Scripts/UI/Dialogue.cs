@@ -5,7 +5,7 @@ using Malee;
 
 namespace Anathema.Dialogue
 {
-    [CreateAssetMenu(fileName = "NewDialogue", menuName = "Anathema/Dialogue/Dialogue", order = 0)]
+    [CreateAssetMenu(fileName = "NewDialogue", menuName = "Anathema/Dialogue")]
     public class Dialogue : ScriptableObject
     {
         [Reorderable] public ReorderableDialogueList lines;
