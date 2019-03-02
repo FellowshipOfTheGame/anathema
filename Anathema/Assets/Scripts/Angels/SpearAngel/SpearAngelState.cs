@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Anathema.Player;
 
 namespace Anathema.Fsm {
 	public abstract class SpearAngelState : FsmState {
 		protected Rigidbody2D rBody;
-		protected SpriteRenderer sRendeder;
+		protected SpriteRenderer sRenderer;
 		protected Animator animator;
 		protected Vector3 originLocation;
+		[SerializeField] private string playerSceneName = "Player";
 		[SerializeField] protected int damage;
 		[SerializeField] protected GameObject origin;
 		[SerializeField] protected float lookRadius;
@@ -21,8 +23,8 @@ namespace Anathema.Fsm {
 			base.Awake();
 			animator = GetComponent<Animator>();
 			rBody = GetComponent<Rigidbody2D>();
-			sRendeder= GetComponent<SpriteRenderer>();
-			player = GameObject.FindGameObjectWithTag("Player");
+			sRenderer= GetComponent<SpriteRenderer>();
+			player = PlayerFinder.Find(playerSceneName);
 			originLocation = origin.transform.position;
 		}
 
@@ -36,10 +38,10 @@ namespace Anathema.Fsm {
 		protected void CheckSide() {
 			if (rBody.velocity.x > 0f) {
 				lookingRight = true;
-				sRendeder.flipX = false;
+				sRenderer.flipX = false;
 			} else if (rBody.velocity.x < 0) {
 				lookingRight = false;
-				sRendeder.flipX = true;
+				sRenderer.flipX = true;
 			}
 		}
 

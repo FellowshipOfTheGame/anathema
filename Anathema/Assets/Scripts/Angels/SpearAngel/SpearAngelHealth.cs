@@ -1,26 +1,38 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Anathema.Graphics;
 
 namespace Anathema.SpearAngel {
 	public class SpearAngelHealth : Health {
         private Animator animator;
-        // private Anathema.Fsm.FiniteStateMachine fsm;
+        private SpriteBurn spriteBurn;
+        private Anathema.Fsm.FiniteStateMachine fsm;
 
         void Awake() {
             animator = GetComponent<Animator>();
+            fsm = GetComponent<Anathema.Fsm.FiniteStateMachine>();
+            spriteBurn = GetComponent<SpriteBurn>();
             OnKnockback += OnHit;
-            OnDeath += Die;
+            OnDeath += DeathAnimation;
+            spriteBurn.OnBurnComplete += Die;
         }
 
         void OnHit(Vector2 hitVector) {
-            // Debug.Log("knockBack");
+            Debug.Log("knockBack");
             // animator.Play("DamageFeedback");
+            fsm.Transition<Knockback>();
+        }
+        
+        void DeathAnimation()
+        {
+            OnDeath -= DeathAnimation;
+            spriteBurn.Burn();
         }
 
         void Die() {
             OnKnockback -= OnHit;
-            OnDeath -= Die;
+            spriteBurn.OnBurnComplete -= Die;
             Destroy(this.gameObject);
         }
     }
