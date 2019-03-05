@@ -13,8 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
     array:
-    - title: 
-      text: '"Possible Threats Ed.78: Girl"'
+    - title: 'Possible Threats: Amy Solas'
+      text: '"Possible Threats: Amy Solas"'
       onEnterAction:
         m_PersistentCalls:
           m_Calls: []
@@ -25,8 +25,8 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: 
-      text: 'Name: Girl
+    - title: 'Possible Threats: Amy Solas'
+      text: 'Name: Amy Solas
 
         Born in: XXXX
 
@@ -43,11 +43,11 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: 
+    - title: 'Possible Threats: Amy Solas'
       text: 'XXXX/XX/XX:  Problematic parents... problematic daughter. We should''ve
         dealt with her alongside her rebel parents. We were careless and didn''t notice
-        she was hiding under the bed back in XXXX when we paid her parents a visit...
-        those filthy traitors!'
+        she was hiding under the bed back when we paid her parents a visit... those
+        filthy traitors!'
       onEnterAction:
         m_PersistentCalls:
           m_Calls: []
@@ -58,7 +58,20 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: 
+    - title: 'Possible Threats: Amy Solas'
+      text: It was only after we set the place on fire and left that it came to our
+        knowledge that a little girl was able to escape the fire... witch!
+      onEnterAction:
+        m_PersistentCalls:
+          m_Calls: []
+        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      onExitAction:
+        m_PersistentCalls:
+          m_Calls: []
+        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+    - title: 'Possible Threats: Amy Solas'
       text: 'For now we left her but a warning: if she tells anyone about what happened
         that day, there will be consequences. She''ll be under our watch in the XXXXXX
         orphanage.'
@@ -72,10 +85,10 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: 
+    - title: 'Possible Threats: Amy Solas'
       text: 'XXXX/XX/XX: My suspicions were right all along. We heard from the orphanage
-        staff that the cursed child, Player, is now close friends with her and it
-        seems that he''s being rebellious as well... That filthy witch must have whispered
+        staff that Amy has been approaching the demon child, Player, and his behaviour
+        has changed... he''s acting rebellious! That filthy witch must have whispered
         something to him...'
       onEnterAction:
         m_PersistentCalls:
@@ -87,11 +100,9 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: 
-      text: 'They must be plotting something at this very moment! This has to stop.
-        I''m summoning guards soon, we''ll have to pay the orphanage a visit...
-
-        I told her that there would be consequences.'
+    - title: 'Possible Threats: Amy Solas'
+      text: They must be plotting something at this very moment! If this information
+        reaches king David he'll be furious... Something must be done.
       onEnterAction:
         m_PersistentCalls:
           m_Calls: []
@@ -102,7 +113,22 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: 
+    - title: 'Possible Threats: Amy Solas'
+      text: 'I''m summoning guards soon, we''ll have to pay the orphanage a visit...
+
+        I told her that there would be consequences. That''ll teach the demon child
+        a lesson, too...'
+      onEnterAction:
+        m_PersistentCalls:
+          m_Calls: []
+        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      onExitAction:
+        m_PersistentCalls:
+          m_Calls: []
+        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+    - title: 'Possible Threats: Amy Solas'
       text: '- Captain of the Holy Guard, Gabriel.'
       onEnterAction:
         m_PersistentCalls:
@@ -117,9 +143,19 @@ MonoBehaviour:
     - title: Abner
       text: 'She didn''t even tell me anything about her parents...
 
-        All she did was give me hope.
-
-        How dare him... HOW DARE HIM?!'
+        All she did was give me hope.'
+      onEnterAction:
+        m_PersistentCalls:
+          m_Calls: []
+        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      onExitAction:
+        m_PersistentCalls:
+          m_Calls: []
+        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+    - title: Abner
+      text: I'll make them pay... Every single one them... I'LL MAKE THEM PAY!
       onEnterAction:
         m_PersistentCalls:
           m_Calls: []

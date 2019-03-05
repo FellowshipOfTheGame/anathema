@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91473fd4c3c1de74a91ca4b8d7e0ae09, type: 3}
-  m_Name: Library 2
+  m_Name: Library 1
   m_EditorClassIdentifier: 
   lines:
     array:
     - title: 
-      text: '"Issue Logs: Enzo''s Death"'
+      text: '"Issue Logs: Illegal Sheltering"'
       onEnterAction:
         m_PersistentCalls:
           m_Calls: []
@@ -25,9 +25,9 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: 'Issue Logs: Enzo''s Death'
-      text: XXXX/XX/XX Murdered... MURDERED!! There is no oher way of putting it...
-        my dear son... my dear prince! Murdered by a filthy peasant!
+    - title: 'Issue Logs: Illegal Sheltering'
+      text: 'XXXX/XX/XX: We''ve been informed by one of our agents that a certain
+        couple of medics have been treating and sheltering enemies of the state.'
       onEnterAction:
         m_PersistentCalls:
           m_Calls: []
@@ -38,10 +38,9 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: 'Issue Logs: Enzo''s Death'
-      text: I won't have it. That kid will be held accontable. That peasant shouldn't
-        even have been allowed to be at a 30 meter distance from my dear Enzo. I'm
-        sure he did it on purpose! It was all jealously, I tell you!
+    - title: 'Issue Logs: Illegal Sheltering'
+      text: The name of the suspects are Bernael and Lilith Solas, they also have
+        an 11 year old daughter named Amy that lives in the same residence.
       onEnterAction:
         m_PersistentCalls:
           m_Calls: []
@@ -52,11 +51,10 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: 'Issue Logs: Enzo''s Death'
-      text: Judas keeps trying to tell me that it must've been an accident... and
-        here I was thinking he was wise! Ha! He doesn't understand how peasants can
-        be dangerous!  That demon child pushed my son down those stairs! I'm sure
-        of it!
+    - title: 'Issue Logs: Illegal Sheltering'
+      text: As for the people there are sheltering in their basement, they range from
+        excommunicates of all sorts to prison fugitives and fallen angels. This is
+        a serious sin and needs immediate counteraction.
       onEnterAction:
         m_PersistentCalls:
           m_Calls: []
@@ -67,10 +65,9 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: 'Issue Logs: Enzo''s Death'
-      text: Gabriel agrees with me. He knows better than anyone else how problematic
-        the peasantry can be. I've just sent him to town to find and bring me that
-        child. This won't be left unsettled.
+    - title: 'Issue Logs: Illegal Sheltering'
+      text: 'XXXX/XX/XX: I''ve talked to my generals and to king David and we concluded
+        that the best course of action is to retaliate directly, but stealthily. '
       onEnterAction:
         m_PersistentCalls:
           m_Calls: []
@@ -81,9 +78,10 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: 'Issue Logs: Enzo''s Death'
-      text: 'XXXX/XX/XX: Gabriel is back, but not with the child...he has his parents
-        instead. It seems that they begged to suffer the consequences in his place.'
+    - title: 'Issue Logs: Illegal Sheltering'
+      text: The sheltered subjects are high profile criminals, several of them were
+        originally concealed from the public to avoid... commotions. We came to the
+        conclusion that the best course of action is to eliminate them.
       onEnterAction:
         m_PersistentCalls:
           m_Calls: []
@@ -94,11 +92,10 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: 'Issue Logs: Enzo''s Death'
-      text: According to Gabriel, that would be the best move... the child will be
-        treated like the imp he is but we will be seen as mercyful by sparing him!
-        We can instead hang his parents... HA! The kid will be blamed for everything
-        and will suffer the guilt for the rest of his life!
+    - title: 'Issue Logs: Illegal Sheltering'
+      text: As for the couple... we'll have to make something up. The general public
+        won't miss the criminals they didn't even know existed but that doesn't apply
+        to the couple. We also have the matter of getting rid of all the bodies...
       onEnterAction:
         m_PersistentCalls:
           m_Calls: []
@@ -109,11 +106,10 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: 'Issue Logs: Enzo''s Death'
-      text: That's even better than hanging him hahaha! Gabriel is a genius! And who
-        knows... their parents could've been the ones who asked him to murder my Enzo!
-        That's it! Why else would they offer themselves like that? Guilt of course!
-        Disgusting!
+    - title: 'Issue Logs: Illegal Sheltering'
+      text: So I came up with the idea of burning the place down. We kill everyone
+        first, just to make sure, then we start a fire to get rid of the evidence
+        and make it seem like it was the fire that took their lives... Perfect!
       onEnterAction:
         m_PersistentCalls:
           m_Calls: []
@@ -124,11 +120,10 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: 'Issue Logs: Enzo''s Death'
-      text: 'I''m not wasting time. I''m setting up the trial right away.
-
-        As for that cursed little brat...  I hope to never see him again! I''ll leave
-        it to Gabriel to deal with him. I hope he suffers...'
+    - title: 'Issue Logs: Illegal Sheltering'
+      text: I'll begin the preparations immediately. I'll summon trustworty guards
+        and we'll do this tonight. If there are no other reports on this log, it means
+        the mission was successful.
       onEnterAction:
         m_PersistentCalls:
           m_Calls: []
@@ -139,20 +134,8 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: 'Issue Logs: Enzo''s Death'
-      text: '- Your highness, King David II.'
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-    - title: Player
-      text: '...'
+    - title: 'Issue Logs: Illegal Sheltering'
+      text: '- Captain of the Holy Guard, Gabriel.'
       onEnterAction:
         m_PersistentCalls:
           m_Calls: []
@@ -164,7 +147,8 @@ MonoBehaviour:
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
     - title: Player
-      text: How dare them... HOW DARE THEM?!
+      text: All because they were treating the people you rejected... you SLAUGHTER
+        them without mercy? And Amy had to witness it all...
       onEnterAction:
         m_PersistentCalls:
           m_Calls: []
@@ -176,7 +160,8 @@ MonoBehaviour:
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
     - title: Player
-      text: I'll SLAUGHTER you the same way you SLAUGHTERED everyone I ever loved.
+      text: If there was any guilt at all still remaining within me, there isn't anymore.
+        I'm coming for you... I'm coming for ALL of you.
       onEnterAction:
         m_PersistentCalls:
           m_Calls: []
