@@ -87,7 +87,7 @@ MonoBehaviour:
           Culture=neutral, PublicKeyToken=null
     - title: 'Possible Threats: Amy Solas'
       text: 'XXXX/XX/XX: My suspicions were right all along. We heard from the orphanage
-        staff that Amy has been approaching the demon child, Player, and his behaviour
+        staff that Amy has been approaching the demon child, Ivan, and his behaviour
         has changed... he''s acting rebellious! That filthy witch must have whispered
         something to him...'
       onEnterAction:
@@ -140,7 +140,7 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: Abner
+    - title: Ivan
       text: 'She didn''t even tell me anything about her parents...
 
         All she did was give me hope.'
@@ -154,7 +154,7 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: Abner
+    - title: Ivan
       text: I'll make them pay... Every single one them... I'LL MAKE THEM PAY!
       onEnterAction:
         m_PersistentCalls:

@@ -151,7 +151,7 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: Player
+    - title: Ivan
       text: '...'
       onEnterAction:
         m_PersistentCalls:
@@ -163,7 +163,7 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: Player
+    - title: Ivan
       text: How dare them... HOW DARE THEM?!
       onEnterAction:
         m_PersistentCalls:
@@ -175,7 +175,7 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: Player
+    - title: Ivan
       text: I'll SLAUGHTER you the same way you SLAUGHTERED everyone I ever loved.
       onEnterAction:
         m_PersistentCalls:

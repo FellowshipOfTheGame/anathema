@@ -37,7 +37,7 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: Player
+    - title: Ivan
       text: '...Well observed.'
       onEnterAction:
         m_PersistentCalls:
@@ -64,7 +64,7 @@ MonoBehaviour:
     - title: Judas
       text: 'I''m Judas, the Archbishop of this once holy site.
 
-        It''s been a while, Player...'
+        It''s been a while, Ivan...'
       onEnterAction:
         m_PersistentCalls:
           m_Calls: []
@@ -75,7 +75,7 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: Player
+    - title: Ivan
       text: '... I don''t believe we''ve met, Judas.'
       onEnterAction:
         m_PersistentCalls:
@@ -100,7 +100,7 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: Player
+    - title: Ivan
       text: What do you mean...?
       onEnterAction:
         m_PersistentCalls:
@@ -125,7 +125,7 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: Player
+    - title: Ivan
       text: '*Giggle* I don''t think you did a good job on that, then.
 
         The cursed kid you baptized lead to the death of your dear friends who happened
@@ -141,7 +141,7 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: Player
+    - title: Ivan
       text: You must hate me more than anyone else.
       onEnterAction:
         m_PersistentCalls:
@@ -179,7 +179,7 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: Player
+    - title: Ivan
       text: '...?!'
       onEnterAction:
         m_PersistentCalls:
@@ -192,7 +192,7 @@ MonoBehaviour:
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
     - title: Judas
-      text: I'm sorry, Player. I-I'm so, deeply sorry... I was against your parents'
+      text: I'm sorry, Ivan. I-I'm so, deeply sorry... I was against your parents'
         trial from the very beginning...
       onEnterAction:
         m_PersistentCalls:
@@ -217,7 +217,7 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: Player
+    - title: Ivan
       text: So you let it all happen?! And now you expect me to do what?! Trust you
         right away?! Pity you and tell you it's okay?!
       onEnterAction:
@@ -230,7 +230,7 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: Player
+    - title: Ivan
       text: 'That won''t take my parents back. '
       onEnterAction:
         m_PersistentCalls:
@@ -242,7 +242,7 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: Player
+    - title: Ivan
       text: If you really cared for me, why didn't you visit me in that hell of an
         orphanage?!
       onEnterAction:
@@ -255,7 +255,7 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: Player
+    - title: Ivan
       text: Those are empty words. Useless.
       onEnterAction:
         m_PersistentCalls:
@@ -267,7 +267,7 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: Player
+    - title: Ivan
       text: I used to feel guilty for my parents' death every single night, and to
         this day I don't even know what actually happened! If what you're saying is
         true, then why did you let me suffer for the past 17 years!?
@@ -330,7 +330,7 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: Player
+    - title: Ivan
       text: And what difference does that make now? The one who was actually there
         for me has been mercilessly murdered just moments ago in this cursed tower!
       onEnterAction:
@@ -344,7 +344,7 @@ MonoBehaviour:
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
     - title: Judas
-      text: Girl... Another kid led astray... Another victim...
+      text: Amy... Another kid led astray... Another victim...
       onEnterAction:
         m_PersistentCalls:
           m_Calls: []
@@ -355,7 +355,7 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: Player
+    - title: Ivan
       text: And what do YOU know about her? Stop pretending like you know everything!
       onEnterAction:
         m_PersistentCalls:
@@ -368,7 +368,7 @@ MonoBehaviour:
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
     - title: Judas
-      text: '... I understand if you don''t trust me, Player.
+      text: '... I understand if you don''t trust me, Ivan.
 
         Then why don''t you seek the truth yourself?'
       onEnterAction:
@@ -381,7 +381,7 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: Player
+    - title: Ivan
       text: As if I haven't tried...
       onEnterAction:
         m_PersistentCalls:
@@ -394,8 +394,8 @@ MonoBehaviour:
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
     - title: Judas
-      text: Seek the library, Player. There you will find about what happened back
-        then and information about your past, and Girl's.
+      text: Seek the library, Ivan. There you will find about what happened back then
+        and information about your past, and Amy's.
       onEnterAction:
         m_PersistentCalls:
           m_Calls: []
@@ -406,7 +406,7 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: Player
+    - title: Ivan
       text: How can I trust you that it's not a trap? For all I know that'd be great
         for you to keep your puppet status in this hellhole.
       onEnterAction:
@@ -420,9 +420,9 @@ MonoBehaviour:
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
     - title: Judas
-      text: Player... I know I'll never be able to repent for all my sins. I know
-        I can't bring <Dad> and <Mom> back, nor <Girl>.  But at least let me help
-        you now. Please.
+      text: Ivan... I know I'll never be able to repent for all my sins. I know I
+        can't bring your parents back back, nor Amy.  But at least let me help you
+        now. Please.
       onEnterAction:
         m_PersistentCalls:
           m_Calls: []
@@ -433,7 +433,7 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: Player
+    - title: Ivan
       text: '...'
       onEnterAction:
         m_PersistentCalls:
@@ -445,8 +445,8 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: Player
-      text: I'll think about it.
+    - title: Ivan
+      text: I'll go check it out.
       onEnterAction:
         m_PersistentCalls:
           m_Calls: []
@@ -458,7 +458,31 @@ MonoBehaviour:
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
     - title: Judas
-      text: I'll be here if you need me. Thank you for hearing me out.
+      text: Thank you for hearing me out... Thank you!
+      onEnterAction:
+        m_PersistentCalls:
+          m_Calls: []
+        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      onExitAction:
+        m_PersistentCalls:
+          m_Calls: []
+        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+    - title: Judas
+      text: I'll be leaving this place. I'm tired of it all.
+      onEnterAction:
+        m_PersistentCalls:
+          m_Calls: []
+        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      onExitAction:
+        m_PersistentCalls:
+          m_Calls: []
+        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+    - title: Judas
+      text: Best of luck to you.
       onEnterAction:
         m_PersistentCalls:
           m_Calls: []

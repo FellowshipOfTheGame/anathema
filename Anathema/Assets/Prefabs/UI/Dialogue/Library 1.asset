@@ -146,7 +146,7 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: Player
+    - title: Ivan
       text: All because they were treating the people you rejected... you SLAUGHTER
         them without mercy? And Amy had to witness it all...
       onEnterAction:
@@ -159,7 +159,7 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: Player
+    - title: Ivan
       text: If there was any guilt at all still remaining within me, there isn't anymore.
         I'm coming for you... I'm coming for ALL of you.
       onEnterAction:
