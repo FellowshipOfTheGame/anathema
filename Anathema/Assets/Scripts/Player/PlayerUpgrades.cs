@@ -10,6 +10,7 @@ namespace Anathema.Player
         [Header("It is inteded for in editor testing")]
         [Header("This is the game data used when NOT starting from the menu.")]
         [SerializeField] private GameData gameData;
+        private Health health;
         public bool HasScythe 
         {
             get
@@ -52,6 +53,8 @@ namespace Anathema.Player
             set
             {
                 gameData.maxHealth = value;
+                health.MaxHP = value;
+                health.Heal(value);
             }
         }
         public string ProfileName
@@ -60,6 +63,11 @@ namespace Anathema.Player
             {
                 return gameData.ProfileName;
             }
+        }
+        private void Start()
+        {
+            health = GetComponent<Health>();
+            if (!health) Debug.LogWarning($"{gameObject.name}: {nameof(PlayerUpgrades)}: Requires a {nameof(Health)} component.");
         }
         public void LoadData(GameData gameData)
         {
