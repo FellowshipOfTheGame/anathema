@@ -38,7 +38,7 @@ namespace Anathema.Rooms
             if (!myCollider2D) Debug.LogWarning($"{gameObject.name}: Door requires a Collider2D component.");
             else if (!myCollider2D.isTrigger) Debug.LogWarning($"{gameObject.name}: Door requires that the Collider2D is a trigger.");
         }
-        private void OnTriggerEnter2D(Collider2D collider)
+        protected virtual void OnTriggerEnter2D(Collider2D collider)
         {
             if (collider.CompareTag("Player"))
             {

@@ -44,6 +44,17 @@ namespace Anathema.Player
                 gameData.hasFireAttack = value;
             }
         }
+        public bool HasKey
+        {
+            get
+            {
+                return gameData.hasKey;
+            }
+            set
+            {
+                gameData.hasKey = value;
+            }
+        }
         public int MaxHealth 
         {
             get
