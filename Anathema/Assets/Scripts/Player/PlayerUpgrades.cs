@@ -83,6 +83,14 @@ namespace Anathema.Player
         public void LoadData(GameData gameData)
         {
             this.gameData = gameData;
+            if (health)
+            {
+                health.MaxHP = MaxHealth;
+            }
+            else
+            {
+                Debug.LogWarning($"{gameObject.name}: {nameof(PlayerUpgrades)}: Couldn't set MaxHP.");
+            }
         }
         public GameData GetDataForSaving()
         {

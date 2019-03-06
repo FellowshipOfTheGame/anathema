@@ -11,6 +11,7 @@ namespace Anathema.Player
 
 		[Tooltip("The attached collider for when the player is crouching.")]
 		[SerializeField] Collider2D crouchCollider;
+		private bool canAttack;
 
 		
 		/// <summary>
@@ -20,6 +21,11 @@ namespace Anathema.Player
 		{
 			standingCollider.enabled = false;
 			crouchCollider.enabled = true;
+
+			PlayerUpgrades playerUpgrades = GetComponent<PlayerUpgrades>();
+
+			if (playerUpgrades) canAttack = playerUpgrades.HasScythe;
+			else Debug.LogWarning($"{gameObject.name}: {nameof(Crouch)}: Couldn't find {nameof(PlayerUpgrades)}.");
 		}
 
 		void Update()
@@ -30,7 +36,7 @@ namespace Anathema.Player
 				fsm.Transition<Idle>();
 			}
 
-			if(Input.GetKeyDown(KeyCode.J))
+			if(canAttack && Input.GetKeyDown(KeyCode.J))
 			{
 				animator.SetBool("IsAttacking", true);
 				fsm.Transition<CrouchAttack>();

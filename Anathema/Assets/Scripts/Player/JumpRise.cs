@@ -21,7 +21,15 @@ namespace Anathema.Player
 		[SerializeField] float horizontalSpeed;
 
 		private float currentGravity;
+		private bool canAttack;
 
+		private void Start()
+		{
+			PlayerUpgrades playerUpgrades = GetComponent<PlayerUpgrades>();
+
+			if (playerUpgrades) canAttack = playerUpgrades.HasScythe;
+			else Debug.LogWarning($"{gameObject.name}: {nameof(JumpRise)}: Couldn't find {nameof(PlayerUpgrades)}.");
+		}
 		public override void Enter()
 		{
 			animator.Play("JumpAscension", -1, 0);
@@ -39,7 +47,7 @@ namespace Anathema.Player
 			float HorizontalAxis = Input.GetAxisRaw("Horizontal");
 
 			// Handles attacking while in the air
-			if(Input.GetKeyDown(KeyCode.J))
+			if(canAttack && Input.GetKeyDown(KeyCode.J))
 			{
 				animator.SetBool("IsAttacking", true);
 				fsm.Transition<AirAttack>();
