@@ -9,12 +9,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91473fd4c3c1de74a91ca4b8d7e0ae09, type: 3}
-  m_Name: TestDialogue
+  m_Name: Pursuit 2
   m_EditorClassIdentifier: 
   lines:
     array:
-    - title: Abner
-      text: Hey, what the fuck is up with this shit?
+    - title: Amy
+      text: You must consider yourself a damn god, don't you? Deleting everything
+        you don't agree with...
       onEnterAction:
         m_PersistentCalls:
           m_Calls: []
@@ -25,8 +26,8 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: Eduardo
-      text: I dunno man, you were the one coding it
+    - title: ????
+      text: HAHAHAHA! Yup, things like filthy traitors such as your parents...
       onEnterAction:
         m_PersistentCalls:
           m_Calls: []
@@ -37,33 +38,8 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: Abner
-      text: Hey, but you're also me so you are responsible as well you dipshit
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-    - title: Eduardo
-      text: I'm only you when ordering fast food, the shit code is yours and yours
-        only
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-    - title: Abner
-      text: That's how it is huh? I thought I trusted you
+    - title: Amy
+      text: You DISGUST me.
       onEnterAction:
         m_PersistentCalls:
           m_Calls: []
