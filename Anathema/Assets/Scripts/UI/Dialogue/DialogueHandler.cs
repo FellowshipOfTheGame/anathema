@@ -38,13 +38,37 @@ namespace Anathema.Dialogue
 		private bool isLineDone;
 		private bool isActive;
 
+		public delegate void DialogueAction(Dialogue dialogue);
+		public event DialogueAction OnDialogue;
+
+		public static DialogueHandler instance;
+
+		private void Awake()
+		{
+			if(instance == null)
+				instance = this;
+			else if(instance != this)
+				Destroy(this);
+
+			OnDialogue += StartDialogue;
+		}
+		
 		public void StartDialogue()
 		{
+			if(isActive)
+				EndDialogue();
+
 			foreach(var line in dialogue.lines)
 				dialogueLines.Enqueue(line);
 
 			isActive = true;
 			StartCoroutine("NextLine");
+		}
+
+		public void StartDialogue(Dialogue dialogue)
+		{
+			this.dialogue = dialogue;
+			StartDialogue();
 		}
 
 		private IEnumerator NextLine()
