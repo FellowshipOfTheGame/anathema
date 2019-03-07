@@ -1,5 +1,7 @@
 using UnityEngine;
+using System.Collections.Generic;
 using Anathema.Saving;
+using Anathema.Rooms;
 
 namespace Anathema.Player
 {
@@ -10,6 +12,7 @@ namespace Anathema.Player
         [Header("It is inteded for in editor testing")]
         [Header("This is the game data used when NOT starting from the menu.")]
         [SerializeField] private GameData gameData;
+        public List<UniqueID> Keys { get; set; }
         private Health health;
         public bool HasScythe 
         {
@@ -68,13 +71,27 @@ namespace Anathema.Player
         {
             health = GetComponent<Health>();
             if (!health) Debug.LogWarning($"{gameObject.name}: {nameof(PlayerUpgrades)}: Requires a {nameof(Health)} component.");
+
+            Keys = new List<UniqueID>(gameData.keys);
         }
         public void LoadData(GameData gameData)
         {
             this.gameData = gameData;
+
+            Keys = new List<UniqueID>(gameData.keys);
+
+            if (health)
+            {
+                health.MaxHP = MaxHealth;
+            }
+            else
+            {
+                Debug.LogWarning($"{gameObject.name}: {nameof(PlayerUpgrades)}: Couldn't set MaxHP.");
+            }
         }
         public GameData GetDataForSaving()
         {
+            gameData.keys = Keys.ToArray();
             return gameData;
         }
     }

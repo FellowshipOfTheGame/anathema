@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91473fd4c3c1de74a91ca4b8d7e0ae09, type: 3}
-  m_Name: Judas 2
+  m_Name: Post Scythe
   m_EditorClassIdentifier: 
   lines:
     array:
-    - title: Judas
-      text: Oh, you're back, Player.
+    - title: Ivan
+      text: Dammit! He ran away!
       onEnterAction:
         m_PersistentCalls:
           m_Calls: []
@@ -25,8 +25,8 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: Player
-      text: I went to the library...
+    - title: Ivan
+      text: I'll find him... I'm tired of being played with...
       onEnterAction:
         m_PersistentCalls:
           m_Calls: []
@@ -37,8 +37,8 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: Judas
-      text: '...'
+    - title: Ivan
+      text: For Amy... I'll show them who's the devil now.
       onEnterAction:
         m_PersistentCalls:
           m_Calls: []

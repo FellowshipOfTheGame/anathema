@@ -11,5 +11,6 @@ namespace Anathema.Saving
         public bool hasFireAttack;
         public int maxHealth;
         public UniqueID spawnLocation;
+        public UniqueID[] keys;
     }
 }
