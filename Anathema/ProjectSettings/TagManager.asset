@@ -20,7 +20,7 @@ TagManager:
   - Breakable
   - Wall
   - Player
-  - 
+  - DontRender
   - 
   - 
   - 
