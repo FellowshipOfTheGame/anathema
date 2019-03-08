@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 95912399029495164}
   - component: {fileID: 212776134205279022}
   - component: {fileID: 50980181424559322}
-  - component: {fileID: 70829132975270706}
+  - component: {fileID: 66979022176207330}
   - component: {fileID: 114113631037747462}
   - component: {fileID: 114516059642685952}
   - component: {fileID: 114629466067109504}
@@ -135,7 +135,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1251294847993574}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -43.053684, y: -49.305077, z: 0}
+  m_LocalPosition: {x: -46.02139, y: 96.717514, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4851392199209072}
@@ -163,7 +163,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1546171678424134}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.91, y: 0.44011045, z: -1.7568359}
+  m_LocalPosition: {x: 0.54, y: 0.44011045, z: -1.7568359}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4851392199209072}
@@ -176,7 +176,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1913400298949808}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.6, y: 0.44011045, z: -1.7568359}
+  m_LocalPosition: {x: -11.55, y: 0.44011045, z: -1.7568359}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4851392199209072}
@@ -219,7 +219,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1613864833410972}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.26, y: 0.44011045, z: -1.7568359}
+  m_LocalPosition: {x: -3.16, y: 0.44011045, z: -1.7568359}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4851392199209072}
@@ -245,21 +245,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
---- !u!70 &70829132975270706
-CapsuleCollider2D:
+--- !u!66 &66979022176207330
+CompositeCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1675705642529084}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.2021484, y: 1.2402344}
-  m_Direction: 0
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths: []
+  m_CompositePaths:
+    m_Paths: []
+  m_VertexDistance: 0.0005
 --- !u!95 &95912399029495164
 Animator:
   serializedVersion: 3
