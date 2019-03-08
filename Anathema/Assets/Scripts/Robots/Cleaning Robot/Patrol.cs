@@ -35,11 +35,13 @@ namespace Anathema.ChasingRobot
         /// </summary>
         public override void Enter()
         {
+            Debug.Log("Entrou no Patrol");
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
             currentSpot = 0;
             robotPos = transform.position;
             nextPos = moveSpots[currentSpot].position;
             Flip();
+            Debug.Log("PAssou pelo enter");
         }
 
         /// <summary>
@@ -51,6 +53,7 @@ namespace Anathema.ChasingRobot
         {
             if (player != null)
             {
+                Debug.Log("Entrou no if do fixedupdate");
                 playerDist = player.position - transform.position;
                 robotPos = transform.position;
                 Patrolling();
@@ -72,24 +75,32 @@ namespace Anathema.ChasingRobot
         /// </summary>
         private void Patrolling()
         {
+            Debug.Log("Entrou no patrolling");
             Vector2 spotDir = moveSpots[currentSpot].position - transform.position;
-
+            Debug.Log("Spotdir magnitude" + spotDir.magnitude);
             if (spotDir.magnitude < 1)
             {
+                Debug.Log("Entrou no patrolling 1 ");
                 if ((currentSpot + 1) < moveSpots.Length)
                 {
+                    Debug.Log("Entrou no patrolling 2 ");
                     currentSpot++;
                 }
                 else
                 {
+                    Debug.Log("Entrou no patrolling 3 "); 
                     currentSpot = 0;
                 }
+                 Debug.Log("Entrou no patrolling 4 ");
                 nextPos = moveSpots[currentSpot].position;
                 Flip();
             }
             else
             {
+                Debug.Log("Entrou no patrolling   5");
                 myrBody.velocity = spotDir.normalized * speed;
+
+                Debug.Log("velocity " + myrBody.velocity);
             }
         }
 
@@ -98,60 +109,17 @@ namespace Anathema.ChasingRobot
         /// </summary>
         private void FindPlayer()
         {
-            if (RaycastUpdate() == true && CheckPlayer() == true && RaycastGroundCheck() == true)
+            Debug.Log("Entrou no Find Player");
+            if (CheckPlayer() == true && RaycastGroundCheck() == true)
             {
+                Debug.Log("Entrou no if do true");
                 animator.SetBool("isChasing", true);
                 animator.SetBool("isPatrolling", false);
                 fsm.Transition<Chase>();
             }
-            else if (RaycastUpdate() == false && CheckPlayer() == true && RaycastGroundCheck() == true)
-            {
-                animator.SetBool("isChasing", true);
-                animator.SetBool("isPatrolling", false);
-                fsm.Transition<Chase>();
-            }
         }
 
-
-        /// <summary>
-        /// Gets the raycast which is used to look for the player
-        /// </summary>
-        /// <param name="direction"> Direction provided by the RaycastUpdate function</param>
-        /// <returns></returns>
-        private RaycastHit2D CheckRaycast(Vector2 direction)
-        {
-            float dirOriginOffset = origindir * (direction.x > 0 ? 1 : -1);
-            Vector2 startPos = new Vector2(transform.position.x + dirOriginOffset, transform.position.y);
-
-            Debug.DrawRay(startPos, direction, Color.red);
-
-            return Physics2D.Raycast(startPos, direction, raycastMaxDist, LayerMask.GetMask("Player"));
-        }
-
-        /// <summary>
-        /// Checks if the player is near/ in the line of sight of the robot based on the raycast. Also changes the direction
-        /// of the raycast according to the direction the robot is facing.
-        /// </summary>
-        private bool RaycastUpdate()
-        {
-            Vector2 direction = new Vector2(1, 0);
-            if (sRenderer.flipX == true)
-            {
-                direction *= -1;
-            }
-
-            hit = CheckRaycast(direction);
-
-
-            if (hit.collider)
-            {
-                if (hit.collider.CompareTag("Player"))
-                    return true;
-            }
-
-            return false;
-        }
-
+       
         /// <summary>
         /// Checks if the robot is walking in the ground
         /// </summary>
@@ -187,13 +155,15 @@ namespace Anathema.ChasingRobot
         /// <returns></returns>
         private bool CheckPlayer()
         {
+            Debug.Log("Entrou no CheckPlayer");
             Collider2D hits = Physics2D.OverlapArea(chaseSpots[0].position, chaseSpots[1].position, LayerMask.GetMask("Player"));
             Debug.DrawLine(chaseSpots[0].position, chaseSpots[1].position, Color.blue);
             if (hits)
             {
-
+                Debug.Log("Entrou no if do hits");
                 if (hits.CompareTag("Player"))
                 {
+                    Debug.Log("Entrou no if do Player");
                     return true;
                 }
             }
