@@ -6,8 +6,8 @@ namespace Anathema.ChasingRobot
 {
     public class Chase : Anathema.Fsm.CleaningRobotState
     {
-        [Tooltip("The max distance that the player is considered lost.")]
-        [SerializeField] float distLostPlayer;
+        //[Tooltip("The max distance that the player is considered lost.")]
+        //[SerializeField] float distLostPlayer;
 
         [Tooltip("Speed in which the robot is able to move.")]
         [SerializeField] float speed;
@@ -38,14 +38,14 @@ namespace Anathema.ChasingRobot
                 RaycastGroundCheck();
                 Chasing();
 
-                if ((RaycastUpdate() == false && playerDist.magnitude > distLostPlayer) || CheckPlayer() == false)
+                if (CheckPlayer() == false)
                 {
                     animator.SetBool("isPatrolling", true);
                     animator.SetBool("isChasing", false);
                     fsm.Transition<Patrol>();
 
                 }
-                else if (RaycastUpdate() == true && playerDist.magnitude <= 1.5f)
+                else if (RaycastUpdate() == true && CheckPlayer() == true && playerDist.magnitude <= 1.5f)
                 {
                     myrBody.velocity = Vector3.zero;
                     fsm.Transition<Attack>();
@@ -70,7 +70,7 @@ namespace Anathema.ChasingRobot
             else
                 myrBody.velocity = Vector3.zero;
         }
-
+     
         /// <summary>
         /// Gets the raycast which is used to look for the player
         /// </summary>
@@ -107,7 +107,7 @@ namespace Anathema.ChasingRobot
             }
             return false;
         }
-
+        
         /// <summary>
         /// Checks if the robot is walking in the ground
         /// </summary>
@@ -150,14 +150,14 @@ namespace Anathema.ChasingRobot
         /// </summary>
         private void Flip()
         {
-            float distY = player.position.y - transform.position.y;
-            if (distY > 1.5f)
+           // float distY = player.position.y - transform.position.y;
+            if (CheckPlayer() == false)
             {
                 animator.SetBool("isPatrolling", true);
                 animator.SetBool("isChasing", false);
                 fsm.Transition<Patrol>();
             }
-            else if (RaycastUpdate() == false && (playerDist.magnitude < distLostPlayer) && CheckPlayer() == true)
+            else if (RaycastUpdate() == false && CheckPlayer() == true)
             {
                 if (sRenderer.flipX == false)
                 {

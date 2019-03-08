@@ -58,9 +58,7 @@ namespace Anathema.ChasingRobot
             }
             else
             {
-                Debug.Log("Patrol - Cleaning Robot: Player is missing");
                 animator.SetBool("isPatrolling", false);
-
                 fsm.Transition<CIdle>();
 
             }
@@ -73,9 +71,9 @@ namespace Anathema.ChasingRobot
         private void Patrolling()
         {
             Vector2 spotDir = moveSpots[currentSpot].position - transform.position;
-
             if (spotDir.magnitude < 1)
             {
+
                 if ((currentSpot + 1) < moveSpots.Length)
                 {
                     currentSpot++;
@@ -98,13 +96,7 @@ namespace Anathema.ChasingRobot
         /// </summary>
         private void FindPlayer()
         {
-            if (RaycastUpdate() == true && CheckPlayer() == true && RaycastGroundCheck() == true)
-            {
-                animator.SetBool("isChasing", true);
-                animator.SetBool("isPatrolling", false);
-                fsm.Transition<Chase>();
-            }
-            else if (RaycastUpdate() == false && CheckPlayer() == true && RaycastGroundCheck() == true)
+            if (CheckPlayer() == true && RaycastGroundCheck() == true)
             {
                 animator.SetBool("isChasing", true);
                 animator.SetBool("isPatrolling", false);
@@ -112,46 +104,7 @@ namespace Anathema.ChasingRobot
             }
         }
 
-
-        /// <summary>
-        /// Gets the raycast which is used to look for the player
-        /// </summary>
-        /// <param name="direction"> Direction provided by the RaycastUpdate function</param>
-        /// <returns></returns>
-        private RaycastHit2D CheckRaycast(Vector2 direction)
-        {
-            float dirOriginOffset = origindir * (direction.x > 0 ? 1 : -1);
-            Vector2 startPos = new Vector2(transform.position.x + dirOriginOffset, transform.position.y);
-
-            Debug.DrawRay(startPos, direction, Color.red);
-
-            return Physics2D.Raycast(startPos, direction, raycastMaxDist, LayerMask.GetMask("Player"));
-        }
-
-        /// <summary>
-        /// Checks if the player is near/ in the line of sight of the robot based on the raycast. Also changes the direction
-        /// of the raycast according to the direction the robot is facing.
-        /// </summary>
-        private bool RaycastUpdate()
-        {
-            Vector2 direction = new Vector2(1, 0);
-            if (sRenderer.flipX == true)
-            {
-                direction *= -1;
-            }
-
-            hit = CheckRaycast(direction);
-
-
-            if (hit.collider)
-            {
-                if (hit.collider.CompareTag("Player"))
-                    return true;
-            }
-
-            return false;
-        }
-
+       
         /// <summary>
         /// Checks if the robot is walking in the ground
         /// </summary>
@@ -191,7 +144,6 @@ namespace Anathema.ChasingRobot
             Debug.DrawLine(chaseSpots[0].position, chaseSpots[1].position, Color.blue);
             if (hits)
             {
-
                 if (hits.CompareTag("Player"))
                 {
                     return true;

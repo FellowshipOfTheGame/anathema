@@ -50,7 +50,7 @@ namespace Anathema.WallRobot
             }
             else if (spotControl.platform == true)
             {
-                Invoke("CheckRaycasts", 0.4f);
+                Invoke("CheckRaycasts", 0.8f);
 
             }
         }
