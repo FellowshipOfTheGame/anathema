@@ -74,7 +74,7 @@ AnimatorStateTransition:
     m_ConditionEvent: isAttacking
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: isFlying
+    m_ConditionEvent: isTakingDamage
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102039739460577766}
@@ -99,9 +99,6 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 2
     m_ConditionEvent: isAttacking
-    m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: isFlying
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: isTakingDamage
@@ -130,9 +127,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: isTakingDamage
     m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: isFlying
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102317466519192150}
   m_Solo: 0
@@ -154,9 +148,6 @@ AnimatorStateTransition:
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: isFlying
-    m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: isTakingDamage
     m_EventTreshold: 0
