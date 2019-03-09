@@ -35,6 +35,17 @@ namespace Anathema.Drone
         }
 
         /// <summary>
+        /// Flips sprite if hte drone starts with negative velocity
+        /// </summary>
+        void Start()
+        {
+            if (horizontalSpeed < 0)
+            {
+                sRenderer.flipX = !sRenderer.flipX;
+            }
+        }
+
+        /// <summary>
         /// In this class, the FixedUpdate is used to move the drone in a senoidal movement.
         /// </summary>
         void FixedUpdate()
