@@ -29,8 +29,15 @@ namespace Anathema.Rooms
                 }
             }
         }
-
-        private void Update()
+        private void OnEnable()
+        {
+            Selection.selectionChanged += UpdateChilds;
+        }
+        private void OnDisable()
+        {
+            Selection.selectionChanged -= UpdateChilds;
+        }
+        private void UpdateChilds()
         {
             if (!Application.isPlaying)
             {
@@ -38,6 +45,7 @@ namespace Anathema.Rooms
                 {
                     child.gameObject.SetActive(Selection.Contains(child.gameObject));
                 }
+                
             }
         }
     }
