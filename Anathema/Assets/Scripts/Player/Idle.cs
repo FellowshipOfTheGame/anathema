@@ -8,12 +8,22 @@ namespace Anathema.Player
 	{
 		private JumpFall jumpFallState;
 
+		// FIXME: Gambiarra
+		private bool jumpCorrection;
+
 		private void Start()
 		{
 			jumpFallState = GetComponent<JumpFall>();
 		}
 
 		public override void Enter() {	}
+
+		// FIXME: Gambiarra
+		private void Update()
+		{
+			if(Input.GetKeyDown(KeyCode.Space))
+				jumpCorrection = true;
+		}
 
 		/// <summary>
 		/// 	In this class, the FixedUpdate is being used to transition between the idle state and other states.
@@ -42,19 +52,27 @@ namespace Anathema.Player
 				rBody.velocity = new Vector2(0f, rBody.velocity.y);
 
 			// Transitions between the idle state and the jumping state, more specifically the Jump Ascension portion of the state
-			if(Input.GetKeyDown(KeyCode.Space))
+			if(jumpCorrection)
 			{
+				jumpCorrection = false;
 				animator.SetBool("IsRising", true);
 				rBody.velocity = new Vector2(rBody.velocity.x, 0f);
 				fsm.Transition<JumpRise>();
 				return;
 			}
 
-			if(Input.GetKeyDown(KeyCode.J))
+			if(Input.GetKey(KeyCode.J))
 			{
-				Debug.Log("Attack!!!!");
 				animator.SetBool("IsAttacking", true);
 				fsm.Transition<Attack>();
+				return;
+			}
+
+			if(Input.GetKey(KeyCode.K))
+			{
+				animator.SetBool("IsFire", true);
+				fsm.Transition<FireAttack>();
+				return;
 			}
 
 			if(Input.GetKey(KeyCode.S))
@@ -64,6 +82,10 @@ namespace Anathema.Player
 			}
 		}
 
-		public override void Exit() {	}
+		public override void Exit()
+		{
+			// FIXME: Gambiarra
+			jumpCorrection = false;
+		}
 	}
 }
