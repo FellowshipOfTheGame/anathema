@@ -43,6 +43,17 @@ namespace Anathema.Player
                 gameData.hasFireAttack = value;
             }
         }
+        public bool HasTalkedToJudas
+        {
+            get
+            {
+                return gameData.hasTalkedToJudas;
+            }
+            set
+            {
+                gameData.hasTalkedToJudas = value;
+            }
+        }
         public int MaxHealth 
         {
             get

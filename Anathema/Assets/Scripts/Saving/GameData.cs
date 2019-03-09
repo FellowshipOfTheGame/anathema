@@ -9,6 +9,7 @@ namespace Anathema.Saving
         public bool hasScythe;
         public bool hasDoubleJump;
         public bool hasFireAttack;
+        public bool hasTalkedToJudas;
         public int maxHealth;
         public UniqueID spawnLocation;
     }
