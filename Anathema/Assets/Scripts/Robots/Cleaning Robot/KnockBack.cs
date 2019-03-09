@@ -31,7 +31,7 @@ namespace Anathema.ChasingRobot
             while (duration > timer)
             {
                 timer += Time.deltaTime;
-                myrBody.AddForce(new Vector2(direction.x + power, transform.position.y));
+                myrBody.AddForce(new Vector2(direction.x + power, 0f));
             }
             yield return 0;
         }

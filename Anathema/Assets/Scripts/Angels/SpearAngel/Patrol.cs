@@ -46,8 +46,8 @@ namespace Anathema.SpearAngel {
 			} else if (CanSeePlayer()) {
 				CancelInvoke();
 				rBody.velocity = Vector2.zero;
-				animator.SetBool("isFlying", false);
-				animator.SetBool("isAttacking", true);
+				// animator.SetBool("isFlying", false);
+				// animator.SetBool("isAttacking", true);
 
 				fsm.Transition<Chase>();
 			} else if (!moving) {

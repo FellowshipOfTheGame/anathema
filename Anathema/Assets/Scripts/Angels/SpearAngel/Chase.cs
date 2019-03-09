@@ -17,6 +17,7 @@ namespace Anathema.SpearAngel {
 		/// Search for a path to chase the player
 		/// </summary>
 		public override void Enter() { 
+			animator.SetBool("isFlying", true);
 			seeker =  GetComponent<Seeker>();
             InvokeRepeating("UpdatePath", 0f, 1/UpdateRate);
         }
@@ -28,8 +29,8 @@ namespace Anathema.SpearAngel {
         new void Update () {
             base.Update();
             if (DistanceFrom(player) > lookRadius || DistanceFrom(originLocation) > baseAreaRadius) {
-				animator.SetBool("isFlying", true);
-				animator.SetBool("isAttacking", false);
+				// animator.SetBool("isFlying", true);
+				// animator.SetBool("isAttacking", false);
                 fsm.Transition<Patrol>();
             } else if (DistanceFrom(player) < maxAttackDistance) {
                 fsm.Transition<Attack>();
