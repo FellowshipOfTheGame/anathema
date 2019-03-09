@@ -14,14 +14,21 @@ namespace Anathema.Drone
 
         [Tooltip("Amplitude in which the drone will move vertically through the room.")]
         [SerializeField] private float amplitude;
-        
-         [Tooltip("attack damage of the drone.")]
-         [SerializeField] int damage;
+
+        [Tooltip("attack damage of the drone.")]
+        [SerializeField] int damage;
+
+        private DroneHealth droneHealth;
 
         private float time;
-        
+
         //The initial position of the drone
         private Vector2 initialPos;
+
+        private void Start()
+        {
+            droneHealth = GetComponent<DroneHealth>();
+        }
         public override void Enter()
         {
             initialPos = transform.position;
@@ -34,6 +41,13 @@ namespace Anathema.Drone
         {
             myrBody.MovePosition(new Vector2(this.transform.position.x + horizontalSpeed, initialPos.y + amplitude * Mathf.Sin(verticalSpeed * time)));
             time += Time.deltaTime;
+
+            if(droneHealth.damage == true)
+            {
+                horizontalSpeed = -horizontalSpeed;
+                sRenderer.flipX = !sRenderer.flipX;
+                droneHealth.damage = false;
+            }
         }
 
         /// <summary>
@@ -43,14 +57,7 @@ namespace Anathema.Drone
         /// <param name="other">The Collision2D data associated with this collision.</param>
         void OnCollisionEnter2D(Collision2D other)
         {
-            if (sRenderer.flipX == false)
-            {
-                sRenderer.flipX = true;
-            }
-            else
-            {
-                sRenderer.flipX = false;
-            }
+            sRenderer.flipX = !sRenderer.flipX;
             if (other.collider == true)
             {
                 if (other.collider.CompareTag("Player"))
