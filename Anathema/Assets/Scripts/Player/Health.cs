@@ -21,6 +21,31 @@ public class Health : MonoBehaviour {
 
     public bool isInvulnerable = false;
 
+    public int Hp {
+        get {return hp;}
+        set {
+            if (value < 0) {
+                hp = 0;
+                OnDeath?.Invoke();
+            } else if (value > MaxHP) {
+                hp = maxHP;
+            } else {
+                hp = value;
+            }
+
+            OnHealthChange?.Invoke(hp);
+        }
+    }
+
+    public int MaxHP{
+        get{return maxHP;}
+        set{
+            maxHP = value;
+            if(maxHP < 0)
+                Debug.LogWarning("Warning: setting maxHealth < 0");
+        }
+    }
+
     /// <summary>
     ///     The entity's health can only be changed by other scripts through this method, which ensures the correct aftereffects 
     /// will be applied.
@@ -44,25 +69,25 @@ public class Health : MonoBehaviour {
 
             case DamageType.NormalDamage:
 
-                hp -= value;
-                //OnHealthChange(hp);
+                Hp -= value;
+                // OnHealthChange?.Invoke(hp);
 
-                if(hp < 0)
-                {
-                    hp = 0;
-                    OnDeath?.Invoke();
-                }
+                // if(hp < 0)
+                // {
+                //     hp = 0;
+                //     OnDeath?.Invoke();
+                // }
                 break;
 
             case DamageType.Heal:
-                if(hp == maxHP)
+                if(Hp == maxHP)
                     return false;
 
-                hp += value;
-                OnHealthChange?.Invoke(hp);
+                Hp += value;
+                // OnHealthChange?.Invoke(hp);
 
-                if(hp > maxHP)
-                    hp = maxHP;
+                // if(hp > maxHP)
+                //     hp = maxHP;
                 
                 break;           
 
@@ -87,12 +112,7 @@ public class Health : MonoBehaviour {
         get{return 100f * ((float)hp / (float)MaxHP);}
     }
 
-    public int MaxHP{
-        get{return maxHP;}
-        set{
-            maxHP = value;
-            if(maxHP < 0)
-                Debug.LogWarning("Warning: setting maxHealth < 0");
-        }
+    private void Start() {
+        Hp = MaxHP;
     }
 }
