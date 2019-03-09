@@ -25,6 +25,7 @@ namespace Anathema.Fsm
 
         //The max distance of the Raycast that gets wall information.
         [SerializeField] protected float rayWallMaxDist = 1f;
+        [SerializeField] protected float timer = 0.8f;
         protected SpotControl spotControl;
 
         [Tooltip("Here goes the amount and the GameObjects which limits the robot patrol area.")]
