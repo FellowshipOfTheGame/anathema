@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: SoftRed
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 21300000, guid: b75a55f1d1a9348069595434280f697c, type: 3}
-  m_Color: {r: 0.7735849, g: 0.43058026, b: 0.4408703, a: 1}
+  m_Color: {r: 0.8207547, g: 0.44909218, b: 0.4564519, a: 1}
   m_Transform:
     e00: 1
     e01: 0
