@@ -25,10 +25,6 @@ namespace Anathema.Drone
         //The initial position of the drone
         private Vector2 initialPos;
 
-        private void Start()
-        {
-            droneHealth = GetComponent<DroneHealth>();
-        }
         public override void Enter()
         {
             initialPos = transform.position;
@@ -39,6 +35,7 @@ namespace Anathema.Drone
         /// </summary>
         void Start()
         {
+            droneHealth = GetComponent<DroneHealth>();
             if (horizontalSpeed < 0)
             {
                 sRenderer.flipX = !sRenderer.flipX;
