@@ -62,6 +62,7 @@ namespace Anathema.Dialogue
 				dialogueLines.Enqueue(line);
 
 			isActive = true;
+			dialogueBox.SetActive(true);
 			StartCoroutine("NextLine");
 		}
 
@@ -133,6 +134,7 @@ namespace Anathema.Dialogue
 
 		public void EndDialogue()
 		{
+			dialogueBox.SetActive(false);
 			dialogueText.text = "";
 			titleText.text = "";
 			StopAllCoroutines();

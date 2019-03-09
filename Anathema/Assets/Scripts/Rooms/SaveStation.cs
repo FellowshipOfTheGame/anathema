@@ -1,12 +1,14 @@
 using UnityEngine;
 using Anathema.Player;
 using Anathema.Saving;
+using Anathema.Dialogue;
 
 namespace Anathema.Rooms
 {
     public class SaveStation : UniqueComponent
     {
         private bool saved = false;
+        [SerializeField] private Dialogue.Dialogue saveDialogue;
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (!saved && other.CompareTag("Player"))
@@ -18,7 +20,8 @@ namespace Anathema.Rooms
                     GameData gameData = upgrades.GetDataForSaving();
                     if (gameData != null)
                     {
-                        Debug.Log("saving");
+                        DialogueHandler.instance.StartDialogue(saveDialogue);
+                        
                         saved = true;
 
                         gameData.spawnLocation = this.UniqueID;
