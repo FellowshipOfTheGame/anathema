@@ -10,6 +10,8 @@ namespace Anathema.Drone
     {
         private Animator animator;
         private SpriteBurn spriteBurn;
+
+        public bool damage;
         void Awake()
         {
             animator = GetComponent<Animator>();
@@ -23,6 +25,7 @@ namespace Anathema.Drone
         {
             Debug.Log("knockBack");
             animator.Play("DamageFeedback");
+            damage = true;
         }
 
         void DeathAnimation()
