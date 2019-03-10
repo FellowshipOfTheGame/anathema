@@ -20,6 +20,8 @@ namespace Anathema.Player
 		[Tooltip("Speed in which the player is able to control himself during the jump ascension.")]
 		[SerializeField] float horizontalSpeed;
 
+		private bool isLimitedToOneAttack;
+
 		private float currentGravity;
 		private bool canAttack;
 
@@ -35,6 +37,7 @@ namespace Anathema.Player
 			animator.Play("JumpAscension", -1, 0);
 			rBody.AddForce(Vector2.up * jumpForce);
 			currentGravity = baseGravity;
+			isLimitedToOneAttack = this.gameObject.GetComponent<JumpFall>().isLimitedToOneAttack;
 		}
 
 		/// <summary>
@@ -47,10 +50,27 @@ namespace Anathema.Player
 			float HorizontalAxis = Input.GetAxisRaw("Horizontal");
 
 			// Handles attacking while in the air
-			if(canAttack && Input.GetKeyDown(KeyCode.J))
+			if(canAttack && Input.GetKey(KeyCode.J))
 			{
+				rBody.velocity = Vector3.zero;
 				animator.SetBool("IsAttacking", true);
+
+				if(isLimitedToOneAttack)
+					this.gameObject.GetComponent<JumpFall>().hasAttacked = true;
+				
 				fsm.Transition<AirAttack>();
+				return;
+			}
+
+			if(Input.GetKey(KeyCode.K))
+			{
+				rBody.velocity = Vector2.zero;
+				animator.SetBool("IsFire", true);
+
+				if(isLimitedToOneAttack)
+					this.gameObject.GetComponent<JumpFall>().hasFireAttacked = true;
+				
+				fsm.Transition<AirFireAttack>();
 				return;
 			}
 

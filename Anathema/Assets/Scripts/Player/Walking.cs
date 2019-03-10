@@ -28,6 +28,9 @@ namespace Anathema.Player
 		private Vector2 moveDirection;
 		private bool canAttack;
 
+		// FIXME: Gambiarra
+		private bool jumpCorrection;
+
 		private void Start()
 		{
 			PlayerUpgrades playerUpgrades = GetComponent<PlayerUpgrades>();
@@ -35,6 +38,7 @@ namespace Anathema.Player
 			if (playerUpgrades) canAttack = playerUpgrades.HasScythe;
 			else Debug.LogWarning($"{gameObject.name}: {nameof(Walking)}: Couldn't find {nameof(PlayerUpgrades)}.");
 		}
+
 		public override void Enter() {	}
 
 		/// <summary>
@@ -63,6 +67,10 @@ namespace Anathema.Player
 		/// </summary>
 		void Update()
 		{
+			// FIXME: Gambiarra
+			if(Input.GetKeyDown(KeyCode.Space))
+				jumpCorrection = true;
+
 			rayHit = Physics2D.Raycast(transform.position + Vector3.down * raycastOffset, Vector2.down,
 			(groundRayDist + safetyGroundThreshold - raycastOffset), LayerMask.GetMask("Ground"));
 			Debug.DrawRay(transform.position + Vector3.down * raycastOffset, Vector2.down * (groundRayDist + safetyGroundThreshold - raycastOffset), Color.green);
@@ -87,8 +95,9 @@ namespace Anathema.Player
 			}
 
 			//	Changes state if the player Jumps
-			if(Input.GetKey(KeyCode.Space))
+			if(jumpCorrection)
 			{
+				jumpCorrection = false;
 				animator.SetBool("IsRising", true);
 				rBody.velocity = new Vector2(rBody.velocity.x, 0f);
 				fsm.Transition<JumpRise>();
@@ -101,6 +110,15 @@ namespace Anathema.Player
 				animator.SetBool("IsWalking", false);
 				rBody.velocity = Vector2.zero;
 				fsm.Transition<Attack>();
+				return;
+			}
+
+			if(Input.GetKey(KeyCode.K))
+			{
+				animator.SetBool("IsFire", true);
+				animator.SetBool("IsWalking", false);
+				rBody.velocity = Vector2.zero;
+				fsm.Transition<FireAttack>();
 				return;
 			}
 
@@ -140,6 +158,10 @@ namespace Anathema.Player
 
 		}
 
-		public override void Exit() {	}
+		public override void Exit() 
+		{
+			// FIXME: Gambiarra
+			jumpCorrection = false;
+		}
 	}
 }

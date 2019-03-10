@@ -22,10 +22,23 @@ namespace Anathema.Player
 		[SerializeField] float raycastOffset;
 
 		[Tooltip("Whether or not the player has unlocked the skill to double jump.")]
-		private bool canDoubleJump;
+
+		public bool canDoubleJump;
+		
 		private bool canAttack;
-		// Stores whether or not the player has double jumped
-		private bool hasDoubleJumped;
+
+		[Tooltip("Whether or not the player can do multiple attacks per jump")]
+		public bool isLimitedToOneAttack;
+
+		// Whether or not the player has double jumped
+		[HideInInspector] public bool hasDoubleJumped;
+
+		// If isLimitedToOneAttack is true, stores whether or not the player has already attacked
+		[HideInInspector] public bool hasAttacked, hasFireAttacked;
+
+		// FIXME: Gambiarra
+		private bool jumpCorrection;
+
 
 		private void Start()
 		{
@@ -49,6 +62,13 @@ namespace Anathema.Player
 
 		public override void Enter() {	}
 
+		// FIXME: Gambiarra
+		private void Update()
+		{
+			if(Input.GetKeyDown(KeyCode.Space))
+				jumpCorrection = true;
+		}
+
 		/// <summary>
 		/// 	In this class, the FixedUpdate handles the forces responsable for making the player fall and the transitions to other states
 		///  such as when the player reaches the ground or double jumps. Also handles air movement.
@@ -58,10 +78,22 @@ namespace Anathema.Player
 			float HorizontalAxis = Input.GetAxisRaw("Horizontal");
 
 			// Handles attacking midair
-			if(canAttack && Input.GetKeyDown(KeyCode.J))
+			if(canAttack && Input.GetKey(KeyCode.J) && (!isLimitedToOneAttack || (isLimitedToOneAttack && !hasAttacked)))
+
 			{
+				hasAttacked = true;
+				rBody.velocity = Vector2.zero;
 				animator.SetBool("IsAttacking", true);
 				fsm.Transition<AirAttack>();
+				return;
+			}
+
+			if(Input.GetKey(KeyCode.K) && (!isLimitedToOneAttack || (isLimitedToOneAttack && !hasFireAttacked)))
+			{
+				hasFireAttacked = true;
+				rBody.velocity = Vector2.zero;
+				animator.SetBool("IsFire", true);
+				fsm.Transition<AirFireAttack>();
 				return;
 			}
 
@@ -78,14 +110,20 @@ namespace Anathema.Player
 				animator.SetBool("IsWalking", true);
 				animator.SetBool("IsFalling", false);
 				hasDoubleJumped = false;
+				hasAttacked = false;
+				hasFireAttacked = false;
 				fsm.Transition<Walking>();
 			}
 
-			if(Input.GetKeyDown(KeyCode.Space) && !hasDoubleJumped && canDoubleJump)
+			// FIXME: Gambiarra
+			if(jumpCorrection && !hasDoubleJumped && canDoubleJump)
 			{
+				jumpCorrection = false;
 				animator.SetBool("IsRising", true);
 				animator.SetBool("IsFalling", false);
 				hasDoubleJumped = true;
+				hasAttacked = false;
+				hasFireAttacked = false;
 				rBody.velocity = new Vector2(rBody.velocity.x, 0f);
 				fsm.Transition<JumpRise>();
 				return;
@@ -107,6 +145,10 @@ namespace Anathema.Player
 
 		}
 
-		public override void Exit() {	}
+		public override void Exit()
+		{	
+			// FIXME: Gambiarra
+			jumpCorrection = false;
+		}
 	}
 }
