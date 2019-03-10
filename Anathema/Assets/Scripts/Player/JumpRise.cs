@@ -50,11 +50,7 @@ namespace Anathema.Player
 			float HorizontalAxis = Input.GetAxisRaw("Horizontal");
 
 			// Handles attacking while in the air
-<<<<<<< HEAD
-			if(Input.GetKey(KeyCode.J))
-=======
-			if(canAttack && Input.GetKeyDown(KeyCode.J))
->>>>>>> origin/demoura
+			if(canAttack && Input.GetKey(KeyCode.J))
 			{
 				rBody.velocity = Vector3.zero;
 				animator.SetBool("IsAttacking", true);
