@@ -18,6 +18,10 @@ namespace Anathema.Player
 		[Tooltip("Your base attack damage.")]
 		[SerializeField] public int baseDamage;
 
+		private bool canDoubleJump;
+
+		private bool jumpCorrection;
+
         /// <summary>
 		///		In this class, this method handles the entire attack by casting a box in front of the player that calls for the damage handling in the hit targets.
 		/// </summary>
@@ -25,7 +29,6 @@ namespace Anathema.Player
 		{
 			animator.Play("AirAttack", -1, 0);
 			
-            rBody.velocity = Vector3.zero;
 			foreach(var hit in Physics2D.BoxCastAll(this.transform.position + attackHeightOffset * Vector3.up,
 				new Vector2(attackRange, attackHeight), 0f,
 				sRenderer.flipX ? Vector2.left : Vector2.right, 1f,
@@ -40,9 +43,39 @@ namespace Anathema.Player
 			Debug.DrawRay(this.transform.position + attackHeightOffset * Vector3.up + Vector3.down * attackHeight/2, sRenderer.flipX ? Vector2.left * attackRange : Vector2.right * attackRange, Color.cyan, 2f);
 		}
 
+		private void Start()
+		{
+			canDoubleJump = GetComponent<JumpFall>().canDoubleJump;
+		}
+
+		// FIXME: Gambiarra
+		private void Update()
+		{
+			if(Input.GetKeyDown(KeyCode.Space))
+				jumpCorrection = true;
+		}
+
+		private void FixedUpdate()
+		{
+			if(jumpCorrection && !GetComponent<JumpFall>().hasDoubleJumped && canDoubleJump)
+			{
+				jumpCorrection = false;
+				animator.SetBool("IsRising", true);
+				animator.SetBool("IsFalling", false);
+				GetComponent<JumpFall>().hasDoubleJumped = true;
+				GetComponent<JumpFall>().hasAttacked = false;
+				GetComponent<JumpFall>().hasFireAttacked = false;
+				rBody.velocity = new Vector2(rBody.velocity.x, 0f);
+				fsm.Transition<JumpRise>();
+				return;
+			}
+		}
+
 		public override void Exit()
 		{
 			animator.SetBool("IsAttacking", false);
+			// FIXME: Gambiarra
+			jumpCorrection = false;
 		}
 
         public void EndAirAttack()

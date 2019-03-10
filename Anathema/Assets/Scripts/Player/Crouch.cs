@@ -41,6 +41,14 @@ namespace Anathema.Player
 				animator.SetBool("IsAttacking", true);
 				fsm.Transition<CrouchAttack>();
 			}
+
+			if(Input.GetKey(KeyCode.K))
+			{
+				animator.SetBool("IsFire", true);
+				animator.SetBool("IsCrouching", false);
+				fsm.Transition<FireAttack>();
+				return;
+			}
 		}
 
 		/// <summary>
