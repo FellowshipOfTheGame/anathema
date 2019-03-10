@@ -7,7 +7,7 @@ namespace Anathema.Player
 	public class Idle : Anathema.Fsm.PlayerState
 	{
 		private JumpFall jumpFallState;
-		private bool canAttack;
+		private bool canAttack, canFireAttack;
 
 		// FIXME: Gambiarra
 		private bool jumpCorrection;
@@ -18,7 +18,11 @@ namespace Anathema.Player
 
 			PlayerUpgrades playerUpgrades = GetComponent<PlayerUpgrades>();
 
-			if (playerUpgrades) canAttack = playerUpgrades.HasScythe;
+			if (playerUpgrades)
+			{
+				canAttack = playerUpgrades.HasScythe;
+				canFireAttack = playerUpgrades.HasFireAttack;
+			}
 			else Debug.LogWarning($"{gameObject.name}: {nameof(Idle)}: Couldn't find {nameof(PlayerUpgrades)}.");
 		}
 
@@ -74,7 +78,7 @@ namespace Anathema.Player
 				return;
 			}
 
-			if(Input.GetKey(KeyCode.K))
+			if(canFireAttack && Input.GetKey(KeyCode.K))
 			{
 				animator.SetBool("IsFire", true);
 				fsm.Transition<FireAttack>();

@@ -20,24 +20,29 @@ namespace Anathema.Player
 		[Tooltip("Speed in which the player is able to control himself during the jump ascension.")]
 		[SerializeField] float horizontalSpeed;
 
-		private bool isLimitedToOneAttack;
-
 		private float currentGravity;
-		private bool canAttack;
+		private bool isLimitedToOneAttack;
+		private bool canAttack, canFireAttack;
 
 		private void Start()
 		{
 			PlayerUpgrades playerUpgrades = GetComponent<PlayerUpgrades>();
 
-			if (playerUpgrades) canAttack = playerUpgrades.HasScythe;
+			if (playerUpgrades) 
+			{
+				canAttack = playerUpgrades.HasScythe;
+				canFireAttack = playerUpgrades.HasFireAttack;
+			}
 			else Debug.LogWarning($"{gameObject.name}: {nameof(JumpRise)}: Couldn't find {nameof(PlayerUpgrades)}.");
+			
+			isLimitedToOneAttack = this.gameObject.GetComponent<JumpFall>().isLimitedToOneAttack;
 		}
+
 		public override void Enter()
 		{
 			animator.Play("JumpAscension", -1, 0);
 			rBody.AddForce(Vector2.up * jumpForce);
 			currentGravity = baseGravity;
-			isLimitedToOneAttack = this.gameObject.GetComponent<JumpFall>().isLimitedToOneAttack;
 		}
 
 		/// <summary>
@@ -62,7 +67,7 @@ namespace Anathema.Player
 				return;
 			}
 
-			if(Input.GetKey(KeyCode.K))
+			if(canFireAttack && Input.GetKey(KeyCode.K))
 			{
 				rBody.velocity = Vector2.zero;
 				animator.SetBool("IsFire", true);

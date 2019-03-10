@@ -24,8 +24,7 @@ namespace Anathema.Player
 		[Tooltip("Whether or not the player has unlocked the skill to double jump.")]
 
 		public bool canDoubleJump;
-		
-		private bool canAttack;
+		private bool canAttack, canFireAttack;
 
 		[Tooltip("Whether or not the player can do multiple attacks per jump")]
 		public bool isLimitedToOneAttack;
@@ -47,6 +46,7 @@ namespace Anathema.Player
 			if (playerUpgrades)
 			{
 				canDoubleJump = playerUpgrades.HasDoubleJump;
+				canFireAttack = playerUpgrades.HasFireAttack;
 				canAttack = playerUpgrades.HasScythe;
 			}
 			else Debug.LogWarning($"{gameObject.name}: {nameof(JumpFall)}: Couldn't find {nameof(PlayerUpgrades)}.");
@@ -88,7 +88,7 @@ namespace Anathema.Player
 				return;
 			}
 
-			if(Input.GetKey(KeyCode.K) && (!isLimitedToOneAttack || (isLimitedToOneAttack && !hasFireAttacked)))
+			if(canFireAttack && Input.GetKey(KeyCode.K) && (!isLimitedToOneAttack || (isLimitedToOneAttack && !hasFireAttacked)))
 			{
 				hasFireAttacked = true;
 				rBody.velocity = Vector2.zero;
