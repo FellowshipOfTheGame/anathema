@@ -45,14 +45,16 @@ namespace Anathema.SceneLoading
         private void AttemptTransition()
         {
             if (newSceneLoaded && (PlayerScene == null || playerSceneLoaded))
-                if (exitDelay != 0f)
+                if (exitDelay >= 0f)
                     Invoke("TransitionStart", exitDelay);
                 else
                     TransitionStart();
         }
         private void TransitionStart()
         {
-            if (PlayerScene != null)
+            SceneLoader.OnSceneLoaded?.Invoke(Destination, GameData);
+            SceneLoader.OnLateSceneLoaded?.Invoke(Destination, GameData);
+            /*if (PlayerScene != null)
             {
                 GameObject[] objects = SceneManager.GetSceneByName(PlayerScene).GetRootGameObjects();
                 foreach (var obj in objects)
@@ -97,17 +99,19 @@ namespace Anathema.SceneLoading
                 Player.SetActive(true);
                 FiniteStateMachine playerFSM = Player.GetComponent<FiniteStateMachine>();
                 playerFSM.Transition<Idle>();
-            }
+            }*/
             fsm.Transition(nextState);
         }
         public override void Enter()
         {
+            SceneLoader.OnSceneAboutToUnload?.Invoke(OldScene);
             SceneManager.UnloadSceneAsync(OldScene).completed += OnOldSceneUnloaded;
             
             if (PlayerScene != null)
             {
                 if (ReloadPlayerScene)
                 {
+                    SceneLoader.OnSceneAboutToUnload?.Invoke(PlayerScene);
                     SceneManager.UnloadSceneAsync(PlayerScene);
                 }
                 playerSceneLoadOperation = SceneManager.LoadSceneAsync(PlayerScene, LoadSceneMode.Additive);
