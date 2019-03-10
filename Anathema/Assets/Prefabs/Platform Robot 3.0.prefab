@@ -160,6 +160,8 @@ MonoBehaviour:
   wallsWalkingBot: 0
   speed: 3
   damage: 30
+  rayWallMaxDist: 1
+  timer: 0.4
   moveSpots: []
 --- !u!114 &114243438131661132
 MonoBehaviour:
@@ -176,6 +178,8 @@ MonoBehaviour:
   wallsWalkingBot: 0
   speed: 3
   damage: 30
+  rayWallMaxDist: 1
+  timer: 0.4
   moveSpots: []
 --- !u!114 &114299371670448108
 MonoBehaviour:
@@ -206,6 +210,8 @@ MonoBehaviour:
   wallsWalkingBot: 0
   speed: 3
   damage: 30
+  rayWallMaxDist: 1
+  timer: 0.4
   moveSpots: []
 --- !u!114 &114423261789114220
 MonoBehaviour:
@@ -222,6 +228,8 @@ MonoBehaviour:
   wallsWalkingBot: 0
   speed: 3
   damage: 30
+  rayWallMaxDist: 1
+  timer: 0.4
   moveSpots: []
 --- !u!114 &114829353499727050
 MonoBehaviour:
@@ -238,6 +246,8 @@ MonoBehaviour:
   wallsWalkingBot: 0
   speed: 3
   damage: 30
+  rayWallMaxDist: 1
+  timer: 0.4
   moveSpots: []
 --- !u!114 &114949006991536974
 MonoBehaviour:
