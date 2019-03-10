@@ -6,13 +6,16 @@ namespace Anathema.ChasingRobot
 {
     public class Attack : Anathema.Fsm.CleaningRobotState
     {
-        [Tooltip("The maximum distance to the player be considered lost.")]
-        [SerializeField] float maxDist;
+       // [Tooltip("The maximum distance to the player be considered lost.")]
+       // [SerializeField] float maxDist;
         [Tooltip("The minimum distance between the robot and the player so it will keep chasing the player.")]
         [SerializeField] float miniDist;
 
         [Tooltip("attack damage of the cleaning robot.")]
         [SerializeField] int damage;
+        
+         [Tooltip("Here goes the amount and the GameObjects which limits the chasing area. The spots must be in the ground. In the prefab corresponds the red spots.")]
+        [SerializeField] Transform[] chaseSpots;
 
         /// <summary>
         /// In this class, the Enter is used to find and get the Transform of the player
@@ -30,18 +33,18 @@ namespace Anathema.ChasingRobot
             if (player != null)
             {
                 playerDist = player.position - transform.position;
-
-                if (RaycastUpdate() == false && playerDist.magnitude > maxDist)
+                RaycastUpdate();
+                if (CheckPlayer() == false)
                 {
                     animator.SetBool("isPatrolling", true);
                     fsm.Transition<Patrol>();
                 }
-                else if (playerDist.magnitude >= miniDist)
+                else if (playerDist.magnitude >= miniDist && CheckPlayer() == true)
                 {
                     animator.SetBool("isChasing", true);
                     fsm.Transition<Chase>();
                 }
-
+                
             }
             else
             {
@@ -50,7 +53,22 @@ namespace Anathema.ChasingRobot
             }
         }
 
+        private bool CheckPlayer()
+        {
+            Collider2D hits = Physics2D.OverlapArea(chaseSpots[0].position, chaseSpots[1].position, LayerMask.GetMask("Player"));
+            Debug.DrawLine(chaseSpots[0].position, chaseSpots[1].position, Color.blue);
+            if (hits)
+            {
 
+                if (hits.CompareTag("Player"))
+                {
+                    return true;
+                }
+            }
+            return false;
+
+        }
+        
         /// <summary>
         /// Gets the raycast which is used to look for the player
         /// </summary>
@@ -99,6 +117,7 @@ namespace Anathema.ChasingRobot
             return false;
 
         }
+        
         public override void Exit() { }
     }
 

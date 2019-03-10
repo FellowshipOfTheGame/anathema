@@ -22,6 +22,7 @@ namespace Anathema.Player
 		[SerializeField] float raycastOffset;
 
 		[Tooltip("Whether or not the player has unlocked the skill to double jump.")]
+<<<<<<< HEAD
 		public bool canDoubleJump;
 
 		[Tooltip("Whether or not the player can do multiple attacks per jump")]
@@ -35,6 +36,24 @@ namespace Anathema.Player
 
 		// FIXME: Gambiarra
 		private bool jumpCorrection;
+=======
+		private bool canDoubleJump;
+		private bool canAttack;
+		// Stores whether or not the player has double jumped
+		private bool hasDoubleJumped;
+>>>>>>> origin/demoura
+
+		private void Start()
+		{
+			PlayerUpgrades playerUpgrades = GetComponent<PlayerUpgrades>();
+
+			if (playerUpgrades)
+			{
+				canDoubleJump = playerUpgrades.HasDoubleJump;
+				canAttack = playerUpgrades.HasScythe;
+			}
+			else Debug.LogWarning($"{gameObject.name}: {nameof(JumpFall)}: Couldn't find {nameof(PlayerUpgrades)}.");
+		}
 
 		public RaycastHit2D CheckIfGrounded()
 		{
@@ -62,7 +81,11 @@ namespace Anathema.Player
 			float HorizontalAxis = Input.GetAxisRaw("Horizontal");
 
 			// Handles attacking midair
+<<<<<<< HEAD
 			if(Input.GetKey(KeyCode.J) && (!isLimitedToOneAttack || (isLimitedToOneAttack && !hasAttacked)))
+=======
+			if(canAttack && Input.GetKeyDown(KeyCode.J))
+>>>>>>> origin/demoura
 			{
 				hasAttacked = true;
 				rBody.velocity = Vector2.zero;

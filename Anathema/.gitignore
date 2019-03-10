@@ -41,3 +41,8 @@ sysinfo.txt
 
 #KDE
 .directory
+
+#JetBrains
+.idea/
+Assets/Plugins/
+Assets/Plugins.meta

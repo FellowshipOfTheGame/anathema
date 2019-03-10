@@ -5,37 +5,76 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: ab8e8179bec7c4843b0395048924eb3b
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Player.unity
     guid: 9080d8152d03a44bb890163e920a9978
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Loading.unity
     guid: 4399d20984ff21246885f8cd859b545d
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Tutorial-0.unity
     guid: 3b98d9ba93c964932b28c0459dea8cbb
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Tutorial-1.unity
     guid: 82f3b63d3aa5740c4843486d0ccafe76
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Tutorial-2.unity
     guid: e31a7a82d8400544d972064449a1d66d
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Tutorial-3.unity
     guid: bc06e899b82d3b24191a82072e33bc64
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Tutorial-4.unity
     guid: b3c18f6c661ace14ab125d1fd3e64544
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Tutorial-SaveRoom.unity
     guid: 4740668d48f9f4f0192dc11ca4433745
-  - enabled: 0
-    path: Assets/Scenes/ThankYou.unity
-    guid: bdfd6c241b9148f488b1b334c2d5be35
   - enabled: 1
-    path: Assets/Scenes/Igreja.unity
-    guid: 00c07d546d5714cc5a5c2a410cae2b3f
+    path: Assets/Scenes/Church-1.unity
+    guid: 00bb3b7a1b73fef40902690b9effa64a
+  - enabled: 1
+    path: Assets/Scenes/Church-2.unity
+    guid: 8250eeed7a95dba4093a1d299f1b3387
+  - enabled: 1
+    path: Assets/Scenes/Church-3.unity
+    guid: b095f4ad7d5400c4680fcf77c43d2b2b
+  - enabled: 1
+    path: Assets/Scenes/Church-Judas.unity
+    guid: 37a0583a3758ae449a82fb2f94d12b91
+  - enabled: 1
+    path: Assets/Scenes/Church-0.unity
+    guid: f90d063d4d8ae6b40994807548ed0737
+  - enabled: 1
+    path: Assets/Scenes/Church-SaveRoom1.unity
+    guid: 303ce0b5c7d319245865e637ba524e15
+  - enabled: 1
+    path: Assets/Scenes/Church-SaveRoom2.unity
+    guid: ae68d1f681f29474fa2b59694b9b2152
+  - enabled: 1
+    path: Assets/Scenes/Library-1.unity
+    guid: 27b719b8c2068d345ae16e9add30561d
+  - enabled: 1
+    path: Assets/Scenes/Library-3.1.unity
+    guid: 9e58c268bb7cc514c80dd0356b6670a7
+  - enabled: 1
+    path: Assets/Scenes/Library-3.unity
+    guid: 1283ef3c03eaf16449f614f38bfec36d
+  - enabled: 1
+    path: Assets/Scenes/Library-2.2.unity
+    guid: 3639094aeceb28745b7e8f8e74a1af39
+  - enabled: 1
+    path: Assets/Scenes/Library-2.1.unity
+    guid: c33aab8c65a12d64ebcbb462afdc8425
+  - enabled: 1
+    path: Assets/Scenes/Library-2.unity
+    guid: 5f0e98e693fefda41aa56a3b91a12ad6
+  - enabled: 1
+    path: Assets/Scenes/Library-Books.unity
+    guid: 828f6c5569ffd564692a33d2b178ada8
+  - enabled: 1
+    path: Assets/Scenes/Library-SaveRoom.unity
+    guid: 523bdf1598c12dc4fa44da6f25a2e880
   m_configObjects: {}

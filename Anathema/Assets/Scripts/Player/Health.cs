@@ -21,6 +21,31 @@ public class Health : MonoBehaviour {
 
     public bool isInvulnerable = false;
 
+    public int Hp {
+        get {return hp;}
+        set {
+            if (value < 0) {
+                hp = 0;
+                OnDeath?.Invoke();
+            } else if (value > MaxHP) {
+                hp = maxHP;
+            } else {
+                hp = value;
+            }
+
+            OnHealthChange?.Invoke(hp);
+        }
+    }
+
+    public int MaxHP{
+        get{return maxHP;}
+        set{
+            maxHP = value;
+            if(maxHP < 0)
+                Debug.LogWarning("Warning: setting maxHealth < 0");
+        }
+    }
+
     /// <summary>
     ///     The entity's health can only be changed by other scripts through this method, which ensures the correct aftereffects 
     /// will be applied.
@@ -31,38 +56,38 @@ public class Health : MonoBehaviour {
     /// <returns>   Whether or not it was successful (false when player is invulnerable) </returns>
     public bool Damage(int value, Vector2 hitVector, DamageType damageType)
     {
+        if(isInvulnerable)
+            return false;
         switch(damageType)
         {
             case DamageType.EnemyAttack:
-                OnKnockback(hitVector);
+                OnKnockback?.Invoke(hitVector);
                 goto case DamageType.NormalDamage;
 
             case DamageType.LevelHazard:
                 goto case DamageType.NormalDamage;
 
             case DamageType.NormalDamage:
-                if(isInvulnerable)
-                    return false;
 
-                hp -= value;
-                //OnHealthChange(hp);
+                Hp -= value;
+                // OnHealthChange?.Invoke(hp);
 
-                if(hp < 0)
-                {
-                    hp = 0;
-                    OnDeath();
-                }
+                // if(hp < 0)
+                // {
+                //     hp = 0;
+                //     OnDeath?.Invoke();
+                // }
                 break;
 
             case DamageType.Heal:
-                if(hp == maxHP)
+                if(Hp == maxHP)
                     return false;
 
-                hp += value;
-                OnHealthChange(hp);
+                Hp += value;
+                // OnHealthChange?.Invoke(hp);
 
-                if(hp > maxHP)
-                    hp = maxHP;
+                // if(hp > maxHP)
+                //     hp = maxHP;
                 
                 break;           
 
@@ -87,12 +112,7 @@ public class Health : MonoBehaviour {
         get{return 100f * ((float)hp / (float)MaxHP);}
     }
 
-    public int MaxHP{
-        get{return maxHP;}
-        set{
-            maxHP = value;
-            if(maxHP < 0)
-                Debug.LogWarning("Warning: setting maxHealth < 0");
-        }
+    private void Start() {
+        Hp = MaxHP;
     }
 }

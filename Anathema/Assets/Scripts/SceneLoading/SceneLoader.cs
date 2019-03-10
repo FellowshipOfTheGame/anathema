@@ -18,6 +18,7 @@ namespace Anathema.SceneLoading
         private GameObject player;
         private GameData gameData;
         private string playerScene;
+        private bool reloadPlayerScene;
         /// <summary>
         /// Creates a new SceneLoader using loadingScene as loading screen.
         /// </summary>
@@ -42,6 +43,7 @@ namespace Anathema.SceneLoading
                     swapScenes.Player = player;
                     swapScenes.GameData = gameData;
                     swapScenes.PlayerScene = playerScene;
+                    swapScenes.ReloadPlayerScene = reloadPlayerScene;
                     break;
                 }
             }
@@ -53,10 +55,12 @@ namespace Anathema.SceneLoading
         /// <param name="oldScene">The scene to unload.</param>
         /// <param name="destination">The UniqueID of a destination UniqueComponent.</param>
         /// <param name="playerScene">The name of the Player scene to load.</param>
-        public void FadeScenes(string oldScene, string playerScene, GameData gameData)
+        /// <param name="reloadPlayerScene"> Whether to unload an exist Player scene.</param>
+        public void FadeScenes(string oldScene, string playerScene, GameData gameData, bool reloadPlayerScene = false)
         {
             this.playerScene = playerScene;
             this.gameData = gameData;
+            this.reloadPlayerScene = reloadPlayerScene;
             FadeScenes(oldScene, gameData.spawnLocation, (GameObject) null);
         }
         /// <summary>

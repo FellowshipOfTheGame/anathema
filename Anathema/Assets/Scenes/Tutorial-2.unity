@@ -23436,8 +23436,8 @@ MonoBehaviour:
     objectName: LeftWing
   destination:
     useCurrentSceneName: 0
-    sceneName: 
-    objectName: 
+    sceneName: Church-0
+    objectName: Entrance
   loadingSceneName: Loading
 --- !u!61 &459757793
 BoxCollider2D:

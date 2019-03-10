@@ -646,7 +646,8 @@ GameObject:
   - component: {fileID: 913779749}
   - component: {fileID: 913779748}
   - component: {fileID: 913779765}
-  m_Layer: 0
+  - component: {fileID: 913779766}
+  m_Layer: 12
   m_Name: Player3.1
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -741,7 +742,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 8ddb4067c4c514245a46607d28adcfbe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -784,6 +785,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 507272beefbc10346b392cecc3b45a76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadingScene: Loading
+  playerScene: Player
 --- !u!114 &913779754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -844,7 +847,7 @@ MonoBehaviour:
   attackRange: 2.18
   attackHeight: 1.45
   attackHeightOffset: 0.72
-  baseDamage: 5
+  baseDamage: 30
 --- !u!114 &913779758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -862,7 +865,6 @@ MonoBehaviour:
   groundCheckDist: 2.61
   horizontalSpeed: 8
   raycastOffset: 2.03
-  canDoubleJump: 1
 --- !u!114 &913779759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -875,7 +877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f93607286e2fe884495bb6145332fb5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 800
+  jumpForce: 1000
   baseGravity: 30
   gravityFallOff: 0.1
   horizontalSpeed: 8
@@ -894,7 +896,7 @@ MonoBehaviour:
   attackRange: 2.18
   attackHeight: 1.45
   attackHeightOffset: 0.72
-  baseDamage: 5
+  baseDamage: 30
 --- !u!114 &913779761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -909,8 +911,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRange: 2.18
   attackHeight: 0.29
-  attackHeightOffset: 0.72
-  baseDamage: 5
+  attackHeightOffset: -0.72
+  baseDamage: 30
 --- !u!114 &913779762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -924,8 +926,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseSpeed: 9
-  groundRayDist: 2.33
-  safetyGroundThreshold: 0.44
+  groundRayDist: 3
+  safetyGroundThreshold: 0.46
   raycastOffset: 1.89
   steepSlopeAngle: 90
 --- !u!114 &913779763
@@ -974,7 +976,20 @@ MonoBehaviour:
       useCurrentSceneName: 0
       sceneName: Tutorial-0
       objectName: Spawn
---- !u!224 &1076070124 stripped
+    keys: []
+--- !u!114 &913779766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 913779747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2016f43d2890847519dbb137faea9719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetBurnTime: 2
+--- !u!224 &1041668850 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224682944924308934, guid: 42873fcc8d72405489113501296dc9e1,
     type: 2}
@@ -1138,7 +1153,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 7991
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1313,7 +1328,7 @@ RectTransform:
   m_Children:
   - {fileID: 645506907}
   - {fileID: 1167229839}
-  - {fileID: 1076070124}
+  - {fileID: 1041668850}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

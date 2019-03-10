@@ -12,5 +12,6 @@ namespace Anathema.Saving
         public bool hasTalkedToJudas;
         public int maxHealth;
         public UniqueID spawnLocation;
+        public UniqueID[] keys;
     }
 }

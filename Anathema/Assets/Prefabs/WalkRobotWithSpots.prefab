@@ -306,11 +306,10 @@ MonoBehaviour:
   platformsWalkingBot: 0
   wallsWalkingBot: 1
   speed: 3
-  damage: 0
+  damage: 30
   moveSpots:
   - {fileID: 4444609865177426}
   - {fileID: 4390573763133104}
-  groundDetection: {fileID: 4597971190673068}
 --- !u!114 &114125447602868604
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -323,7 +322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSpot: 0
-  orientation: 0
+  platform: 0
 --- !u!114 &114266405876983720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -338,11 +337,10 @@ MonoBehaviour:
   platformsWalkingBot: 0
   wallsWalkingBot: 1
   speed: 3
-  damage: 0
+  damage: 30
   moveSpots:
   - {fileID: 4444609865177426}
   - {fileID: 4390573763133104}
-  groundDetection: {fileID: 4597971190673068}
 --- !u!114 &114275817227624034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -357,11 +355,10 @@ MonoBehaviour:
   platformsWalkingBot: 0
   wallsWalkingBot: 1
   speed: 3
-  damage: 0
+  damage: 30
   moveSpots:
   - {fileID: 4444609865177426}
   - {fileID: 4390573763133104}
-  groundDetection: {fileID: 4597971190673068}
 --- !u!114 &114537184703413486
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -376,11 +373,10 @@ MonoBehaviour:
   platformsWalkingBot: 0
   wallsWalkingBot: 1
   speed: 3
-  damage: 0
+  damage: 30
   moveSpots:
   - {fileID: 4444609865177426}
   - {fileID: 4390573763133104}
-  groundDetection: {fileID: 4597971190673068}
 --- !u!114 &114559886051813046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -395,11 +391,10 @@ MonoBehaviour:
   platformsWalkingBot: 0
   wallsWalkingBot: 1
   speed: 3
-  damage: 0
+  damage: 30
   moveSpots:
   - {fileID: 4444609865177426}
   - {fileID: 4390573763133104}
-  groundDetection: {fileID: 4597971190673068}
 --- !u!114 &114852268010750930
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -413,6 +408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 32
   maxHP: 100
+  isInvulnerable: 0
 --- !u!212 &212152203059497684
 SpriteRenderer:
   m_ObjectHideFlags: 1
