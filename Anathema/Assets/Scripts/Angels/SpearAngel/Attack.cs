@@ -22,10 +22,12 @@ namespace Anathema.SpearAngel {
 		/// </summary>
 		/// <returns></returns>
 		private IEnumerator AttackPlayer() { 
+			animator.SetBool("isAttacking", true);
 			attacking = true;
 			attackDirection = player.transform.position - this.transform.position;
 			rBody.velocity = attackDirection.normalized * speed;
 			yield return new WaitForSeconds(attackDuration);
+			animator.SetBool("isAttacking", false);
 			attacking = false;
 			rBody.velocity = Vector2.zero;
 		}
@@ -44,6 +46,7 @@ namespace Anathema.SpearAngel {
 		/// </summary>
 		void OnCollisionEnter2D() {
 			attacking = false;
+			animator.SetBool("isAttacking", false);
 			rBody.velocity = Vector2.zero;
 		}
 
