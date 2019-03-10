@@ -26,7 +26,8 @@ namespace Anathema.Player
 
 		// Stores the vector in which the player's velocity needs to be multiplied by
 		private Vector2 moveDirection;
-		private bool canAttack;
+
+		private bool canAttack, canFireAttack;
 
 		// FIXME: Gambiarra
 		private bool jumpCorrection;
@@ -35,7 +36,11 @@ namespace Anathema.Player
 		{
 			PlayerUpgrades playerUpgrades = GetComponent<PlayerUpgrades>();
 
-			if (playerUpgrades) canAttack = playerUpgrades.HasScythe;
+			if (playerUpgrades)
+			{
+				canAttack = playerUpgrades.HasScythe;
+				canFireAttack = playerUpgrades.HasFireAttack;
+			} 
 			else Debug.LogWarning($"{gameObject.name}: {nameof(Walking)}: Couldn't find {nameof(PlayerUpgrades)}.");
 		}
 
@@ -113,7 +118,7 @@ namespace Anathema.Player
 				return;
 			}
 
-			if(Input.GetKey(KeyCode.K))
+			if(canFireAttack && Input.GetKey(KeyCode.K))
 			{
 				animator.SetBool("IsFire", true);
 				animator.SetBool("IsWalking", false);

@@ -20,6 +20,7 @@ namespace Anathema.Player
 
 		private bool canDoubleJump;
 
+		// FIXME: Gambiarra
 		private bool jumpCorrection;
 
         /// <summary>
@@ -45,7 +46,10 @@ namespace Anathema.Player
 
 		private void Start()
 		{
-			canDoubleJump = GetComponent<JumpFall>().canDoubleJump;
+			PlayerUpgrades playerUpgrades = GetComponent<PlayerUpgrades>();
+
+			if (playerUpgrades) canDoubleJump = playerUpgrades.HasDoubleJump;
+			else Debug.LogWarning($"{gameObject.name}: {nameof(Crouch)}: Couldn't find {nameof(PlayerUpgrades)}.");
 		}
 
 		// FIXME: Gambiarra
@@ -57,14 +61,16 @@ namespace Anathema.Player
 
 		private void FixedUpdate()
 		{
-			if(jumpCorrection && !GetComponent<JumpFall>().hasDoubleJumped && canDoubleJump)
+			JumpFall jumpInfo = GetComponent<JumpFall>();
+
+			if(jumpCorrection && !jumpInfo.hasDoubleJumped && canDoubleJump)
 			{
 				jumpCorrection = false;
 				animator.SetBool("IsRising", true);
 				animator.SetBool("IsFalling", false);
-				GetComponent<JumpFall>().hasDoubleJumped = true;
-				GetComponent<JumpFall>().hasAttacked = false;
-				GetComponent<JumpFall>().hasFireAttacked = false;
+				jumpInfo.hasDoubleJumped = true;
+				jumpInfo.hasAttacked = false;
+				jumpInfo.hasFireAttacked = false;
 				rBody.velocity = new Vector2(rBody.velocity.x, 0f);
 				fsm.Transition<JumpRise>();
 				return;
