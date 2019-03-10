@@ -22,18 +22,12 @@ namespace Anathema.Player
 
 		private float currentGravity;
 		private bool isLimitedToOneAttack;
-		private bool canAttack, canFireAttack;
+		private PlayerUpgrades playerUpgrades;
 
 		private void Start()
 		{
-			PlayerUpgrades playerUpgrades = GetComponent<PlayerUpgrades>();
-
-			if (playerUpgrades) 
-			{
-				canAttack = playerUpgrades.HasScythe;
-				canFireAttack = playerUpgrades.HasFireAttack;
-			}
-			else Debug.LogWarning($"{gameObject.name}: {nameof(JumpRise)}: Couldn't find {nameof(PlayerUpgrades)}.");
+			playerUpgrades = GetComponent<PlayerUpgrades>();
+			if (!playerUpgrades) Debug.LogError($"{gameObject.name}: {nameof(Crouch)}: Couldn't find {nameof(PlayerUpgrades)}.");
 			
 			isLimitedToOneAttack = this.gameObject.GetComponent<JumpFall>().isLimitedToOneAttack;
 		}
@@ -55,7 +49,8 @@ namespace Anathema.Player
 			float HorizontalAxis = Input.GetAxisRaw("Horizontal");
 
 			// Handles attacking while in the air
-			if(canAttack && Input.GetKey(KeyCode.J))
+			Debug.Log("Can attack: " + playerUpgrades.HasScythe);
+			if(playerUpgrades.HasScythe && Input.GetKey(KeyCode.J))
 			{
 				rBody.velocity = Vector3.zero;
 				animator.SetBool("IsAttacking", true);
@@ -67,7 +62,8 @@ namespace Anathema.Player
 				return;
 			}
 
-			if(canFireAttack && Input.GetKey(KeyCode.K))
+			Debug.Log("Can fire attack: " + playerUpgrades.HasFireAttack);
+			if(playerUpgrades.HasFireAttack && Input.GetKey(KeyCode.K))
 			{
 				rBody.velocity = Vector2.zero;
 				animator.SetBool("IsFire", true);

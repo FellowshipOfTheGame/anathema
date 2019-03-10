@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114956293954485050}
   - component: {fileID: 114746752980175492}
   - component: {fileID: 114646463452250752}
+  - component: {fileID: 2113883506982124524}
   m_Layer: 0
   m_Name: BreakableWall
   m_TagString: Untagged
@@ -83,6 +84,19 @@ MonoBehaviour:
   hp: 1
   maxHP: 1
   isInvulnerable: 0
+--- !u!19719996 &2113883506982124524
+TilemapCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1872155237733322}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
 --- !u!483693784 &3664157344837408118
 TilemapRenderer:
   m_ObjectHideFlags: 1
@@ -115,9 +129,9 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -535940169
+  m_SortingLayer: 2
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16

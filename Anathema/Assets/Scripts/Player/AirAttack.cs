@@ -18,7 +18,7 @@ namespace Anathema.Player
 		[Tooltip("Your base attack damage.")]
 		[SerializeField] public int baseDamage;
 
-		private bool canDoubleJump;
+		private PlayerUpgrades playerUpgrades;
 
 		// FIXME: Gambiarra
 		private bool jumpCorrection;
@@ -46,10 +46,8 @@ namespace Anathema.Player
 
 		private void Start()
 		{
-			PlayerUpgrades playerUpgrades = GetComponent<PlayerUpgrades>();
-
-			if (playerUpgrades) canDoubleJump = playerUpgrades.HasDoubleJump;
-			else Debug.LogWarning($"{gameObject.name}: {nameof(Crouch)}: Couldn't find {nameof(PlayerUpgrades)}.");
+			playerUpgrades = GetComponent<PlayerUpgrades>();
+			if (!playerUpgrades) Debug.LogError($"{gameObject.name}: {nameof(Crouch)}: Couldn't find {nameof(PlayerUpgrades)}.");
 		}
 
 		// FIXME: Gambiarra
@@ -63,7 +61,7 @@ namespace Anathema.Player
 		{
 			JumpFall jumpInfo = GetComponent<JumpFall>();
 
-			if(jumpCorrection && !jumpInfo.hasDoubleJumped && canDoubleJump)
+			if(jumpCorrection && !jumpInfo.hasDoubleJumped && playerUpgrades.HasDoubleJump)
 			{
 				jumpCorrection = false;
 				animator.SetBool("IsRising", true);
