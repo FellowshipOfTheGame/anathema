@@ -638,6 +638,8 @@ GameObject:
   - component: {fileID: 913779757}
   - component: {fileID: 913779756}
   - component: {fileID: 913779755}
+  - component: {fileID: 913779768}
+  - component: {fileID: 913779767}
   - component: {fileID: 913779754}
   - component: {fileID: 913779753}
   - component: {fileID: 913779752}
@@ -865,6 +867,11 @@ MonoBehaviour:
   groundCheckDist: 2.61
   horizontalSpeed: 8
   raycastOffset: 2.03
+  canDoubleJump: 0
+  isLimitedToOneAttack: 1
+  hasDoubleJumped: 0
+  hasAttacked: 0
+  hasFireAttacked: 0
 --- !u!114 &913779759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -926,8 +933,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseSpeed: 9
-  groundRayDist: 3
-  safetyGroundThreshold: 0.46
+  groundRayDist: 2.33
+  safetyGroundThreshold: 0.44
   raycastOffset: 1.89
   steepSlopeAngle: 90
 --- !u!114 &913779763
@@ -989,6 +996,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetBurnTime: 2
+--- !u!114 &913779767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 913779747}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a99158370606a09499827e528dc16b14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireRange: 3
+  fireHeight: -1.8
+  fireDamage: 50
+  firePrefab: {fileID: 1354765179633392, guid: 336ac2250dcb7f44aa54a754b05d655e, type: 2}
+--- !u!114 &913779768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 913779747}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc766db551afc144a49a5386f22e200, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireRange: 3
+  fireHeight: -1
+  fireDamage: 50
+  firePrefab: {fileID: 1354765179633392, guid: 336ac2250dcb7f44aa54a754b05d655e, type: 2}
 --- !u!224 &1041668850 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224682944924308934, guid: 42873fcc8d72405489113501296dc9e1,

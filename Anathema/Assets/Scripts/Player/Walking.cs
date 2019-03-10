@@ -13,7 +13,7 @@ namespace Anathema.Player
 		[SerializeField] float groundRayDist;
 
 		[Tooltip("An added distance that is added to the Ground Ray Distance to detect ground in uneven ground, such as stairs and slopes.")]
-		[Range(0f, 1f)] [SerializeField] float safetyGroundThreshold;
+		[SerializeField] float safetyGroundThreshold;
 
 		[Tooltip("An offset distance between the center of the player and where the raycast actually begins casting. Has to be lower than groundRayDist.")]
 		[SerializeField] float raycastOffset;
@@ -27,21 +27,15 @@ namespace Anathema.Player
 		// Stores the vector in which the player's velocity needs to be multiplied by
 		private Vector2 moveDirection;
 
-		private bool canAttack, canFireAttack;
+		private PlayerUpgrades playerUpgrades;
 
 		// FIXME: Gambiarra
 		private bool jumpCorrection;
 
 		private void Start()
 		{
-			PlayerUpgrades playerUpgrades = GetComponent<PlayerUpgrades>();
-
-			if (playerUpgrades)
-			{
-				canAttack = playerUpgrades.HasScythe;
-				canFireAttack = playerUpgrades.HasFireAttack;
-			} 
-			else Debug.LogWarning($"{gameObject.name}: {nameof(Walking)}: Couldn't find {nameof(PlayerUpgrades)}.");
+			playerUpgrades = GetComponent<PlayerUpgrades>();
+			if (!playerUpgrades) Debug.LogError($"{gameObject.name}: {nameof(Crouch)}: Couldn't find {nameof(PlayerUpgrades)}.");
 		}
 
 		public override void Enter() {	}
@@ -55,13 +49,10 @@ namespace Anathema.Player
 		void GetGroundInformation(RaycastHit2D rayHit, out Vector2 moveDirection)
 		{
 			float slopeAngle = Vector2.Angle(Vector2.up, rayHit.normal);
-			// Debug.DrawRay(this.transform.position, rayHit.normal, Color.green, 2f);
 					
 			if(slopeAngle <= steepSlopeAngle)
 			{
-				// Debug.Log(slopeAngle);
 				(moveDirection = Quaternion.Euler(0, 0, 270f) * rayHit.normal).Normalize();
-				//moveDirection.Set(Mathf.Abs(moveDirection.x), Mathf.Abs(moveDirection.y));
 			}
 			else
 				moveDirection = Vector2.right;
@@ -82,6 +73,19 @@ namespace Anathema.Player
 
 			GetGroundInformation(rayHit, out moveDirection);
 			// Debug.DrawRay(this.transform.position, moveDirection, Color.blue, 2f);
+
+
+			// FIXME: Oh, the Gambiarra. It hurts so much. It's painful.
+			Vector3 leftOrRight = sRenderer.flipX ? Vector3.left : Vector3.right;
+			RaycastHit2D hit = Physics2D.Raycast(transform.position + Vector3.down * groundRayDist, leftOrRight, 0.2f, LayerMask.GetMask("Ground"));
+			Debug.DrawRay(transform.position + Vector3.down * groundRayDist, leftOrRight * 0.1f, Color.blue, 1f);
+
+			if(hit && Vector2.Angle(Vector2.up, hit.normal) < 60f)
+			{
+				GetGroundInformation(hit, out moveDirection);
+				Debug.DrawRay(transform.position + Vector3.down * groundRayDist, moveDirection, Color.red, 1f);
+			}
+			// GAMBIARRA AHHHH
 			
 		}
 
@@ -109,7 +113,7 @@ namespace Anathema.Player
 				return;
 			}
 
-			if(canAttack && Input.GetKey(KeyCode.J))
+			if(playerUpgrades.HasScythe && Input.GetKey(KeyCode.J))
 			{
 				animator.SetBool("IsAttacking", true);
 				animator.SetBool("IsWalking", false);
@@ -118,7 +122,7 @@ namespace Anathema.Player
 				return;
 			}
 
-			if(canFireAttack && Input.GetKey(KeyCode.K))
+			if(playerUpgrades.HasFireAttack && Input.GetKey(KeyCode.K))
 			{
 				animator.SetBool("IsFire", true);
 				animator.SetBool("IsWalking", false);

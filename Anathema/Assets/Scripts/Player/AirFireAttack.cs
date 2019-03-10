@@ -18,7 +18,7 @@ namespace Anathema.Player
         [SerializeField] private GameObject firePrefab;
 
         private GameObject currentFireObject;
-		private bool canDoubleJump;
+		private PlayerUpgrades playerUpgrades;
 		private bool jumpCorrection;
 
 
@@ -42,17 +42,15 @@ namespace Anathema.Player
 
 		private void Start()
 		{
-			PlayerUpgrades playerUpgrades = GetComponent<PlayerUpgrades>();
-
-			if (playerUpgrades) canDoubleJump = playerUpgrades.HasDoubleJump;
-			else Debug.LogWarning($"{gameObject.name}: {nameof(Crouch)}: Couldn't find {nameof(PlayerUpgrades)}.");
+			playerUpgrades = GetComponent<PlayerUpgrades>();
+			if (!playerUpgrades) Debug.LogError($"{gameObject.name}: {nameof(Crouch)}: Couldn't find {nameof(PlayerUpgrades)}.");
 		}
 
 		private void FixedUpdate()
 		{
 			JumpFall jumpInfo = GetComponent<JumpFall>();
 
-			if(jumpCorrection && !jumpInfo.hasDoubleJumped && canDoubleJump)
+			if(jumpCorrection && !jumpInfo.hasDoubleJumped && playerUpgrades.HasDoubleJump)
 			{
 				jumpCorrection = false;
 				animator.SetBool("IsRising", true);
