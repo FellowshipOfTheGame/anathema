@@ -1,3 +1,4 @@
+using Anathema.Saving;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Anathema.SceneLoading;
@@ -26,6 +27,7 @@ namespace Anathema.Rooms
         /// For ignoring the first trigger enter when player spawns on trigger
         /// </summary>
         public bool IgnoreNextCollision { get; set; }
+
         /// <summary>
         /// Prevents multiple scene loads from being started.
         /// </summary>
@@ -38,6 +40,22 @@ namespace Anathema.Rooms
             if (!myCollider2D) Debug.LogWarning($"{gameObject.name}: Door requires a Collider2D component.");
             else if (!myCollider2D.isTrigger) Debug.LogWarning($"{gameObject.name}: Door requires that the Collider2D is a trigger.");
         }
+
+        private void OnEnable()
+        {
+            SceneLoader.OnSceneLoaded += SceneLoadHandler;
+        }
+
+        private void SceneLoadHandler(UniqueID destination, GameData gameData)
+        {
+            Debug.Log("Hi"+ this + " " +destination);
+            if (destination.Equals(this.UniqueID))
+            {
+                Debug.Log("Hi2"+name);
+                IgnoreNextCollision = true;
+            }
+        }
+
         protected virtual void OnTriggerEnter2D(Collider2D collider)
         {
             if (collider.CompareTag("Player"))
@@ -53,6 +71,11 @@ namespace Anathema.Rooms
                     loader.FadeScenes(gameObject.scene.name, destination, collider.gameObject);
                 }
             }
+        }
+
+        private void OnDisable()
+        {
+            SceneLoader.OnSceneLoaded -= SceneLoadHandler;
         }
     }
 }
