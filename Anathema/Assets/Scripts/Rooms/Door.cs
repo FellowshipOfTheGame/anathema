@@ -10,7 +10,7 @@ namespace Anathema.Rooms
     /// Requires a Trigger Collider on the same GameObject.
     /// </summary>
     [RequireComponent(typeof(Collider2D))]
-    public class Door : UniqueComponent
+    public class Door : UniqueTrigger
     {
         /// <summary>
         /// UniqueID of the destination component.
@@ -22,41 +22,12 @@ namespace Anathema.Rooms
         /// The name of the loading screen scene.
         /// </summary>
         [SerializeField] private string loadingSceneName;
-
-        /// <summary>
-        /// For ignoring the first trigger enter when player spawns on trigger
-        /// </summary>
-        public bool IgnoreNextCollision { get; set; }
-
         /// <summary>
         /// Prevents multiple scene loads from being started.
         /// </summary>
         private bool loadStarted = false;
-        protected override void Awake()
-        {
-            base.Awake();
 
-            Collider2D myCollider2D = GetComponent<Collider2D>();
-            if (!myCollider2D) Debug.LogWarning($"{gameObject.name}: Door requires a Collider2D component.");
-            else if (!myCollider2D.isTrigger) Debug.LogWarning($"{gameObject.name}: Door requires that the Collider2D is a trigger.");
-        }
-
-        private void OnEnable()
-        {
-            SceneLoader.OnSceneLoaded += SceneLoadHandler;
-        }
-
-        private void SceneLoadHandler(UniqueID destination, GameData gameData)
-        {
-            Debug.Log("Hi"+ this + " " +destination);
-            if (destination.Equals(this.UniqueID))
-            {
-                Debug.Log("Hi2"+name);
-                IgnoreNextCollision = true;
-            }
-        }
-
-        protected virtual void OnTriggerEnter2D(Collider2D collider)
+        protected override void OnTriggerActivate(Collider2D collider)
         {
             if (collider.CompareTag("Player"))
             {
@@ -71,11 +42,6 @@ namespace Anathema.Rooms
                     loader.FadeScenes(gameObject.scene.name, destination, collider.gameObject);
                 }
             }
-        }
-
-        private void OnDisable()
-        {
-            SceneLoader.OnSceneLoaded -= SceneLoadHandler;
         }
     }
 }
