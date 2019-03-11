@@ -11,11 +11,15 @@ namespace Anathema.ChasingRobot
         private Animator animator;
         private Anathema.Fsm.FiniteStateMachine fsm;
         private SpriteBurn spriteBurn;
+        private KnockBack knockBack;
+        private SpriteRenderer sRenderer;
         void Awake()
         {
             animator = GetComponent<Animator>();
             fsm = GetComponent<Anathema.Fsm.FiniteStateMachine>();
             spriteBurn = GetComponent<SpriteBurn>();
+            knockBack = GetComponent<KnockBack>();
+            sRenderer = GetComponent<SpriteRenderer>();
             OnKnockback += OnHit;
             OnDeath += DeathAnimation;
             spriteBurn.OnBurnComplete += Die;
@@ -23,7 +27,16 @@ namespace Anathema.ChasingRobot
 
         void OnHit(Vector2 hitVector)
         {
-            Debug.Log("knockBack");
+            if (hitVector.x >= 0)
+            {
+                sRenderer.flipX = true;
+                knockBack.knockbackDir = Vector2.right;
+            }
+            else
+            {
+                sRenderer.flipX = false;
+                knockBack.knockbackDir = Vector2.left;
+            }
             animator.Play("DamageFeedback");
             fsm.Transition<KnockBack>();
         }
