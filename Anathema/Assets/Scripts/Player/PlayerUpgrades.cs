@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using Anathema.Saving;
 using Anathema.Rooms;
+using Anathema.SceneLoading;
 
 namespace Anathema.Player
 {
@@ -78,12 +79,28 @@ namespace Anathema.Player
                 return gameData.ProfileName;
             }
         }
-        private void Start()
+
+        private void Awake()
         {
             health = GetComponent<Health>();
             if (!health) Debug.LogWarning($"{gameObject.name}: {nameof(PlayerUpgrades)}: Requires a {nameof(Health)} component.");
 
             Keys = new List<UniqueID>(gameData.keys);
+        }
+        
+        private void OnEnable()
+        {
+            SceneLoader.OnLateSceneLoaded += SceneLoadHandler;
+        }
+
+        private void SceneLoadHandler(UniqueID destination, GameData gameData)
+        {
+            LoadData(gameData);
+        }
+
+        private void OnDisable()
+        {
+            SceneLoader.OnLateSceneLoaded -= SceneLoadHandler;
         }
         public void LoadData(GameData gameData)
         {

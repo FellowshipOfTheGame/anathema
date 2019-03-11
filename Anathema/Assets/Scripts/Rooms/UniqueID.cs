@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace Anathema.Rooms
 {
@@ -91,7 +92,7 @@ namespace Anathema.Rooms
         
         public override bool Equals(object obj)
         {
-            if ((obj == null) || !this.GetType().Equals(obj.GetType()))
+            if (!(obj is UniqueID)) //If null "is" returns false
             {
                 return false;
             }
