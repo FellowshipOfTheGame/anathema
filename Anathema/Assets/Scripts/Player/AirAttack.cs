@@ -35,7 +35,7 @@ namespace Anathema.Player
 				sRenderer.flipX ? Vector2.left : Vector2.right, 1f,
 				LayerMask.GetMask("Enemy", "Breakable")))
 			{
-				hit.transform.GetComponent<Health>().Damage(baseDamage, -hit.normal, Health.DamageType.EnemyAttack);
+				hit.transform.GetComponent<Health>().Damage(baseDamage, sRenderer.flipX ? Vector2.left : Vector2.right, Health.DamageType.EnemyAttack);
 				Debug.Log("Deu damage");
 			}
 
