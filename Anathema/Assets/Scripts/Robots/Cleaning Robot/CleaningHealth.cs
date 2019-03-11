@@ -29,12 +29,11 @@ namespace Anathema.ChasingRobot
         {
             if (hitVector.x >= 0)
             {
-                sRenderer.flipX = true;
                 knockBack.knockbackDir = Vector2.right;
             }
             else
             {
-                sRenderer.flipX = false;
+                knockBack.knockbackPwr = -knockBack.knockbackPwr;
                 knockBack.knockbackDir = Vector2.left;
             }
             animator.Play("DamageFeedback");

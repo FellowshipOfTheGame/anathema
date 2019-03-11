@@ -10,7 +10,7 @@ namespace Anathema.ChasingRobot
         [SerializeField] private float knockbackDur;
 
         [Tooltip("The power of the knockback. Affects how far the robot will go.")]
-        [SerializeField] private int knockbackPwr;
+        [SerializeField] public int knockbackPwr;
 
         [HideInInspector] public Vector2 knockbackDir;
         public override void Enter()
