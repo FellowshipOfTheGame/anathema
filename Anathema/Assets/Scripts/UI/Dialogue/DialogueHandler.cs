@@ -58,6 +58,8 @@ namespace Anathema.Dialogue
 			if(isActive)
 				EndDialogue();
 
+			Time.timeScale = 0f;
+
 			foreach(var line in dialogue.lines)
 				dialogueLines.Enqueue(line);
 
@@ -140,6 +142,7 @@ namespace Anathema.Dialogue
 			StopAllCoroutines();
 			currentLine = null;
 			isActive = false;
+			Time.timeScale = 1f;
 		}
 
 		public static IEnumerator WaitForFrames(int frameCount)
