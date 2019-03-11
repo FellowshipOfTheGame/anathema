@@ -109,7 +109,7 @@ public class Health : MonoBehaviour {
 
     // Returns HP percentage    
     public float Percentage{
-        get{return 100f * ((float)hp / (float)MaxHP);}
+        get{return (float)hp / (float)MaxHP;}
     }
 
     private void Start() {
