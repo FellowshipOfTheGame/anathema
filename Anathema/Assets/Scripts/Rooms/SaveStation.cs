@@ -2,14 +2,15 @@ using UnityEngine;
 using Anathema.Player;
 using Anathema.Saving;
 using Anathema.Dialogue;
+using Anathema.SceneLoading;
 
 namespace Anathema.Rooms
 {
-    public class SaveStation : UniqueComponent
+    public class SaveStation : UniqueTrigger
     {
         private bool saved = false;
         [SerializeField] private Dialogue.Dialogue saveDialogue;
-        private void OnTriggerEnter2D(Collider2D other)
+        protected override void OnTriggerActivate(Collider2D other)
         {
             if (!saved && other.CompareTag("Player"))
             {
