@@ -95,18 +95,45 @@ fixed4 SampleSpriteTexture (float2 uv)
 fixed4 SpriteFrag(v2f IN) : SV_Target
 {
     fixed4 c = SampleSpriteTexture (IN.texcoord) * IN.color;
-    fixed pixelValue;
-    if (IN.texcoord.y <= 0.8f)
+    float pixelValue;
+    if (IN.texcoord.y <= 0.75f)
         pixelValue = (5*pow((IN.texcoord.x*2.0)-1.0, 2.0) + pow((IN.texcoord.y*2.0)-1.6, 2.0))/6;
     else
         pixelValue = 0.0;
     
-    if (pixelValue >= pow(exp(_BurnProgress * _BurnProgressMultiplier), 2.0))
+    float x = pow(exp(_BurnProgress * _BurnProgressMultiplier), 2.0) - pixelValue; 
+    if (x < 0.0025)
+    {
+        fixed3 a = _BurnColor.rgb;
+        fixed3 b = fixed3(1,1,0);
+        float s = (x/0.0025);
+        
+        c.rgb = lerp(a,b,s);
+    }
+    else if (x < 0.005)
+    {
+        fixed3 a = fixed3(1,1,0);
+        fixed3 b = _BurnColor;
+        float s = ((x-0.0025)/0.0025);
+        
+        c.rgb = lerp(a,b,s);
+    }
+    else if (x < 0.0075)
+    {
+        fixed3 a = _BurnColor;
+        fixed3 b = fixed3(0,0,0);
+        float s = ((x-0.005)/0.005);
+        
+        c.rgb = lerp(a,b,s);
+    }
+    if (x < 0)
     {
         c.a = 0.0;
     }
     
     c.rgb *= c.a;
+    c.r *= 1 + (0.3 * _BurnProgress);
+    c.g *=  1 + (0.05 * _BurnProgress);
     return c;
 }
 

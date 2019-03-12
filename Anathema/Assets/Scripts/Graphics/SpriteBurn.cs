@@ -36,7 +36,7 @@ namespace Anathema.Graphics
                 if (burnProgress >= 1f)
                 {
                     burning = false;
-                    OnBurnComplete();
+                    OnBurnComplete? .Invoke();
                 }
 
                 renderer.GetPropertyBlock(properties);
