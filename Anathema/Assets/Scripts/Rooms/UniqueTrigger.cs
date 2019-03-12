@@ -12,12 +12,24 @@ namespace Anathema.Rooms
     [RequireComponent(typeof(Collider2D))]
     public abstract class UniqueTrigger : UniqueComponent
     {
+        private const float FilterTime = 0.05f;
         /// <summary>
         /// For ignoring the first trigger enter when player spawns on trigger
         /// </summary>
         public bool IgnoreNextCollision { get; set; }
+        
+        private bool FilterNextCollision
+        {
+            get
+            {
+                return Time.realtimeSinceStartup - lastTriggerExitTime < FilterTime;
+                
+            }
+        }
 
         private bool sceneFinishedLoading = false;
+        private float lastTriggerExitTime = 0;
+        
         protected override void Awake()
         {
             base.Awake();
@@ -38,23 +50,41 @@ namespace Anathema.Rooms
             {
                 IgnoreNextCollision = true;
             }
+            Debug.Log($"{gameObject.name}: {UniqueID}: {nameof(UniqueTrigger)}: SceneFinishedLoading = true");
             sceneFinishedLoading = true;
         }
 
-        protected virtual void OnTriggerEnter2D(Collider2D collider)
+        protected virtual void OnTriggerEnter2D(Collider2D other)
         {
-            if (sceneFinishedLoading && collider.CompareTag("Player"))
+            if (sceneFinishedLoading && other.CompareTag("Player"))
             {
-                if (IgnoreNextCollision)
+                if (!FilterNextCollision)
                 {
-                    IgnoreNextCollision = false;
-                }
-                else
-                {
-                    OnTriggerActivate(collider);
+                    Debug.Log($"{gameObject.name}: {UniqueID}: {nameof(UniqueTrigger)}: Collision");
+                    if (IgnoreNextCollision)
+                    {
+                        Debug.Log($"{gameObject.name}: {UniqueID}: {nameof(UniqueTrigger)}: IgnoringCollision");
+                        IgnoreNextCollision = false;
+                    }
+                    else
+                    {
+                        Debug.Log($"{gameObject.name}: {UniqueID}: {nameof(UniqueTrigger)}: Actitvating");
+                        OnTriggerActivate(other);
+                    }
                 }
             }
         }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (sceneFinishedLoading && other.CompareTag("Player"))
+            {
+                Debug.Log($"{gameObject.name}: {UniqueID}: {nameof(UniqueTrigger)}: TriggerExit");
+
+                lastTriggerExitTime = Time.realtimeSinceStartup;
+            }
+        }
+
         protected abstract void OnTriggerActivate(Collider2D collider);
 
         protected virtual void OnDisable()
