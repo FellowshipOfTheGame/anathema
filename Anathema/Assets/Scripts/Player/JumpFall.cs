@@ -23,8 +23,7 @@ namespace Anathema.Player
 
 		[Tooltip("Whether or not the player has unlocked the skill to double jump.")]
 
-		public bool canDoubleJump;
-		private bool canAttack, canFireAttack;
+		private PlayerUpgrades playerUpgrades;
 
 		[Tooltip("Whether or not the player can do multiple attacks per jump")]
 		public bool isLimitedToOneAttack;
@@ -41,15 +40,8 @@ namespace Anathema.Player
 
 		private void Start()
 		{
-			PlayerUpgrades playerUpgrades = GetComponent<PlayerUpgrades>();
-
-			if (playerUpgrades)
-			{
-				canDoubleJump = playerUpgrades.HasDoubleJump;
-				canFireAttack = playerUpgrades.HasFireAttack;
-				canAttack = playerUpgrades.HasScythe;
-			}
-			else Debug.LogWarning($"{gameObject.name}: {nameof(JumpFall)}: Couldn't find {nameof(PlayerUpgrades)}.");
+			playerUpgrades = GetComponent<PlayerUpgrades>();
+			if (!playerUpgrades) Debug.LogError($"{gameObject.name}: {nameof(Crouch)}: Couldn't find {nameof(PlayerUpgrades)}.");
 		}
 
 		public RaycastHit2D CheckIfGrounded()
@@ -78,8 +70,7 @@ namespace Anathema.Player
 			float HorizontalAxis = Input.GetAxisRaw("Horizontal");
 
 			// Handles attacking midair
-			if(canAttack && Input.GetKey(KeyCode.J) && (!isLimitedToOneAttack || (isLimitedToOneAttack && !hasAttacked)))
-
+			if(playerUpgrades.HasScythe && Input.GetKey(KeyCode.J) && (!isLimitedToOneAttack || (isLimitedToOneAttack && !hasAttacked)))
 			{
 				hasAttacked = true;
 				rBody.velocity = Vector2.zero;
@@ -88,7 +79,7 @@ namespace Anathema.Player
 				return;
 			}
 
-			if(canFireAttack && Input.GetKey(KeyCode.K) && (!isLimitedToOneAttack || (isLimitedToOneAttack && !hasFireAttacked)))
+			if(playerUpgrades.HasFireAttack && Input.GetKey(KeyCode.K) && (!isLimitedToOneAttack || (isLimitedToOneAttack && !hasFireAttacked)))
 			{
 				hasFireAttacked = true;
 				rBody.velocity = Vector2.zero;
@@ -116,7 +107,7 @@ namespace Anathema.Player
 			}
 
 			// FIXME: Gambiarra
-			if(jumpCorrection && !hasDoubleJumped && canDoubleJump)
+			if(jumpCorrection && !hasDoubleJumped && playerUpgrades.HasDoubleJump)
 			{
 				jumpCorrection = false;
 				animator.SetBool("IsRising", true);
@@ -146,7 +137,7 @@ namespace Anathema.Player
 		}
 
 		public override void Exit()
-		{	
+		{
 			// FIXME: Gambiarra
 			jumpCorrection = false;
 		}

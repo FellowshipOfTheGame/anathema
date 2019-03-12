@@ -19,6 +19,14 @@ namespace Anathema.SceneLoading
         private GameData gameData;
         private string playerScene;
         private bool reloadPlayerScene;
+
+        public delegate void SceneUnloadHandler(string scene);
+        public delegate void SceneLoadHandler(UniqueID destination, GameData gameData);
+
+        public static SceneUnloadHandler OnSceneAboutToUnload;
+        public static SceneLoadHandler OnSceneLoaded;
+        public static SceneLoadHandler OnLateSceneLoaded;
+        
         /// <summary>
         /// Creates a new SceneLoader using loadingScene as loading screen.
         /// </summary>

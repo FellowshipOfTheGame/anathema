@@ -25,7 +25,7 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: 'Issue Logs: Illegal Sheltering'
+    - title: 
       text: 'XXXX/XX/XX: We''ve been informed by one of our agents that a certain
         couple of medics have been treating and sheltering enemies of the state.'
       onEnterAction:
@@ -38,7 +38,7 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: 'Issue Logs: Illegal Sheltering'
+    - title: 
       text: The name of the suspects are Bernael and Lilith Solas, they also have
         an 11 year old daughter named Amy that lives in the same residence.
       onEnterAction:
@@ -51,7 +51,7 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: 'Issue Logs: Illegal Sheltering'
+    - title: 
       text: As for the people there are sheltering in their basement, they range from
         excommunicates of all sorts to prison fugitives and fallen angels. This is
         a serious sin and needs immediate counteraction.
@@ -65,7 +65,7 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: 'Issue Logs: Illegal Sheltering'
+    - title: 
       text: 'XXXX/XX/XX: I''ve talked to my generals and to king David and we concluded
         that the best course of action is to retaliate directly, but stealthily. '
       onEnterAction:
@@ -78,7 +78,7 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: 'Issue Logs: Illegal Sheltering'
+    - title: 
       text: The sheltered subjects are high profile criminals, several of them were
         originally concealed from the public to avoid... commotions. We came to the
         conclusion that the best course of action is to eliminate them.
@@ -92,7 +92,7 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: 'Issue Logs: Illegal Sheltering'
+    - title: 
       text: As for the couple... we'll have to make something up. The general public
         won't miss the criminals they didn't even know existed but that doesn't apply
         to the couple. We also have the matter of getting rid of all the bodies...
@@ -106,7 +106,7 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: 'Issue Logs: Illegal Sheltering'
+    - title: 
       text: So I came up with the idea of burning the place down. We kill everyone
         first, just to make sure, then we start a fire to get rid of the evidence
         and make it seem like it was the fire that took their lives... Perfect!
@@ -120,7 +120,7 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: 'Issue Logs: Illegal Sheltering'
+    - title: 
       text: I'll begin the preparations immediately. I'll summon trustworty guards
         and we'll do this tonight. If there are no other reports on this log, it means
         the mission was successful.
@@ -134,7 +134,7 @@ MonoBehaviour:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - title: 'Issue Logs: Illegal Sheltering'
+    - title: 
       text: '- Captain of the Holy Guard, Gabriel.'
       onEnterAction:
         m_PersistentCalls:

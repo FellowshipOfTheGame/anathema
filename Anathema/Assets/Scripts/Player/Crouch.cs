@@ -12,7 +12,13 @@ namespace Anathema.Player
 		[Tooltip("The attached collider for when the player is crouching.")]
 		[SerializeField] Collider2D crouchCollider;
 
-		private bool canAttack, canFireAttack;
+		private PlayerUpgrades playerUpgrades;
+
+		private void Start()
+		{
+			playerUpgrades = GetComponent<PlayerUpgrades>();
+			if (!playerUpgrades) Debug.LogError($"{gameObject.name}: {nameof(Crouch)}: Couldn't find {nameof(PlayerUpgrades)}.");	
+		}
 
 		/// <summary>
 		/// 	In this class the Enter method disables the normal collider and enables the crouching collider
@@ -21,15 +27,6 @@ namespace Anathema.Player
 		{
 			standingCollider.enabled = false;
 			crouchCollider.enabled = true;
-
-			PlayerUpgrades playerUpgrades = GetComponent<PlayerUpgrades>();
-
-			if (playerUpgrades)
-			{
-				canAttack = playerUpgrades.HasScythe;
-				canFireAttack = playerUpgrades.HasFireAttack;
-			} 
-			else Debug.LogWarning($"{gameObject.name}: {nameof(Crouch)}: Couldn't find {nameof(PlayerUpgrades)}.");
 		}
 
 		void Update()
@@ -40,13 +37,13 @@ namespace Anathema.Player
 				fsm.Transition<Idle>();
 			}
 
-			if(canAttack && Input.GetKeyDown(KeyCode.J))
+			if(playerUpgrades.HasScythe && Input.GetKeyDown(KeyCode.J))
 			{
 				animator.SetBool("IsAttacking", true);
 				fsm.Transition<CrouchAttack>();
 			}
 
-			if(canFireAttack && Input.GetKey(KeyCode.K))
+			if(playerUpgrades.HasFireAttack && Input.GetKey(KeyCode.K))
 			{
 				animator.SetBool("IsFire", true);
 				animator.SetBool("IsCrouching", false);
