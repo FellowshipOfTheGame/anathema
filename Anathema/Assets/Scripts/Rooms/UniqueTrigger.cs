@@ -1,6 +1,5 @@
 using Anathema.Saving;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Anathema.SceneLoading;
 
 namespace Anathema.Rooms

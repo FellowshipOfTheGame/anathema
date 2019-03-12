@@ -17,6 +17,10 @@ namespace Anathema.SceneLoading
 
         private AsyncOperation newSceneLoadOperation = null;
         private AsyncOperation playerSceneLoadOperation = null;
+
+        private bool oldSceneUnloaded = false;
+        private bool oldPlayerSceneUnloaded = false;
+        
         private bool newSceneLoaded = false;
         private bool playerSceneLoaded = false;
         public bool ReloadPlayerScene { get; set; }
@@ -25,12 +29,28 @@ namespace Anathema.SceneLoading
         public string PlayerScene { get; set; }
         public GameObject Player { get; set; }
         public GameData GameData { get; set; }
-        private void OnOldSceneUnloaded(AsyncOperation opertation)
+        
+        private void OnPlayerSceneUnloaded(AsyncOperation operation)
         {
-            if (playerSceneLoadOperation != null)
-                playerSceneLoadOperation.allowSceneActivation = true;
+            oldPlayerSceneUnloaded = true;
+            AttemptActivation();
+        }
+        
+        private void OnOldSceneUnloaded(AsyncOperation operation)
+        {
+            oldSceneUnloaded = true;
+            AttemptActivation();
+        }
 
-            newSceneLoadOperation.allowSceneActivation = true;
+        private void AttemptActivation()
+        {
+            if (oldSceneUnloaded && (!ReloadPlayerScene || oldPlayerSceneUnloaded))
+            {
+                if (playerSceneLoadOperation != null)
+                    playerSceneLoadOperation.allowSceneActivation = true;
+                
+                newSceneLoadOperation.allowSceneActivation = true;
+            }
         }
         private void OnNewSceneLoaded(AsyncOperation operation)
         {
@@ -46,7 +66,7 @@ namespace Anathema.SceneLoading
         {
             if (newSceneLoaded && (PlayerScene == null || playerSceneLoaded))
                 if (exitDelay >= 0f)
-                    Invoke("TransitionStart", exitDelay);
+                    Invoke(nameof(TransitionStart), exitDelay);
                 else
                     TransitionStart();
         }
@@ -112,7 +132,7 @@ namespace Anathema.SceneLoading
                 if (ReloadPlayerScene)
                 {
                     SceneLoader.OnSceneAboutToUnload?.Invoke(PlayerScene);
-                    SceneManager.UnloadSceneAsync(PlayerScene);
+                    SceneManager.UnloadSceneAsync(PlayerScene).completed += OnPlayerSceneUnloaded;
                 }
                 playerSceneLoadOperation = SceneManager.LoadSceneAsync(PlayerScene, LoadSceneMode.Additive);
                 playerSceneLoadOperation.allowSceneActivation = false;
