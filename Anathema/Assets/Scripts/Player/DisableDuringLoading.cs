@@ -30,8 +30,8 @@ namespace Anathema.Player
 
         private void OnDestroy()
         {
-            SceneLoader.OnSceneAboutToUnload += SceneUnloadHandler;
-            SceneLoader.OnLateSceneLoaded += SceneLoadHandler;
+            SceneLoader.OnSceneAboutToUnload -= SceneUnloadHandler;
+            SceneLoader.OnLateSceneLoaded -= SceneLoadHandler;
         }
     }
 }

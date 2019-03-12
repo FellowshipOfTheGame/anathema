@@ -46,3 +46,6 @@ sysinfo.txt
 .idea/
 Assets/Plugins/
 Assets/Plugins.meta
+
+#Syncthing
+.stignore

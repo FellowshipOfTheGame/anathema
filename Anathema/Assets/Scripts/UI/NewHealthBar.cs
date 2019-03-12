@@ -20,6 +20,6 @@ public class NewHealthBar : MonoBehaviour {
 	/// 	Called when player's hp is changed. Moves health bar gradually until it reaches its new position.
 	/// </sumarry>
 	private void MoveHealthBar(int health){
-		//img.fillAmount = Mathf.Lerp(img.fillAmount, health.Percentage, speed);
+		img.fillAmount = Mathf.Lerp(img.fillAmount, this.health.Percentage, speed);
 	}
 }
