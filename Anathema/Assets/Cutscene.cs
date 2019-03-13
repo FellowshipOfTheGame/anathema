@@ -3,32 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
+using UnityEngine.Events;
+using Malee;
 
 public class Cutscene : MonoBehaviour {
 
-	[SerializeField] private List<TimelineAsset> timelines;
-	private Queue<TimelineAsset> timelineQueue = new Queue<TimelineAsset>();
-	[SerializeField] List<PlayableDirector> playables;
+	[SerializeField] [Reorderable] private ReorderableEventList actions;
+	[SerializeField] private PlayableDirector director;
+
+	private Queue<UnityEvent> actionQueue = new Queue<UnityEvent>();
 
 
-	public void PlayNext()
+	public void PlayNextCutscene(TimelineAsset timeline)
 	{
-		TimelineAsset currentTimeline = timelineQueue.Dequeue();
-
-		foreach(var playable in playables)
-		{
-			playable.Play(currentTimeline);
-		}
+		
 	}
 
 	private void Awake()
 	{
-		foreach(var timeline in timelines)
+		foreach(var action in actions)
 		{
-			timelineQueue.Enqueue(timeline);
+			actionQueue.Enqueue(action);
 		}
-
-		PlayNext();
+		
 	}
 
+	 [System.Serializable]
+    public class ReorderableEventList : ReorderableArray<UnityEvent> {}
 }
