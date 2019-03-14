@@ -10,12 +10,14 @@ namespace Anathema.Drone
     {
         private Animator animator;
         private SpriteBurn spriteBurn;
-
-        public bool damage;
+        private SpriteRenderer sRenderer;
+        private Patrol dronePatrol;
         void Awake()
         {
             animator = GetComponent<Animator>();
             spriteBurn = GetComponent<SpriteBurn>();
+            sRenderer = GetComponent<SpriteRenderer>();
+            dronePatrol = GetComponent<Patrol>();
             OnKnockback += OnHit;
             OnDeath += DeathAnimation;
             spriteBurn.OnBurnComplete += Die;
@@ -23,9 +25,20 @@ namespace Anathema.Drone
 
         void OnHit(Vector2 hitVector)
         {
-            Debug.Log("knockBack");
+            if (hitVector.x >= 0 && sRenderer.flipX == true)
+            {
+                dronePatrol.horizontalSpeed = -dronePatrol.horizontalSpeed;
+                sRenderer.flipX = !sRenderer.flipX;
+            }
+            else
+            {
+                if (sRenderer.flipX == false)
+                {
+                    dronePatrol.horizontalSpeed = -dronePatrol.horizontalSpeed;
+                    sRenderer.flipX = !sRenderer.flipX;
+                }
+            }
             animator.Play("DamageFeedback");
-            damage = true;
         }
 
         void DeathAnimation()

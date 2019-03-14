@@ -7,7 +7,7 @@ namespace Anathema.Drone
     public class Patrol : Anathema.Fsm.DroneState
     {
         [Tooltip("Speed in which the drone will move horizontally.")]
-        [SerializeField] private float horizontalSpeed;
+         public float horizontalSpeed;
 
         [Tooltip("Speed in which the drone will move vertically.")]
         [SerializeField] private float verticalSpeed;
@@ -17,8 +17,6 @@ namespace Anathema.Drone
 
         [Tooltip("attack damage of the drone.")]
         [SerializeField] int damage;
-
-        private DroneHealth droneHealth;
 
         private float time;
 
@@ -35,7 +33,6 @@ namespace Anathema.Drone
         /// </summary>
         void Start()
         {
-            droneHealth = GetComponent<DroneHealth>();
             if (horizontalSpeed < 0)
             {
                 sRenderer.flipX = !sRenderer.flipX;
@@ -49,13 +46,6 @@ namespace Anathema.Drone
         {
             myrBody.MovePosition(new Vector2(this.transform.position.x + horizontalSpeed, initialPos.y + amplitude * Mathf.Sin(verticalSpeed * time)));
             time += Time.deltaTime;
-
-            if(droneHealth.damage == true)
-            {
-                horizontalSpeed = -horizontalSpeed;
-                sRenderer.flipX = !sRenderer.flipX;
-                droneHealth.damage = false;
-            }
         }
 
         /// <summary>
