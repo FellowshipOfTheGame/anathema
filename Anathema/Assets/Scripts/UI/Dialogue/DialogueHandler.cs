@@ -6,6 +6,13 @@ using TMPro;
 
 namespace Anathema.Dialogue
 {
+	/// <summary>
+	/// 	This is the main, manager class for a dialogue box system
+	/// 	The pipeline is:
+	/// 		-> StartDialogue() will start the dialogue from the "dialogue" variable and StartDialogue(dialogue) will start the dialogue from the parameter
+	/// 		-> Skip() will skip to the next line, this has to be set manually, for example a button that calls this function, or automatically from the "autoSkip" setting
+	/// 		-> EndDialogue() will be called when there are no more lines to be shown, but you can call it before to abruptly stop the dialogue
+	/// </summary>
 	public class DialogueHandler : MonoBehaviour
 	{
 
@@ -37,24 +44,31 @@ namespace Anathema.Dialogue
 		private DialogueLine currentLine;
 		private bool isLineDone;
 		private bool isActive;
+		
+		// In case there is only a single instance of the handler at a time
+        [SerializeField] private bool isSingleton;
 
-		public delegate void DialogueAction(Dialogue dialogue);
-		public event DialogueAction OnDialogue;
+		public delegate void DialogueAction();
+		public event DialogueAction OnDialogueStart;
+		public event DialogueAction OnDialogueEnd;
 
 		public static DialogueHandler instance;
 
 		private void Awake()
 		{
-			if(instance == null)
-				instance = this;
-			else if(instance != this)
-				Destroy(this);
-
-			OnDialogue += StartDialogue;
+			if(isSingleton)
+			{
+				if(instance == null)
+					instance = this;
+				else if(instance != this)
+					Destroy(this);
+			}
 		}
 		
 		public void StartDialogue()
 		{
+			OnDialogueStart?.Invoke();
+
 			if(isActive)
 				EndDialogue();
 
@@ -66,6 +80,7 @@ namespace Anathema.Dialogue
 			isActive = true;
 			dialogueBox.SetActive(true);
 			StartCoroutine("NextLine");
+
 		}
 
 		public void StartDialogue(Dialogue dialogue)
@@ -82,7 +97,6 @@ namespace Anathema.Dialogue
 			{
 				currentLine = dialogueLines.Dequeue();
 				dialogueText.text = "";
-				currentLine.OnEnterAction.Invoke();
 
 				if(useTitles)
 					titleText.text = currentLine.Title;
@@ -94,7 +108,6 @@ namespace Anathema.Dialogue
 				if(autoSkip)
 				{
 					yield return new WaitForSecondsRealtime(timeUntilSkip);
-					currentLine.OnExitAction.Invoke();
 					StartCoroutine("NextLine");
 				}
 			}
@@ -113,10 +126,7 @@ namespace Anathema.Dialogue
 					isLineDone = true;
 				}
 				else
-				{
-					currentLine.OnExitAction.Invoke();
 					StartCoroutine("NextLine");
-				}
 			}
 		}
 
@@ -143,6 +153,7 @@ namespace Anathema.Dialogue
 			currentLine = null;
 			isActive = false;
 			Time.timeScale = 1f;
+			OnDialogueEnd?.Invoke();
 		}
 
 		public static IEnumerator WaitForFrames(int frameCount)
