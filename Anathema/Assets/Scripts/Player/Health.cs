@@ -24,7 +24,7 @@ public class Health : MonoBehaviour {
     public int Hp {
         get {return hp;}
         set {
-            if (value < 0) {
+            if (value <= 0) {
                 hp = 0;
                 OnDeath?.Invoke();
             } else if (value > MaxHP) {
@@ -70,13 +70,6 @@ public class Health : MonoBehaviour {
             case DamageType.NormalDamage:
 
                 Hp -= value;
-                // OnHealthChange?.Invoke(hp);
-
-                // if(hp < 0)
-                // {
-                //     hp = 0;
-                //     OnDeath?.Invoke();
-                // }
                 break;
 
             case DamageType.Heal:
@@ -84,11 +77,6 @@ public class Health : MonoBehaviour {
                     return false;
 
                 Hp += value;
-                // OnHealthChange?.Invoke(hp);
-
-                // if(hp > maxHP)
-                //     hp = maxHP;
-                
                 break;           
 
             default:

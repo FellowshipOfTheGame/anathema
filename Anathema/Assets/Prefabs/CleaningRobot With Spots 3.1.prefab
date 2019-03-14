@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 114104085508858656}
   - component: {fileID: 114449673981454820}
   - component: {fileID: 114459928276543512}
+  - component: {fileID: 114800327402718866}
   m_Layer: 9
   m_Name: Cleaning Robot
   m_TagString: Untagged
@@ -297,6 +298,7 @@ MonoBehaviour:
   raycastMaxDist: 10
   knockbackDur: 1.5
   knockbackPwr: 100
+  knockbackDir: {x: 0, y: 0}
 --- !u!114 &114113631037747462
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -367,6 +369,17 @@ MonoBehaviour:
   - {fileID: 4670801659842420}
   - {fileID: 4486515663851796}
   rayGroundMaxDist: 1.2
+--- !u!114 &114800327402718866
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1675705642529084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a49c87da417524a51bda1f06fee183c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114933532805143120
 MonoBehaviour:
   m_ObjectHideFlags: 1

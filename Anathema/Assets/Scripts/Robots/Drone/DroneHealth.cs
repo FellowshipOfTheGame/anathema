@@ -9,16 +9,11 @@ namespace Anathema.Drone
     public class DroneHealth : Health
     {
         private Animator animator;
-        private SpriteBurn spriteBurn;
-
         public bool damage;
         void Awake()
         {
             animator = GetComponent<Animator>();
-            spriteBurn = GetComponent<SpriteBurn>();
             OnKnockback += OnHit;
-            OnDeath += DeathAnimation;
-            spriteBurn.OnBurnComplete += Die;
         }
 
         void OnHit(Vector2 hitVector)
@@ -26,19 +21,6 @@ namespace Anathema.Drone
             Debug.Log("knockBack");
             animator.Play("DamageFeedback");
             damage = true;
-        }
-
-        void DeathAnimation()
-        {
-            spriteBurn.Burn();
-            OnDeath -= DeathAnimation;
-        }
-
-        void Die()
-        {
-            OnKnockback -= OnHit;
-            spriteBurn.OnBurnComplete -= Die;
-            Destroy(this.gameObject);
         }
     }
 }
