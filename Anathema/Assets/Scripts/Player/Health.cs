@@ -5,8 +5,8 @@ using System;
 
 
 public class Health : MonoBehaviour {
-    [SerializeField][Range(0, 100)] private int hp;
-    [SerializeField][Range(0, 100)] private int maxHP;
+    [SerializeField][Range (0, 500)] private int hp;
+    [SerializeField][Range(0, 500)] private int maxHP;
 
     public delegate void HealthChangedHandler(int health);
     public event HealthChangedHandler OnHealthChange;

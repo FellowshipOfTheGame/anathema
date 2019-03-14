@@ -28110,7 +28110,7 @@ GameObject:
   - component: {fileID: 1176039406}
   - component: {fileID: 1176039405}
   - component: {fileID: 1176039404}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BreakableWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
