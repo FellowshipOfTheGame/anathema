@@ -6,6 +6,13 @@ using TMPro;
 
 namespace Anathema.Dialogue
 {
+	/// <summary>
+	/// 	This is the main, manager class for a dialogue box system
+	/// 	The pipeline is:
+	/// 		-> StartDialogue() will start the dialogue from the "dialogue" variable and StartDialogue(dialogue) will start the dialogue from the parameter
+	/// 		-> Skip() will skip to the next line, this has to be set manually, for example a button that calls this function, or automatically from the "autoSkip" setting
+	/// 		-> EndDialogue() will be called when there are no more lines to be shown, but you can call it before to abruptly stop the dialogue
+	/// </summary>
 	public class DialogueHandler : MonoBehaviour
 	{
 
@@ -32,33 +39,43 @@ namespace Anathema.Dialogue
 		[Tooltip("Whether or not, after filling in the entire text, the dialogue skips to the next line automatically.")]
 		[SerializeField] private bool autoSkip;
 		[SerializeField] [HideInInspectorIfNot(nameof(autoSkip))] private float timeUntilSkip;
+        [Tooltip("Whether or not to pause game during dialogue")]
+		[SerializeField] private bool pauseDuringDialogue;
+        [Tooltip("Advanced setting: If there is only 1 handler/dialogue box (A visual novel for example) you can make this a singleton and call it from DialogueHandler.instance. If unsure, leave it false.")]
+        [SerializeField] private bool isSingleton;
+        
 
 		private Queue<DialogueLine> dialogueLines = new Queue<DialogueLine>();
 		private DialogueLine currentLine;
 		private bool isLineDone;
 		private bool isActive;
-
-		public delegate void DialogueAction(Dialogue dialogue);
-		public event DialogueAction OnDialogue;
+		
+		public delegate void DialogueAction();
+		public event DialogueAction OnDialogueStart;
+		public event DialogueAction OnDialogueEnd;
 
 		public static DialogueHandler instance;
 
 		private void Awake()
 		{
-			if(instance == null)
-				instance = this;
-			else if(instance != this)
-				Destroy(this);
-
-			OnDialogue += StartDialogue;
+			if(isSingleton)
+			{
+				if(instance == null)
+					instance = this;
+				else if(instance != this)
+					Destroy(this);
+			}
 		}
 		
 		public void StartDialogue()
 		{
+			OnDialogueStart?.Invoke();
+
 			if(isActive)
 				EndDialogue();
 
-			Time.timeScale = 0f;
+            if(pauseDuringDialogue)
+			    Time.timeScale = 0f;
 
 			foreach(var line in dialogue.lines)
 				dialogueLines.Enqueue(line);
@@ -66,6 +83,7 @@ namespace Anathema.Dialogue
 			isActive = true;
 			dialogueBox.SetActive(true);
 			StartCoroutine("NextLine");
+
 		}
 
 		public void StartDialogue(Dialogue dialogue)
@@ -82,7 +100,6 @@ namespace Anathema.Dialogue
 			{
 				currentLine = dialogueLines.Dequeue();
 				dialogueText.text = "";
-				currentLine.OnEnterAction.Invoke();
 
 				if(useTitles)
 					titleText.text = currentLine.Title;
@@ -94,7 +111,6 @@ namespace Anathema.Dialogue
 				if(autoSkip)
 				{
 					yield return new WaitForSecondsRealtime(timeUntilSkip);
-					currentLine.OnExitAction.Invoke();
 					StartCoroutine("NextLine");
 				}
 			}
@@ -113,10 +129,7 @@ namespace Anathema.Dialogue
 					isLineDone = true;
 				}
 				else
-				{
-					currentLine.OnExitAction.Invoke();
 					StartCoroutine("NextLine");
-				}
 			}
 		}
 
@@ -137,12 +150,19 @@ namespace Anathema.Dialogue
 		public void EndDialogue()
 		{
 			dialogueBox.SetActive(false);
+
 			dialogueText.text = "";
 			titleText.text = "";
+
 			StopAllCoroutines();
+
 			currentLine = null;
 			isActive = false;
-			Time.timeScale = 1f;
+
+            if(pauseDuringDialogue)
+                Time.timeScale = 1f;
+
+			OnDialogueEnd?.Invoke();
 		}
 
 		public static IEnumerator WaitForFrames(int frameCount)

@@ -15,481 +15,101 @@ MonoBehaviour:
     array:
     - title: Bishop
       text: '...'
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Bishop
       text: I don't believe you're here to repent for any sins...
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Ivan
       text: '...Well observed.'
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Bishop
       text: '*Sigh*...'
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Judas
       text: 'I''m Judas, the Archbishop of this once holy site.
 
         It''s been a while, Ivan...'
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Ivan
       text: '... I don''t believe we''ve met, Judas.'
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Judas
       text: Actually, though in unfortunate times, we have... but I wouldn't expect
         you to remember, you were too young.
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Ivan
       text: What do you mean...?
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Judas
       text: Your parents... were close friends of mine. I had known them since I was
         a teenager. In fact, I baptized you myself...
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Ivan
       text: '*Giggle* I don''t think you did a good job on that, then.
 
         The cursed kid you baptized lead to the death of your dear friends who happened
         to be their own parents and is now a demon tainting your "Holy Site" with
         blood.'
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Ivan
       text: You must hate me more than anyone else.
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Judas
       text: '...'
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Judas
       text: No. You weren't at fault for your parents' death, and if there is a demon
         who's responsible for turning this holy site into a slaughterhouse that is
         Gabriel.
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Ivan
       text: '...?!'
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Judas
       text: I'm sorry, Ivan. I-I'm so, deeply sorry... I was against your parents'
         trial from the very beginning...
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Judas
       text: I even tried to gain custody of you and take care of you myself... but
         the King, wouldn't let me...
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Ivan
       text: So you let it all happen?! And now you expect me to do what?! Trust you
         right away?! Pity you and tell you it's okay?!
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Ivan
       text: 'That won''t take my parents back. '
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Ivan
       text: If you really cared for me, why didn't you visit me in that hell of an
         orphanage?!
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Ivan
       text: Those are empty words. Useless.
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Ivan
       text: I used to feel guilty for my parents' death every single night, and to
         this day I don't even know what actually happened! If what you're saying is
         true, then why did you let me suffer for the past 17 years!?
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Judas
       text: '...'
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Judas
       text: That is my cross to carry...
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Judas
       text: I have committed the sin of inaction. I was scared and didn't want to
         risk losing the security and confort of my position.
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Judas
       text: I'm sorry for not being there for you when you needed someone the most.
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Ivan
       text: And what difference does that make now? The one who was actually there
         for me has been mercilessly murdered just moments ago in this cursed tower!
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Judas
       text: Amy... Another kid led astray... Another victim...
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Ivan
       text: And what do YOU know about her? Stop pretending like you know everything!
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Judas
       text: '... I understand if you don''t trust me, Ivan.
 
         Then why don''t you seek the truth yourself?'
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Ivan
       text: As if I haven't tried...
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Judas
       text: Seek the library, Ivan. There you will find about what happened back then
         and information about your past, and Amy's.
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Ivan
       text: How can I trust you that it's not a trap? For all I know that'd be great
         for you to keep your puppet status in this hellhole.
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Judas
       text: Ivan... I know I'll never be able to repent for all my sins. I know I
         can't bring your parents back back, nor Amy.  But at least let me help you
         now. Please.
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Ivan
       text: '...'
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Ivan
       text: I'll go check it out.
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Judas
-      text: Thank you for hearing me out... Thank you!
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
+      text: Thank you for hearing me out...
     - title: Judas
       text: I'll be leaving this place. I'm tired of it all.
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
     - title: Judas
       text: Best of luck to you.
-      onEnterAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      onExitAction:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
