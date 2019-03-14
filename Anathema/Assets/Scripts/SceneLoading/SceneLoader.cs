@@ -12,6 +12,13 @@ namespace Anathema.SceneLoading
     /// </summary>
 	public class SceneLoader
 	{
+        /// <summary>
+        /// This variable is used for detecting if the current scene was loaded by the UnityEditor
+        /// It is set to false whenever the SceneLoader is called.
+        /// It is NOT RESET when loading a scene by other means.
+        /// It is only meant for detecting an initial load by the UnityEditor
+        /// </summary>
+        public static bool runningWithoutSceneLoader = true;
         private string loadingScene;
         private string oldScene;
         private UniqueID destination;
@@ -79,6 +86,8 @@ namespace Anathema.SceneLoading
         /// <param name="player">The player's GameObject.</param>
         public void FadeScenes(string oldScene, UniqueID destination, GameObject player)
         {
+            runningWithoutSceneLoader = false;
+
             player?.SetActive(false);
             this.destination = destination;
             this.oldScene = oldScene;

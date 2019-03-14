@@ -32,6 +32,7 @@ GameObject:
   - component: {fileID: 114922807610161080}
   - component: {fileID: 114416076711014114}
   - component: {fileID: 114398576409276714}
+  - component: {fileID: 114254985422945638}
   m_Layer: 9
   m_Name: Wall Robot 3.0
   m_TagString: Untagged
@@ -251,6 +252,8 @@ MonoBehaviour:
   wallsWalkingBot: 1
   speed: 3
   damage: 30
+  rayWallMaxDist: 1
+  timer: 0.8
   moveSpots:
   - {fileID: 4834796029256684}
   - {fileID: 4932104590280524}
@@ -269,6 +272,8 @@ MonoBehaviour:
   wallsWalkingBot: 1
   speed: 3
   damage: 30
+  rayWallMaxDist: 1
+  timer: 0.8
   moveSpots:
   - {fileID: 4834796029256684}
   - {fileID: 4932104590280524}
@@ -287,9 +292,22 @@ MonoBehaviour:
   wallsWalkingBot: 1
   speed: 3
   damage: 30
+  rayWallMaxDist: 1
+  timer: 0.8
   moveSpots:
   - {fileID: 4834796029256684}
   - {fileID: 4932104590280524}
+--- !u!114 &114254985422945638
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1089452081249812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a49c87da417524a51bda1f06fee183c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114398576409276714
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -343,6 +361,8 @@ MonoBehaviour:
   wallsWalkingBot: 1
   speed: 3
   damage: 30
+  rayWallMaxDist: 1
+  timer: 0.8
   moveSpots:
   - {fileID: 4834796029256684}
   - {fileID: 4932104590280524}
@@ -374,6 +394,8 @@ MonoBehaviour:
   wallsWalkingBot: 1
   speed: 3
   damage: 30
+  rayWallMaxDist: 1
+  timer: 0.8
   moveSpots:
   - {fileID: 4834796029256684}
   - {fileID: 4932104590280524}

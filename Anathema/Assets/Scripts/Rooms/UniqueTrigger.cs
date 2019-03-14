@@ -56,7 +56,7 @@ namespace Anathema.Rooms
 
         protected virtual void OnTriggerEnter2D(Collider2D other)
         {
-            if (sceneFinishedLoading && other.CompareTag("Player"))
+            if ((SceneLoader.runningWithoutSceneLoader || sceneFinishedLoading) && other.CompareTag("Player"))
             {
                 if (!FilterNextCollision)
                 {

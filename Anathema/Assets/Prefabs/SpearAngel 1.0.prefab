@@ -49,6 +49,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4567326239022906}
+  - component: {fileID: 114809699641190146}
   m_Layer: 0
   m_Name: SpearAngel 1.0
   m_TagString: Untagged
@@ -511,6 +512,17 @@ MonoBehaviour:
   hp: 100
   maxHP: 100
   isInvulnerable: 0
+--- !u!114 &114809699641190146
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1310104139582474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a49c87da417524a51bda1f06fee183c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114882188928855470
 MonoBehaviour:
   m_ObjectHideFlags: 1

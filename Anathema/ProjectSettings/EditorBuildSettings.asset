@@ -63,14 +63,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Church-SaveRoom2.unity
     guid: ae68d1f681f29474fa2b59694b9b2152
   - enabled: 1
+    path: Assets/Scenes/Library-0.unity
+    guid: 7ca61fd49e50f90409d5e050760fdfa6
+  - enabled: 1
     path: Assets/Scenes/Library-1.unity
     guid: 27b719b8c2068d345ae16e9add30561d
   - enabled: 1
-    path: Assets/Scenes/Library-3.1.unity
-    guid: 9e58c268bb7cc514c80dd0356b6670a7
-  - enabled: 1
-    path: Assets/Scenes/Library-3.unity
-    guid: 1283ef3c03eaf16449f614f38bfec36d
+    path: Assets/Scenes/Library-2.unity
+    guid: 5f0e98e693fefda41aa56a3b91a12ad6
   - enabled: 1
     path: Assets/Scenes/Library-2.2.unity
     guid: 3639094aeceb28745b7e8f8e74a1af39
@@ -78,8 +78,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Library-2.1.unity
     guid: c33aab8c65a12d64ebcbb462afdc8425
   - enabled: 1
-    path: Assets/Scenes/Library-2.unity
-    guid: 5f0e98e693fefda41aa56a3b91a12ad6
+    path: Assets/Scenes/Library-3.1.unity
+    guid: 9e58c268bb7cc514c80dd0356b6670a7
+  - enabled: 1
+    path: Assets/Scenes/Library-3.unity
+    guid: 1283ef3c03eaf16449f614f38bfec36d
   - enabled: 1
     path: Assets/Scenes/Library-Books.unity
     guid: 5910358d6121f1d4b9f041649d3697cb

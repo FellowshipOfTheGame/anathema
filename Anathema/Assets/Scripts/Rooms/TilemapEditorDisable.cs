@@ -1,10 +1,14 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 namespace Anathema.Rooms
 {
+    #if UNITY_EDITOR
     [ExecuteInEditMode]
+    #endif
     public class TilemapEditorDisable : MonoBehaviour
     {
         [SerializeField] private bool disableEditorRendering = true;
@@ -29,6 +33,7 @@ namespace Anathema.Rooms
                 }
             }
         }
+        #if UNITY_EDITOR
         private void OnEnable()
         {
             Selection.selectionChanged += UpdateChilds;
@@ -48,5 +53,6 @@ namespace Anathema.Rooms
                 
             }
         }
+        #endif
     }
 }
