@@ -11,11 +11,7 @@ public class Cutscene : MonoBehaviour {
 	[SerializeField] [Reorderable] private ReorderableEventList actions;
 	[SerializeField] private PlayableDirector director;
 
-
-	public int what;
-
 	private Queue<UnityEvent> actionQueue = new Queue<UnityEvent>();
-
 
 	public void PlayCutscene(TimelineAsset timeline)
 	{
@@ -23,14 +19,14 @@ public class Cutscene : MonoBehaviour {
 		Invoke(nameof(PlayNext) , (float) timeline.duration);
 	}
 
-	private void Awake()
+	private void Start()
 	{
 		foreach(var action in actions)
 		{
 			actionQueue.Enqueue(action);
 		}
-		Anathema.Dialogue.DialogueHandler.instance.OnDialogueEnd += PlayNext;
 		PlayNext();
+		Anathema.Dialogue.DialogueHandler.instance.OnDialogueEnd += PlayNext;
 	}
 
 	public void PlayNext()

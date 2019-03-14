@@ -39,15 +39,17 @@ namespace Anathema.Dialogue
 		[Tooltip("Whether or not, after filling in the entire text, the dialogue skips to the next line automatically.")]
 		[SerializeField] private bool autoSkip;
 		[SerializeField] [HideInInspectorIfNot(nameof(autoSkip))] private float timeUntilSkip;
+        [Tooltip("Whether or not to pause game during dialogue")]
+		[SerializeField] private bool pauseDuringDialogue;
+        [Tooltip("Advanced setting: If there is only 1 handler/dialogue box (A visual novel for example) you can make this a singleton and call it from DialogueHandler.instance. If unsure, leave it false.")]
+        [SerializeField] private bool isSingleton;
+        
 
 		private Queue<DialogueLine> dialogueLines = new Queue<DialogueLine>();
 		private DialogueLine currentLine;
 		private bool isLineDone;
 		private bool isActive;
 		
-		// In case there is only a single instance of the handler at a time
-        [SerializeField] private bool isSingleton;
-
 		public delegate void DialogueAction();
 		public event DialogueAction OnDialogueStart;
 		public event DialogueAction OnDialogueEnd;
@@ -72,7 +74,8 @@ namespace Anathema.Dialogue
 			if(isActive)
 				EndDialogue();
 
-			Time.timeScale = 0f;
+            if(pauseDuringDialogue)
+			    Time.timeScale = 0f;
 
 			foreach(var line in dialogue.lines)
 				dialogueLines.Enqueue(line);
@@ -147,12 +150,18 @@ namespace Anathema.Dialogue
 		public void EndDialogue()
 		{
 			dialogueBox.SetActive(false);
+
 			dialogueText.text = "";
 			titleText.text = "";
+
 			StopAllCoroutines();
+
 			currentLine = null;
 			isActive = false;
-			Time.timeScale = 1f;
+
+            if(pauseDuringDialogue)
+                Time.timeScale = 1f;
+
 			OnDialogueEnd?.Invoke();
 		}
 
