@@ -9,7 +9,6 @@ namespace Anathema.Drone
     public class DroneHealth : Health
     {
         private Animator animator;
-<<<<<<< HEAD
         private SpriteBurn spriteBurn;
         private SpriteRenderer sRenderer;
         private Patrol dronePatrol;
@@ -19,12 +18,6 @@ namespace Anathema.Drone
             spriteBurn = GetComponent<SpriteBurn>();
             sRenderer = GetComponent<SpriteRenderer>();
             dronePatrol = GetComponent<Patrol>();
-=======
-        public bool damage;
-        void Awake()
-        {
-            animator = GetComponent<Animator>();
->>>>>>> origin/demoura
             OnKnockback += OnHit;
         }
 
