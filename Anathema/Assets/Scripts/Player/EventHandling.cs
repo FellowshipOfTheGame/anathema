@@ -17,9 +17,9 @@ namespace Anathema.Player
         private Anathema.Fsm.FiniteStateMachine fsm;
         private SpriteRenderer sRenderer;
 
-        private void Start()
+        private void Awake()
         {
-            playerHealth = GetComponent<Health>();
+            playerHealth = GetComponent<Health>(); //This needs to be set before OnEnable
             playerDamageState = GetComponent<Damage>();
             fsm = GetComponent<Anathema.Fsm.FiniteStateMachine>();
             sRenderer = GetComponent<SpriteRenderer>();

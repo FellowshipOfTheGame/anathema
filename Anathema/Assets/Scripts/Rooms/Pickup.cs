@@ -6,24 +6,23 @@ namespace Anathema.Rooms
 {
     public abstract class Pickup : MonoBehaviour
     {
-        private SpriteBurn spriteBurn;
+        private Animator animator;
         protected PlayerUpgrades playerUpgrades;
+
         private void Start()
         {
-            spriteBurn = GetComponent<SpriteBurn>();
-            spriteBurn.OnBurnComplete += Die;
+            animator = GetComponent<Animator>();
         }
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Player"))
             {
                 playerUpgrades = other.GetComponent<PlayerUpgrades>();
-                spriteBurn.Burn();
             }
+            animator.Play("Explode");
         }
         private void Die()
         {
-            spriteBurn.OnBurnComplete -= Die;
             HandlePickup();
             Destroy(gameObject);
         }

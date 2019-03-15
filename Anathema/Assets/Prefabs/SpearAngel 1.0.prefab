@@ -49,7 +49,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4567326239022906}
-  - component: {fileID: 114809699641190146}
   m_Layer: 0
   m_Name: SpearAngel 1.0
   m_TagString: Untagged
@@ -93,6 +92,7 @@ GameObject:
   - component: {fileID: 61961788465514306}
   - component: {fileID: 114455142931672502}
   - component: {fileID: 114215687995776380}
+  - component: {fileID: 114297841032555542}
   m_Layer: 9
   m_Name: Angel
   m_TagString: Untagged
@@ -438,6 +438,17 @@ MonoBehaviour:
   player: {fileID: 0}
   speed: 0
   dazeTime: 1
+--- !u!114 &114297841032555542
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1399685270354018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a49c87da417524a51bda1f06fee183c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114344979435597920
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -512,17 +523,6 @@ MonoBehaviour:
   hp: 100
   maxHP: 100
   isInvulnerable: 0
---- !u!114 &114809699641190146
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1310104139582474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a49c87da417524a51bda1f06fee183c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114882188928855470
 MonoBehaviour:
   m_ObjectHideFlags: 1
