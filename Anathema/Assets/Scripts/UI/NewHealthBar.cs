@@ -21,7 +21,6 @@ public class NewHealthBar : MonoBehaviour {
 	/// 	Called when player's hp is changed. Moves health bar gradually until it reaches its new position.
 	/// </sumarry>
 	private void HandleHealthChanges(int newHealth){
-		Debug.LogWarning("Change Health");
 		newHp = (float)newHealth/100f;
 		CancelInvoke();
 		InvokeRepeating("MoveHealthBar", 0f, Time.deltaTime);
