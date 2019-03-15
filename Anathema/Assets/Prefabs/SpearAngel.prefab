@@ -30,6 +30,7 @@ GameObject:
   - component: {fileID: 61949669381563140}
   - component: {fileID: 114506103792815286}
   - component: {fileID: 114718531963774288}
+  - component: {fileID: 114559560320544120}
   m_Layer: 9
   m_Name: Angel
   m_TagString: Untagged
@@ -414,6 +415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5479a9d9682418e43a337921e26defc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSceneName: Player
   damage: 10
   origin: {fileID: 1425544925924214}
   lookRadius: 15
@@ -475,6 +477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 481a468ecb8af2249a3ff1a9d76dd9fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSceneName: Player
   damage: 10
   origin: {fileID: 1425544925924214}
   lookRadius: 15
@@ -496,6 +499,17 @@ MonoBehaviour:
   - {fileID: 1950953453118536}
   - {fileID: 1340323534979924}
   - {fileID: 1143863570670870}
+--- !u!114 &114559560320544120
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1091302639806008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a49c87da417524a51bda1f06fee183c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114566764472538294
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -507,6 +521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd849b4a97721a744ad323abe8ec9984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSceneName: Player
   damage: 30
   origin: {fileID: 1425544925924214}
   lookRadius: 15

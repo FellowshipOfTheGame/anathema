@@ -9,17 +9,27 @@ public class NewHealthBar : MonoBehaviour {
 
 	[SerializeField] private Image img;
 	[SerializeField] private float speed;
+	private float newHp;
 
 	// Use this for initialization
 	void Start () {
-		health.OnHealthChange += MoveHealthBar;
+		health.OnHealthChange += HandleHealthChanges;
 		img = GetComponent<Image>();
 	}
 	
 	/// <sumarry>
 	/// 	Called when player's hp is changed. Moves health bar gradually until it reaches its new position.
 	/// </sumarry>
-	private void MoveHealthBar(int health){
-		img.fillAmount = Mathf.Lerp(img.fillAmount, this.health.Percentage, speed);
+	private void HandleHealthChanges(int newHealth){
+		newHp = (float)newHealth/100f;
+		CancelInvoke();
+		InvokeRepeating("MoveHealthBar", 0f, Time.deltaTime);
+	}
+
+	private void MoveHealthBar() {
+		img.fillAmount = Mathf.Lerp(img.fillAmount, newHp, speed);
+		if (Mathf.Abs(img.fillAmount - newHp) < 0.01) {
+			CancelInvoke();
+		}
 	}
 }

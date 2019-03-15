@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 114846339786980102}
   - component: {fileID: 114600554313354500}
   - component: {fileID: 114521953930586250}
+  - component: {fileID: 114828265767270614}
   m_Layer: 9
   m_Name: Drone 3.0
   m_TagString: Untagged
@@ -136,6 +137,18 @@ MonoBehaviour:
   hp: 60
   maxHP: 60
   isInvulnerable: 0
+  damage: 0
+--- !u!114 &114828265767270614
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1304735822297376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a49c87da417524a51bda1f06fee183c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114845322052434930
 MonoBehaviour:
   m_ObjectHideFlags: 1

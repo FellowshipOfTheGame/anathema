@@ -32,12 +32,23 @@ namespace Anathema.Rooms
                     }
                     else
                     {
-                        Debug.Log("SaveStation: " + nameof(GameData) + " is null.");
+                        Debug.LogWarning("SaveStation: " + nameof(GameData) + " is null.");
                     }
                 }
                 else
                 {
-                    Debug.Log("SaveStation: Player doesn't have " + nameof(PlayerUpgrades) + " component.");
+                    Debug.LogWarning("SaveStation: Player doesn't have " + nameof(PlayerUpgrades) + " component.");
+                }
+                
+                Health health = other.GetComponent<Health>();
+
+                if (health)
+                {
+                    health.Heal(health.MaxHP);
+                }
+                else
+                {
+                    Debug.LogWarning("SaveStation: Player doesn't have" + nameof(Health) + " component.");
                 }
             }
         }
