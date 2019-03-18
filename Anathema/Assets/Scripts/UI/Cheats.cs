@@ -52,7 +52,11 @@ namespace Anathema.UI
                                 if (scene != player.scene)
                                 {
                                     SceneLoader loader = new SceneLoader(loadingSceneName);
-                                    loader.FadeScenes(scene.name, destinationID, player);
+                                    
+                                    loader.ScenesToUnload.Add(gameObject.scene.name);
+                                    loader.Destination = destinationID;
+                                    
+                                    loader.FadeScenes();
                                     break;
                                 }
                             }

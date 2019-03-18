@@ -1081,3 +1081,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1167229838}
+  loadingScene: Loading
+  playerScene: Player
+  mainMenuScene: MainMenu

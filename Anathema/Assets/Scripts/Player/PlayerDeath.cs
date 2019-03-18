@@ -32,7 +32,14 @@ namespace Anathema.Player
                 if (scene.name != playerScene)
                 {
                     SceneLoader loader = new SceneLoader(loadingScene);
-                    loader.FadeScenes(scene.name, playerScene, gameData, reloadPlayerScene: true);
+                    
+                    loader.ScenesToUnload.Add(playerScene);
+                    loader.ScenesToUnload.Add(scene.name);
+                    loader.ScenesToLoad.Add(playerScene);
+                    loader.Destination = gameData.spawnLocation;
+                    loader.GameData = gameData;
+                    
+                    loader.FadeScenes();
                     break;
                 }
             }
