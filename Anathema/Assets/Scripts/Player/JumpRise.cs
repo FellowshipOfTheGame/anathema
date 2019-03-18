@@ -49,7 +49,6 @@ namespace Anathema.Player
 			float HorizontalAxis = Input.GetAxisRaw("Horizontal");
 
 			// Handles attacking while in the air
-			Debug.Log("Can attack: " + playerUpgrades.HasScythe);
 			if(playerUpgrades.HasScythe && Input.GetKey(KeyCode.J))
 			{
 				rBody.velocity = Vector3.zero;

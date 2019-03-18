@@ -65,7 +65,6 @@ namespace Anathema.Player
 				return;
 			}
 
-			Debug.Log("Can attack: " + playerUpgrades.HasScythe);
 			if(playerUpgrades.HasScythe && Input.GetKey(KeyCode.J))
 			{
 				animator.SetBool("IsAttacking", true);

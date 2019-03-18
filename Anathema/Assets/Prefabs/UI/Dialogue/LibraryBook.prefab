@@ -89,9 +89,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4853516296158956}
   - component: {fileID: 61160195127663464}
-  - component: {fileID: 114726354953118164}
+  - component: {fileID: 114965153252495404}
   m_Layer: 0
-  m_Name: InteractableDialogueTrigger
+  m_Name: LibraryBook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -313,20 +313,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &114726354953118164
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1969627673194504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5837713ce0fc914aa3d4198b2bff854, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionHint: {fileID: 1138848315430890}
-  hintPersistTime: 0.5
-  dialogue: {fileID: 0}
 --- !u!114 &114810500605817106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -354,6 +340,22 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114965153252495404
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1969627673194504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abb46052b21db2b4b87bcea9b4feb52e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionHint: {fileID: 1205869661992628, guid: 71f5424a5db6d4a26ada4e917ad9025b,
+    type: 2}
+  hintPersistTime: 0.5
+  dialogue: {fileID: 0}
+  afterFirstReadDialogue: {fileID: 0}
 --- !u!222 &222873358111081900
 CanvasRenderer:
   m_ObjectHideFlags: 1

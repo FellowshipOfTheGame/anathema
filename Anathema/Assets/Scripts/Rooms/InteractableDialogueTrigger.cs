@@ -4,12 +4,12 @@ namespace Anathema.Dialogue
 {
     public class InteractableDialogueTrigger : MonoBehaviour
     {
-        [SerializeField] private GameObject interactionHint;
-        [SerializeField] private float hintPersistTime;
-		[SerializeField] private Dialogue dialogue;
-        private bool isInsideTrigger = false;
-        
-        protected void OnTriggerEnter2D(Collider2D other)
+        [SerializeField] protected GameObject interactionHint;
+        [SerializeField] protected float hintPersistTime;
+		[SerializeField] protected Dialogue dialogue;
+        protected bool isInsideTrigger = false;
+
+        protected virtual void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Player"))
             {
@@ -20,7 +20,7 @@ namespace Anathema.Dialogue
             }
         }
 
-		 protected virtual void Update()
+		protected virtual void Update()
         {
             if(isInsideTrigger && Input.GetKeyDown(KeyCode.E))
             {

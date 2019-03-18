@@ -48,7 +48,9 @@ namespace Anathema.Dialogue
 		private Queue<DialogueLine> dialogueLines = new Queue<DialogueLine>();
 		private DialogueLine currentLine;
 		private bool isLineDone;
+
 		private bool isActive;
+		public bool IsActive { get { return isActive; }	}
 		
 		public delegate void DialogueAction();
 		public event DialogueAction OnDialogueStart;

@@ -32,6 +32,7 @@ GameObject:
   - component: {fileID: 114107841916157640}
   - component: {fileID: 114766239910789676}
   - component: {fileID: 114989929988930772}
+  - component: {fileID: 114008551343538468}
   - component: {fileID: 114095098686004464}
   - component: {fileID: 212253811531204304}
   - component: {fileID: 95461175325729580}
@@ -129,6 +130,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114008551343538468
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1092232121720598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59cda39cb191bcb46991902b0e00c7cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scytheUpgrade: {fileID: 1891568421022388, guid: 0d173ba6f59a74a4da75723f8aec83b6,
+    type: 2}
+  doubleJumpUpgrade: {fileID: 1777923490116012, guid: d5df930240702984ea17d89a3d0e70fe,
+    type: 2}
+  fireUpgrade: {fileID: 1001062541338728, guid: 3243214c7bcef584e80371377edc6c6e,
+    type: 2}
+  scytheDialogue: {fileID: 11400000, guid: 1af7e3642a7186e42b6848310c0c9079, type: 2}
+  doubleJumpDialogue: {fileID: 11400000, guid: 1af7e3642a7186e42b6848310c0c9079, type: 2}
+  fireDialogue: {fileID: 0}
+  defaultUpgradeAnimationDuration: 5
 --- !u!114 &114060596424240470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -179,8 +201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 507272beefbc10346b392cecc3b45a76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingScene: Loading
-  playerScene: Player
 --- !u!114 &114107841916157640
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -311,7 +331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameData:
     hasScythe: 1
-    hasDoubleJump: 1
+    hasDoubleJump: 0
     hasFireAttack: 1
     hasTalkedToJudas: 0
     maxHealth: 100

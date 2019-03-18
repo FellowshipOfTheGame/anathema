@@ -53,7 +53,6 @@ GameObject:
   - component: {fileID: 4400699557274882}
   - component: {fileID: 212552779678762236}
   - component: {fileID: 95890155922771190}
-  - component: {fileID: 114610167338385482}
   m_Layer: 0
   m_Name: AnimationBall
   m_TagString: Untagged
@@ -206,8 +205,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1777923490116012}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -110.41, y: 181.95, z: 3.3834515}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 4400699557274882}
   m_Father: {fileID: 0}
@@ -348,17 +347,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114610167338385482
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1455038455966776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bad197c01a9a4445b31bfd1b1d727da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &212040992160966692
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -575,8 +563,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1196604283
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a1448cb354b03a44a8723f5a442550e2, type: 3}
   m_Color: {r: 0.67996407, g: 0, b: 1, a: 0.6862745}
@@ -621,8 +609,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1196604283
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

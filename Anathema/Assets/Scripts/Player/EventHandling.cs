@@ -50,11 +50,5 @@ namespace Anathema.Player
             playerHealth.OnKnockback -= HandleKnockback;
         }
 
-        // private void Update() {
-        //     if(Input.GetKeyDown(KeyCode.O))
-        //         playerHealth.Damage(2, Vector2.right, Health.DamageType.EnemyAttack);
-        //     if(Input.GetKeyDown(KeyCode.I))
-        //         playerHealth.Damage(2, Vector2.left, Health.DamageType.EnemyAttack);
-        // }
     }
 }
