@@ -17,6 +17,9 @@ namespace Anathema.Fsm {
 		[SerializeField] protected bool lookingRight = true;
 		[SerializeField] protected GameObject player;
 		[SerializeField] protected float speed;
+		//FIXME
+		// Velocity to turn angel
+		[SerializeField] protected float turnVel;
 
 
 		new void Awake() {
@@ -36,10 +39,10 @@ namespace Anathema.Fsm {
 		/// Checks to which side angel is looking, and changes variables (and animations)
 		/// </summary>
 		protected void CheckSide() {
-			if (rBody.velocity.x > 0f) {
+			if (rBody.velocity.x > turnVel) {
 				lookingRight = true;
 				sRenderer.flipX = false;
-			} else if (rBody.velocity.x < 0) {
+			} else if (rBody.velocity.x < -turnVel) {
 				lookingRight = false;
 				sRenderer.flipX = true;
 			}
