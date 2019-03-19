@@ -81,7 +81,11 @@ namespace Anathema.Rooms
                 if (player)
                 {
                     SceneLoader loader = new SceneLoader(loadingSceneName);
-                    loader.FadeScenes(gameObject.scene.name, destination, player);
+
+                    loader.ScenesToUnload.Add(gameObject.scene.name);
+                    loader.Destination = destination;
+                    
+                    loader.FadeScenes(); 
                 }
                 else
                 {

@@ -592,6 +592,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224430515620912492, guid: ec4b8c5bbbaa2844ebaa094846cc05b7,
     type: 2}
   m_PrefabInternal: {fileID: 449800668}
+--- !u!114 &1167229840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1167229838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7c1a7a117d474b8ebd85e6c0b2846f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1232670493
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,7 +727,6 @@ GameObject:
   - component: {fileID: 1474681868}
   - component: {fileID: 1474681867}
   - component: {fileID: 1474681866}
-  - component: {fileID: 1474681869}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -769,12 +779,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1474681869
+--- !u!1 &1492038228 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1168051171311708, guid: 42873fcc8d72405489113501296dc9e1,
+    type: 2}
+  m_PrefabInternal: {fileID: 132209462}
+--- !u!114 &1492038232
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1474681865}
+  m_GameObject: {fileID: 1492038228}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7c1a7a117d474b8ebd85e6c0b2846f5, type: 3}
@@ -826,6 +841,14 @@ Prefab:
     - target: {fileID: 1092232121720598, guid: 6932ca09607e0df4787e0459be6874d3, type: 2}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398242535540418, guid: 6932ca09607e0df4787e0459be6874d3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398242535540418, guid: 6932ca09607e0df4787e0459be6874d3, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6932ca09607e0df4787e0459be6874d3, type: 2}
@@ -1058,3 +1081,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1167229838}
+  loadingScene: Loading
+  playerScene: Player
+  mainMenuScene: MainMenu

@@ -1,5 +1,6 @@
 using UnityEngine;
 using Anathema.Player;
+using Anathema.Dialogue;
 
 namespace Anathema.Rooms
 {
@@ -7,6 +8,9 @@ namespace Anathema.Rooms
     {
         [SerializeField] private GameObject interactionHint;
         [SerializeField] private float hintPersistTime;
+        [SerializeField] private Dialogue.Dialogue missingKey;
+        [SerializeField] private Dialogue.Dialogue doorUnlock;
+        
         private Collider2D player;
         private bool isInsideTrigger = false;
         protected virtual void Update()
@@ -16,11 +20,12 @@ namespace Anathema.Rooms
                 PlayerUpgrades playerUpgrades = player.GetComponent<PlayerUpgrades>();
                 if (playerUpgrades.Keys.Exists(key => key.Equals(this.UniqueID)))
                 {
+                    DialogueHandler.instance.StartDialogue(doorUnlock);
                     base.OnTriggerEnter2D(player);
                 }
                 else
                 {
-                    Debug.Log("You don't have the needed key.");
+                    DialogueHandler.instance.StartDialogue(missingKey);
                 }
             }
         }
