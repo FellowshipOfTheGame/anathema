@@ -58,7 +58,6 @@ namespace Anathema.Fsm {
 
 		protected void OnCollisionEnter2D(Collision2D other) {
 			if (other.gameObject.CompareTag("Player")) {
-				Debug.LogWarning("Attacking Player");
 				other.gameObject.GetComponent<Health>().Damage(damage, -this.transform.position + other.transform.position, Health.DamageType.EnemyAttack);
 			}
 		}
