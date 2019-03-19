@@ -32,7 +32,13 @@ namespace Anathema.UI.MainMenu
 
                 loadStarted = true;
                 SceneLoader loader = new SceneLoader(loadingScene);
-                loader.FadeScenes(this.gameObject.scene.name, playerScene, defaultGameData);
+                
+                loader.ScenesToUnload.Add(gameObject.scene.name);
+                loader.ScenesToLoad.Add(playerScene);
+                loader.Destination = defaultGameData.spawnLocation;
+                loader.GameData = defaultGameData;
+                
+                loader.FadeScenes();
             }
         }
     }

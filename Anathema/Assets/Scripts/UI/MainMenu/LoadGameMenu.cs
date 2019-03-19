@@ -58,7 +58,13 @@ namespace Anathema.UI.MainMenu
 
                 loadStarted = true;
                 SceneLoader loader = new SceneLoader(loadingScene);
-                loader.FadeScenes(this.gameObject.scene.name, playerScene, gameData);
+                
+                loader.ScenesToUnload.Add(gameObject.scene.name);
+                loader.ScenesToLoad.Add(playerScene);
+                loader.Destination = gameData.spawnLocation;
+                loader.GameData = gameData;
+                
+                loader.FadeScenes();
             }
         }
         public override void Exit()

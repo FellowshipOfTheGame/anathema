@@ -1,3 +1,4 @@
+using Anathema.Player;
 using Anathema.Saving;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -39,7 +40,11 @@ namespace Anathema.Rooms
                 {
                     loadStarted = true;
                     SceneLoader loader = new SceneLoader(loadingSceneName);
-                    loader.FadeScenes(gameObject.scene.name, destination, collider.gameObject);
+
+                    loader.ScenesToUnload.Add(gameObject.scene.name);
+                    loader.Destination = destination;
+                    
+                    loader.FadeScenes();
                 }
             }
         }

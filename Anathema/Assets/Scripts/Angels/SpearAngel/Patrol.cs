@@ -6,7 +6,6 @@ using Pathfinding;
 namespace Anathema.SpearAngel {
 	public class Patrol : Anathema.Fsm.SpearAngelState {
 		[SerializeField] protected LayerMask enemyLookLayer	;
-		[SerializeField] private float patrollingDistance;
 		[SerializeField] private float UpdateRate;
 		[SerializeField] private GameObject[] patrollingPoints;
 		private Seeker seeker;
@@ -17,6 +16,9 @@ namespace Anathema.SpearAngel {
 		private Vector3 direction;
 		private int currentWayPoint = 0;
 		private float nextWayPointDistance = 1;
+		[SerializeField] private float cooldownTime;
+		[SerializeField] private bool inCooldown; 
+
 		
 		/// <summary>
 		/// Set patroling points and search for a path to patrol
@@ -27,7 +29,14 @@ namespace Anathema.SpearAngel {
 
 			moving = false;
 
+			StartCoroutine(WaitCooldown());
 			InvokeRepeating("UpdatePath", 0f, 1f/UpdateRate);
+		}
+
+		private IEnumerator WaitCooldown() {
+			inCooldown = true;
+			yield return new WaitForSecondsRealtime(cooldownTime);
+			inCooldown = false;
 		}
 
 		new void Update() {
@@ -40,15 +49,15 @@ namespace Anathema.SpearAngel {
 		/// (moving the angel according to path)
 		/// </summary>
 		void FixedUpdate() {
-			if (DistanceFrom(originLocation) > baseAreaRadius) {
-				Debug.Log("ReturningToBase");
-				destination = originLocation;
+			// if (DistanceFrom(originLocation) > baseAreaRadius) {
+			// 	Debug.Log("ReturningToBase");
+			// 	destination = originLocation;
+			// } else 
+			if (inCooldown || DistanceFrom(originLocation) > baseAreaRadius) {
+				Patrolling();
 			} else if (CanSeePlayer()) {
 				CancelInvoke();
 				rBody.velocity = Vector2.zero;
-				// animator.SetBool("isFlying", false);
-				// animator.SetBool("isAttacking", true);
-
 				fsm.Transition<Chase>();
 			} else if (!moving) {
 				Patrolling();
@@ -121,7 +130,6 @@ namespace Anathema.SpearAngel {
 			} else if (!TryRaycasts()) {
 				return false;
 			} else {
-				Debug.LogWarning("Hehehe, I found you!");
 				return true;
 			}
 		}
@@ -155,7 +163,6 @@ namespace Anathema.SpearAngel {
 					return false;
 				}
 			} else {
-				Debug.Log("Didn't hit");
 				return false;
 			}
 		}
