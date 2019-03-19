@@ -57,7 +57,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -90,6 +90,28 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -106,8 +128,8 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -11, y: -32}
-        - {x: 32, y: -12}
+      - - {x: -32, y: -32}
+        - {x: 32, y: -1}
         - {x: 32, y: -32}
       tessellationDetail: 0
       bones: []
@@ -129,8 +151,8 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -11, y: -32}
-        - {x: 32, y: -12}
+      - - {x: -32, y: -32}
+        - {x: 32, y: -1}
         - {x: 32, y: -32}
       tessellationDetail: 0
       bones: []
@@ -153,8 +175,8 @@ TextureImporter:
       outline: []
       physicsShape:
       - - {x: -32, y: -32}
-        - {x: -32, y: -12}
-        - {x: 32, y: 21}
+        - {x: -32, y: -1}
+        - {x: 32, y: 32}
         - {x: 32, y: -32}
       tessellationDetail: 0
       bones: []
@@ -178,8 +200,7 @@ TextureImporter:
       physicsShape:
       - - {x: -3.3459778, y: -32}
         - {x: -32, y: -32}
-        - {x: -32, y: 21}
-        - {x: -11, y: 32}
+        - {x: -32, y: 32}
         - {x: 32, y: 32}
         - {x: 32, y: -13.545776}
       tessellationDetail: 0
@@ -203,8 +224,8 @@ TextureImporter:
       outline: []
       physicsShape:
       - - {x: -32, y: -32}
-        - {x: -32, y: -12}
-        - {x: 32, y: 22}
+        - {x: -32, y: -1}
+        - {x: 32, y: 32}
         - {x: 32, y: -32}
       tessellationDetail: 1
       bones: []
@@ -228,8 +249,7 @@ TextureImporter:
       physicsShape:
       - - {x: -2.708664, y: -32}
         - {x: -32, y: -32}
-        - {x: -32, y: 22}
-        - {x: -11, y: 32}
+        - {x: -32, y: 32}
         - {x: 32, y: 32}
         - {x: 32, y: -15.037376}
       tessellationDetail: 0
