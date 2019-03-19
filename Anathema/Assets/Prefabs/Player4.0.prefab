@@ -42,7 +42,6 @@ GameObject:
   - component: {fileID: 114799929466392510}
   - component: {fileID: 114563408197514370}
   - component: {fileID: 114392289262847592}
-  - component: {fileID: 114500684044934750}
   m_Layer: 12
   m_Name: Player4.0
   m_TagString: Player
@@ -149,8 +148,8 @@ MonoBehaviour:
   fireUpgrade: {fileID: 1001062541338728, guid: 3243214c7bcef584e80371377edc6c6e,
     type: 2}
   scytheDialogue: {fileID: 11400000, guid: 1af7e3642a7186e42b6848310c0c9079, type: 2}
-  doubleJumpDialogue: {fileID: 11400000, guid: 1af7e3642a7186e42b6848310c0c9079, type: 2}
-  fireDialogue: {fileID: 0}
+  doubleJumpDialogue: {fileID: 11400000, guid: 4422461e8af878f4cb32ef0df7848ef6, type: 2}
+  fireDialogue: {fileID: 11400000, guid: 78e2a7506a14ad140a8598eb187fa166, type: 2}
   defaultUpgradeAnimationDuration: 5
 --- !u!114 &114060596424240470
 MonoBehaviour:
@@ -243,19 +242,6 @@ MonoBehaviour:
   baseGravity: 30
   gravityFallOff: 0.1
   horizontalSpeed: 8
---- !u!114 &114500684044934750
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1092232121720598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02e9984566f3f4b2fa3a86ec48d25759, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loadingScene: Loading
-  playerScene: Player
 --- !u!114 &114563408197514370
 MonoBehaviour:
   m_ObjectHideFlags: 1

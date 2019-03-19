@@ -16,10 +16,45 @@ namespace Anathema.Player
 		public enum UpgradeType { Scythe, DoubleJump, FireAttack }
 		private GameObject currentUpgrade;
 		private Anathema.Dialogue.Dialogue currentDialogue;
+		private Anathema.Saving.GameData gameData;
 
 		public override void Enter()
 		{
-			
+			rBody.velocity = Vector2.zero;
+		}
+
+		private void Start()
+		{
+			Anathema.SceneLoading.SceneLoader.OnLateSceneLoaded += GetSaveData;
+		}
+
+		public void GetSaveData(Anathema.Rooms.UniqueID iD, Anathema.Saving.GameData gameData)
+		{
+			this.gameData = gameData;
+		}
+
+		public void CommitData()
+		{
+			var save = new Saving.SaveProfile(gameData.ProfileName);
+			save.Save(gameData);
+		}
+
+		public void Upgrade(int upgradeIndex)
+		{
+			switch(upgradeIndex)
+			{
+				case 0:
+					Upgrade(UpgradeType.Scythe);
+					break;
+				case 1:
+					Upgrade(UpgradeType.DoubleJump);
+					break;
+				case 2:
+					Upgrade(UpgradeType.FireAttack);
+					break;
+				default:
+					break;
+			}
 		}
 
 		public void Upgrade(UpgradeType upgrade)
@@ -31,19 +66,29 @@ namespace Anathema.Player
 				case UpgradeType.Scythe:
 					currentUpgrade = scytheUpgrade;
 					currentDialogue = scytheDialogue;
-					upgrades.HasScythe = true;
+					
+					if(!upgrades)
+					{
+						//gameData.hasScythe = true;
+						//CommitData();
+					}
+					else 
+						upgrades.HasScythe = true;
+
 					break;
 				
 				case UpgradeType.DoubleJump:
 					currentUpgrade = doubleJumpUpgrade;
 					currentDialogue = doubleJumpDialogue;
 					upgrades.HasDoubleJump = true;
+					
 					break;
 
 				case UpgradeType.FireAttack:
 					currentUpgrade = fireUpgrade;
 					currentDialogue = fireDialogue;
 					upgrades.HasFireAttack = true;
+
 					break;
 
 				default:
@@ -60,7 +105,7 @@ namespace Anathema.Player
 			Invoke(nameof(UpgradeDestroy), duration);
 		}
 
-		private void UpgradeDestroy()
+		public void UpgradeDestroy()
 		{
 			Debug.Log(currentUpgrade);
 			Debug.Log(currentUpgrade.transform.GetChild(0));
@@ -96,7 +141,7 @@ namespace Anathema.Player
 
 		public override void Exit()
 		{
-
+			Anathema.SceneLoading.SceneLoader.OnLateSceneLoaded -= GetSaveData;			
 		}
 		
 	}

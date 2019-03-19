@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Name: FireUpgrade
   m_EditorClassIdentifier: 
   lines:
-    array: []
+    array:
+    - title: 
+      text: You have unlocked the Fire Attack. Press [K] for a powerful explosion!

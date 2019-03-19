@@ -9,14 +9,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91473fd4c3c1de74a91ca4b8d7e0ae09, type: 3}
-  m_Name: Pursuit 2
+  m_Name: Gabriel 5
   m_EditorClassIdentifier: 
   lines:
     array:
+    - title: Ivan
+      text: Argh!!
     - title: Amy
-      text: You must consider yourself a damn god, don't you? Deleting everything
-        you don't agree with...
-    - title: ????
-      text: HAHAHAHA! Yup, things like filthy traitors such as your parents...
+      text: Ivan, it's okay. I knew this would happen, sooner or later...
     - title: Amy
-      text: You DISGUST me.
+      text: It's not your fault. Don't let them trick you otherwise.
+    - title: Ivan
+      text: Amy...! No! I can't do without you!
+    - title: Amy
+      text: Thank you for everything.
+    - title: Ivan
+      text: NOOOOOOOOO!!!

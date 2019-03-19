@@ -9,14 +9,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91473fd4c3c1de74a91ca4b8d7e0ae09, type: 3}
-  m_Name: Pursuit 2
+  m_Name: Gabriel 3
   m_EditorClassIdentifier: 
   lines:
     array:
+    - title: Gabriel
+      text: '... Oh. Tch, tch, tch...'
+    - title: Gabriel
+      text: '... We had an agreement, Amy Solas...'
     - title: Amy
-      text: You must consider yourself a damn god, don't you? Deleting everything
-        you don't agree with...
-    - title: ????
-      text: HAHAHAHA! Yup, things like filthy traitors such as your parents...
-    - title: Amy
-      text: You DISGUST me.
+      text: '... As if keeping that would change today''s outcome.'
+    - title: Gabriel
+      text: Well... It seems that now I don't have a choice...
