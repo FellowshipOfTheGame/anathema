@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -20,12 +23,11 @@ namespace Anathema.SceneLoading
         /// </summary>
         public static bool runningWithoutSceneLoader = true;
         private string loadingScene;
-        private string oldScene;
-        private UniqueID destination;
-        private GameObject player;
-        private GameData gameData;
-        private string playerScene;
-        private bool reloadPlayerScene;
+        
+        public List<string> ScenesToUnload { get; set; } = new List<string>();
+        public List<string> ScenesToLoad { get; set; } = new List<string>();
+        public UniqueID Destination { get; set;  } = null;
+        public GameData GameData { get; set; } = null;
 
         public delegate void SceneUnloadHandler(string scene);
         public delegate void SceneLoadHandler(UniqueID destination, GameData gameData);
@@ -53,30 +55,13 @@ namespace Anathema.SceneLoading
                 SwapScenes swapScenes = root.GetComponentInChildren<SwapScenes>(true);
                 if (swapScenes)
                 {
-                    swapScenes.OldScene = oldScene;
-                    swapScenes.Destination = destination;
-                    swapScenes.Player = player;
-                    swapScenes.GameData = gameData;
-                    swapScenes.PlayerScene = playerScene;
-                    swapScenes.ReloadPlayerScene = reloadPlayerScene;
+                    swapScenes.Destination = Destination;
+                    swapScenes.GameData = GameData;
+                    swapScenes.ScenesToLoad = ScenesToLoad;
+                    swapScenes.ScenesToUnload = ScenesToUnload;
                     break;
                 }
             }
-        }
-        /// <summary>
-        /// Loads both the player scene and a new scene, with a fade to black transition effect.
-        /// Intended for use in situations such as loading from the menu.
-        /// </summary>
-        /// <param name="oldScene">The scene to unload.</param>
-        /// <param name="destination">The UniqueID of a destination UniqueComponent.</param>
-        /// <param name="playerScene">The name of the Player scene to load.</param>
-        /// <param name="reloadPlayerScene"> Whether to unload an exist Player scene.</param>
-        public void FadeScenes(string oldScene, string playerScene, GameData gameData, bool reloadPlayerScene = false)
-        {
-            this.playerScene = playerScene;
-            this.gameData = gameData;
-            this.reloadPlayerScene = reloadPlayerScene;
-            FadeScenes(oldScene, gameData.spawnLocation, (GameObject) null);
         }
         /// <summary>
         /// Loads a new scene with a fade to black transition effect.
@@ -84,19 +69,39 @@ namespace Anathema.SceneLoading
         /// <param name="oldScene">The scene to unload.</param>
         /// <param name="destination">The UniqueID of a destination UniqueComponent.</param>
         /// <param name="player">The player's GameObject.</param>
-        public void FadeScenes(string oldScene, UniqueID destination, GameObject player)
+        public void FadeScenes()
         {
+            if ((ScenesToLoad == null || ScenesToLoad.Count == 0) && Destination == null)
+               NoSceneToLoadError();
+
+            if (Destination != null)
+            {
+                if (ScenesToLoad == null)
+                {
+                    ScenesToLoad = new List<string>();
+                    ScenesToLoad.Add(Destination.SceneName);
+                }
+                else if (!ScenesToLoad.Contains(Destination.SceneName))
+                {
+                    ScenesToLoad.Add(Destination.SceneName);
+                }
+            }
+
             runningWithoutSceneLoader = false;
-
-            player?.SetActive(false);
-            this.destination = destination;
-            this.oldScene = oldScene;
-            this.player = player;
-
+            
+            foreach (var scene in ScenesToUnload)
+            {
+                OnSceneAboutToUnload?.Invoke(scene);
+            }
             //Request loading of loading screen.
             AsyncOperation loadingSceneLoadOperation = SceneManager.LoadSceneAsync(loadingScene, LoadSceneMode.Additive);
             //Registers OnLoadingSceneLoaded as listener to complete.
             loadingSceneLoadOperation.completed += OnLoadingSceneLoaded;
+        }
+
+        private void NoSceneToLoadError()
+        {
+            throw new System.InvalidOperationException("No scenes to load. Set either ScenesToLoad or Destination.");
         }
 	}
 }

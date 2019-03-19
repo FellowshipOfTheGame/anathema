@@ -38,7 +38,7 @@ namespace Anathema.SpearAngel {
 		/// <returns></returns>
 		public IEnumerator AttackCooldown() {
 			yield return new WaitForSeconds(cooldown);
-			fsm.Transition<Chase>();
+			fsm.Transition<Patrol>();
 		}
 
 		/// <summary>
