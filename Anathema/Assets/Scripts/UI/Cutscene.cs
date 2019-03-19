@@ -42,6 +42,6 @@ public class Cutscene : MonoBehaviour {
 		Anathema.Dialogue.DialogueHandler.instance.OnDialogueEnd -= PlayNext;
 	}
 
-	 [System.Serializable]
+	[System.Serializable]
     public class ReorderableEventList : ReorderableArray<UnityEvent> {}
 }

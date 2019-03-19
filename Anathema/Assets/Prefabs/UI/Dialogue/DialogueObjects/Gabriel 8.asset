@@ -9,9 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91473fd4c3c1de74a91ca4b8d7e0ae09, type: 3}
-  m_Name: DoubleJumpUpgrade
+  m_Name: Gabriel 8
   m_EditorClassIdentifier: 
   lines:
     array:
-    - title: 
-      text: You have unlocked the Double Jump. Now you can reach more areas!
+    - title: Gabriel
+      text: '!!! What is this!?'
+    - title: Gabriel
+      text: Guards! Kill him!

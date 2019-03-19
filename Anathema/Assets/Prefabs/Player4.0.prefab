@@ -148,8 +148,8 @@ MonoBehaviour:
   fireUpgrade: {fileID: 1001062541338728, guid: 3243214c7bcef584e80371377edc6c6e,
     type: 2}
   scytheDialogue: {fileID: 11400000, guid: 1af7e3642a7186e42b6848310c0c9079, type: 2}
-  doubleJumpDialogue: {fileID: 11400000, guid: 1af7e3642a7186e42b6848310c0c9079, type: 2}
-  fireDialogue: {fileID: 0}
+  doubleJumpDialogue: {fileID: 11400000, guid: 4422461e8af878f4cb32ef0df7848ef6, type: 2}
+  fireDialogue: {fileID: 11400000, guid: 78e2a7506a14ad140a8598eb187fa166, type: 2}
   defaultUpgradeAnimationDuration: 5
 --- !u!114 &114060596424240470
 MonoBehaviour:

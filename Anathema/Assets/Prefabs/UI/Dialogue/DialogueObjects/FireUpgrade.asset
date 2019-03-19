@@ -9,7 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91473fd4c3c1de74a91ca4b8d7e0ae09, type: 3}
-  m_Name: NewDialogue
+  m_Name: FireUpgrade
   m_EditorClassIdentifier: 
   lines:
-    array: []
+    array:
+    - title: 
+      text: You have unlocked the Fire Attack. Press [K] for a powerful explosion!
