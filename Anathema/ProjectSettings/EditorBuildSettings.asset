@@ -34,7 +34,7 @@ EditorBuildSettings:
     guid: 95eab579f6efc0f46838019a65061fec
   - enabled: 1
     path: Assets/Scenes/Tutorial/Tutorial-Amy.unity
-    guid: dd918ee76d358b84e8ceb288886f0146
+    guid: 393cd9f02c1464a17a3396cbc960b9c2
   - enabled: 1
     path: Assets/Scenes/Tutorial/Tutorial-7.unity
     guid: 1850af885e571214dbcc3354af2e81b0
@@ -95,6 +95,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Boss/Boss-1.unity
     guid: b43ecd3a9b05800459f1a1b9c7e7d53a
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/Cutscene-Amy.unity
+    guid: dd918ee76d358b84e8ceb288886f0146
   - enabled: 1
     path: Assets/Scenes/Boss/Boss-2.unity
     guid: d1feafbf5f7b5594a9cbc36ec3ec9ab7
