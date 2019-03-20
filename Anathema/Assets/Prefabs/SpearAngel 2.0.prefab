@@ -438,7 +438,7 @@ MonoBehaviour:
   - {fileID: 1190036111084342}
   - {fileID: 1064171367043776}
   - {fileID: 1441261356914270}
-  cooldownTime: 2
+  cooldownTime: 1
   inCooldown: 0
 --- !u!114 &114408436991385258
 MonoBehaviour:

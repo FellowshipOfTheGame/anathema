@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Anathema.SceneLoading;
 using Anathema.Rooms;
+using Anathema.Saving;
 
 namespace Anathema.UI
 {
@@ -10,11 +11,12 @@ namespace Anathema.UI
     {
         [SerializeField] private string loadingSceneName;
         private bool display = false;
-        private string destination = "";
+        private UniqueID destination = new UniqueID();
+        private UniqueID newKey = new UniqueID();
         private GameObject player;
         private PlayerUpgrades playerUpgrades;
-        private Rect windowRect = new Rect(20,20 , 300, 500);
-
+        private Rect windowRect = new Rect(20,20 , 400, 200);
+        
         private void Awake()
         {
             player = PlayerFinder.Find("Player");
@@ -34,16 +36,13 @@ namespace Anathema.UI
             {
                 GUILayout.BeginHorizontal();
                 {
-                    destination = GUI.TextField(new Rect(25, 25, 250, 30), destination);
-                    if (GUI.Button(new Rect(280, 25, 60, 30), "Teleport") &&
-                        !string.IsNullOrWhiteSpace(destination))
+                    destination = new UniqueID(GUILayout.TextField(destination.SceneName), GUILayout.TextField(destination.ObjectName));
+                    
+                    if (GUILayout.Button("Teleport", GUILayout.MaxWidth(100)) &&
+                        !string.IsNullOrWhiteSpace(destination.SceneName) &&
+//                        SceneManager.GetSceneByName(destination.SceneName).IsValid() &&
+                        !string.IsNullOrWhiteSpace(destination.ObjectName))
                     {
-                        Debug.Log(destination);
-                        string[] names = destination.Split('.');
-                        Debug.Log(names[0] + "    " + names[1]);
-                        UniqueID destinationID = new UniqueID(names[0], names[1]);
-                        destination = "";
-
                         if (player)
                         {
                             for (int i = 0; i < SceneManager.sceneCount; i++)
@@ -53,8 +52,9 @@ namespace Anathema.UI
                                 {
                                     SceneLoader loader = new SceneLoader(loadingSceneName);
                                     
-                                    loader.ScenesToUnload.Add(gameObject.scene.name);
-                                    loader.Destination = destinationID;
+                                    loader.ScenesToUnload.Add(scene.name);
+                                    loader.Destination = destination;
+                                    loader.GameData = playerUpgrades.GetDataForSaving();
                                     
                                     loader.FadeScenes();
                                     break;
@@ -69,6 +69,26 @@ namespace Anathema.UI
                 playerUpgrades.HasScythe = GUILayout.Toggle(playerUpgrades.HasScythe, "Scythe");
                 playerUpgrades.HasFireAttack = GUILayout.Toggle(playerUpgrades.HasFireAttack, "Fire Attack");
                 playerUpgrades.HasTalkedToJudas = GUILayout.Toggle(playerUpgrades.HasTalkedToJudas, "Talked to Judas");
+
+                foreach (var key in playerUpgrades.Keys)
+                {
+                    GUILayout.Label(key.ToString());
+                    if (GUILayout.Button("Remove", GUILayout.Width(100)))
+                    {
+                        playerUpgrades.Keys.Remove(key);
+                        break;
+                    }
+                }
+                
+                GUILayout.Label("Add Key:");
+                newKey = new UniqueID(GUILayout.TextField(newKey.SceneName), GUILayout.TextField(newKey.ObjectName));
+                if (GUILayout.Button("Add", GUILayout.MaxWidth(100)) &&
+                    !string.IsNullOrWhiteSpace(newKey.SceneName) &&
+//                    SceneManager.GetSceneByName(newKey.SceneName).IsValid() &&
+                    !string.IsNullOrWhiteSpace(newKey.ObjectName))
+                {
+                    playerUpgrades.Keys.Add(newKey);
+                }
             }
             GUILayout.EndVertical();
         }

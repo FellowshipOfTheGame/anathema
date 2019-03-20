@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 114799929466392510}
   - component: {fileID: 114563408197514370}
   - component: {fileID: 114392289262847592}
+  - component: {fileID: 114360420977681126}
   m_Layer: 12
   m_Name: Player4.0
   m_TagString: Player
@@ -151,6 +152,10 @@ MonoBehaviour:
   doubleJumpDialogue: {fileID: 11400000, guid: 4422461e8af878f4cb32ef0df7848ef6, type: 2}
   fireDialogue: {fileID: 11400000, guid: 78e2a7506a14ad140a8598eb187fa166, type: 2}
   defaultUpgradeAnimationDuration: 5
+  key:
+    useCurrentSceneName: 0
+    sceneName: 
+    objectName: 
 --- !u!114 &114060596424240470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -216,6 +221,19 @@ MonoBehaviour:
   fireHeight: -1
   fireDamage: 50
   firePrefab: {fileID: 1354765179633392, guid: 336ac2250dcb7f44aa54a754b05d655e, type: 2}
+--- !u!114 &114360420977681126
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1092232121720598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02e9984566f3f4b2fa3a86ec48d25759, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadingScene: Loading
+  playerScene: Player
 --- !u!114 &114392289262847592
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -281,7 +299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravity: 40
-  maxSpeed: 10
+  maxSpeed: 0.01
   groundCheckDist: 2.61
   horizontalSpeed: 8
   raycastOffset: 2.03
