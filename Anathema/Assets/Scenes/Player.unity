@@ -299,6 +299,28 @@ Prefab:
       propertyPath: m_firstOverflowCharacterIndex
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114929324605768706, guid: 42873fcc8d72405489113501296dc9e1,
+        type: 2}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 4ad03eda9c56f9f4cb6037cbe89a9b14,
+        type: 2}
+    - target: {fileID: 114929324605768706, guid: 42873fcc8d72405489113501296dc9e1,
+        type: 2}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114936965618288162, guid: 42873fcc8d72405489113501296dc9e1,
+        type: 2}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 4ad03eda9c56f9f4cb6037cbe89a9b14,
+        type: 2}
+    - target: {fileID: 114936965618288162, guid: 42873fcc8d72405489113501296dc9e1,
+        type: 2}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42873fcc8d72405489113501296dc9e1, type: 2}
   m_IsPrefabAsset: 0
