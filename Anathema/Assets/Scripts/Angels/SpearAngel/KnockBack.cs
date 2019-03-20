@@ -17,9 +17,13 @@ namespace Anathema.SpearAngel {
             animator.SetBool("isTakingDamage", true);
 
             if (player.transform.position.x - this.transform.position.x > 0) {
-                StartCoroutine(KnockBackRobot(knockbackDur, knockbackPwr, Vector2.right));
+                sRenderer.flipX = false;
+                lookingRight = true;
+                StartCoroutine(KnockBackAngel(knockbackDur, knockbackPwr, Vector2.left));
             } else {
-                StartCoroutine(KnockBackRobot(knockbackDur, knockbackPwr, Vector2.left));
+                sRenderer.flipX = true;
+                lookingRight = false;
+                StartCoroutine(KnockBackAngel(knockbackDur, knockbackPwr, Vector2.right));
             }
         }
 
@@ -30,8 +34,8 @@ namespace Anathema.SpearAngel {
         /// <param name="power">Force in which angel is thrown</param>
         /// <param name="direction">Direction of the knockback (right or left)</param>
         /// <returns></returns>
-        private IEnumerator KnockBackRobot(float duration, float power, Vector2 direction) {
-            rBody.AddForce(new Vector2(direction.x + power, 0f), ForceMode2D.Impulse);
+        private IEnumerator KnockBackAngel(float duration, float power, Vector2 direction) {
+            rBody.AddForce(new Vector2(direction.x * power, 0f), ForceMode2D.Impulse);
             yield return new WaitForSeconds(duration);
             fsm.Transition<Patrol>();
         }
