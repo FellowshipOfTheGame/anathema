@@ -1,3 +1,5 @@
+using System;
+using System.IO;
 using Anathema.Rooms;
 using Anathema.Saving;
 using Anathema.SceneLoading;
@@ -28,8 +30,14 @@ namespace Anathema.UI
             loader.ScenesToUnload.Add(gameObject.scene.name);
             loader.ScenesToLoad.Add(playerSceneName);
             loader.Destination = destination;
+            loader.GameData = gameData;
             
             loader.FadeScenes();
+        }
+
+        private void OnDestroy()
+        {
+            SceneLoader.OnSceneLoaded -= SceneLoaded;
         }
     }
 }

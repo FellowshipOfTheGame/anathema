@@ -1,3 +1,5 @@
+using Anathema.Player;
+using Anathema.Saving;
 using Anathema.SceneLoading;
 using UnityEngine;
 
@@ -6,7 +8,6 @@ namespace Anathema.Rooms
     public abstract class CutsceneDoor : UniqueTrigger
     {
         [SerializeField] private string loadingSceneName;
-        [SerializeField] private string playerSceneName;
         [SerializeField] protected UniqueID mainDestination;
         [SerializeField] protected UniqueID alternateDestination;
         /// <summary>
@@ -33,7 +34,13 @@ namespace Anathema.Rooms
                     if (LoadCutscene(collider.gameObject))
                     {
                         loader.Destination = alternateDestination;
-                        loader.ScenesToUnload.Add(playerSceneName);
+                        loader.ScenesToUnload.Add(collider.gameObject.scene.name);
+
+                        var upgrades = collider.GetComponent<PlayerUpgrades>();
+                        if (upgrades)
+                        {
+                            loader.GameData = upgrades.GetDataForSaving();
+                        }
                     }
                     else
                     {
