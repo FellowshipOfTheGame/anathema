@@ -282,8 +282,8 @@ MonoBehaviour:
   defaultUpgradeAnimationDuration: 0
   key:
     useCurrentSceneName: 0
-    sceneName: 
-    objectName: 
+    sceneName: Tutorial-2
+    objectName: Upper
 --- !u!114 &782481591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -935,6 +935,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1903275583}
+          m_MethodName: PlayNext
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
     - m_PersistentCalls:
@@ -1024,7 +1035,7 @@ MonoBehaviour:
   destination:
     useCurrentSceneName: 0
     sceneName: Church-0
-    objectName: MiddleLeft
+    objectName: UpperLeft
   loadingSceneName: Loading
   playerSceneName: Player
   loadPlayer: 1
