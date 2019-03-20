@@ -69,8 +69,11 @@ namespace Anathema.Player
 					
 					if(!upgrades)
 					{
-						//gameData.hasScythe = true;
-						//CommitData();
+						if(gameData != null)
+						{
+							gameData.hasScythe = true;
+							CommitData();
+						}
 					}
 					else 
 						upgrades.HasScythe = true;
@@ -105,13 +108,15 @@ namespace Anathema.Player
 			Invoke(nameof(UpgradeDestroy), duration);
 		}
 
-		public void UpgradeDestroy()
+		public void UpgradeDestroy(bool endCutscene = true)
 		{
 			Debug.Log(currentUpgrade);
 			Debug.Log(currentUpgrade.transform.GetChild(0));
 			currentUpgrade.transform.GetChild(0).GetComponent<Animator>().Play("Explode");
 			Anathema.Dialogue.DialogueHandler.instance.StartDialogue(currentDialogue);
-			EndCutscene();
+
+			if(endCutscene)
+				EndCutscene();
 		}
 
 		public void StartCutscene()
