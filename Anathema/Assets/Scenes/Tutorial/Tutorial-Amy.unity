@@ -11502,6 +11502,7 @@ GameObject:
   - component: {fileID: 287852596}
   - component: {fileID: 287852595}
   - component: {fileID: 287852594}
+  - component: {fileID: 287852597}
   m_Layer: 9
   m_Name: Angel2
   m_TagString: Untagged
@@ -11589,6 +11590,34 @@ Transform:
   m_Father: {fileID: 1979366765}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &287852597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 287852593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2016f43d2890847519dbb137faea9719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetBurnTime: 1
+--- !u!1 &288530369 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1058138264210724, guid: 42873fcc8d72405489113501296dc9e1,
+    type: 2}
+  m_PrefabInternal: {fileID: 470760468}
+--- !u!114 &288530370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 288530369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7c1a7a117d474b8ebd85e6c0b2846f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &408955625
 GameObject:
   m_ObjectHideFlags: 0
@@ -11691,6 +11720,7 @@ GameObject:
   - component: {fileID: 446468652}
   - component: {fileID: 446468651}
   - component: {fileID: 446468650}
+  - component: {fileID: 446468653}
   m_Layer: 9
   m_Name: Angel1
   m_TagString: Untagged
@@ -11778,6 +11808,18 @@ Transform:
   m_Father: {fileID: 425272212}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &446468653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 446468649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2016f43d2890847519dbb137faea9719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetBurnTime: 1
 --- !u!1001 &470760468
 Prefab:
   m_ObjectHideFlags: 0
@@ -12262,6 +12304,144 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 514905109}
+          m_MethodName: PlayCutscene
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 299a1a8464b08574da1b92efb198391d,
+              type: 2}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Timeline.TimelineAsset,
+              UnityEngine.Timeline
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1535508142}
+          m_MethodName: UpgradeDestroy
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 514905109}
+          m_MethodName: PlayCutscene
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 08e1c9b607fdc5241a30991ec6b672c3,
+              type: 2}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Timeline.TimelineAsset,
+              UnityEngine.Timeline
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 287852597}
+          m_MethodName: Burn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 514905109}
+          m_MethodName: PlayCutscene
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 64a61c603cec53b40ad5cee4ae8ba527,
+              type: 2}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Timeline.TimelineAsset,
+              UnityEngine.Timeline
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 446468653}
+          m_MethodName: Burn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 514905109}
+          m_MethodName: PlayCutscene
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 23909311ead6eec448fc94aaf01edb47,
+              type: 2}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Timeline.TimelineAsset,
+              UnityEngine.Timeline
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 754546145}
+          m_MethodName: StartDialogue
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: a2e9c65ef4a9b5c40a9aa10d3fa21c66,
+              type: 2}
+            m_ObjectArgumentAssemblyTypeName: Anathema.Dialogue.Dialogue, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 514905109}
+          m_MethodName: PlayCutscene
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 5f4b1518bdefcf64ab995e62ae4ea63d,
+              type: 2}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Timeline.TimelineAsset,
+              UnityEngine.Timeline
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
   director: {fileID: 514905110}
 --- !u!320 &514905110
 PlayableDirector:
@@ -12271,7 +12451,7 @@ PlayableDirector:
   m_GameObject: {fileID: 514905108}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 299a1a8464b08574da1b92efb198391d, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 5f4b1518bdefcf64ab995e62ae4ea63d, type: 2}
   m_InitialState: 0
   m_WrapMode: 0
   m_DirectorUpdateMode: 1
@@ -12374,6 +12554,78 @@ PlayableDirector:
   - key: {fileID: 114467062357055640, guid: 299a1a8464b08574da1b92efb198391d, type: 2}
     value: {fileID: 64561994}
   - key: {fileID: 114526652739674608, guid: 299a1a8464b08574da1b92efb198391d, type: 2}
+    value: {fileID: 287852595}
+  - key: {fileID: 114223234934224536, guid: 08e1c9b607fdc5241a30991ec6b672c3, type: 2}
+    value: {fileID: 987205634}
+  - key: {fileID: 114370623326676252, guid: 08e1c9b607fdc5241a30991ec6b672c3, type: 2}
+    value: {fileID: 732588821}
+  - key: {fileID: 114201830707873976, guid: 08e1c9b607fdc5241a30991ec6b672c3, type: 2}
+    value: {fileID: 732588821}
+  - key: {fileID: 114749803769528612, guid: 08e1c9b607fdc5241a30991ec6b672c3, type: 2}
+    value: {fileID: 938515405}
+  - key: {fileID: 0}
+    value: {fileID: 938515405}
+  - key: {fileID: 114002667825239368, guid: 08e1c9b607fdc5241a30991ec6b672c3, type: 2}
+    value: {fileID: 446468651}
+  - key: {fileID: 0}
+    value: {fileID: 0}
+  - key: {fileID: 114526652739674608, guid: 08e1c9b607fdc5241a30991ec6b672c3, type: 2}
+    value: {fileID: 287852595}
+  - key: {fileID: 114343581758834860, guid: 08e1c9b607fdc5241a30991ec6b672c3, type: 2}
+    value: {fileID: 446468651}
+  - key: {fileID: 114322831033716998, guid: 08e1c9b607fdc5241a30991ec6b672c3, type: 2}
+    value: {fileID: 287852595}
+  - key: {fileID: 114898700485324912, guid: a8b00d9fe534b8140b9d9570c25325cb, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 114744076814198858, guid: a8b00d9fe534b8140b9d9570c25325cb, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 114223234934224536, guid: 64a61c603cec53b40ad5cee4ae8ba527, type: 2}
+    value: {fileID: 987205634}
+  - key: {fileID: 114370623326676252, guid: 64a61c603cec53b40ad5cee4ae8ba527, type: 2}
+    value: {fileID: 732588821}
+  - key: {fileID: 114201830707873976, guid: 64a61c603cec53b40ad5cee4ae8ba527, type: 2}
+    value: {fileID: 732588821}
+  - key: {fileID: 114749803769528612, guid: 64a61c603cec53b40ad5cee4ae8ba527, type: 2}
+    value: {fileID: 938515405}
+  - key: {fileID: 114002667825239368, guid: 64a61c603cec53b40ad5cee4ae8ba527, type: 2}
+    value: {fileID: 446468651}
+  - key: {fileID: 114343581758834860, guid: 64a61c603cec53b40ad5cee4ae8ba527, type: 2}
+    value: {fileID: 446468651}
+  - key: {fileID: 114526652739674608, guid: 64a61c603cec53b40ad5cee4ae8ba527, type: 2}
+    value: {fileID: 287852595}
+  - key: {fileID: 114322831033716998, guid: 64a61c603cec53b40ad5cee4ae8ba527, type: 2}
+    value: {fileID: 287852595}
+  - key: {fileID: 114223234934224536, guid: 23909311ead6eec448fc94aaf01edb47, type: 2}
+    value: {fileID: 987205634}
+  - key: {fileID: 114370623326676252, guid: 23909311ead6eec448fc94aaf01edb47, type: 2}
+    value: {fileID: 732588821}
+  - key: {fileID: 114201830707873976, guid: 23909311ead6eec448fc94aaf01edb47, type: 2}
+    value: {fileID: 732588821}
+  - key: {fileID: 114749803769528612, guid: 23909311ead6eec448fc94aaf01edb47, type: 2}
+    value: {fileID: 938515405}
+  - key: {fileID: 114002667825239368, guid: 23909311ead6eec448fc94aaf01edb47, type: 2}
+    value: {fileID: 446468651}
+  - key: {fileID: 114343581758834860, guid: 23909311ead6eec448fc94aaf01edb47, type: 2}
+    value: {fileID: 446468651}
+  - key: {fileID: 114526652739674608, guid: 23909311ead6eec448fc94aaf01edb47, type: 2}
+    value: {fileID: 287852595}
+  - key: {fileID: 114322831033716998, guid: 23909311ead6eec448fc94aaf01edb47, type: 2}
+    value: {fileID: 287852595}
+  - key: {fileID: 114223234934224536, guid: 5f4b1518bdefcf64ab995e62ae4ea63d, type: 2}
+    value: {fileID: 987205634}
+  - key: {fileID: 114370623326676252, guid: 5f4b1518bdefcf64ab995e62ae4ea63d, type: 2}
+    value: {fileID: 732588821}
+  - key: {fileID: 114201830707873976, guid: 5f4b1518bdefcf64ab995e62ae4ea63d, type: 2}
+    value: {fileID: 732588821}
+  - key: {fileID: 114749803769528612, guid: 5f4b1518bdefcf64ab995e62ae4ea63d, type: 2}
+    value: {fileID: 938515405}
+  - key: {fileID: 114002667825239368, guid: 5f4b1518bdefcf64ab995e62ae4ea63d, type: 2}
+    value: {fileID: 446468651}
+  - key: {fileID: 114343581758834860, guid: 5f4b1518bdefcf64ab995e62ae4ea63d, type: 2}
+    value: {fileID: 446468651}
+  - key: {fileID: 114526652739674608, guid: 5f4b1518bdefcf64ab995e62ae4ea63d, type: 2}
+    value: {fileID: 287852595}
+  - key: {fileID: 114322831033716998, guid: 5f4b1518bdefcf64ab995e62ae4ea63d, type: 2}
     value: {fileID: 287852595}
   m_ExposedReferences:
     m_References:
@@ -18021,7 +18273,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: af64e56276a889b4eb4e07dfc7eaf4d4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.171875, y: 1.0253906}
