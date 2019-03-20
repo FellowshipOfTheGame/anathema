@@ -1024,7 +1024,7 @@ MonoBehaviour:
   destination:
     useCurrentSceneName: 0
     sceneName: Church-0
-    objectName: TopLeft
+    objectName: MiddleLeft
   loadingSceneName: Loading
   playerSceneName: Player
   loadPlayer: 1
