@@ -296,7 +296,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 45c085d5d7185214fb4f4d1bc1cfefac, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4ad03eda9c56f9f4cb6037cbe89a9b14, type: 2}
   m_sharedMaterial: {fileID: 21840770963753314, guid: 45c085d5d7185214fb4f4d1bc1cfefac,
     type: 2}
   m_fontSharedMaterials: []
@@ -377,7 +377,7 @@ MonoBehaviour:
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 1
   m_inputSource: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -825,7 +825,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Name your profile
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 45c085d5d7185214fb4f4d1bc1cfefac, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4ad03eda9c56f9f4cb6037cbe89a9b14, type: 2}
   m_sharedMaterial: {fileID: 21840770963753314, guid: 45c085d5d7185214fb4f4d1bc1cfefac,
     type: 2}
   m_fontSharedMaterials: []
@@ -906,7 +906,7 @@ MonoBehaviour:
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 1
   m_inputSource: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -1117,7 +1117,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: -- Press any key --
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 45c085d5d7185214fb4f4d1bc1cfefac, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4ad03eda9c56f9f4cb6037cbe89a9b14, type: 2}
   m_sharedMaterial: {fileID: 21840770963753314, guid: 45c085d5d7185214fb4f4d1bc1cfefac,
     type: 2}
   m_fontSharedMaterials: []
@@ -1192,13 +1192,13 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
   m_inputSource: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -1510,8 +1510,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Anathema
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 45c085d5d7185214fb4f4d1bc1cfefac, type: 2}
-  m_sharedMaterial: {fileID: 21840770963753314, guid: 45c085d5d7185214fb4f4d1bc1cfefac,
+  m_fontAsset: {fileID: 11400000, guid: 4ad03eda9c56f9f4cb6037cbe89a9b14, type: 2}
+  m_sharedMaterial: {fileID: 21425756929625652, guid: 4ad03eda9c56f9f4cb6037cbe89a9b14,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1981,7 +1981,7 @@ MonoBehaviour:
 
     Rodrigo Geurgas Zavarizz (Lider)'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 45c085d5d7185214fb4f4d1bc1cfefac, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4ad03eda9c56f9f4cb6037cbe89a9b14, type: 2}
   m_sharedMaterial: {fileID: 21840770963753314, guid: 45c085d5d7185214fb4f4d1bc1cfefac,
     type: 2}
   m_fontSharedMaterials: []
@@ -2056,13 +2056,13 @@ MonoBehaviour:
     lineCount: 5
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
   m_inputSource: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
