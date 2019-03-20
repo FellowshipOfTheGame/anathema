@@ -475,6 +475,22 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42873fcc8d72405489113501296dc9e1, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1118086204 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1168051171311708, guid: 42873fcc8d72405489113501296dc9e1,
+    type: 2}
+  m_PrefabInternal: {fileID: 1118086203}
+--- !u!114 &1118086205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1118086204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7c1a7a117d474b8ebd85e6c0b2846f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1214744317
 Prefab:
   m_ObjectHideFlags: 0
@@ -790,6 +806,7 @@ GameObject:
   - component: {fileID: 1903275584}
   - component: {fileID: 1903275585}
   - component: {fileID: 1903275583}
+  - component: {fileID: 1903275586}
   m_Layer: 0
   m_Name: CutsceneManagement
   m_TagString: Untagged
@@ -860,6 +877,21 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1903275586}
+          m_MethodName: LoadScene
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
   director: {fileID: 1903275585}
 --- !u!4 &1903275584
 Transform:
@@ -918,3 +950,20 @@ PlayableDirector:
   m_ExposedReferences:
     m_References:
     - d22556d61adf1694d837e8ab7c1570f9: {fileID: 782481589}
+--- !u!114 &1903275586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1903275582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d593d42187964a099df2018ca14ed6d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destination:
+    useCurrentSceneName: 0
+    sceneName: Church-0
+    objectName: TopLeft
+  loadingSceneName: Loading
+  playerSceneName: Player

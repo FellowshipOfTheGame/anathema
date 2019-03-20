@@ -11,12 +11,12 @@ namespace Anathema.UI
     {
         [SerializeField] private string loadingSceneName;
         private bool display = false;
-        private string destination = "";
-        private string newKey = "";
+        private UniqueID destination = new UniqueID();
+        private UniqueID newKey = new UniqueID();
         private GameObject player;
         private PlayerUpgrades playerUpgrades;
         private Rect windowRect = new Rect(20,20 , 400, 200);
-
+        
         private void Awake()
         {
             player = PlayerFinder.Find("Player");
@@ -36,16 +36,13 @@ namespace Anathema.UI
             {
                 GUILayout.BeginHorizontal();
                 {
-                    destination = GUILayout.TextField(destination);
+                    destination = new UniqueID(GUILayout.TextField(destination.SceneName), GUILayout.TextField(destination.ObjectName));
+                    
                     if (GUILayout.Button("Teleport", GUILayout.MaxWidth(100)) &&
-                        !string.IsNullOrWhiteSpace(destination))
+                        !string.IsNullOrWhiteSpace(destination.SceneName) &&
+//                        SceneManager.GetSceneByName(destination.SceneName).IsValid() &&
+                        !string.IsNullOrWhiteSpace(destination.ObjectName))
                     {
-                        Debug.Log(destination);
-                        string[] names = destination.Split('.');
-                        Debug.Log(names[0] + "    " + names[1]);
-                        UniqueID destinationID = new UniqueID(names[0], names[1]);
-                        destination = "";
-
                         if (player)
                         {
                             for (int i = 0; i < SceneManager.sceneCount; i++)
@@ -55,8 +52,8 @@ namespace Anathema.UI
                                 {
                                     SceneLoader loader = new SceneLoader(loadingSceneName);
                                     
-                                    loader.ScenesToUnload.Add(gameObject.scene.name);
-                                    loader.Destination = destinationID;
+                                    loader.ScenesToUnload.Add(scene.name);
+                                    loader.Destination = destination;
                                     loader.GameData = playerUpgrades.GetDataForSaving();
                                     
                                     loader.FadeScenes();
@@ -84,14 +81,13 @@ namespace Anathema.UI
                 }
                 
                 GUILayout.Label("Add Key:");
-                newKey = GUILayout.TextField(newKey);
+                newKey = new UniqueID(GUILayout.TextField(newKey.SceneName), GUILayout.TextField(newKey.ObjectName));
                 if (GUILayout.Button("Add", GUILayout.MaxWidth(100)) &&
-                    !string.IsNullOrWhiteSpace(newKey))
+                    !string.IsNullOrWhiteSpace(newKey.SceneName) &&
+//                    SceneManager.GetSceneByName(newKey.SceneName).IsValid() &&
+                    !string.IsNullOrWhiteSpace(newKey.ObjectName))
                 {
-                    string[] names = newKey.Split('.');
-                    UniqueID keyID = new UniqueID(names[0], names[1]);
-                    
-                    playerUpgrades.Keys.Add(keyID);
+                    playerUpgrades.Keys.Add(newKey);
                 }
             }
             GUILayout.EndVertical();
