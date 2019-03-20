@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Anathema.Rooms;
 using UnityEngine;
 
 namespace Anathema.Player
@@ -12,6 +13,7 @@ namespace Anathema.Player
 		[SerializeField] private GameObject scytheUpgrade, doubleJumpUpgrade, fireUpgrade;
 		[SerializeField] private Anathema.Dialogue.Dialogue scytheDialogue, doubleJumpDialogue, fireDialogue;
 		[SerializeField] private float defaultUpgradeAnimationDuration;
+		[SerializeField] private Anathema.Rooms.UniqueID key;
 
 		public enum UpgradeType { Scythe, DoubleJump, FireAttack }
 		private GameObject currentUpgrade;
@@ -139,6 +141,13 @@ namespace Anathema.Player
 			Upgrade(upgrade, duration);
 		}
 
+		public void AddKey()
+		{
+			List<UniqueID> keys = new List<UniqueID>(gameData.keys);
+			keys.Add(key);
+			gameData.keys = keys.ToArray();
+		}
+		
 		public void EndCutscene()
 		{
 			fsm.Transition<Idle>();
