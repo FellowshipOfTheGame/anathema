@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91473fd4c3c1de74a91ca4b8d7e0ae09, type: 3}
+  m_Name: Gabriel 3
+  m_EditorClassIdentifier: 
+  lines:
+    array:
+    - title: Gabriel
+      text: '... Oh. Tch, tch, tch...'
+    - title: Gabriel
+      text: '... We had an agreement, Amy Solas...'
+    - title: Amy
+      text: '... As if keeping that would change today''s outcome.'
+    - title: Gabriel
+      text: Well... It seems that now I don't have a choice...

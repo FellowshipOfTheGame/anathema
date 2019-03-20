@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91473fd4c3c1de74a91ca4b8d7e0ae09, type: 3}
+  m_Name: Intro
+  m_EditorClassIdentifier: 
+  lines:
+    array:
+    - title: 
+      text: "When Ivan was a child, his parents were sacrificed as a punishment to
+        atone for a grave sin he committed, even though he was naive and couldn\u2019t
+        know better. As an orphan child, he was disregarded by others as they saw
+        him as sinful, tainted. On top of that, parents wouldn\u2019t let their children
+        play with him, thinking he would somehow \u201Ccorrupt\u201D them. "
+    - title: 
+      text: "Not even the other kids in the orphanage were allowed to play with him
+        since the caretakers, knowing that he was the one to commit the sin that got
+        his parents killed, prohibited them from interacting with Ivan at all. That
+        made him a very lonely child and, paired with the fact that he blamed himself
+        for what happened to his parents, made him miserable.\r"
+    - title: 
+      text: "hat changed when Amy came into the orphanage. Nobody knew why she was
+        there, her parents\u2019 death was shrouded in mystery, not even Amy herself
+        would talk about it. Amy turned Ivan\u2019s life upside down. She would play
+        with him, even though the caretakers would talk against it."
+    - title: 
+      text: "Even Ivan would try to push her away himself, thinking she would get
+        in trouble by talking to him, but she couldn\u2019t care less. Soon enough,
+        they were best friends and splitting them up was nearly impossible, they would
+        do any and every thing together."
+    - title: 
+      text: "Amy didn\u2019t care if being with Ivan made others look down on her
+        the same way they looked down on him. She felt strongly against kingdom of
+        Saint Charles and when confronted by Ivan\u2019s life story, she preached
+        to him that it wasn\u2019t his fault, but the system\u2019s.\r"
+    - title: 
+      text: "Ivan was at first reluctant to accept Amy\u2019s words, as it went against
+        everything he knew, but seeing how she would be mistreated by others just
+        because she would talk to him even though she was the nicest person he knew
+        soon made him open his eyes and realize that maybe it wasn\u2019t a paradise
+        after all."
+    - title: 
+      text: "After that, the wrongdoings of Saint Charles became clear to both of
+        them, and they made a pact to stay together and help one another survive that
+        hellish of a paradise they were in. Or so they thought\u2026\r"
+    - title: 
+      text: "A month after his 17th birthday, angel guards, regarded as the highest
+        nobility in Saint Charles, broke into the orphanage in the middle of the night
+        and took Amy by force, without giving any light to what she\u2019d done wrong.
+        When prompted by Ivan, rushing in and trying to grab her, he was simply struck
+        by the guard of a sword in response."
+    - title: 
+      text: "\u201CThis isn\u2019t your business. Go back to hell, where you belong.
+        Perhaps your parents will be there to welcome you.\u201D - Said the guard."
+    - title: 
+      text: "Willing to do whatever it took to save Amy, Ivan sneaked out of the orphanage
+        and followed the angels to the main tower of Saint Charles, Heaven's Beacon,
+        where he will do anything to save his one and only companion, Amy.\r\n"

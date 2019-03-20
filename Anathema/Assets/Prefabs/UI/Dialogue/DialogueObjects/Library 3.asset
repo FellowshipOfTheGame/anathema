@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91473fd4c3c1de74a91ca4b8d7e0ae09, type: 3}
+  m_Name: Library 3
+  m_EditorClassIdentifier: 
+  lines:
+    array:
+    - title: 
+      text: '"Possible Threats: Amy Solas"'
+    - title: 
+      text: 'Name: Amy Solas
+
+        Born in: XXXX
+
+        Behaviour: Rebellious, Atheist, Opposes Government
+
+        Threat Level: High'
+    - title: 
+      text: 'XXXX/XX/XX:  Problematic parents... problematic daughter. We should''ve
+        dealt with her alongside her rebel parents. We were careless and didn''t notice
+        she was hiding under the bed back when we paid her parents a visit... those
+        filthy traitors!'
+    - title: 
+      text: It was only after we set the place on fire and left that it came to our
+        knowledge that a little girl was able to escape the fire... witch!
+    - title: 
+      text: 'For now we left her but a warning: if she tells anyone about what happened
+        that day, there will be consequences. She''ll be under our watch in the XXXXXX
+        orphanage.'
+    - title: 
+      text: 'XXXX/XX/XX: My suspicions were right all along. We heard from the orphanage
+        staff that Amy has been approaching the demon child, Ivan, and his behaviour
+        has changed... he''s acting rebellious! That filthy witch must have whispered
+        something to him...'
+    - title: 
+      text: They must be plotting something at this very moment! If this information
+        reaches king David he'll be furious... Something must be done.
+    - title: 
+      text: 'I''m summoning guards soon, we''ll have to pay the orphanage a visit...
+
+        I told her that there would be consequences. That''ll teach the demon child
+        a lesson, too...'
+    - title: 
+      text: '- Captain of the Holy Guard, Gabriel.'
+    - title: Ivan
+      text: 'She didn''t even tell me anything about her parents...
+
+        All she did was give me hope.'
+    - title: Ivan
+      text: I'll make them pay... Every single one them... I'LL MAKE THEM PAY!

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91473fd4c3c1de74a91ca4b8d7e0ae09, type: 3}
+  m_Name: Gabriel 1
+  m_EditorClassIdentifier: 
+  lines:
+    array:
+    - title: Ivan
+      text: AMY!!! LET GO OF HER!
+    - title: ?????
+      text: Oh, what do we have here?
+    - title: ?????
+      text: The demon child comes to the witch's rescue! This will be fun...
+    - title: Amy
+      text: Ivan?! Why are you here?!
+    - title: Ivan
+      text: I-I couldn't just watch it happen!

@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91473fd4c3c1de74a91ca4b8d7e0ae09, type: 3}
+  m_Name: Gabriel 2
+  m_EditorClassIdentifier: 
+  lines:
+    array:
+    - title: ?????
+      text: HAHAHAHA! And what do you plan to do about it?
+    - title: ?????
+      text: You don't even understand what is going on here, dumb kid. This witch
+        here whispered lies to you...
+    - title: Ivan
+      text: Lies?! The only lies she told me were the ones people like you told me
+        several years ago.
+    - title: ?????
+      text: HAHAHA! What lies?! That you murdered the king's son at age 5!? That you
+        are responsible for your parents' death!? That you are cursed from birth!?
+    - title: ?????
+      text: Tell me! Prove me wrong!
+    - title: Ivan
+      text: The king's son...I... what?
+    - title: Amy
+      text: Don't listen to Gabriel! He's a manipulative, filthy and treacherous little
+        piece of shit!
+    - title: Gabriel
+      text: HA! Bark all you want, witch. You're not in a position to be able to get
+        on my nerves.
+    - title: Amy
+      text: He's trying to make you feel guilty again... it's all part of his plan!
+        Run, Ivan! Go find help!
+    - title: ?????
+      text: HAHAHA! And who's going to believe in the demon child himself, miss?
+    - title: Amy
+      text: You're the lowest of the low, a coward excuse of a man, Gabriel.
+    - title: Gabriel
+      text: Barf! Woof! HAHAHAHAHA!
+    - title: Gabriel
+      text: Why don't you go back to hiding? Demon child, cursed one, little devil,
+        imp... which one do you prefer? Or, may I add... prince murderer?
+    - title: Ivan
+      text: I-I don't know what you're talking about!
+    - title: Amy
+      text: Don't listen to him! He's a liar! He killed my parents!
+    - title: Amy
+      text: All they wanted to do was help people! But then he came with his guards
+        and murdered them!
+    - title: Ivan
+      text: '!!! What?!'
