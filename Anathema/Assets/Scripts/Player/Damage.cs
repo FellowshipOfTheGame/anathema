@@ -45,6 +45,7 @@ namespace Anathema.Player
 			Debug.Log("Exiting");
 			animator.SetBool("IsDamaged", false);
 			animator.SetBool("IsWalking", false);
+			animator.SetBool("IsCrouching", false);
 			playerHealth.isInvulnerable = false;
 		}
 	}
