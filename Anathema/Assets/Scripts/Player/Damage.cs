@@ -46,6 +46,10 @@ namespace Anathema.Player
 			animator.SetBool("IsDamaged", false);
 			animator.SetBool("IsWalking", false);
 			animator.SetBool("IsCrouching", false);
+			animator.SetBool("IsAttacking", false);
+			animator.SetBool("IsFalling", false);
+			animator.SetBool("IsRising", false);
+			animator.SetBool("IsFireAttacking", false);
 			playerHealth.isInvulnerable = false;
 		}
 	}

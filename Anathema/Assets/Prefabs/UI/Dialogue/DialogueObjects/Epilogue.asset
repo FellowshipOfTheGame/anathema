@@ -14,6 +14,10 @@ MonoBehaviour:
   lines:
     array:
     - title: Ivan
+      text: '*Pant* *Gasp*'
+    - title: Ivan
+      text: '...'
+    - title: Ivan
       text: '... It''s done.'
     - title: Ivan
       text: Time to tear this place apart... I'll let everyone know.

@@ -153,6 +153,15 @@ namespace Anathema.Player
 			fsm.Transition<Idle>();
 		}
 
+		public void TalkToJudas()
+		{
+			if(gameData != null)
+			{
+				gameData.hasTalkedToJudas = true;
+				CommitData();
+			}
+		}
+
 		public override void Exit()
 		{
 			Anathema.SceneLoading.SceneLoader.OnLateSceneLoaded -= GetSaveData;			
