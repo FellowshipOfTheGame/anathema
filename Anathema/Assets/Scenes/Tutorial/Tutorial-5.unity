@@ -64451,7 +64451,7 @@ Prefab:
     - target: {fileID: 114602021314207368, guid: c409994f3664649edba8179ef4d38594,
         type: 2}
       propertyPath: destination.sceneName
-      value: Tutorial-5
+      value: Tutorial-4
       objectReference: {fileID: 0}
     - target: {fileID: 114602021314207368, guid: c409994f3664649edba8179ef4d38594,
         type: 2}
