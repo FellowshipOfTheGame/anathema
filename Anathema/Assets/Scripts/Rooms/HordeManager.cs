@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using Anathema.Player;
+using Anathema.Rooms;
 
 public class HordeManager : MonoBehaviour {
 	public UnityEvent OnHordeDeath;
 	[SerializeField] private int enemyQuantity;
-	[SerializeField] GameObject keyPrefab;
+	[SerializeField] private GameObject keyPrefab;
+	[SerializeField] private UniqueID uniqueID; 
+	public Vector3 lastEnemyPosition;
 
 	/// <summary>
 	/// Calls event when there is no enemy reamining in the horde
@@ -24,7 +28,8 @@ public class HordeManager : MonoBehaviour {
 	}
 
 	public void SpawnKey() {
-
+		keyPrefab.GetComponent<KeyPickup>().key = uniqueID;
+		Instantiate(keyPrefab, lastEnemyPosition, Quaternion.identity);
 	}
 
 	public void ObtainFireAttack() {

@@ -9,6 +9,7 @@ public class HordeEnemy : MonoBehaviour {
 		hordeManager.EnemyQuantity++;
 	}
 	void OnDestroy() {
+		hordeManager.lastEnemyPosition = this.transform.position;
 		hordeManager.EnemyQuantity--;
 	}
 }
