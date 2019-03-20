@@ -9,17 +9,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91473fd4c3c1de74a91ca4b8d7e0ae09, type: 3}
-  m_Name: Epilogue
+  m_Name: Gabriel Final 3
   m_EditorClassIdentifier: 
   lines:
     array:
     - title: Ivan
-      text: '*Pant* *Gasp*'
+      text: You DID NOT spare my parents....
     - title: Ivan
-      text: '...'
+      text: You DID NOT spare Amy's parents...
     - title: Ivan
-      text: '... It''s done.'
+      text: And you DID NOT SPARE AMY. WHY would I spare you?
     - title: Ivan
-      text: Time to tear this place apart... I'll let everyone know.
+      text: 'You are a DISGUSTING PIG. And as such you deserve to be SLAUGHTERED! '
     - title: Ivan
-      text: That's what Amy would've done.
+      text: DIE.

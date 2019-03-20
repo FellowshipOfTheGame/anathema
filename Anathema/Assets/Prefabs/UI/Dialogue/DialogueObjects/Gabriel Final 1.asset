@@ -9,38 +9,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91473fd4c3c1de74a91ca4b8d7e0ae09, type: 3}
-  m_Name: Gabriel Final
+  m_Name: Gabriel Final 1
   m_EditorClassIdentifier: 
   lines:
     array:
     - title: Ivan
       text: Hide and seek is over, Gabriel.
     - title: Gabriel
-      text: What?! How did you-...!
+      text: W-What?! H-How did you-...! The security! My guards! The bots!
     - title: Ivan
-      text: I think you have bigger and more dangerous things to think about right
+      text: I think you have bigger and more dangerous matters to think about right
         now. You know why I'm here Gabriel.
     - title: Gabriel
-      text: HAHA! Who do you think YOU are?! Threatening ME?
+      text: W-Who do you think Y-YOU are?! T-Threatening M-ME?
     - title: Ivan
       text: This is not a threat, Gabriel. It's a prophecy, if you will. It's going
         to happen.
     - title: Gabriel
-      text: You arrogant little-
+      text: Y-You arrogant little-
     - title: Ivan
       text: -brat? Don't talk down on me Gabriel. It's only gonna make your death
         more painful. You'll be running and squirming and begging for mercy...
     - title: Gabriel
-      text: HAHAHA! What makes you think you're in a better position, you useless
-        imp? Look around you!
-    - title: Gabriel
-      text: You're miserable. You couldn't even protect your dear friend. You have
-        NOTHING to lose, and not even a SINGLE soul will miss you.
+      text: H-Hey, listen up! Y-Your parents are still alive! I can lead you to them!
     - title: Ivan
-      text: ISN'T THAT PERFECT?! That means I have nothing to hold me back from MERCILESSLY
-        SLAUGHTERING YOU!
+      text: How seriously STUPID do you think I am? I read your reports in the library.
+    - title: Ivan
+      text: You are NOT tricking me.
     - title: Gabriel
-      text: THAT'S ENOUGH! You've been causing us too much trouble... I'm afraid that'll
-        have to end here.
-    - title: Gabriel
-      text: GUARDS! ATTACK!
+      text: -... Y-You're pathetic! You c-couldn't even protect-

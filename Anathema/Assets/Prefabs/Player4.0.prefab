@@ -174,8 +174,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRange: 2.18
-  attackHeight: 0.29
-  attackHeightOffset: -0.72
+  attackHeight: 1
+  attackHeightOffset: -1
   baseDamage: 30
 --- !u!114 &114093040912389836
 MonoBehaviour:
