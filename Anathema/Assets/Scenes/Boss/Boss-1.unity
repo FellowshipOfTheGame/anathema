@@ -164,6 +164,23 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73a7ad8936b674caba19fd50c5e24e06, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &41014658 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1304735822297376, guid: 73a7ad8936b674caba19fd50c5e24e06,
+    type: 2}
+  m_PrefabInternal: {fileID: 41014657}
+--- !u!114 &41014659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 41014658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0d05125282a73448005125893fa3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hordeManager: {fileID: 1095353890}
 --- !u!1001 &47457601
 Prefab:
   m_ObjectHideFlags: 0
@@ -210,6 +227,23 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73a7ad8936b674caba19fd50c5e24e06, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &47457602 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1304735822297376, guid: 73a7ad8936b674caba19fd50c5e24e06,
+    type: 2}
+  m_PrefabInternal: {fileID: 47457601}
+--- !u!114 &47457603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 47457602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0d05125282a73448005125893fa3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hordeManager: {fileID: 1095353890}
 --- !u!1001 &117205527
 Prefab:
   m_ObjectHideFlags: 0
@@ -256,6 +290,23 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73a7ad8936b674caba19fd50c5e24e06, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &117205528 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1304735822297376, guid: 73a7ad8936b674caba19fd50c5e24e06,
+    type: 2}
+  m_PrefabInternal: {fileID: 117205527}
+--- !u!114 &117205529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 117205528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0d05125282a73448005125893fa3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hordeManager: {fileID: 1095353890}
 --- !u!4 &141508722 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4256899570612402, guid: 73a7ad8936b674caba19fd50c5e24e06,
@@ -11815,6 +11866,23 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73a7ad8936b674caba19fd50c5e24e06, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &241058352 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1304735822297376, guid: 73a7ad8936b674caba19fd50c5e24e06,
+    type: 2}
+  m_PrefabInternal: {fileID: 241058351}
+--- !u!114 &241058353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 241058352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0d05125282a73448005125893fa3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hordeManager: {fileID: 1095353890}
 --- !u!4 &269225226 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4256899570612402, guid: 73a7ad8936b674caba19fd50c5e24e06,
@@ -42079,6 +42147,23 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73a7ad8936b674caba19fd50c5e24e06, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &384533321 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1304735822297376, guid: 73a7ad8936b674caba19fd50c5e24e06,
+    type: 2}
+  m_PrefabInternal: {fileID: 384533320}
+--- !u!114 &384533322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 384533321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0d05125282a73448005125893fa3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hordeManager: {fileID: 1095353890}
 --- !u!1 &428537588
 GameObject:
   m_ObjectHideFlags: 0
@@ -42203,6 +42288,23 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73a7ad8936b674caba19fd50c5e24e06, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &556536521 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1304735822297376, guid: 73a7ad8936b674caba19fd50c5e24e06,
+    type: 2}
+  m_PrefabInternal: {fileID: 556536520}
+--- !u!114 &556536522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 556536521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0d05125282a73448005125893fa3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hordeManager: {fileID: 1095353890}
 --- !u!1 &573670099
 GameObject:
   m_ObjectHideFlags: 0
@@ -51737,6 +51839,23 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73a7ad8936b674caba19fd50c5e24e06, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &753857559 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1304735822297376, guid: 73a7ad8936b674caba19fd50c5e24e06,
+    type: 2}
+  m_PrefabInternal: {fileID: 753857558}
+--- !u!114 &753857560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 753857559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0d05125282a73448005125893fa3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hordeManager: {fileID: 1095353890}
 --- !u!1 &855153504
 GameObject:
   m_ObjectHideFlags: 0
@@ -65575,6 +65694,23 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73a7ad8936b674caba19fd50c5e24e06, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1049970636 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1304735822297376, guid: 73a7ad8936b674caba19fd50c5e24e06,
+    type: 2}
+  m_PrefabInternal: {fileID: 1049970635}
+--- !u!114 &1049970637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1049970636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0d05125282a73448005125893fa3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hordeManager: {fileID: 1095353890}
 --- !u!1 &1095353888
 GameObject:
   m_ObjectHideFlags: 0
@@ -65583,6 +65719,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1095353889}
+  - component: {fileID: 1095353890}
   m_Layer: 0
   m_Name: Enemies
   m_TagString: Untagged
@@ -65616,6 +65753,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1095353890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1095353888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25ece8e00bb7e28419cdbd229b915559, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnHordeDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1095353890}
+        m_MethodName: SpawnKey
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  enemyQuantity: 0
+  keyPrefab: {fileID: 1808129313477478, guid: 581be03a632ecaa4e97dfd83393b8b78, type: 2}
+  uniqueID:
+    useCurrentSceneName: 0
+    sceneName: Boss-1
+    objectName: Exit
+  lastEnemyPosition: {x: 0, y: 0, z: 0}
 --- !u!4 &1424806510 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4256899570612402, guid: 73a7ad8936b674caba19fd50c5e24e06,
@@ -65784,6 +65955,23 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73a7ad8936b674caba19fd50c5e24e06, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1783417174 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1304735822297376, guid: 73a7ad8936b674caba19fd50c5e24e06,
+    type: 2}
+  m_PrefabInternal: {fileID: 1783417173}
+--- !u!114 &1783417175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1783417174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0d05125282a73448005125893fa3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hordeManager: {fileID: 1095353890}
 --- !u!1001 &1796680993
 Prefab:
   m_ObjectHideFlags: 0
@@ -65830,6 +66018,23 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73a7ad8936b674caba19fd50c5e24e06, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1796680994 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1304735822297376, guid: 73a7ad8936b674caba19fd50c5e24e06,
+    type: 2}
+  m_PrefabInternal: {fileID: 1796680993}
+--- !u!114 &1796680995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1796680994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0d05125282a73448005125893fa3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hordeManager: {fileID: 1095353890}
 --- !u!1001 &1838483729
 Prefab:
   m_ObjectHideFlags: 0
@@ -65876,6 +66081,23 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73a7ad8936b674caba19fd50c5e24e06, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1838483730 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1304735822297376, guid: 73a7ad8936b674caba19fd50c5e24e06,
+    type: 2}
+  m_PrefabInternal: {fileID: 1838483729}
+--- !u!114 &1838483731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1838483730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0d05125282a73448005125893fa3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hordeManager: {fileID: 1095353890}
 --- !u!1 &1916211654
 GameObject:
   m_ObjectHideFlags: 0
@@ -66991,6 +67213,23 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73a7ad8936b674caba19fd50c5e24e06, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &2086888628 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1304735822297376, guid: 73a7ad8936b674caba19fd50c5e24e06,
+    type: 2}
+  m_PrefabInternal: {fileID: 2086888627}
+--- !u!114 &2086888629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2086888628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0d05125282a73448005125893fa3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hordeManager: {fileID: 1095353890}
 --- !u!1 &2097179762
 GameObject:
   m_ObjectHideFlags: 0
@@ -67067,3 +67306,20 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73a7ad8936b674caba19fd50c5e24e06, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &2118295771 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1304735822297376, guid: 73a7ad8936b674caba19fd50c5e24e06,
+    type: 2}
+  m_PrefabInternal: {fileID: 2118295770}
+--- !u!114 &2118295772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2118295771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0d05125282a73448005125893fa3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hordeManager: {fileID: 1095353890}

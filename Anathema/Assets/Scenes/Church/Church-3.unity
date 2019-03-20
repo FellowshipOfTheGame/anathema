@@ -122,11 +122,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 11.058807
+      value: 4.32
       objectReference: {fileID: 0}
     - target: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.3921661
+      value: -1.7
       objectReference: {fileID: 0}
     - target: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
       propertyPath: m_LocalPosition.z
@@ -150,7 +150,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1108123001200794, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
       propertyPath: m_Name
@@ -260,7 +260,7 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d9585f63564d43519498a843fae4246, type: 2}
   m_IsPrefabAsset: 0
---- !u!1001 &205900739
+--- !u!1001 &278275920
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -269,11 +269,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3.121193
+      value: -9.2
       objectReference: {fileID: 0}
     - target: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.6678467
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
       propertyPath: m_LocalPosition.z
@@ -301,21 +301,34 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1108123001200794, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
       propertyPath: m_Name
-      value: SpearAngel 2.0 (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1108123001200794, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
-      propertyPath: m_IsActive
-      value: 0
+      value: SpearAngel 2.0 (4)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
   m_IsPrefabAsset: 0
---- !u!4 &205900740 stripped
+--- !u!4 &278275921 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34,
     type: 2}
-  m_PrefabInternal: {fileID: 205900739}
---- !u!1001 &207841286
+  m_PrefabInternal: {fileID: 278275920}
+--- !u!1 &278275922 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1361454618796234, guid: 52020249a75f20a47afb6fee61465d34,
+    type: 2}
+  m_PrefabInternal: {fileID: 278275920}
+--- !u!114 &278275923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 278275922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0d05125282a73448005125893fa3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hordeManager: {fileID: 2132368285}
+--- !u!1001 &449726732
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -324,11 +337,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 26.628807
+      value: 19.43
       objectReference: {fileID: 0}
     - target: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.2678375
+      value: 5.12
       objectReference: {fileID: 0}
     - target: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
       propertyPath: m_LocalPosition.z
@@ -352,24 +365,37 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1108123001200794, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
       propertyPath: m_Name
-      value: SpearAngel 2.0 (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1108123001200794, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
-      propertyPath: m_IsActive
-      value: 0
+      value: SpearAngel 2.0 (5)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
   m_IsPrefabAsset: 0
---- !u!4 &207841287 stripped
+--- !u!4 &449726733 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34,
     type: 2}
-  m_PrefabInternal: {fileID: 207841286}
+  m_PrefabInternal: {fileID: 449726732}
+--- !u!1 &449726734 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1361454618796234, guid: 52020249a75f20a47afb6fee61465d34,
+    type: 2}
+  m_PrefabInternal: {fileID: 449726732}
+--- !u!114 &449726735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 449726734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0d05125282a73448005125893fa3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hordeManager: {fileID: 2132368285}
 --- !u!1 &466681115 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1361454618796234, guid: 52020249a75f20a47afb6fee61465d34,
@@ -59148,57 +59174,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1001 &804695506
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 2132368284}
-    m_Modifications:
-    - target: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -17.881195
-      objectReference: {fileID: 0}
-    - target: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -1.242157
-      objectReference: {fileID: 0}
-    - target: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 1.2232447
-      objectReference: {fileID: 0}
-    - target: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1108123001200794, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
-  m_IsPrefabAsset: 0
---- !u!4 &804695507 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34,
-    type: 2}
-  m_PrefabInternal: {fileID: 804695506}
 --- !u!1 &877739067
 GameObject:
   m_ObjectHideFlags: 0
@@ -78237,6 +78212,74 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &1152579820
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2132368284}
+    m_Modifications:
+    - target: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -20.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1.2232447
+      objectReference: {fileID: 0}
+    - target: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108123001200794, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
+      propertyPath: m_Name
+      value: SpearAngel 2.0 (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!4 &1152579821 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34,
+    type: 2}
+  m_PrefabInternal: {fileID: 1152579820}
+--- !u!1 &1152579822 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1361454618796234, guid: 52020249a75f20a47afb6fee61465d34,
+    type: 2}
+  m_PrefabInternal: {fileID: 1152579820}
+--- !u!114 &1152579823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1152579822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0d05125282a73448005125893fa3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hordeManager: {fileID: 2132368285}
 --- !u!1 &1284353704
 GameObject:
   m_ObjectHideFlags: 0
@@ -153840,10 +153883,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1375003693}
-  - {fileID: 207841287}
   - {fileID: 120747543}
-  - {fileID: 205900740}
-  - {fileID: 804695507}
+  - {fileID: 1152579821}
+  - {fileID: 278275921}
+  - {fileID: 449726733}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -153876,3 +153919,8 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   enemyQuantity: 0
   keyPrefab: {fileID: 0}
+  uniqueID:
+    useCurrentSceneName: 0
+    sceneName: 
+    objectName: 
+  lastEnemyPosition: {x: 0, y: 0, z: 0}
