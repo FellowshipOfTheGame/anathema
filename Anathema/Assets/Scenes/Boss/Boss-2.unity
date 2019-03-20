@@ -316,7 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0d05125282a73448005125893fa3b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hordeManager: {fileID: 0}
+  hordeManager: {fileID: 1182064053}
 --- !u!1 &285418309
 GameObject:
   m_ObjectHideFlags: 0
@@ -85675,7 +85675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0d05125282a73448005125893fa3b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hordeManager: {fileID: 0}
+  hordeManager: {fileID: 1182064053}
 --- !u!1001 &572763056
 Prefab:
   m_ObjectHideFlags: 0
@@ -85739,7 +85739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0d05125282a73448005125893fa3b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hordeManager: {fileID: 0}
+  hordeManager: {fileID: 1182064053}
 --- !u!1 &573670099
 GameObject:
   m_ObjectHideFlags: 0
@@ -122579,7 +122579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0d05125282a73448005125893fa3b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hordeManager: {fileID: 0}
+  hordeManager: {fileID: 1182064053}
 --- !u!1 &1916211654
 GameObject:
   m_ObjectHideFlags: 0
@@ -123358,4 +123358,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0d05125282a73448005125893fa3b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hordeManager: {fileID: 0}
+  hordeManager: {fileID: 1182064053}

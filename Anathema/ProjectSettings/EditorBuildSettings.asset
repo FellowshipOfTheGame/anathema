@@ -99,6 +99,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Cutscenes/Cutscene-Amy.unity
     guid: dd918ee76d358b84e8ceb288886f0146
   - enabled: 1
+    path: Assets/Scenes/Boss/Boss-2.unity
+    guid: d1feafbf5f7b5594a9cbc36ec3ec9ab7
+  - enabled: 1
+    path: Assets/Scenes/Boss/Boss-Final.unity
+    guid: b5c0ee765586f6a46b09a5ba2ead81d5
+  - enabled: 1
+    path: Assets/Scenes/Boss/Boss-SaveRoom.unity
+    guid: 6c0400dc1a9007141a7481a1ebc75990
+  - enabled: 1
     path: Assets/Scenes/Cutscenes/Cutscene-Judas.unity
     guid: 6df35cad4b768ba4699a13805bbba4fe
   m_configObjects: {}

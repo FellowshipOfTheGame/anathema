@@ -58438,7 +58438,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4681326054937730, guid: c3727c198c05f44d89f7da401dfbe23b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -54.38
+      value: -55.3
       objectReference: {fileID: 0}
     - target: {fileID: 4681326054937730, guid: c3727c198c05f44d89f7da401dfbe23b, type: 2}
       propertyPath: m_LocalPosition.y
@@ -86058,7 +86058,7 @@ Prefab:
     - target: {fileID: 114623169255732208, guid: 1aa7d56049e364f96816b1ffbdc0a153,
         type: 2}
       propertyPath: destination.sceneName
-      value: Boos-1
+      value: Boss-1
       objectReference: {fileID: 0}
     - target: {fileID: 114623169255732208, guid: 1aa7d56049e364f96816b1ffbdc0a153,
         type: 2}
