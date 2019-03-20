@@ -14199,7 +14199,7 @@ Transform:
   m_Children:
   - {fileID: 1466595850}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &480686321
 GameObject:
@@ -52609,6 +52609,58 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &1523174270
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4282451143273678, guid: 581be03a632ecaa4e97dfd83393b8b78, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 134.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4282451143273678, guid: 581be03a632ecaa4e97dfd83393b8b78, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -2.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4282451143273678, guid: 581be03a632ecaa4e97dfd83393b8b78, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4282451143273678, guid: 581be03a632ecaa4e97dfd83393b8b78, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4282451143273678, guid: 581be03a632ecaa4e97dfd83393b8b78, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4282451143273678, guid: 581be03a632ecaa4e97dfd83393b8b78, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4282451143273678, guid: 581be03a632ecaa4e97dfd83393b8b78, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4282451143273678, guid: 581be03a632ecaa4e97dfd83393b8b78, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114152330583770518, guid: 581be03a632ecaa4e97dfd83393b8b78,
+        type: 2}
+      propertyPath: key.objectName
+      value: Exit
+      objectReference: {fileID: 0}
+    - target: {fileID: 114152330583770518, guid: 581be03a632ecaa4e97dfd83393b8b78,
+        type: 2}
+      propertyPath: key.sceneName
+      value: Library-3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 581be03a632ecaa4e97dfd83393b8b78, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1654887473
 GameObject:
   m_ObjectHideFlags: 0
@@ -61510,5 +61562,5 @@ Transform:
   - {fileID: 1202130639}
   - {fileID: 480686322}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
