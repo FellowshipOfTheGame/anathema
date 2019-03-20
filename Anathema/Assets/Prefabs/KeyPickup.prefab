@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 212689561681288566}
   - component: {fileID: 58566429103114460}
   - component: {fileID: 50612919799221560}
+  - component: {fileID: 61319400319677484}
   m_Layer: 0
   m_Name: KeyPickup
   m_TagString: Untagged
@@ -75,9 +76,34 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.02500534, y: -0.000022271512}
+  m_Offset: {x: -0.025005355, y: -0.059664574}
   serializedVersion: 2
-  m_Radius: 0.40931976
+  m_Radius: 0.46896204
+--- !u!61 &61319400319677484
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1416873769124402}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.011928514, y: -0.33797276}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.61033726, y: 0.1491034}
+  m_EdgeRadius: 0
 --- !u!114 &114152330583770518
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -89,9 +115,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7861e845925d47cbadcbc94352fa48e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shouldExplode: 0
   key:
     useCurrentSceneName: 0
-    sceneName: Boss-2
+    sceneName: Boss-0
     objectName: Exit
 --- !u!212 &212689561681288566
 SpriteRenderer:
@@ -125,8 +152,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 433060889
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6325a4e64b4a8404db4867dc4b4bc8e3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
