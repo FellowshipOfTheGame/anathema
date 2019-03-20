@@ -28172,8 +28172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectsToEnable:
   - {fileID: 1397391820}
-  objectsToDisable:
-  - {fileID: 1176039402}
+  objectsToDisable: []
 --- !u!114 &1176039407
 MonoBehaviour:
   m_ObjectHideFlags: 0
