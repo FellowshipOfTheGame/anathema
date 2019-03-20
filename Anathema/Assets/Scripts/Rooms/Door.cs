@@ -44,6 +44,12 @@ namespace Anathema.Rooms
                     loader.ScenesToUnload.Add(gameObject.scene.name);
                     loader.Destination = destination;
                     
+                    var upgrades = GetComponent<PlayerUpgrades>();
+                    if (upgrades)
+                    {
+                        loader.GameData = GetComponent<GameData>();
+                    }
+                    
                     loader.FadeScenes();
                 }
             }
