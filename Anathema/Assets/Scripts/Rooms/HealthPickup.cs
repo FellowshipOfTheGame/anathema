@@ -1,3 +1,4 @@
+using Anathema.Player;
 using UnityEngine;
 
 namespace Anathema.Rooms
@@ -8,6 +9,11 @@ namespace Anathema.Rooms
         protected override void HandlePickup()
         {
             playerUpgrades.MaxHealth += healthBonus;
+            Health health  = playerUpgrades.GetComponent<Health>();
+            if (health)
+            {
+                health.Heal(playerUpgrades.MaxHealth);
+            }
         }
     }
 }
