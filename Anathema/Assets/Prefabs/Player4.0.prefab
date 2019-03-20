@@ -152,6 +152,10 @@ MonoBehaviour:
   doubleJumpDialogue: {fileID: 11400000, guid: 4422461e8af878f4cb32ef0df7848ef6, type: 2}
   fireDialogue: {fileID: 11400000, guid: 78e2a7506a14ad140a8598eb187fa166, type: 2}
   defaultUpgradeAnimationDuration: 5
+  key:
+    useCurrentSceneName: 0
+    sceneName: 
+    objectName: 
 --- !u!114 &114060596424240470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -295,7 +299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravity: 40
-  maxSpeed: 10
+  maxSpeed: 0.01
   groundCheckDist: 2.61
   horizontalSpeed: 8
   raycastOffset: 2.03
