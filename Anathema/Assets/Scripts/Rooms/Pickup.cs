@@ -6,12 +6,14 @@ namespace Anathema.Rooms
 {
     public abstract class Pickup : MonoBehaviour
     {
+        [SerializeField] private bool shouldExplode = true;
         private Animator animator;
         protected PlayerUpgrades playerUpgrades;
 
         private void Start()
         {
-            animator = GetComponent<Animator>();
+            if (shouldExplode)
+                animator = GetComponent<Animator>();
         }
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -19,7 +21,15 @@ namespace Anathema.Rooms
             {
                 playerUpgrades = other.GetComponent<PlayerUpgrades>();
             }
-            animator.Play("Explode");
+
+            if (shouldExplode)
+            {
+                animator.Play("Explode");
+            }
+            else
+            {
+                Die();
+            }
         }
         private void Die()
         {
