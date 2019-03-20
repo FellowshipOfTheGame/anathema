@@ -85942,7 +85942,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   enemyQuantity: 0
-  keyPrefab: {fileID: 1808129313477478, guid: 581be03a632ecaa4e97dfd83393b8b78, type: 2}
+  keyPrefab: {fileID: 1416873769124402, guid: 581be03a632ecaa4e97dfd83393b8b78, type: 2}
   uniqueID:
     useCurrentSceneName: 0
     sceneName: Boss-0

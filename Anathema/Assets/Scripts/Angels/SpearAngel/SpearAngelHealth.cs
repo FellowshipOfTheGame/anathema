@@ -15,9 +15,7 @@ namespace Anathema.SpearAngel {
         }
 
         void OnHit(Vector2 hitVector) {
-            // Debug.Log("knockBack");
             fsm.Transition<KnockBack>();
-            // animator.Play("DamageFeedback");
         }
     }
 }
