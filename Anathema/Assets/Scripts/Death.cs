@@ -46,16 +46,16 @@ namespace Anathema.Player
             }
             
             HandleDeath();
-            if (this.gameObject)
-            {
-                Destroy(this.gameObject);
-            }
         }
         private void BurnComplete()
         {
             spriteBurn.OnBurnComplete -= BurnComplete;
 
             HandleBurnComplete();
+            if (this.gameObject)
+            {
+                Destroy(this.gameObject);
+            }
         }
         protected virtual void HandleDeath() {}
         protected virtual void HandleBurnComplete() {}
