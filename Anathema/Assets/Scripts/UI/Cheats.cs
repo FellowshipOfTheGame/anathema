@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Anathema.SceneLoading;
 using Anathema.Rooms;
+using Anathema.Saving;
 
 namespace Anathema.UI
 {
@@ -11,9 +12,10 @@ namespace Anathema.UI
         [SerializeField] private string loadingSceneName;
         private bool display = false;
         private string destination = "";
+        private string newKey = "";
         private GameObject player;
         private PlayerUpgrades playerUpgrades;
-        private Rect windowRect = new Rect(20,20 , 300, 500);
+        private Rect windowRect = new Rect(20,20 , 400, 200);
 
         private void Awake()
         {
@@ -34,8 +36,8 @@ namespace Anathema.UI
             {
                 GUILayout.BeginHorizontal();
                 {
-                    destination = GUI.TextField(new Rect(25, 25, 250, 30), destination);
-                    if (GUI.Button(new Rect(280, 25, 60, 30), "Teleport") &&
+                    destination = GUILayout.TextField(destination);
+                    if (GUILayout.Button("Teleport", GUILayout.MaxWidth(100)) &&
                         !string.IsNullOrWhiteSpace(destination))
                     {
                         Debug.Log(destination);
@@ -55,6 +57,7 @@ namespace Anathema.UI
                                     
                                     loader.ScenesToUnload.Add(gameObject.scene.name);
                                     loader.Destination = destinationID;
+                                    loader.GameData = playerUpgrades.GetDataForSaving();
                                     
                                     loader.FadeScenes();
                                     break;
@@ -69,6 +72,27 @@ namespace Anathema.UI
                 playerUpgrades.HasScythe = GUILayout.Toggle(playerUpgrades.HasScythe, "Scythe");
                 playerUpgrades.HasFireAttack = GUILayout.Toggle(playerUpgrades.HasFireAttack, "Fire Attack");
                 playerUpgrades.HasTalkedToJudas = GUILayout.Toggle(playerUpgrades.HasTalkedToJudas, "Talked to Judas");
+
+                foreach (var key in playerUpgrades.Keys)
+                {
+                    GUILayout.Label(key.ToString());
+                    if (GUILayout.Button("Remove", GUILayout.Width(100)))
+                    {
+                        playerUpgrades.Keys.Remove(key);
+                        break;
+                    }
+                }
+                
+                GUILayout.Label("Add Key:");
+                newKey = GUILayout.TextField(newKey);
+                if (GUILayout.Button("Add", GUILayout.MaxWidth(100)) &&
+                    !string.IsNullOrWhiteSpace(newKey))
+                {
+                    string[] names = newKey.Split('.');
+                    UniqueID keyID = new UniqueID(names[0], names[1]);
+                    
+                    playerUpgrades.Keys.Add(keyID);
+                }
             }
             GUILayout.EndVertical();
         }
