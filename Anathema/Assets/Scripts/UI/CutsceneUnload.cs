@@ -12,6 +12,7 @@ namespace Anathema.UI
         [SerializeField] private UniqueID destination;
         [SerializeField] private string loadingSceneName;
         [SerializeField] private string playerSceneName;
+        [SerializeField] private bool loadPlayer = true;
         private GameData gameData;
         private void Awake()
         {
@@ -28,7 +29,8 @@ namespace Anathema.UI
             SceneLoader loader = new SceneLoader(loadingSceneName);
             
             loader.ScenesToUnload.Add(gameObject.scene.name);
-            loader.ScenesToLoad.Add(playerSceneName);
+            if (loadPlayer)
+                loader.ScenesToLoad.Add(playerSceneName);
             loader.Destination = destination;
             loader.GameData = gameData;
             
