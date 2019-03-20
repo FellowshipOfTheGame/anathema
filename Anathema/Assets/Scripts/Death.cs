@@ -46,6 +46,10 @@ namespace Anathema.Player
             }
             
             HandleDeath();
+            if (this.gameObject)
+            {
+                Destroy(this.gameObject);
+            }
         }
         private void BurnComplete()
         {
