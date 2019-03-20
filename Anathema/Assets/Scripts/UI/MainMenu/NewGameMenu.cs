@@ -41,5 +41,9 @@ namespace Anathema.UI.MainMenu
                 loader.FadeScenes();
             }
         }
+        public void SetDestination(string sceneName, string objectName)
+        {
+            defaultGameData.spawnLocation = new Rooms.UniqueID(sceneName, objectName);
+        }
     }
 }

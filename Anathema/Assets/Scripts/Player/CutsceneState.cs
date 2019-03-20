@@ -110,6 +110,11 @@ namespace Anathema.Player
 			Invoke(nameof(UpgradeDestroy), duration);
 		}
 
+		public void UpgradeDestroy()
+		{
+			UpgradeDestroy(true);
+		}
+
 		public void UpgradeDestroy(bool endCutscene = true)
 		{
 			Debug.Log(currentUpgrade);
