@@ -12445,23 +12445,6 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=null
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 514905109}
-          m_MethodName: PlayCutscene
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 11400000, guid: 5f4b1518bdefcf64ab995e62ae4ea63d,
-              type: 2}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Timeline.TimelineAsset,
-              UnityEngine.Timeline
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    - m_PersistentCalls:
-        m_Calls:
         - m_Target: {fileID: 514905112}
           m_MethodName: LoadScene
           m_Mode: 1
@@ -12694,8 +12677,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destination:
     useCurrentSceneName: 0
-    sceneName: Tutorial-Amy
-    objectName: Entrance
+    sceneName: Tutorial-5
+    objectName: Exit
   loadingSceneName: Loading
   playerSceneName: Player
 --- !u!1 &572654323
