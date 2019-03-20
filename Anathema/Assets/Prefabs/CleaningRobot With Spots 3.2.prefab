@@ -390,7 +390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   raycastMaxDist: 10
-  miniDist: 3
+  miniDist: 2.5
   damage: 10
   chaseSpots:
   - {fileID: 4444725225158066}

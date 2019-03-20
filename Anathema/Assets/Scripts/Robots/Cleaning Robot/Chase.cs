@@ -45,7 +45,7 @@ namespace Anathema.ChasingRobot
                     fsm.Transition<Patrol>();
 
                 }
-                else if (RaycastUpdate() == true && CheckPlayer() == true && playerDist.magnitude <= 1.5f)
+                else if (RaycastUpdate() == true && CheckPlayer() == true && playerDist.magnitude <= 2.5f)
                 {
                     myrBody.velocity = Vector3.zero;
                     fsm.Transition<Attack>();
