@@ -303,6 +303,10 @@ Prefab:
       propertyPath: m_Name
       value: SpearAngel 2.0 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1108123001200794, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
   m_IsPrefabAsset: 0
@@ -354,6 +358,10 @@ Prefab:
       propertyPath: m_Name
       value: SpearAngel 2.0 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1108123001200794, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
   m_IsPrefabAsset: 0
@@ -362,6 +370,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34,
     type: 2}
   m_PrefabInternal: {fileID: 207841286}
+--- !u!1 &466681115 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1361454618796234, guid: 52020249a75f20a47afb6fee61465d34,
+    type: 2}
+  m_PrefabInternal: {fileID: 120747542}
+--- !u!114 &466681117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 466681115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0d05125282a73448005125893fa3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hordeManager: {fileID: 2132368285}
 --- !u!1 &623601761
 GameObject:
   m_ObjectHideFlags: 0
@@ -59161,6 +59186,10 @@ Prefab:
     - target: {fileID: 4803541431184666, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108123001200794, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52020249a75f20a47afb6fee61465d34, type: 2}
@@ -153792,6 +153821,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2132368284}
+  - component: {fileID: 2132368285}
   m_Layer: 0
   m_Name: Enemies
   m_TagString: Untagged
@@ -153817,3 +153847,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2132368285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2132368283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25ece8e00bb7e28419cdbd229b915559, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnHordeDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2132368285}
+        m_MethodName: ObtainFireAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  enemyQuantity: 0
+  keyPrefab: {fileID: 0}
