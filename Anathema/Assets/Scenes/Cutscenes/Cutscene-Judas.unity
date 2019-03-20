@@ -262,6 +262,40 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1123452353842410, guid: 55755d318b7116a4295bf5b9d6751f54,
     type: 2}
   m_PrefabInternal: {fileID: 383207294}
+--- !u!114 &782481590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 782481589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59cda39cb191bcb46991902b0e00c7cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scytheUpgrade: {fileID: 0}
+  doubleJumpUpgrade: {fileID: 0}
+  fireUpgrade: {fileID: 0}
+  scytheDialogue: {fileID: 0}
+  doubleJumpDialogue: {fileID: 0}
+  fireDialogue: {fileID: 0}
+  defaultUpgradeAnimationDuration: 0
+  key:
+    useCurrentSceneName: 0
+    sceneName: Tutorial-2
+    objectName: Upper
+--- !u!114 &782481591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 782481589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec99b2f587674ae4ca58f621e3cec5b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _state: {fileID: 782481590}
 --- !u!95 &782481593 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 95161904789937090, guid: 55755d318b7116a4295bf5b9d6751f54,
@@ -881,6 +915,21 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1903275586}
           m_MethodName: LoadScene
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 782481590}
+          m_MethodName: AddKey
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
