@@ -14,6 +14,7 @@ namespace Anathema.Player
         [Header("This is the game data used when NOT starting from the menu.")]
         [SerializeField] private GameData gameData;
         public List<UniqueID> Keys { get; set; }
+        public List<UniqueID> DiscoveredPickups { get; set; }
         private Health health;
         public bool HasScythe 
         {
@@ -86,6 +87,7 @@ namespace Anathema.Player
             if (!health) Debug.LogWarning($"{gameObject.name}: {nameof(PlayerUpgrades)}: Requires a {nameof(Health)} component.");
 
             Keys = new List<UniqueID>(gameData.keys);
+            DiscoveredPickups = new List<UniqueID>(gameData.discoveredPickups);
         }
         
         private void OnEnable()
@@ -107,6 +109,7 @@ namespace Anathema.Player
             this.gameData = gameData;
 
             Keys = new List<UniqueID>(gameData.keys);
+            DiscoveredPickups = new List<UniqueID>(gameData.discoveredPickups);
 
             if (health)
             {
@@ -120,6 +123,7 @@ namespace Anathema.Player
         public GameData GetDataForSaving()
         {
             gameData.keys = Keys.ToArray();
+            gameData.discoveredPickups = DiscoveredPickups.ToArray();
             return gameData;
         }
     }

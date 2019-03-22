@@ -13,5 +13,6 @@ namespace Anathema.Saving
         public int maxHealth;
         public UniqueID spawnLocation;
         public UniqueID[] keys;
+        public UniqueID[] discoveredPickups;
     }
 }

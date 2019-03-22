@@ -53,12 +53,11 @@ namespace Anathema.Rooms
         {
             health.OnDeath -= Burn;
 
-            ToggleObjectsState();
-
             spriteBurn.Burn();
         }
         private void Die()
         {
+            ToggleObjectsState();
             if (spriteBurn)
             {
                 spriteBurn.OnBurnComplete -= Die;
