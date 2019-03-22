@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
@@ -64,7 +65,14 @@ namespace Anathema.UI.MainMenu
                 loader.Destination = gameData.spawnLocation;
                 loader.GameData = gameData;
                 
-                loader.FadeScenes();
+                try
+                {
+                    loader.FadeScenes();
+                }
+                catch (InvalidOperationException e)
+                {
+                    loadStarted = false;
+                }
             }
         }
         public override void Exit()

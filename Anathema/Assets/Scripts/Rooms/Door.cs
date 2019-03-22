@@ -1,3 +1,4 @@
+using System;
 using Anathema.Player;
 using Anathema.Saving;
 using UnityEngine;
@@ -56,8 +57,15 @@ namespace Anathema.Rooms
                     {
                         loader.GameData = upgrades.GetDataForSaving();
                     }
-                    
-                    loader.FadeScenes();
+
+                    try
+                    {
+                        loader.FadeScenes();
+                    }
+                    catch (InvalidOperationException e)
+                    {
+                        loadStarted = false;
+                    }
                 }
             }
         }

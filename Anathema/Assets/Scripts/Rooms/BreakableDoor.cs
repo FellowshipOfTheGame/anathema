@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Anathema.Graphics;
 using Anathema.Player;
@@ -93,8 +94,16 @@ namespace Anathema.Rooms
                     {
                         Debug.LogWarning("Player should have PlayerUpgrades component");
                     }
-                    
-                    loader.FadeScenes(); 
+
+                    loadStarted = true;
+                    try
+                    {
+                        loader.FadeScenes();
+                    }
+                    catch (InvalidOperationException e)
+                    {
+                        loadStarted = false;
+                    }
                 }
                 else
                 {
