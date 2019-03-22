@@ -396,6 +396,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114725612826937136, guid: 42873fcc8d72405489113501296dc9e1,
+        type: 2}
+      propertyPath: pauseDuringDialogue
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42873fcc8d72405489113501296dc9e1, type: 2}
   m_IsPrefabAsset: 0
@@ -439,6 +444,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   introDialogue: {fileID: 11400000, guid: 9fec1104b7636e14997a88ebd09c05bb, type: 2}
+--- !u!1 &1732071362 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1168051171311708, guid: 42873fcc8d72405489113501296dc9e1,
+    type: 2}
+  m_PrefabInternal: {fileID: 1732071357}
+--- !u!114 &1732071363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1732071362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7c1a7a117d474b8ebd85e6c0b2846f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1912954375
 GameObject:
   m_ObjectHideFlags: 0

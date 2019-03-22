@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Anathema.Fsm;
 using Anathema.Saving;
@@ -11,17 +12,15 @@ namespace Anathema.UI.MainMenu
         [SerializeField] private string loadingScene;
         [SerializeField] private string playerScene;
         [SerializeField] private TMPro.TextMeshProUGUI textMesh;
-        [SerializeField] private Rooms.UniqueID noIntroStartScene;
-        [SerializeField] private Rooms.UniqueID introStartScene;
+        [SerializeField] private string introStartScene;
         private bool loadStarted = false;
-        private bool isIntroEnabled;
+        private bool isIntroEnabled = true;
         public bool IsIntroEnabled
         {
             get {   return isIntroEnabled;  }
             set 
             {
                 isIntroEnabled = value;
-                ToggleIntro();
             }
         }
         public void OnActivateStart()
@@ -47,27 +46,27 @@ namespace Anathema.UI.MainMenu
                 
                 loader.ScenesToUnload.Add(gameObject.scene.name);
 
-                if(isIntroEnabled)
+                if (isIntroEnabled)
+                {
+                   loader.ScenesToLoad.Add(introStartScene); 
+                }
+                else
+                {
                     loader.ScenesToLoad.Add(playerScene);
+                    loader.Destination = defaultGameData.spawnLocation;
+                }
                                         
-                loader.Destination = defaultGameData.spawnLocation;
                 loader.GameData = defaultGameData;
                 
-                loader.FadeScenes();
+                try
+                {
+                    loader.FadeScenes();
+                }
+                catch (InvalidOperationException e)
+                {
+                    loadStarted = false;
+                }
             }
         }
-        private void SetDestination(Rooms.UniqueID newDestination)
-        {
-            defaultGameData.spawnLocation = newDestination;
-        }
-
-        public void ToggleIntro()
-        {
-            if(isIntroEnabled)
-                SetDestination(introStartScene);
-            else
-                SetDestination(noIntroStartScene);
-        }
-
     }
 }

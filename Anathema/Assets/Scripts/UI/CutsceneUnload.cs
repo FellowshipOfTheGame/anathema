@@ -13,6 +13,7 @@ namespace Anathema.UI
         [SerializeField] private string loadingSceneName;
         [SerializeField] private string playerSceneName;
         [SerializeField] private bool loadPlayer = true;
+        [SerializeField] private float loadSceneRetryTime = 0.05f;
         private GameData gameData;
         private void Awake()
         {
@@ -34,7 +35,14 @@ namespace Anathema.UI
             loader.Destination = destination;
             loader.GameData = gameData;
             
-            loader.FadeScenes();
+            try
+            {
+                loader.FadeScenes();
+            }
+            catch (InvalidOperationException e)
+            {
+                Invoke(nameof(LoadScene), loadSceneRetryTime);
+            }
         }
 
         private void OnDestroy()

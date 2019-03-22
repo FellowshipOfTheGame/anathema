@@ -1,3 +1,4 @@
+using System;
 using Anathema.Player;
 using Anathema.Saving;
 using Anathema.SceneLoading;
@@ -47,7 +48,14 @@ namespace Anathema.Rooms
                         loader.Destination = mainDestination;
                     }
                     
-                    loader.FadeScenes();
+                    try
+                    {
+                        loader.FadeScenes();
+                    }
+                    catch (InvalidOperationException e)
+                    {
+                        loadStarted = false;
+                    }
                 }
             }
         }

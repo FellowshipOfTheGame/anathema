@@ -20,13 +20,16 @@ namespace Anathema.SceneLoading
         {
             panel = GetComponent<Image>();
             if (!panel) Debug.LogWarning($"{gameObject.name}: Component {GetType()} requires an Image component");
+            else
+            {
+                panel.CrossFadeAlpha(0f, fadeDuration, false);
+            }
 
-            panel?.CrossFadeAlpha(0f, fadeDuration, false);
-            Invoke("FadedOut", fadeDuration);
+            Invoke(nameof(FadedOut), fadeDuration);
         }
         public override void Exit()
         {
         }
-	}
+    }
 
 }
