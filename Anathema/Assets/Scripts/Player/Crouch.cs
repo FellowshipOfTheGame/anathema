@@ -31,19 +31,19 @@ namespace Anathema.Player
 
 		void Update()
 		{
-			if(!Input.GetKey(KeyCode.S))
+			if(!Input.GetButton("Crouch"))
 			{
 				animator.SetBool("IsCrouching", false);
 				fsm.Transition<Idle>();
 			}
 
-			if(playerUpgrades.HasScythe && Input.GetKeyDown(KeyCode.J))
+			if(playerUpgrades.HasScythe && Input.GetButtonDown("NormalAttack"))
 			{
 				animator.SetBool("IsAttacking", true);
 				fsm.Transition<CrouchAttack>();
 			}
 
-			if(playerUpgrades.HasFireAttack && Input.GetKey(KeyCode.K))
+			if(playerUpgrades.HasFireAttack && Input.GetButtonDown("FireAttack"))
 			{
 				animator.SetBool("IsFire", true);
 				animator.SetBool("IsCrouching", false);
