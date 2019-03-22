@@ -375,6 +375,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cf1662910fba4c56b9f0f506baf2e76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uniqueID:
+    useCurrentSceneName: 1
+    sceneName: 
+    objectName: LifePickup
+  shouldExplode: 1
+  playerSceneName: Player
   healthBonus: 100
 --- !u!212 &212024361982448996
 SpriteRenderer:

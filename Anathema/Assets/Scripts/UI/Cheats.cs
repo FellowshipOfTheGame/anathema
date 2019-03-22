@@ -1,3 +1,4 @@
+using System;
 using Anathema.Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,12 +16,16 @@ namespace Anathema.UI
         private UniqueID newKey = new UniqueID();
         private GameObject player;
         private PlayerUpgrades playerUpgrades;
+        private Health health;
+        private string newHP = "";
+        private string newMaxHP = "";
         private Rect windowRect = new Rect(20,20 , 400, 200);
         
         private void Awake()
         {
             player = PlayerFinder.Find("Player");
             playerUpgrades = player.GetComponent<PlayerUpgrades>();
+            health = player.GetComponent<Health>();
         }
         private void OnGUI()
         {
@@ -64,7 +69,23 @@ namespace Anathema.UI
                     }
                 }
                 GUILayout.EndHorizontal();
-                
+                GUILayout.BeginHorizontal();
+                    GUILayout.Label("Health: ");
+                    newHP = GUILayout.TextField(newHP);
+                    if (GUILayout.Button("Set", GUILayout.Width(100)))
+                    {
+                        health.Hp = Int32.Parse(newHP);
+                    }
+                GUILayout.EndHorizontal();
+                GUILayout.BeginHorizontal();
+                    GUILayout.Label("MaxHealth: ");
+                    newMaxHP = GUILayout.TextField(newMaxHP);
+                    if (GUILayout.Button("Set", GUILayout.Width(100)))
+                    {
+                        playerUpgrades.MaxHealth = Int32.Parse(newMaxHP);
+                    }
+                GUILayout.EndHorizontal();
+                health.isInvulnerable = GUILayout.Toggle(health.isInvulnerable, "Invunerable");
                 playerUpgrades.HasDoubleJump = GUILayout.Toggle(playerUpgrades.HasDoubleJump, "Double Jump");
                 playerUpgrades.HasScythe = GUILayout.Toggle(playerUpgrades.HasScythe, "Scythe");
                 playerUpgrades.HasFireAttack = GUILayout.Toggle(playerUpgrades.HasFireAttack, "Fire Attack");

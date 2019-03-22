@@ -15,7 +15,7 @@ namespace Anathema.Rooms
         private bool isInsideTrigger = false;
         protected virtual void Update()
         {
-            if(isInsideTrigger && Input.GetKeyDown(KeyCode.E))
+            if(isInsideTrigger && Input.GetKeyDown(KeyCode.E) && !DialogueHandler.instance.IsActive)
             {
                 PlayerUpgrades playerUpgrades = player.GetComponent<PlayerUpgrades>();
                 if (playerUpgrades.Keys.Exists(key => key.Equals(this.UniqueID)))

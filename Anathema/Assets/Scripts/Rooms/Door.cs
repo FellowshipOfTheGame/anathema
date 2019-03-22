@@ -23,6 +23,9 @@ namespace Anathema.Rooms
         /// The name of the loading screen scene.
         /// </summary>
         [SerializeField] private string loadingSceneName;
+
+        [SerializeField] private bool unloadPlayer = false;
+        
         /// <summary>
         /// Prevents multiple scene loads from being started.
         /// </summary>
@@ -41,6 +44,10 @@ namespace Anathema.Rooms
                     loadStarted = true;
                     SceneLoader loader = new SceneLoader(loadingSceneName);
 
+                    if (unloadPlayer)
+                    {
+                        loader.ScenesToUnload.Add(collider.gameObject.scene.name);
+                    }
                     loader.ScenesToUnload.Add(gameObject.scene.name);
                     loader.Destination = destination;
                     
