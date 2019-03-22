@@ -9,7 +9,6 @@ namespace Anathema.Rooms
     {
         [SerializeField] private GameObject[] objectsToEnable;
         [SerializeField] private GameObject[] objectsToDisable;
-        private Collider2D[] colliders;
         private Health health;
         private SpriteBurn spriteBurn;
     
@@ -17,8 +16,7 @@ namespace Anathema.Rooms
         {
             spriteBurn = GetComponent<SpriteBurn>();
             health = GetComponent<Health>();
-            colliders = GetComponents<Collider2D>();
-
+            
             if (!health) Debug.LogWarning($"{gameObject.name}: BreakableWall requires a Health component.");
             else
             {
@@ -42,11 +40,6 @@ namespace Anathema.Rooms
             foreach (GameObject obj in objectsToDisable)
             {
                 obj.SetActive(false);
-            }
-
-            foreach (Collider2D collider in colliders)
-            {
-                collider.enabled = false;
             }
         }
         private void Burn()
