@@ -104,9 +104,9 @@ InputManager:
   - serializedVersion: 3
     m_Name: NormalAttack
     descriptiveName: 
-    descriptiveNegativeName: J
+    descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: 
+    positiveButton: j
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -120,9 +120,9 @@ InputManager:
   - serializedVersion: 3
     m_Name: FireAttack
     descriptiveName: 
-    descriptiveNegativeName: K
+    descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: 
+    positiveButton: k
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -136,7 +136,7 @@ InputManager:
   - serializedVersion: 3
     m_Name: Pause
     descriptiveName: 
-    descriptiveNegativeName: esc
+    descriptiveNegativeName: 
     negativeButton: 
     positiveButton: 
     altNegativeButton: 
