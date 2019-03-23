@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Anathema.Saving;
@@ -9,6 +10,7 @@ namespace Anathema.Player
     {
         [SerializeField] private string loadingScene;
         [SerializeField] private string playerScene;
+        [SerializeField] private float loadSceneRetryTime = 0.05f;
         private PlayerUpgrades playerUpgrades;
         protected override void Start()
         {
@@ -39,7 +41,15 @@ namespace Anathema.Player
                     loader.Destination = gameData.spawnLocation;
                     loader.GameData = gameData;
                     
-                    loader.FadeScenes();
+                    try
+                    {
+                        loader.FadeScenes();
+                    }
+                    catch (InvalidOperationException e)
+                    {
+                        Invoke(nameof(ReloadSave), loadSceneRetryTime);
+                    }
+                               
                     break;
                 }
             }

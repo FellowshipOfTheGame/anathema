@@ -43,6 +43,7 @@ namespace Anathema.Saving
 		{
 			string saveJson = System.IO.File.ReadAllText(SavePath);
 			GameData levelSave = JsonUtility.FromJson<GameData>(saveJson);
+			levelSave.ProfileName = profileName;
 
 			return levelSave;
 		}

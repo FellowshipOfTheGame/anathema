@@ -1,3 +1,4 @@
+using System;
 using Anathema.Player;
 using Anathema.Saving;
 using UnityEngine;
@@ -23,6 +24,9 @@ namespace Anathema.Rooms
         /// The name of the loading screen scene.
         /// </summary>
         [SerializeField] private string loadingSceneName;
+
+        [SerializeField] private bool unloadPlayer = false;
+        
         /// <summary>
         /// Prevents multiple scene loads from being started.
         /// </summary>
@@ -41,6 +45,10 @@ namespace Anathema.Rooms
                     loadStarted = true;
                     SceneLoader loader = new SceneLoader(loadingSceneName);
 
+                    if (unloadPlayer)
+                    {
+                        loader.ScenesToUnload.Add(collider.gameObject.scene.name);
+                    }
                     loader.ScenesToUnload.Add(gameObject.scene.name);
                     loader.Destination = destination;
                     
@@ -49,8 +57,15 @@ namespace Anathema.Rooms
                     {
                         loader.GameData = upgrades.GetDataForSaving();
                     }
-                    
-                    loader.FadeScenes();
+
+                    try
+                    {
+                        loader.FadeScenes();
+                    }
+                    catch (InvalidOperationException e)
+                    {
+                        loadStarted = false;
+                    }
                 }
             }
         }

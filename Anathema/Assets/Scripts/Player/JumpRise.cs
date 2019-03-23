@@ -49,7 +49,7 @@ namespace Anathema.Player
 			float HorizontalAxis = Input.GetAxisRaw("Horizontal");
 
 			// Handles attacking while in the air
-			if(playerUpgrades.HasScythe && Input.GetKey(KeyCode.J))
+			if(playerUpgrades.HasScythe && Input.GetButton("NormalAttack"))
 			{
 				rBody.velocity = Vector3.zero;
 				animator.SetBool("IsAttacking", true);
@@ -62,7 +62,7 @@ namespace Anathema.Player
 			}
 
 			Debug.Log("Can fire attack: " + playerUpgrades.HasFireAttack);
-			if(playerUpgrades.HasFireAttack && Input.GetKey(KeyCode.K))
+			if(playerUpgrades.HasFireAttack && Input.GetButton("FireAttack"))
 			{
 				rBody.velocity = Vector2.zero;
 				animator.SetBool("IsFire", true);
@@ -79,7 +79,7 @@ namespace Anathema.Player
 
 			// If the jump input is kept pressed, the jump is extended but the gravity is modified to give it a better feel
 			// Else if the player stops holding down the input, the transition to the descent portion of the jump is instant
-			if(Input.GetKey(KeyCode.Space))
+			if(Input.GetButton("Jump"))
 				currentGravity += gravityFallOff;
 			else
 			{

@@ -22,7 +22,7 @@ namespace Anathema.Dialogue
 
 		protected virtual void Update()
         {
-            if(isInsideTrigger && Input.GetKeyDown(KeyCode.E))
+            if(isInsideTrigger && Input.GetButtonDown("Interact"))
             {
 				DialogueHandler.instance.StartDialogue(dialogue);
             }

@@ -1,0 +1,22 @@
+cmake_minimum_required(VERSION 3.5)
+project(Anathema VERSION 1.0.1)
+
+set(CMAKE_PROJECT_HOMEPAGE_URL "https://fog-icmc.itch.io/anathema")
+
+
+set(CPACK_PACKAGE_NAME Anathema)
+set(CPACK_PACKAGE_VENDOR "Fellowship of the Game")
+set(CPACK_PACKAGE_CONTACT "fog@icmc.usp.br")
+# set(CPACK_PACKAGE_DESCRIPTION_FILE)
+# set(CPACK_PACKAGE_DESCRIPTION_SUMMARY)
+# set(CPACK_INSTALL_DIRECTORY "Anathema")
+# set(CPACK_PACKAGE_ICON)
+# set(CPACK_RESOURCE_FILE_LICENSE)
+# set(CPACK_RESOURCE_FILE_README)
+# set(CPACK_RESOURCE_FILE_WELCOME)
+set(CPACK_PACKAGE_EXECUTABLES anathema;Anathema)
+set(CMAKE_INSTALL_PREFIX /opt)
+
+include(CPack)
+
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/Linux64/ DESTINATION Anathema)

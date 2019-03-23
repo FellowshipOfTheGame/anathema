@@ -25,7 +25,7 @@ namespace Anathema.Player
 		// FIXME: Gambiarra
 		private void Update()
 		{
-			if(Input.GetKeyDown(KeyCode.Space))
+			if(Input.GetButtonDown("Jump"))
 				jumpCorrection = true;
 		}
 
@@ -65,21 +65,21 @@ namespace Anathema.Player
 				return;
 			}
 
-			if(playerUpgrades.HasScythe && Input.GetKey(KeyCode.J))
+			if(playerUpgrades.HasScythe && Input.GetButton("NormalAttack"))
 			{
 				animator.SetBool("IsAttacking", true);
 				fsm.Transition<Attack>();
 				return;
 			}
 
-			if(playerUpgrades.HasFireAttack && Input.GetKey(KeyCode.K))
+			if(playerUpgrades.HasFireAttack && Input.GetButton("FireAttack"))
 			{
 				animator.SetBool("IsFire", true);
 				fsm.Transition<FireAttack>();
 				return;
 			}
 
-			if(Input.GetKey(KeyCode.S))
+			if(Input.GetButton("Crouch"))
 			{
 				animator.SetBool("IsCrouching", true);
 				fsm.Transition<Crouch>();

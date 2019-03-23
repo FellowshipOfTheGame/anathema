@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Anathema.Graphics;
 using Anathema.Player;
@@ -84,8 +85,25 @@ namespace Anathema.Rooms
 
                     loader.ScenesToUnload.Add(gameObject.scene.name);
                     loader.Destination = destination;
-                    
-                    loader.FadeScenes(); 
+                    var upgrades = player.GetComponent<PlayerUpgrades>();
+                    if (upgrades)
+                    {
+                        loader.GameData = upgrades.GetDataForSaving();
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Player should have PlayerUpgrades component");
+                    }
+
+                    loadStarted = true;
+                    try
+                    {
+                        loader.FadeScenes();
+                    }
+                    catch (InvalidOperationException e)
+                    {
+                        loadStarted = false;
+                    }
                 }
                 else
                 {

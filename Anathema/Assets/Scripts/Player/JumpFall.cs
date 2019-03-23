@@ -57,7 +57,7 @@ namespace Anathema.Player
 		// FIXME: Gambiarra
 		private void Update()
 		{
-			if(Input.GetKeyDown(KeyCode.Space))
+			if(Input.GetButtonDown("Jump"))
 				jumpCorrection = true;
 		}
 
@@ -70,7 +70,7 @@ namespace Anathema.Player
 			float HorizontalAxis = Input.GetAxisRaw("Horizontal");
 
 			// Handles attacking midair
-			if(playerUpgrades.HasScythe && Input.GetKey(KeyCode.J) && (!isLimitedToOneAttack || (isLimitedToOneAttack && !hasAttacked)))
+			if(playerUpgrades.HasScythe && Input.GetButton("NormalAttack") && (!isLimitedToOneAttack || (isLimitedToOneAttack && !hasAttacked)))
 			{
 				hasAttacked = true;
 				rBody.velocity = Vector2.zero;
@@ -79,7 +79,7 @@ namespace Anathema.Player
 				return;
 			}
 
-			if(playerUpgrades.HasFireAttack && Input.GetKey(KeyCode.K) && (!isLimitedToOneAttack || (isLimitedToOneAttack && !hasFireAttacked)))
+			if(playerUpgrades.HasFireAttack && Input.GetButton("FireAttack") && (!isLimitedToOneAttack || (isLimitedToOneAttack && !hasFireAttacked)))
 			{
 				hasFireAttacked = true;
 				rBody.velocity = Vector2.zero;
