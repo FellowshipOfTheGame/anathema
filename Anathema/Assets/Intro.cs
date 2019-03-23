@@ -5,10 +5,18 @@ using UnityEngine;
 public class Intro : MonoBehaviour {
 
 	[SerializeField] private Anathema.Dialogue.Dialogue introDialogue;
+	[SerializeField] private float awakeRetryRate = 0.05f;
 	private void Awake()
 	{
-		Anathema.Dialogue.DialogueHandler.instance.StartDialogue(introDialogue);
-		Anathema.Dialogue.DialogueHandler.instance.OnDialogueEnd += EndIntro;
+		if (Anathema.Dialogue.DialogueHandler.instance)
+		{
+            Anathema.Dialogue.DialogueHandler.instance.StartDialogue(introDialogue);
+            Anathema.Dialogue.DialogueHandler.instance.OnDialogueEnd += EndIntro;
+		}
+		else
+		{
+			Invoke(nameof(Awake), awakeRetryRate);
+		}
 	}
 
 	public void EndIntro()

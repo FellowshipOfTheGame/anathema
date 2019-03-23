@@ -115,7 +115,7 @@ namespace Anathema.UI
         }
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Quote))
+            if (Input.GetButtonDown("CheatConsole"))
             {
                 display = !display;
             }

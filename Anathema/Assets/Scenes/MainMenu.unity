@@ -326,7 +326,7 @@ MonoBehaviour:
     spawnLocation:
       useCurrentSceneName: 0
       sceneName: Tutorial-0
-      objectName: Entrance
+      objectName: Spawn
     keys: []
     discoveredPickups: []
   loadingScene: Loading

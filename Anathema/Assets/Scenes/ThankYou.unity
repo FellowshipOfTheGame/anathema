@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 74331769}
   - component: {fileID: 74331771}
   - component: {fileID: 74331770}
+  - component: {fileID: 74331772}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -166,6 +167,7 @@ MonoBehaviour:
   loadingSceneName: Loading
   playerSceneName: Player
   loadPlayer: 0
+  loadSceneRetryTime: 0.05
 --- !u!114 &74331771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,6 +205,28 @@ MonoBehaviour:
             m_CallState: 2
         m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
           Culture=neutral, PublicKeyToken=null
+--- !u!114 &74331772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 74331768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1297475563, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
 --- !u!1 &203836751
 GameObject:
   m_ObjectHideFlags: 0
