@@ -406,8 +406,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b36e73bd7492cb441934859ba30a98b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 90
-  maxHP: 90
+  hp: 60
+  maxHP: 60
   isInvulnerable: 0
 --- !u!212 &212031676484995172
 SpriteRenderer:
