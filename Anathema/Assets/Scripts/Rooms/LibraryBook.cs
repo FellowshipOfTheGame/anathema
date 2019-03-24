@@ -32,7 +32,7 @@ namespace Anathema.Dialogue
 		// Update is called once per frame
 		protected override void Update ()
 		{
-			if(isInsideTrigger && !DialogueHandler.instance.IsActive &&Input.GetKeyDown(KeyCode.E))
+			if(isInsideTrigger && !DialogueHandler.instance.IsActive && Input.GetButtonDown("Interact"))
             {
 				if(!hasRead && !upgrades.HasDoubleJump)
 				{

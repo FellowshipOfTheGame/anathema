@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Anathema.Fsm;
 using Anathema.Saving;
@@ -11,7 +12,17 @@ namespace Anathema.UI.MainMenu
         [SerializeField] private string loadingScene;
         [SerializeField] private string playerScene;
         [SerializeField] private TMPro.TextMeshProUGUI textMesh;
+        [SerializeField] private string introStartScene;
         private bool loadStarted = false;
+        private bool isIntroEnabled = true;
+        public bool IsIntroEnabled
+        {
+            get {   return isIntroEnabled;  }
+            set 
+            {
+                isIntroEnabled = value;
+            }
+        }
         public void OnActivateStart()
         {
             Invoke(nameof(CreateGame), ClickDelay);
@@ -34,16 +45,28 @@ namespace Anathema.UI.MainMenu
                 SceneLoader loader = new SceneLoader(loadingScene);
                 
                 loader.ScenesToUnload.Add(gameObject.scene.name);
-                loader.ScenesToLoad.Add(playerScene);
-                loader.Destination = defaultGameData.spawnLocation;
+
+                if (isIntroEnabled)
+                {
+                   loader.ScenesToLoad.Add(introStartScene); 
+                }
+                else
+                {
+                    loader.ScenesToLoad.Add(playerScene);
+                    loader.Destination = defaultGameData.spawnLocation;
+                }
+                                        
                 loader.GameData = defaultGameData;
                 
-                loader.FadeScenes();
+                try
+                {
+                    loader.FadeScenes();
+                }
+                catch (InvalidOperationException e)
+                {
+                    loadStarted = false;
+                }
             }
-        }
-        public void SetDestination(string sceneName, string objectName)
-        {
-            defaultGameData.spawnLocation = new Rooms.UniqueID(sceneName, objectName);
         }
     }
 }

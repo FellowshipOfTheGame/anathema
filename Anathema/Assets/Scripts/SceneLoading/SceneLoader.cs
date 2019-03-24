@@ -22,12 +22,7 @@ namespace Anathema.SceneLoading
         /// It is only meant for detecting an initial load by the UnityEditor
         /// </summary>
         public static bool runningWithoutSceneLoader = true;
-        private string loadingScene;
-        
-        public List<string> ScenesToUnload { get; set; } = new List<string>();
-        public List<string> ScenesToLoad { get; set; } = new List<string>();
-        public UniqueID Destination { get; set;  } = null;
-        public GameData GameData { get; set; } = null;
+
 
         public delegate void SceneUnloadHandler(string scene);
         public delegate void SceneLoadHandler(UniqueID destination, GameData gameData);
@@ -35,6 +30,27 @@ namespace Anathema.SceneLoading
         public static SceneUnloadHandler OnSceneAboutToUnload;
         public static SceneLoadHandler OnSceneLoaded;
         public static SceneLoadHandler OnLateSceneLoaded;
+
+        public static bool CurrentlyLoading
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(loadingScene))
+                    return false;
+                
+                var loading = SceneManager.GetSceneByName(loadingScene).isLoaded;
+                
+                return loading;
+            }
+        }
+            
+        private static string loadingScene;
+        
+        public List<string> ScenesToUnload { get; set; } = new List<string>();
+        public List<string> ScenesToLoad { get; set; } = new List<string>();
+        public UniqueID Destination { get; set;  } = null;
+        public GameData GameData { get; set; } = null;
+        
         
         /// <summary>
         /// Creates a new SceneLoader using loadingScene as loading screen.
@@ -42,7 +58,7 @@ namespace Anathema.SceneLoading
         /// <param name="loadingScene">Loading Screen name.</param>
         public SceneLoader(string loadingScene)
         {
-            this.loadingScene = loadingScene;
+            SceneLoader.loadingScene = loadingScene;
         }
         /// <summary>
         /// Forwards the needed data to the SwapScenes state of the loading scene.
@@ -71,6 +87,9 @@ namespace Anathema.SceneLoading
         /// <param name="player">The player's GameObject.</param>
         public void FadeScenes()
         {
+            if (CurrentlyLoading)
+                CurrentlyLoadingSceneError();
+                
             if ((ScenesToLoad == null || ScenesToLoad.Count == 0) && Destination == null)
                NoSceneToLoadError();
 
@@ -98,10 +117,15 @@ namespace Anathema.SceneLoading
             //Registers OnLoadingSceneLoaded as listener to complete.
             loadingSceneLoadOperation.completed += OnLoadingSceneLoaded;
         }
-
+        
         private void NoSceneToLoadError()
         {
-            throw new System.InvalidOperationException("No scenes to load. Set either ScenesToLoad or Destination.");
+            throw new InvalidOperationException("No scenes to load. Set either ScenesToLoad or Destination.");
+        }
+
+        private void CurrentlyLoadingSceneError()
+        {
+            throw new InvalidOperationException("Scene loader is currently loading a scene.");
         }
 	}
 }

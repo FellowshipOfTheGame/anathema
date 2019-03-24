@@ -64,7 +64,7 @@ namespace Anathema.Player
 		void Update()
 		{
 			// FIXME: Gambiarra
-			if(Input.GetKeyDown(KeyCode.Space))
+			if(Input.GetButtonDown("Jump"))
 				jumpCorrection = true;
 
 			rayHit = Physics2D.Raycast(transform.position + Vector3.down * raycastOffset, Vector2.down,
@@ -113,7 +113,7 @@ namespace Anathema.Player
 				return;
 			}
 
-			if(playerUpgrades.HasScythe && Input.GetKey(KeyCode.J))
+			if(playerUpgrades.HasScythe && Input.GetButton("NormalAttack"))
 			{
 				animator.SetBool("IsAttacking", true);
 				animator.SetBool("IsWalking", false);
@@ -122,7 +122,7 @@ namespace Anathema.Player
 				return;
 			}
 
-			if(playerUpgrades.HasFireAttack && Input.GetKey(KeyCode.K))
+			if(playerUpgrades.HasFireAttack && Input.GetButton("FireAttack"))
 			{
 				animator.SetBool("IsFire", true);
 				animator.SetBool("IsWalking", false);
@@ -131,7 +131,7 @@ namespace Anathema.Player
 				return;
 			}
 
-			if(Input.GetKey(KeyCode.S))
+			if(Input.GetButton("Crouch"))
 			{
 				animator.SetBool("IsCrouching", true);
 				animator.SetBool("IsWalking", false);

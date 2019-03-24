@@ -53,7 +53,7 @@ namespace Anathema.Player
 		// FIXME: Gambiarra
 		private void Update()
 		{
-			if(Input.GetKeyDown(KeyCode.Space))
+			if(Input.GetButton("Space"))
 				jumpCorrection = true;
 		}
 
