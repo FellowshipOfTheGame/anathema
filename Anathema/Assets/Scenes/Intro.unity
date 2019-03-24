@@ -432,6 +432,7 @@ MonoBehaviour:
   loadingSceneName: Loading
   playerSceneName: Player
   loadPlayer: 1
+  loadSceneRetryTime: 0.05
 --- !u!114 &1732071361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,7 +444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d3bcd1ff677444d8a4c156faf2a534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introDialogue: {fileID: 11400000, guid: 9fec1104b7636e14997a88ebd09c05bb, type: 2}
+  introDialogue: {fileID: 11400000, guid: a3f23844a8bdd7f43837972d20a469d3, type: 2}
 --- !u!1 &1732071362 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1168051171311708, guid: 42873fcc8d72405489113501296dc9e1,
