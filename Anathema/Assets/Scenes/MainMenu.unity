@@ -322,7 +322,7 @@ MonoBehaviour:
     hasDoubleJump: 0
     hasFireAttack: 0
     hasTalkedToJudas: 0
-    maxHealth: 100
+    maxHealth: 300
     spawnLocation:
       useCurrentSceneName: 0
       sceneName: Tutorial-0
