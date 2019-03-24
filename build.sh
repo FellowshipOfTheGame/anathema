@@ -5,7 +5,7 @@ SCRIPT=`realpath -s $0`
 SCRIPTPATH=`dirname $SCRIPT`
 cd $SCRIPTPATH
 
-if [ "$1" != "Windows64" ] && [ "$1" != "Linux64" ] && [ "$1" != "Mac64" ] && [ "$1" != "clean" ]; then
+if [ "$1" != "Windows64" ] && [ "$1" != "Linux64" ] && [ "$1" != "Mac" ] && [ "$1" != "clean" ]; then
     echo "build.sh: Invalid build type"
     exit 1
 elif [ $1 = "clean" ]; then

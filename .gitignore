@@ -7,4 +7,8 @@
 #Unity
 /Anathema/Library
 
+#Build
 build/
+
+#MacOS
+.DS_STORE
