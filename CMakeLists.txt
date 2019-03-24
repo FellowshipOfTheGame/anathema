@@ -13,15 +13,13 @@ set(UNITY_PATH ${UNITY_ROOT_PATH}/${UNITY_VERSION}/Editor)
 set(UNITY_EXECUTABLE ${UNITY_PATH}/Unity)
 set(INSTALLER_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/InstallerSources)
 
-message(${UNITY_BUILD_TYPE})
 if(${UNITY_BUILD_TYPE} STREQUAL "Windows64")
-    message("yay")
-    message("start /b /wait \"dummy\" ${UNITY_EXECUTABLE}.exe -projectpath \"Anathema\" -buildWindows64Player ${CMAKE_BINARY_DIR}/Win64/Anathema.exe -batchmode -quit")
     add_custom_target(Windows64
         ALL
         COMMENT "Building for Windows64"
         COMMAND ${UNITY_EXECUTABLE}.exe -projectpath ${CMAKE_CURRENT_SOURCE_DIR}/Anathema -buildWindows64Player ${CMAKE_BINARY_DIR}/Win64/Anathema.exe -batchmode -quit
     )
+    set(CPACK_GENERATOR WIX)
 endif()
 
 set(CPACK_PACKAGE_DESCRIPTION_FILE ${CMAKE_CURRENT_SOURCE_DIR}/README.md)
