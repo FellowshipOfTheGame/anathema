@@ -5,12 +5,13 @@ SCRIPT=`realpath -s $0`
 SCRIPTPATH=`dirname $SCRIPT`
 cd $SCRIPTPATH
 
-if [ "$1" != "Windows64" ] && [ "$1" != "Linux64" ] && [ "$1" != "Mac64" ]; then
+if [ "$1" != "Windows64" ] && [ "$1" != "Linux64" ] && [ "$1" != "Mac64" ] && [ "$1" != "clean" ]; then
     echo "build.sh: Invalid build type"
     exit 1
-elif [ $1 = "clean"]; then
+elif [ $1 = "clean" ]; then
     echo "build.sh: Removing build folder"
     rm -rf build
+    exit 0
 fi
 
 if [ ! -d build ]; then
