@@ -867,6 +867,11 @@ Prefab:
       propertyPath: attackRange
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114799929466392510, guid: 6932ca09607e0df4787e0459be6874d3,
+        type: 2}
+      propertyPath: gameData.maxHealth
+      value: 300
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6932ca09607e0df4787e0459be6874d3, type: 2}
   m_IsPrefabAsset: 0

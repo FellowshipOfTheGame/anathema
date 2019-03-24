@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b395e53910cf02d4f95c7f47e1c63776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 2.18
+  attackRange: 3
   attackHeight: 1
   attackHeightOffset: -1
   baseDamage: 30
@@ -234,6 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadingScene: Loading
   playerScene: Player
+  loadSceneRetryTime: 0.05
 --- !u!114 &114392289262847592
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -283,7 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f25b37fbb81cc7439f77bf49bed4acc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 2.18
+  attackRange: 3
   attackHeight: 1.45
   attackHeightOffset: 0.72
   baseDamage: 30
@@ -333,8 +334,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42aa077d7b6d8da438e0776e6b8cdeca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 60
-  maxHP: 100
+  hp: 300
+  maxHP: 300
   isInvulnerable: 0
 --- !u!114 &114799929466392510
 MonoBehaviour:
@@ -352,12 +353,13 @@ MonoBehaviour:
     hasDoubleJump: 0
     hasFireAttack: 1
     hasTalkedToJudas: 0
-    maxHealth: 100
+    maxHealth: 300
     spawnLocation:
       useCurrentSceneName: 0
       sceneName: Tutorial-0
       objectName: Spawn
     keys: []
+    discoveredPickups: []
 --- !u!114 &114883324903524692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -369,7 +371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ca4ad847a021e94a9bd895b330bb9b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 2.18
+  attackRange: 3
   attackHeight: 1.45
   attackHeightOffset: 0.72
   baseDamage: 30

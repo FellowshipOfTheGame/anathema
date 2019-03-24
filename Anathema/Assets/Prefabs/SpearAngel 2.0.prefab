@@ -417,7 +417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSceneName: Player
-  damage: 10
+  damage: 60
   origin: {fileID: 1475793840630320}
   lookRadius: 15
   baseAreaRadius: 40
@@ -452,7 +452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSceneName: Player
-  damage: 10
+  damage: 60
   origin: {fileID: 1475793840630320}
   lookRadius: 15
   baseAreaRadius: 40
@@ -474,7 +474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSceneName: Player
-  damage: 10
+  damage: 60
   origin: {fileID: 1475793840630320}
   lookRadius: 0
   baseAreaRadius: 0
@@ -557,8 +557,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f187a4cf6e9ccf428d3822376e94e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
-  maxHP: 100
+  hp: 150
+  maxHP: 150
   isInvulnerable: 0
 --- !u!114 &114996886626625812
 MonoBehaviour:
@@ -572,7 +572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSceneName: Player
-  damage: 30
+  damage: 60
   origin: {fileID: 1475793840630320}
   lookRadius: 15
   baseAreaRadius: 40

@@ -391,7 +391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   raycastMaxDist: 10
   miniDist: 2.5
-  damage: 10
+  damage: 60
   chaseSpots:
   - {fileID: 4444725225158066}
   - {fileID: 4538023215126340}
@@ -406,8 +406,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b36e73bd7492cb441934859ba30a98b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 45
-  maxHP: 45
+  hp: 90
+  maxHP: 90
   isInvulnerable: 0
 --- !u!212 &212031676484995172
 SpriteRenderer:
