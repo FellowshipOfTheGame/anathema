@@ -154,7 +154,9 @@ namespace Anathema.Dialogue
 			dialogueBox.SetActive(false);
 
 			dialogueText.text = "";
-			titleText.text = "";
+
+			if(useTitles)
+				titleText.text = "";
 
 			StopAllCoroutines();
 
